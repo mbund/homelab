@@ -1,0 +1,41 @@
+kube-prometheus-stack:
+  grafana:
+    adminPassword: null
+    ingress:
+      enabled: true
+      ingressClassName: nginx
+      annotations:
+        cert-manager.io/cluster-issuer: letsencrypt-prod
+        hajimari.io/appName: Grafana
+        hajimari.io/icon: chart-bar
+      hosts:
+        - &host grafana.mbund.org
+      tls:
+        - secretName: grafana-general-tls
+          hosts:
+            - *host
+    additionalDataSources:
+      - name: Loki
+        type: loki
+        url: http://loki.loki:3100
+    envFromSecret: grafana-secrets
+    grafana.ini:
+      server:
+        root_url: https://grafana.mbund.org
+      auth.generic_oauth:
+        enabled: true
+        allow_sign_up: true
+        name: Dex
+        client_id: grafana-sso
+        client_secret: $__env{GRAFANA_SSO_CLIENT_SECRET}
+        scopes: openid profile email groups
+        auth_url: https://dex.mbund.org/auth
+        token_url: https://dex.mbund.org/token
+        api_url: https://dex.mbund.org/userinfo
+
+  prometheus:
+    prometheusSpec:
+      ruleSelectorNilUsesHelmValues: false
+      serviceMonitorSelectorNilUsesHelmValues: false
+      podMonitorSelectorNilUsesHelmValues: false
+      probeSelectorNilUsesHelmValues: false
