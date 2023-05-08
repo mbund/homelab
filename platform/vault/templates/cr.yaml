@@ -114,7 +114,7 @@ spec:
       # This is true by default
       storeRootToken: true
     kubernetes:
-      secretNamespace: { { .Release.Namespace } }
+      secretNamespace: {{ .Release.Namespace }}
 
   # A YAML representation of a final vault config file.
   # See https://www.vaultproject.io/docs/configuration/ for more information.
