@@ -16,17 +16,6 @@ repositories:
     owner: ops
     private: false
     migrate:
-      source: https://github.com/mbund/homelab-testing
+      source: https://github.com/mbund/homelab
       mirror: false
     hook: true
-  - name: blog
-    owner: khuedoan
-    migrate:
-      source: https://github.com/khuedoan/blog
-      mirror: true
-    hook: true
-  - name: backstage
-    owner: khuedoan
-    migrate:
-      source: https://github.com/khuedoan/backstage
-      mirror: true

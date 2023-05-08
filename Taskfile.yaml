@@ -3,8 +3,7 @@ version: '3'
 tasks:
   bootstrap:
     cmds:
-      - cmd: kubectl create namespace argocd
-        ignore_error: true
+      - kubectl create namespace argocd --dry-run=client --output=yaml | kubectl apply -f -
       - task: bootstrap:argocd
       - task: bootstrap:root
 
@@ -12,21 +11,20 @@ tasks:
     internal: true
     dir: bootstrap/argocd
     cmds:
-      - helm template --dependency-update --include-crds --namespace argocd --values values-seed.yaml argocd . | kubectl apply -n argocd -f -
-      - kubectl -n argocd wait --timeout=60s --for condition=Established crd/applications.argoproj.io crd/applicationsets.argoproj.io
+      - ./apply.sh
 
   bootstrap:root:
     internal: true
     dir: bootstrap/root
     cmds:
-      - helm template --include-crds --namespace argocd --values values-seed.yaml argocd . | kubectl apply -n argocd -f -
+      - ./apply.sh
 
   dev:
     aliases:
       - default
     dir: dev
     env:
-      KUBECONFIG: "{{.USER_WORKING_DIR}}/kubeconfig-dev.yaml"
+      KUBECONFIG: /home/mbund/dev/mbund/homelab/dev/kubeconfig-dev.yaml
     cmds:
       - echo $KUBECONFIG
       - k3d cluster start homelab-dev || k3d cluster create --config k3d-dev.yaml
