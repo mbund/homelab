@@ -1,0 +1,42 @@
+dex:
+  config:
+    issuer: https://dex.127-0-0-1.nip.io
+    storage:
+      type: kubernetes
+      config:
+        inCluster: true
+    oauth2:
+      skipApprovalScreen: true
+    connectors:
+      - type: gitea
+        id: gitea
+        name: Gitea
+        config:
+          clientID: $GITEA_CLIENT_ID
+          clientSecret: $GITEA_CLIENT_SECRET
+          redirectURI: https://dex.127-0-0-1.nip.io/callback
+          baseURL: https://git.127-0-0-1.nip.io
+    staticClients:
+      - id: grafana-sso
+        name: Grafana
+        redirectURIs:
+          - 'https://grafana.127-0-0-1.nip.io/login/generic_oauth'
+        secretEnv: GRAFANA_SSO_CLIENT_SECRET
+  envFrom:
+    - secretRef:
+        name: dex-secrets
+  ingress:
+    enabled: true
+    className: nginx
+    annotations:
+      cert-manager.io/cluster-issuer: letsencrypt-prod
+      hajimari.io/enable: 'false'
+    hosts:
+      - host: &host dex.127-0-0-1.nip.io
+        paths:
+          - path: /
+            pathType: ImplementationSpecific
+    tls:
+      - secretName: dex-tls-certificate
+        hosts:
+          - *host

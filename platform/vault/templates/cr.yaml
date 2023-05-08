@@ -74,7 +74,7 @@ spec:
     spec:
       ingressClassName: nginx
       rules:
-        - host: &host vault.mbund.org
+        - host: &host vault.127-0-0-1.nip.io
           http:
             paths:
               - backend:
@@ -114,7 +114,7 @@ spec:
       # This is true by default
       storeRootToken: true
     kubernetes:
-      secretNamespace: {{ .Release.Namespace }}
+      secretNamespace: { { .Release.Namespace } }
 
   # A YAML representation of a final vault config file.
   # See https://www.vaultproject.io/docs/configuration/ for more information.
@@ -165,13 +165,13 @@ spec:
         mountpath: token
         group: admin1
 
-
     auth:
       - type: kubernetes
         roles:
           # Allow every pod in the default namespace to use the secret kv store
           - name: default
-            bound_service_account_names: ["default", "vault-secrets-webhook", "vault"]
+            bound_service_account_names:
+              ["default", "vault-secrets-webhook", "vault"]
             bound_service_account_namespaces: ["default", "vswh"]
             policies: ["allow_secrets", "allow_pki"]
             ttl: 1h
@@ -190,18 +190,18 @@ spec:
           max_lease_ttl: 720h
         configuration:
           config:
-          - name: urls
-            issuing_certificates: https://vault.default:8200/v1/pki/ca
-            crl_distribution_points: https://vault.default:8200/v1/pki/crl
+            - name: urls
+              issuing_certificates: https://vault.default:8200/v1/pki/ca
+              crl_distribution_points: https://vault.default:8200/v1/pki/crl
           root/generate:
-          - name: internal
-            common_name: vault.default
+            - name: internal
+              common_name: vault.default
           roles:
-          - name: default
-            allowed_domains: localhost,pod,svc,default
-            allow_subdomains: true
-            generate_lease: true
-            ttl: 1m
+            - name: default
+              allowed_domains: localhost,pod,svc,default
+              allow_subdomains: true
+              generate_lease: true
+              ttl: 1m
 
     # Allows writing some secrets to Vault (useful for development purposes).
     # See https://www.vaultproject.io/docs/secrets/kv/index.html for more information.

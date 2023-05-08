@@ -34,3 +34,7 @@ tasks:
   dev:cleanup:
     cmds:
       - k3d cluster delete homelab-dev
+
+  scripts:argocd-admin-password:
+    cmds:
+      - kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d
