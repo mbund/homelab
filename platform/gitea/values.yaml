@@ -22,10 +22,8 @@ gitea:
       server:
         LANDING_PAGE: explore
         ROOT_URL: https://git.127-0-0-1.nip.io
-      webhook:
-        ALLOWED_HOST_LIST: private
   persistence:
-    storageClass: longhorn
+    storageClass: local-path
   postgresql:
     persistence:
-      storageClass: longhorn
+      storageClass: local-path
