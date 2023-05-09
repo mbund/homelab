@@ -21,13 +21,22 @@ hajimari:
     defaultEnable: true
     namespaceSelector:
       any: true
+    lightTheme: gazette
+    darkTheme: espresso
+    defaultSearchProvider: Searxng
+    searchProviders:
+      - name: Searxng
+        token: s
+        icon: mdi:search
+        searchUrl: https://search.127-0-0-1.nip.io/search?q={query}
+        url: https://search.127-0-0-1.nip.io
     globalBookmarks:
       - group: Homelab
         bookmarks:
           - name: Documentation
             url: https://homelab.mbund.org
           - name: Public GitHub repository
-            url: https://github.com/khuedoan/homelab
+            url: https://github.com/mbund/homelab
       - group: Managed services
         bookmarks:
           - name: Terraform Cloud

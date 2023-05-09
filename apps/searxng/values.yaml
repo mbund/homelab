@@ -1,0 +1,26 @@
+searxng:
+  searxng:
+    config:
+      general:
+        instance_name: "Search"
+      server:
+        method: "GET"
+      search:
+        autocomplete: "google"
+  ingress:
+    main:
+      enabled: true
+      ingressClassName: nginx
+      annotations:
+        cert-manager.io/cluster-issuer: letsencrypt-prod
+        hajimari.io/appName: Search
+        hajimari.io/icon: mdi:search
+      hosts:
+        - host: &host search.127-0-0-1.nip.io
+          paths:
+            - path: /
+              pathType: Prefix
+      tls:
+        - secretName: searxng-tls-certificate
+          hosts:
+            - *host
