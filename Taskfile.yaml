@@ -38,3 +38,12 @@ tasks:
   scripts:argocd-admin-password:
     cmds:
       - kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d
+
+  scripts:vault-root-token:
+    cmds:
+      - kubectl get secrets vault-unseal-keys -n vault -o jsonpath='{.data.vault-root}' | base64 --decode
+
+  dev:git-configuration:
+    cmds:
+      - git remote add sandbox https://git.127-0-0-1.nip.io/ops/homelab
+      - git config http.https://git.127-0-0-1.nip.io.sslVerify false
