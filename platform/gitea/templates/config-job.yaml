@@ -6,7 +6,7 @@ metadata:
   annotations:
     argocd.argoproj.io/sync-wave: "1"
 spec:
-  schedule: '*/5 * * * *'
+  schedule: "*/5 * * * *"
   concurrencyPolicy: Forbid
   jobTemplate:
     spec:
@@ -30,11 +30,6 @@ spec:
                     secretKeyRef:
                       name: gitea-admin-secret
                       key: password
-                - name: WEBHOOK_TOKEN
-                  valueFrom:
-                    secretKeyRef:
-                      name: gitea-webhook-secret
-                      key: token
               workingDir: /go/src/gitea-config
               command:
                 - sh
