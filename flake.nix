@@ -25,6 +25,7 @@
             go-task
             k3sup
             kube3d
+            terraform
           ];
         };
     });
