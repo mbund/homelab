@@ -20,7 +20,6 @@ kube-prometheus-stack:
       - name: Loki
         type: loki
         url: http://loki.loki:3100
-    envFromSecret: grafana-secrets
     grafana.ini:
       server:
         root_url: https://grafana.mbund.org
