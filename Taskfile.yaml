@@ -42,5 +42,5 @@ tasks:
 
   dev:git-configuration:
     cmds:
-      - git remote add sandbox https://git.127-0-0-1.nip.io/ops/homelab
-      - git config http.https://git.127-0-0-1.nip.io.sslVerify false
+      - git remote add sandbox https://git.mbund.org/ops/homelab
+      - git config http.https://git.mbund.org.sslVerify false

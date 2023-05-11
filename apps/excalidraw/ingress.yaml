@@ -9,7 +9,7 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-    - host: &host draw.127-0-0-1.nip.io
+    - host: &host draw.mbund.org
       http:
         paths:
           - pathType: ImplementationSpecific

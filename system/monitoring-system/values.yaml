@@ -9,7 +9,7 @@ kube-prometheus-stack:
         hajimari.io/appName: Grafana
         hajimari.io/icon: chart-bar
       hosts:
-        - &host grafana.127-0-0-1.nip.io
+        - &host grafana.mbund.org
       tls:
         - secretName: grafana-general-tls
           hosts:
@@ -21,7 +21,7 @@ kube-prometheus-stack:
     envFromSecret: grafana-secrets
     grafana.ini:
       server:
-        root_url: https://grafana.127-0-0-1.nip.io
+        root_url: https://grafana.mbund.org
 
   prometheus:
     prometheusSpec:

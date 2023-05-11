@@ -7,9 +7,9 @@ hajimari:
       ingressClassName: nginx
       annotations:
         cert-manager.io/cluster-issuer: letsencrypt-prod
-        hajimari.io/enable: 'false'
+        hajimari.io/enable: "false"
       hosts:
-        - host: &host home.127-0-0-1.nip.io
+        - host: &host home.mbund.org
           paths:
             - path: /
               pathType: Prefix
@@ -28,8 +28,8 @@ hajimari:
       - name: Searxng
         token: s
         icon: mdi:search
-        searchUrl: https://search.127-0-0-1.nip.io/search?q={query}
-        url: https://search.127-0-0-1.nip.io
+        searchUrl: https://search.mbund.org/search?q={query}
+        url: https://search.mbund.org
     globalBookmarks:
       - group: Homelab
         bookmarks:

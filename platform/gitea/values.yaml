@@ -7,7 +7,7 @@ gitea:
       hajimari.io/appName: Gitea
       hajimari.io/icon: git
     hosts:
-      - host: &host git.127-0-0-1.nip.io
+      - host: &host git.mbund.org
         paths:
           - path: /
             pathType: Prefix
@@ -21,7 +21,7 @@ gitea:
     config:
       server:
         LANDING_PAGE: explore
-        ROOT_URL: https://git.127-0-0-1.nip.io
+        ROOT_URL: https://git.mbund.org
   persistence:
     storageClass: local-path
   postgresql:
