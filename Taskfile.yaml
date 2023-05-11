@@ -1,4 +1,4 @@
-version: '3'
+version: "3"
 
 tasks:
   bootstrap:
@@ -23,10 +23,7 @@ tasks:
     aliases:
       - default
     dir: dev
-    env:
-      KUBECONFIG: /home/mbund/dev/mbund/homelab/dev/kubeconfig-dev.yaml
     cmds:
-      - echo $KUBECONFIG
       - k3d cluster start homelab-dev || k3d cluster create --config k3d-dev.yaml
       - k3d kubeconfig get homelab-dev > kubeconfig-dev.yaml
       - task: bootstrap
