@@ -20,8 +20,6 @@ tasks:
       - ./apply.sh
 
   dev:
-    aliases:
-      - default
     dir: dev
     cmds:
       - k3d cluster start homelab-dev || k3d cluster create --config k3d-dev.yaml
