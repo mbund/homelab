@@ -42,3 +42,16 @@ tasks:
     cmds:
       - git remote add sandbox https://git.mbund.org/ops/homelab
       - git config http.https://git.mbund.org.sslVerify false
+
+  k3sup:
+    cmds:
+      - k3sup install --ip {{.IP}} --k3s-extra-args '--disable servicelb --disable local-storage --disable traefik --disable-cloud-controller --secrets-encryption'
+
+  terraform:
+    dir: terraform
+    cmds:
+      - terraform init
+      - while [[ -z $(kubectl get namespace cert-manager 2>/dev/null) ]]; do sleep 1; done;
+      - while [[ -z $(kubectl get namespace cloudflared 2>/dev/null) ]]; do sleep 1; done;
+      - while [[ -z $(kubectl get namespace external-dns 2>/dev/null) ]]; do sleep 1; done;
+      - terraform apply
