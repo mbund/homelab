@@ -22,16 +22,6 @@ kube-prometheus-stack:
     grafana.ini:
       server:
         root_url: https://grafana.127-0-0-1.nip.io
-      auth.generic_oauth:
-        enabled: true
-        allow_sign_up: true
-        name: Dex
-        client_id: grafana-sso
-        client_secret: $__env{GRAFANA_SSO_CLIENT_SECRET}
-        scopes: openid profile email groups
-        auth_url: https://dex.127-0-0-1.nip.io/auth
-        token_url: https://dex.127-0-0-1.nip.io/token
-        api_url: https://dex.127-0-0-1.nip.io/userinfo
 
   prometheus:
     prometheusSpec:

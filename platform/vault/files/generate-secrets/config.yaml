@@ -4,18 +4,3 @@
     - key: password
       length: 32
       special: true
-
-# Dex
-- path: dex/gitea
-  data:
-    - key: client_id
-      length: 32
-      special: false
-    - key: client_secret
-      length: 32
-      special: false
-- path: dex/grafana
-  data:
-    - key: client_secret
-      length: 32
-      special: false

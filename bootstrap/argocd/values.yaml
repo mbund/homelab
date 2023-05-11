@@ -3,7 +3,7 @@ argo-cd:
     extraArgs:
       - --insecure
     config:
-      statusbadge.enabled: 'true'
+      statusbadge.enabled: "true"
       resource.customizations.health.argoproj.io_Application: |
         hs = {}
         hs.status = "Progressing"
@@ -34,8 +34,6 @@ argo-cd:
       enabled: true
       serviceMonitor:
         enabled: true
-  dex:
-    enabled: false
   controller:
     metrics: *metrics
   repoServer:
