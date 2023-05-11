@@ -1,5 +1,6 @@
 gitops:
   repo: https://github.com/mbund/homelab
+  revision: main
 stacks:
   - name: bootstrap
     namespace: argocd
