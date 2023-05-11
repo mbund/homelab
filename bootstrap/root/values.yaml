@@ -1,6 +1,5 @@
 gitops:
-  repo: http://gitea-http.gitea:3000/ops/homelab
-  revision: main
+  repo: https://github.com/mbund/homelab
 stacks:
   - name: bootstrap
     namespace: argocd
