@@ -23,7 +23,7 @@ gitea:
         LANDING_PAGE: explore
         ROOT_URL: https://git.mbund.org
   persistence:
-    storageClass: local-path
+    storageClass: longhorn
   postgresql:
     persistence:
-      storageClass: local-path
+      storageClass: longhorn
