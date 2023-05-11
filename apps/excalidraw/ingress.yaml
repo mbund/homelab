@@ -6,6 +6,7 @@ metadata:
     cert-manager.io/cluster-issuer: letsencrypt-prod
     external-dns.alpha.kubernetes.io/target: "homelab-tunnel.mbund.org"
     external-dns.alpha.kubernetes.io/cloudflare-proxied: "true"
+    hajimari.io/icon: draw
 spec:
   ingressClassName: nginx
   rules:
