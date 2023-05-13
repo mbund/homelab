@@ -23,6 +23,8 @@ kube-prometheus-stack:
     grafana.ini:
       server:
         root_url: https://grafana.mbund.org
+      feature_toggles:
+        publicDashboards: true
 
   prometheus:
     prometheusSpec:
