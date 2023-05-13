@@ -23,9 +23,8 @@ kube-prometheus-stack:
     grafana.ini:
       server:
         root_url: https://grafana.mbund.org
-      auth:
-        anonymous:
-          enabled: true
+      auth.anonymous:
+        enabled: true
 
   prometheus:
     prometheusSpec:
