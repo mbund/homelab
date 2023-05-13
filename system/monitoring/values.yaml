@@ -17,6 +17,7 @@ kube-prometheus-stack:
           hosts:
             - *host
     persistence:
+      enabled: true
       storageClass: longhorn
     additionalDataSources:
       - name: Loki
