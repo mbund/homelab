@@ -8,7 +8,7 @@ Read the [docs](https://mbund.github.io/homelab) for technical details.
 
 <div align="center">
   <img src="docs/images/homelab.jpg" alt="Hardware used in the homelab" width="500" />
-  <div width="500">Scuffed homelab. Laptop on left runs Proxmox/Kubernetes, desktop on right runs bare Ubuntu Server and is not a part of the cluster.</div>
+  <div>Scuffed homelab. Laptop on left runs Proxmox/Kubernetes, desktop on right runs bare Ubuntu Server and is not a part of the cluster.</div>
 </div>
 
 - Dell Inspiron 7580
