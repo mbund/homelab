@@ -1,0 +1,83 @@
+site_name: Mark's Homelab
+site_author: Mark Bundschuh
+copyright: Copyright &copy; 2023 Mark Bundschuh
+site_description: >-
+  Documentation concerning my homelab infrastructure. Fully automated
+  Kubernetes and GitOps setup to host my important services.
+
+repo_name: mbund/homelab
+repo_url: https://github.com/mbund/homelab
+
+theme:
+  name: material
+  palette:
+    - scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  features:
+    - content.action.edit
+    - content.code.copy
+    - content.code.select
+    - navigation.instant
+    - navigation.tracking
+    - navigation.sections
+    - navigation.expand
+    - navigation.path
+    - navigation.top
+
+markdown_extensions:
+  - pymdownx.snippets:
+      check_paths: true
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.superfences
+  - pymdownx.details
+  - pymdownx.critic
+  - pymdownx.caret
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.tilde
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - toc:
+      permalink: true
+  - md_in_html
+  - attr_list
+  - def_list
+  - admonition
+
+plugins:
+  - social
+
+extra:
+  generator: false
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/mbund
+
+nav:
+  - Home: index.md
+  - Installation:
+      - installation/development-evironment.md
+      - installation/production.md
+  - Reference:
+      - reference/technical-overview.md
+      - reference/architecture.md
+      - reference/alternatives.md
