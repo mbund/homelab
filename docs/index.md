@@ -21,6 +21,16 @@ Fully automated Kubernetes and GitOps setup to host my important services at hom
     - CPU: `8 x Intel(R) Core(TM) i7-4790 CPU @ 3.60GHz`
     - RAM: `8GB`
 
+## Screenshots
+
+| ArgoCD |
+| :--: |
+| ![ArgoCD dashboard screenshot](images/argocd.png) |
+
+| Lens |
+| :--: |
+| ![Lens (Kubernetes dashboard screenshot)](images/lens.png) |
+
 ## Apps
 
 <table>

@@ -36,13 +36,11 @@ hajimari:
       - group: Homelab
         bookmarks:
           - name: Documentation
-            url: https://homelab.mbund.org
+            url: https://mbund.github.io/homelab
           - name: Public GitHub repository
             url: https://github.com/mbund/homelab
       - group: Managed services
         bookmarks:
-          - name: Terraform Cloud
-            url: https://app.terraform.io
           - name: Cloudflare
             url: https://dash.cloudflare.com
   persistence:

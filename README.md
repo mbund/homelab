@@ -21,6 +21,16 @@ Read the [docs](https://mbund.github.io/homelab) for technical details.
     - CPU: `8 x Intel(R) Core(TM) i7-4790 CPU @ 3.60GHz`
     - RAM: `8GB`
 
+## Screenshots
+
+| ArgoCD |
+| :--: |
+| ![ArgoCD dashboard screenshot](docs/images/argocd.png) |
+
+| Lens |
+| :--: |
+| ![Lens (Kubernetes dashboard screenshot)](docs/images/lens.png) |
+
 ## Apps
 
 <table>
