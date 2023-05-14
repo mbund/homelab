@@ -1,10 +1,10 @@
 # Mark's Homelab :sailboat:
 
-## Overview
-
 Fully automated Kubernetes and GitOps setup to host my important services at home.
 
-### Hardware
+Read the [docs](https://mbund.github.io/homelab) for technical details.
+
+## Hardware
 
 <figure markdown>
   ![Hardware used in the homelab](images/homelab.jpg){ width="500" }

@@ -4,7 +4,7 @@ Fully automated Kubernetes and GitOps setup to host my important services at hom
 
 Read the [docs](https://mbund.github.io/homelab) for technical details.
 
-### Hardware
+## Hardware
 
 <div align="center">
   <img src="docs/images/homelab.jpg" alt="Hardware used in the homelab" width="500" />
