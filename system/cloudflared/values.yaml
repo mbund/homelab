@@ -18,7 +18,7 @@ cloudflared:
     tunnel: homelab
     ingress:
       - hostname: wireguard.mbund.org
-        service: udp://wireguard.wireguard
+        service: udp://wireguard.wireguard:31820
       - hostname: "*.mbund.org"
         service: https://ingress-nginx-controller.ingress-nginx
         originRequest:
