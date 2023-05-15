@@ -8,6 +8,7 @@ data:
   PGID: "1000"
   TZ: "America/New_York"
   SERVERPORT: "31820"
+  SERVERURL: "wireguard.mbund.org"
   PEERS: "2"
   PEERDNS: "10.43.0.10" # kubectl -n kube-system get svc | grep kube-dns | awk '{print $3}'
   ALLOWEDIPS: "0.0.0.0/0, ::/0"
