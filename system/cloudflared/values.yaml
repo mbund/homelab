@@ -1,4 +1,6 @@
 cloudflared:
+  image:
+    tag: "2023.5.0"
   credentials:
     existingSecret: cloudflared-credentials
   config:
