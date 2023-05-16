@@ -23,8 +23,8 @@ spec:
       image: "ghcr.io/tailscale/tailscale:latest"
       command: ["/bin/sh"]
       args:
+        - -c
         - |
-          -c
           /usr/local/bin/containerboot & &&
           sleep 30 &&
           iptables -A FORWARD --in-interface tailscale0 -j ACCEPT &&
