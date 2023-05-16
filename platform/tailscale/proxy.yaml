@@ -5,17 +5,18 @@ metadata:
 spec:
   serviceAccountName: "tailscale"
   initContainers:
-    # In order to run as a proxy we need to enable IP Forwarding inside
-    # the container. The `net.ipv4.ip_forward` sysctl is not allowlisted
-    # in Kubelet by default.
-    - name: sysctler
-      image: busybox
+    - name: configure
+      image: alpine
       securityContext:
         privileged: true
       command: ["/bin/sh"]
       args:
         - -c
-        - sysctl -w net.ipv4.ip_forward=1 net.ipv6.conf.all.forwarding=1
+        - |
+          sysctl -w net.ipv4.ip_forward=1 net.ipv6.conf.all.forwarding=1 &&
+          iptables -A FORWARD --in-interface tailscale0 -j ACCEPT &&
+          iptables -A FORWARD --out-interface tailscale0 -j ACCEPT &&
+          iptables -t nat -A POSTROUTING --source 100.64.0.0/10 --out-interface eth0 -j MASQUERADE
       resources:
         requests:
           cpu: 1m
@@ -24,14 +25,6 @@ spec:
     - name: tailscale
       imagePullPolicy: Always
       image: "ghcr.io/tailscale/tailscale:latest"
-      command: ["/bin/sh"]
-      args:
-        - -c
-        - |
-          iptables -A FORWARD --in-interface tailscale0 -j ACCEPT &&
-          iptables -A FORWARD --out-interface tailscale0 -j ACCEPT &&
-          iptables -t nat -A POSTROUTING --source 100.64.0.0/10 --out-interface eth0 -j MASQUERADE &&
-          /usr/local/bin/containerboot
       env:
         - name: TS_KUBE_SECRET
           value: "tailscale-auth"
