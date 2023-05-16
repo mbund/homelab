@@ -11,22 +11,22 @@ ingress-nginx:
       enabled: true
       serviceMonitor:
         enabled: true
-  extraContainers:
-    - name: ts-sidecar
-      imagePullPolicy: Always
-      image: "ghcr.io/tailscale/tailscale:latest"
-      env:
-        - name: TS_KUBE_SECRET
-          value: "tailscale-auth"
-        - name: TS_USERSPACE
-          value: "false"
-        - name: TS_AUTHKEY
-          valueFrom:
-            secretKeyRef:
-              name: tailscale-auth
-              key: TS_AUTHKEY
-              optional: true
-      securityContext:
-        capabilities:
-          add:
-            - NET_ADMIN
+    extraContainers:
+      - name: ts-sidecar
+        imagePullPolicy: Always
+        image: "ghcr.io/tailscale/tailscale:latest"
+        env:
+          - name: TS_KUBE_SECRET
+            value: "tailscale-auth"
+          - name: TS_USERSPACE
+            value: "false"
+          - name: TS_AUTHKEY
+            valueFrom:
+              secretKeyRef:
+                name: tailscale-auth
+                key: TS_AUTHKEY
+                optional: true
+        securityContext:
+          capabilities:
+            add:
+              - NET_ADMIN
