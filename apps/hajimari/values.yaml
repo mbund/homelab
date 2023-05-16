@@ -4,7 +4,7 @@ hajimari:
   ingress:
     main:
       enabled: true
-      ingressClassName: nginx
+      ingressClassName: public-nginx
       annotations:
         cert-manager.io/cluster-issuer: letsencrypt-prod
         external-dns.alpha.kubernetes.io/target: "homelab-tunnel.mbund.org"

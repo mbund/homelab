@@ -1,15 +1,4 @@
 cloudflared:
-  initContainer:
-    - name: init
-      image: docker.io/busybox:1.33
-      imagePullPolicy: IfNotPresent
-      command:
-        - sh
-        - -c
-        - sysctl -w net.core.rmem_max=2500000
-      securityContext:
-        privileged: true
-  replicaCount: 1
   image:
     tag: "2023.5.0"
   credentials:
@@ -17,8 +6,6 @@ cloudflared:
   config:
     tunnel: homelab
     ingress:
-      - hostname: wireguard.mbund.org
-        service: udp://wireguard.wireguard:31820
       - hostname: "*.mbund.org"
         service: https://ingress-nginx-controller.ingress-nginx
         originRequest:

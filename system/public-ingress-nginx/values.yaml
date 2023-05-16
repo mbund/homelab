@@ -1,0 +1,15 @@
+ingress-nginx:
+  controller:
+    ingressClassResource:
+      name: public-nginx # default: nginx
+      enabled: true
+      default: false
+      controllerValue: "k8s.io/public-ingress-nginx" # default: k8s.io/ingress-nginx
+    admissionWebhooks:
+      timeoutSeconds: 30
+    metrics:
+      enabled: true
+      serviceMonitor:
+        enabled: true
+  tcp:
+    22: gitea/gitea-ssh:22

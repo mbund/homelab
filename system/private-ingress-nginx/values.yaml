@@ -1,0 +1,32 @@
+ingress-nginx:
+  controller:
+    ingressClassResource:
+      name: private-nginx # default: nginx
+      enabled: true
+      default: false
+      controllerValue: "k8s.io/private-ingress-nginx" # default: k8s.io/ingress-nginx
+    admissionWebhooks:
+      timeoutSeconds: 30
+    metrics:
+      enabled: true
+      serviceMonitor:
+        enabled: true
+  extraContainers:
+    - name: ts-sidecar
+      imagePullPolicy: Always
+      image: "ghcr.io/tailscale/tailscale:latest"
+      env:
+        - name: TS_KUBE_SECRET
+          value: "tailscale-auth"
+        - name: TS_USERSPACE
+          value: "false"
+        - name: TS_AUTHKEY
+          valueFrom:
+            secretKeyRef:
+              name: tailscale-auth
+              key: TS_AUTHKEY
+              optional: true
+      securityContext:
+        capabilities:
+          add:
+            - NET_ADMIN

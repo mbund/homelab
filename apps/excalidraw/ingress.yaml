@@ -8,7 +8,7 @@ metadata:
     external-dns.alpha.kubernetes.io/cloudflare-proxied: "true"
     hajimari.io/icon: draw
 spec:
-  ingressClassName: nginx
+  ingressClassName: public-nginx
   rules:
     - host: &host draw.mbund.org
       http:
