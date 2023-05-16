@@ -37,7 +37,7 @@ spec:
               key: TS_AUTHKEY
               optional: true
         - name: TS_DEST_IP
-          value: "192.168.1.127"
+          value: "10.43.219.6"
         - name: TS_AUTH_ONCE
           value: "true"
       securityContext:
