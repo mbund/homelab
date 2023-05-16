@@ -40,7 +40,3 @@ spec:
         capabilities:
           add:
             - NET_ADMIN
-      resources:
-        limits:
-          memory: 64Mi
-          cpu: 10m
