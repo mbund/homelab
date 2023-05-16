@@ -17,7 +17,7 @@ ingress-nginx:
         image: "ghcr.io/tailscale/tailscale:latest"
         env:
           - name: TS_KUBE_SECRET
-            value: "tailscale-auth"
+            value: "tailscale-kube-secret"
           - name: TS_USERSPACE
             value: "false"
           - name: TS_AUTHKEY
