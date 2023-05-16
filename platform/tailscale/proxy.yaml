@@ -21,16 +21,6 @@ spec:
     - name: tailscale
       imagePullPolicy: Always
       image: "ghcr.io/tailscale/tailscale:latest"
-      command: ["/bin/sh"]
-      args:
-        - -c
-        - |
-          /usr/local/bin/containerboot & &&
-          sleep 30 &&
-          iptables -A FORWARD --in-interface tailscale0 -j ACCEPT &&
-          iptables -A FORWARD --out-interface tailscale0 -j ACCEPT &&
-          iptables -t nat -A POSTROUTING --source 100.64.0.0/10 --out-interface eth0 -j MASQUERADE &&
-          fg
       env:
         - name: TS_KUBE_SECRET
           value: "tailscale-auth"
