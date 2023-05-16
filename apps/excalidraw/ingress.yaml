@@ -3,11 +3,13 @@ kind: Ingress
 metadata:
   name: excalidraw
   annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+    external-dns.alpha.kubernetes.io/target: homelab.tail22829.ts.net
     hajimari.io/icon: draw
 spec:
   ingressClassName: private-nginx
   rules:
-    - host: &host draw.homelab
+    - host: &host draw.mbund.org
       http:
         paths:
           - pathType: ImplementationSpecific
@@ -16,3 +18,7 @@ spec:
                 name: excalidraw
                 port:
                   name: http
+  tls:
+    - secretName: excalidraw-tls-certificate
+      hosts:
+        - *host
