@@ -69,14 +69,12 @@ spec:
   ingress:
     annotations:
       cert-manager.io/cluster-issuer: letsencrypt-prod
-      external-dns.alpha.kubernetes.io/target: "homelab-tunnel.mbund.org"
-      external-dns.alpha.kubernetes.io/cloudflare-proxied: "true"
       hajimari.io/appName: Vault
       hajimari.io/icon: database-lock
     spec:
       ingressClassName: private-nginx
       rules:
-        - host: &host vault.mbund.org
+        - host: &host vault.homelab
           http:
             paths:
               - backend:

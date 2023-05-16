@@ -15,7 +15,11 @@ spec:
       command: ["/bin/sh"]
       args:
         - -c
-        - sysctl -w net.ipv4.ip_forward=1 net.ipv6.conf.all.forwarding=1
+        - |
+          sysctl -w net.ipv4.ip_forward=1 net.ipv6.conf.all.forwarding=1 &&
+          iptables -A FORWARD --in-interface tailscale0 -j ACCEPT &&
+          iptables -A FORWARD --out-interface tailscale0 -j ACCEPT &&
+          iptables -t nat -A POSTROUTING --source 100.64.0.0/10 --out-interface eth0 -j MASQUERADE
       resources:
         requests:
           cpu: 1m
@@ -44,3 +48,7 @@ spec:
         capabilities:
           add:
             - NET_ADMIN
+      resources:
+        limits:
+          memory: 64Mi
+          cpu: 10m
