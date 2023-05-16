@@ -7,7 +7,7 @@ cloudflared:
     tunnel: homelab
     ingress:
       - hostname: "*.mbund.org"
-        service: https://ingress-nginx-controller.ingress-nginx
+        service: https://public-ingress-nginx-controller.public-ingress-nginx
         originRequest:
           noTLSVerify: true
       - service: http_status:404
