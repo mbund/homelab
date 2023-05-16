@@ -68,8 +68,8 @@ spec:
 
   ingress:
     annotations:
-      hajimari.io/appName: Vault
       external-dns.alpha.kubernetes.io/target: homelab.tail22829.ts.net
+      hajimari.io/appName: Vault
       hajimari.io/icon: database-lock
     spec:
       ingressClassName: private-nginx
@@ -85,9 +85,9 @@ spec:
                 path: /
                 pathType: Prefix
       tls:
-        - hosts:
+        - secretName: vault-tls-certificate
+          hosts:
             - *host
-          secretName: vault-tls-certificate
 
   # Use local disk to store Vault file data, see config section.
   volumes:
