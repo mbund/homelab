@@ -23,7 +23,7 @@ spec:
                 name: longhorn-frontend
                 port:
                   number: 80
-    tls:
-      - secretName: longhorn-tls-certificate
-        hosts:
-          - *host
+  tls:
+    - secretName: longhorn-tls-certificate
+      hosts:
+        - *host
