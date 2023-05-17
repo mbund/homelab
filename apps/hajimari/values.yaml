@@ -7,9 +7,9 @@ hajimari:
       ingressClassName: public-nginx
       annotations:
         cert-manager.io/cluster-issuer: letsencrypt-prod
-        external-dns.alpha.kubernetes.io/target: "homelab-tunnel.mbund.org"
-        external-dns.alpha.kubernetes.io/cloudflare-proxied: "true"
-        hajimari.io/enable: "false"
+        external-dns.alpha.kubernetes.io/target: homelab-tunnel.mbund.org
+        external-dns.alpha.kubernetes.io/cloudflare-proxied: true
+        hajimari.io/enable: false
       hosts:
         - host: &host home.mbund.org
           paths:
@@ -43,6 +43,8 @@ hajimari:
         bookmarks:
           - name: Cloudflare
             url: https://dash.cloudflare.com
+          - name: Tailscale
+            url: https://tailscale.com/admin
   persistence:
     data:
       enabled: false

@@ -23,9 +23,9 @@ Replace all instances of `mbund.org` with your domain, and also change the refer
 ```yaml hl_lines="3 7" title="apps/hajimari/values.yaml"
 annotations:
   cert-manager.io/cluster-issuer: letsencrypt-prod
-  external-dns.alpha.kubernetes.io/target: "homelab-tunnel.mbund.org"
-  external-dns.alpha.kubernetes.io/cloudflare-proxied: "true"
-  hajimari.io/enable: "false"
+  external-dns.alpha.kubernetes.io/target: homelab-tunnel.mbund.org
+  external-dns.alpha.kubernetes.io/cloudflare-proxied: true
+  hajimari.io/enable: false
 hosts:
   - host: &host home.mbund.org
 ```
