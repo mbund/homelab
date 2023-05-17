@@ -9,7 +9,7 @@ vaultwarden:
         hajimari.io/icon: shield-account
       hosts:
         - host: &host password.mbund.org
-          paths:
+          paths: &paths
             - path: /
               pathType: Prefix
               service:
@@ -22,10 +22,13 @@ vaultwarden:
               pathType: Prefix
               service:
                 port: 3012
+        - host: &alias password.homelab.tail22829.ts.net
+          paths: *paths
       tls:
         - secretName: vaultwarden-tls-certificate
           hosts:
             - *host
+            - *alias
   persistence:
     config:
       enabled: true
