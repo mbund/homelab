@@ -81,3 +81,4 @@ nav:
       - reference/technical-overview.md
       - reference/architecture.md
       - reference/alternatives.md
+      - reference/tailscale.md
