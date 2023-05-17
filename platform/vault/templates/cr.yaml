@@ -70,7 +70,7 @@ spec:
     annotations:
       cert-manager.io/cluster-issuer: letsencrypt-prod
       external-dns.alpha.kubernetes.io/target: homelab.tail22829.ts.net
-      hajimari.io/appName: Vault
+      hajimari.io/appName: HashiCorp Vault
       hajimari.io/icon: database-lock
     spec:
       ingressClassName: private-nginx
