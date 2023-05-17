@@ -4,3 +4,10 @@
     - key: password
       length: 32
       special: true
+
+# Longhorn
+- path: longhorn/auth
+  data:
+    - key: password
+      length: 32
+      special: true
