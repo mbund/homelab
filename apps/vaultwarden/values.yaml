@@ -5,11 +5,11 @@ vaultwarden:
       ingressClassName: private-nginx
       annotations:
         cert-manager.io/cluster-issuer: letsencrypt-prod
-        external-dns.alpha.kubernetes.io/target: homelab.tail22829.ts.net
+        external-dns.alpha.kubernetes.io/target: 100.97.242.57
         hajimari.io/icon: shield-account
       hosts:
         - host: &host password.mbund.org
-          paths: &paths
+          paths:
             - path: /
               pathType: Prefix
               service:
@@ -22,8 +22,6 @@ vaultwarden:
               pathType: Prefix
               service:
                 port: 3012
-        - host: &alias password.homelab.tail22829.ts.net
-          paths: *paths
       tls:
         - secretName: vaultwarden-tls-certificate
           hosts:
