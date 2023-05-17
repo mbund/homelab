@@ -28,9 +28,6 @@ vaultwarden:
         - secretName: vaultwarden-tls-certificate
           hosts:
             - *host
-        - secretName: vaultwarden-alias-tls-certificate
-          hosts:
-            - *alias
   persistence:
     config:
       enabled: true
