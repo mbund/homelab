@@ -4,8 +4,6 @@ Fully automated Kubernetes and GitOps setup to host my important services at hom
 
 Read the [docs](https://mbund.github.io/homelab) for technical details.
 
-<iframe src="https://grafana.mbund.org/d-solo/200ac8fdbfbb74b39aff88118e4d1c2c/kubernetes-compute-resources-node-pods?orgId=1&refresh=10s&panelId=3" width="450" height="200" frameborder="0"></iframe>
-
 ## Hardware
 
 <figure markdown>
