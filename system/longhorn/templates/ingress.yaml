@@ -13,12 +13,17 @@ metadata:
 spec:
   ingressClassName: private-nginx
   rules:
-  - http:
-      paths:
-      - path: /
-        pathType: Prefix
-        backend:
-          service:
-            name: longhorn-frontend
-            port:
-              number: 80
+    - host: &host longhorn.mbund.org
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: longhorn-frontend
+                port:
+                  number: 80
+    tls:
+      - secretName: longhorn-tls-certificate
+        hosts:
+          - *host
