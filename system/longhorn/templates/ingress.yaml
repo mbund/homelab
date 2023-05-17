@@ -4,9 +4,6 @@ metadata:
   name: longhorn
   namespace: {{ .Release.Namespace }}
   annotations:
-    nginx.ingress.kubernetes.io/auth-type: basic
-    nginx.ingress.kubernetes.io/auth-secret: longhorn-auth-secret
-    nginx.ingress.kubernetes.io/auth-realm: "Authentication Required "
     cert-manager.io/cluster-issuer: letsencrypt-prod
     external-dns.alpha.kubernetes.io/target: homelab.tail22829.ts.net
     hajimari.io/icon: nas
@@ -16,13 +13,13 @@ spec:
     - host: &host longhorn.mbund.org
       http:
         paths:
-          - path: /
-            pathType: Prefix
-            backend:
+          - backend:
               service:
                 name: longhorn-frontend
                 port:
                   number: 80
+            path: /
+            pathType: Prefix
   tls:
     - secretName: longhorn-tls-certificate
       hosts:
