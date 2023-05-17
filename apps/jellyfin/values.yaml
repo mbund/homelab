@@ -1,0 +1,21 @@
+jellyfin:
+  env:
+    TZ: America/New_York
+  ingress:
+    main:
+      enabled: true
+      ingressClassName: private-nginx
+      annotations:
+        cert-manager.io/cluster-issuer: letsencrypt-prod
+        external-dns.alpha.kubernetes.io/target: homelab.tail22829.ts.net
+        hajimari.io/appName: Jellyfin
+        hajimari.io/icon: filmstrip
+      hosts:
+        - host: &host jellyfin.mbund.org
+          paths:
+            - path: /
+              pathType: Prefix
+      tls:
+        - secretName: jellyfin-tls-certificate
+          hosts:
+            - *host
