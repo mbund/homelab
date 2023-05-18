@@ -82,3 +82,4 @@ nav:
       - reference/architecture.md
       - reference/alternatives.md
       - reference/tailscale.md
+      - reference/longhorn.md
