@@ -22,13 +22,14 @@ spec:
   ingressClassName: public-nginx
   rules:
     - host: &host mbund.org
-      paths:
-        - path: /_matrix
-          pathType: Prefix
-          backend:
-            service:
-              name: monolith
-              port: 8008
+      http:
+        paths:
+          - backend:
+              service:
+                name: monolith
+                port: 8008
+            path: /_matrix
+            pathType: Prefix
   tls:
     - secretName: apex-tls-certificate
       hosts:
