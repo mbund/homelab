@@ -1,0 +1,23 @@
+elementweb:
+  ingress:
+    enabled: true
+    className: public-nginx
+    annotations:
+      cert-manager.io/cluster-issuer: letsencrypt-prod
+      external-dns.alpha.kubernetes.io/target: homelab-tunnel.mbund.org
+      external-dns.alpha.kubernetes.io/cloudflare-proxied: "true"
+      hajimari.io/appName: Element
+      hajimari.io/icon: chat
+    hosts:
+      - host: &frontend_host chat.mbund.org
+        paths:
+          - path: /
+            pathType: Prefix
+    tls:
+      - secretName: element-tls-certificate
+        hosts:
+          - *frontend_host
+  config:
+    default:
+      base_url: https://mbund.org
+      server_name: mbund.org

@@ -5,6 +5,3 @@ dependencies:
   - name: elementweb
     version: 0.0.6
     repository: https://locmai.github.io/charts
-  - name: dendrite
-    version: 0.0.3
-    repository: https://locmai.github.io/charts

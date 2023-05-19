@@ -1,0 +1,24 @@
+matrix-synapse:
+  serverName: &host mbund.org
+  ingress:
+    enabled: true
+    className: public-nginx
+    annotations:
+      cert-manager.io/cluster-issuer: letsencrypt-prod
+      external-dns.alpha.kubernetes.io/target: homelab-tunnel.mbund.org
+      external-dns.alpha.kubernetes.io/cloudflare-proxied: "true"
+      hajimari.io/enabled: "false"
+    tls:
+      - secretName: element-tls-certificate
+        hosts:
+          - *host
+  wellknown:
+    enabled: true
+  postgresql:
+    # auth:
+    #   password:
+    primary:
+      persistence:
+        storageClass: longhorn
+  persistence:
+    storageClass: longhorn
