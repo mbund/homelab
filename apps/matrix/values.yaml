@@ -4,7 +4,7 @@ elementweb:
     className: public-nginx
     annotations:
       cert-manager.io/cluster-issuer: letsencrypt-prod
-      external-dns.alpha.kubernetes.io/target: "homelab-tunnel.mbund.org"
+      external-dns.alpha.kubernetes.io/target: homelab-tunnel.mbund.org
       external-dns.alpha.kubernetes.io/cloudflare-proxied: "true"
       hajimari.io/appName: Element
       hajimari.io/icon: chat
@@ -25,7 +25,7 @@ elementweb:
 dendrite:
   polylith: false
   image:
-    name: "locmai/dendrite-monolith:010922"
+    name: locmai/dendrite-monolith:010922
     pullPolicy: IfNotPresent
   configuration:
     version: 2
@@ -72,7 +72,7 @@ dendrite:
     className: public-nginx
     annotations:
       cert-manager.io/cluster-issuer: letsencrypt-prod
-      external-dns.alpha.kubernetes.io/target: "homelab-tunnel.mbund.org"
+      external-dns.alpha.kubernetes.io/target: homelab-tunnel.mbund.org
       external-dns.alpha.kubernetes.io/cloudflare-proxied: "true"
       nginx.ingress.kubernetes.io/proxy-body-size: 32m
       hajimari.io/enable: "false"
