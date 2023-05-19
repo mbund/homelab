@@ -8,6 +8,10 @@ metadata:
     external-dns.alpha.kubernetes.io/cloudflare-proxied: "true"
     hajimari.io/enable: "false"
     nginx.ingress.kubernetes.io/server-snippet: |
+      location / {
+          return 444;
+      }
+
       location /.well-known/matrix/client {
           default_type application/json;
           add_header Access-Control-Allow-Origin *;
