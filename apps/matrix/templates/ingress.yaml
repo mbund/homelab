@@ -20,3 +20,9 @@ metadata:
       }
 spec:
   ingressClassName: public-nginx
+  rules:
+    - host: &host mbund.org
+  tls:
+    - secretName: apex-tls-certificate
+      hosts:
+        - *host
