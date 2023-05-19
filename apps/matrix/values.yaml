@@ -57,6 +57,7 @@ dendrite:
   postgresql:
     enabled: true
     global:
+      storageClass: longhorn
       postgresql:
         postgresqlDatabase: dendrite
         postgresqlUsername: dendrite
