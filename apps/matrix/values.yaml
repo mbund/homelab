@@ -62,12 +62,13 @@ dendrite:
         postgresqlDatabase: dendrite
         postgresqlUsername: dendrite
         postgresqlPassword: dendrite
-    persistence:
-      enabled: true
-      storageClass: longhorn
-      accessModes:
-        - ReadWriteOnce
-      size: 5Gi
+    primary:
+      persistence:
+        enabled: true
+        storageClass: longhorn
+        accessModes:
+          - ReadWriteOnce
+        size: 5Gi
   ingress:
     enabled: true
     className: public-nginx
