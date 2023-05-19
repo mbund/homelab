@@ -1,6 +1,5 @@
 matrix-synapse:
-  serverName: mbund.org
-  publicServerName: matrix.mbund.org
+  serverName: matrix.mbund.org
   ingress:
     enabled: true
     className: public-nginx
@@ -12,7 +11,6 @@ matrix-synapse:
     tls:
       - secretName: element-tls-certificate
         hosts:
-          - mbund.org
           - matrix.mbund.org
   wellknown:
     enabled: true
