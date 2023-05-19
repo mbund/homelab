@@ -19,7 +19,7 @@ elementweb:
           - *frontend_host
   config:
     default:
-      base_url: https://matrix.mbund.org
+      base_url: https://mbund.org
       server_name: mbund.org
 
 dendrite:
@@ -29,7 +29,7 @@ dendrite:
     pullPolicy: IfNotPresent
   configuration:
     version: 2
-    servername: &backend_host matrix.mbund.org
+    servername: &backend_host mbund.org
     database:
       host: matrix-postgresql:5432
       user: dendrite
