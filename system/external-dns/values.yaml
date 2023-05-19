@@ -1,12 +1,8 @@
 external-dns:
   provider: cloudflare
   txtOwnerId: homelab
-  env:
-    - name: CF_API_TOKEN
-      valueFrom:
-        secretKeyRef:
-          name: cloudflare-api-token
-          key: value
+  cloudflare:
+    secretName: cloudflare-api-token
   crd:
     create: true
   metrics:
