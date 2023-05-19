@@ -8,6 +8,8 @@ matrix-synapse:
       external-dns.alpha.kubernetes.io/target: homelab-tunnel.mbund.org
       external-dns.alpha.kubernetes.io/cloudflare-proxied: "true"
       hajimari.io/enabled: "false"
+    hosts:
+      - host: *host
     tls:
       - secretName: element-tls-certificate
         hosts:
