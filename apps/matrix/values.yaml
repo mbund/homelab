@@ -29,7 +29,7 @@ dendrite:
     pullPolicy: IfNotPresent
   configuration:
     version: 2
-    servername: &backend_host mbund.org
+    servername: &backend_host matrix.mbund.org
     database:
       host: matrix-postgresql:5432
       user: dendrite
