@@ -23,8 +23,6 @@ matrix-synapse:
       enabled: false
     existingSecret: synapse-signingkey-secret
   postgresql:
-    auth:
-      existingSecret: synapse-postgresql-secret
     primary:
       persistence:
         storageClass: longhorn
