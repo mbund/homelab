@@ -15,6 +15,6 @@
 # Matrix Synapse
 - path: synapse/postgresql
   data:
-    - key: password
+    - key: postgres-password
       length: 32
       special: true
