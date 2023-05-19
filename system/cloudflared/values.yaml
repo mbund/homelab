@@ -6,7 +6,7 @@ cloudflared:
   config:
     tunnel: homelab
     ingress:
-      - hostname: mbund.org
+      - hostname: "mbund.org"
         service: https://public-ingress-nginx-controller.public-ingress-nginx
         originRequest:
           noTLSVerify: true
