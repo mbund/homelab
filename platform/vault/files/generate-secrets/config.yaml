@@ -18,8 +18,8 @@
     - key: password
       length: 32
       special: true
-- path: synapse/keys
+- path: synapse/signingkey
   data:
-    - key: signingkey
+    - key: signing.key
       length: 32
       special: true

@@ -16,6 +16,10 @@ matrix-synapse:
           - matrix.mbund.org
   wellknown:
     enabled: true
+  signingkey:
+    job:
+      enabled: false
+    existingSecret: synapse-signingkey-secret
   postgresql:
     # auth:
     #   password:
