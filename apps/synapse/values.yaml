@@ -1,6 +1,7 @@
 matrix-synapse:
   serverName: mbund.org
   publicServerName: matrix.mbund.org
+  includeServerName: false
   ingress:
     className: public-nginx
     annotations:
