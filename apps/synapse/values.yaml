@@ -3,18 +3,17 @@ matrix-synapse:
   publicServerName: matrix.mbund.org
   ingress:
     className: public-nginx
-    includeServerName: false
     annotations:
       cert-manager.io/cluster-issuer: letsencrypt-prod
       external-dns.alpha.kubernetes.io/target: homelab-tunnel.mbund.org
       external-dns.alpha.kubernetes.io/cloudflare-proxied: "true"
       hajimari.io/enabled: "false"
-    csHosts:
-      - matrix.mbund.org
     tls:
       - secretName: element-tls-certificate
         hosts:
           - matrix.mbund.org
+  wellknown:
+    enabled: true
   signingkey:
     job:
       enabled: false
