@@ -27,7 +27,8 @@ spec:
           - backend:
               service:
                 name: monolith
-                port: 8008
+                port:
+                  number: 8008
             path: /_matrix
             pathType: Prefix
   tls:
