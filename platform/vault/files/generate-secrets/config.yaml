@@ -11,3 +11,15 @@
     - key: password
       length: 32
       special: true
+
+# Matrix Synapse
+- path: synapse/postgresql
+  data:
+    - key: password
+      length: 32
+      special: true
+- path: synapse/keys
+  data:
+    - key: signingkey
+      length: 32
+      special: true
