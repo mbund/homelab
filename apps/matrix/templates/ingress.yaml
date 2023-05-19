@@ -7,7 +7,7 @@ metadata:
     external-dns.alpha.kubernetes.io/target: homelab-tunnel.mbund.org
     external-dns.alpha.kubernetes.io/cloudflare-proxied: "true"
     hajimari.io/enable: "false"
-    nginx.org/server-snippets: |
+    nginx.ingress.kubernetes.io/server-snippets: |
       location /.well-known/matrix/client {
           default_type application/json;
           add_header Access-Control-Allow-Origin *;
