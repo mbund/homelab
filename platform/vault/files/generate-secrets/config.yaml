@@ -20,6 +20,6 @@
       special: true
 - path: synapse/signingkey
   data:
-    - key: signing.key
+    - key: signing_key
       length: 32
       special: true
