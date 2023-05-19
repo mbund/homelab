@@ -9,7 +9,8 @@ external-dns:
           key: value
   extraArgs:
     - --annotation-filter=external-dns.alpha.kubernetes.io/exclude notin (true)
-
+  crd:
+    create: true
   metrics:
     enabled: true
     serviceMonitor:
