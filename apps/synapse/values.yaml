@@ -1,5 +1,6 @@
 matrix-synapse:
-  serverName: &host mbund.org
+  serverName: mbund.org
+  publicServerName: matrix.mbund.org
   ingress:
     enabled: true
     className: public-nginx
@@ -8,12 +9,11 @@ matrix-synapse:
       external-dns.alpha.kubernetes.io/target: homelab-tunnel.mbund.org
       external-dns.alpha.kubernetes.io/cloudflare-proxied: "true"
       hajimari.io/enabled: "false"
-    hosts:
-      - host: matrix.mbund.org
     tls:
       - secretName: element-tls-certificate
         hosts:
-          - *host
+          - mbund.org
+          - matrix.mbund.org
   wellknown:
     enabled: true
   postgresql:
