@@ -9,7 +9,7 @@ matrix-synapse:
       external-dns.alpha.kubernetes.io/cloudflare-proxied: "true"
       hajimari.io/enabled: "false"
     hosts:
-      - host: .mbund.org
+      - host: matrix.mbund.org
     tls:
       - secretName: element-tls-certificate
         hosts:
