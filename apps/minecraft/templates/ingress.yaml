@@ -16,6 +16,6 @@ spec:
               service:
                 name: minecraft-minecraft
                 port:
-                  name: http
+                  number: 25565
             path: /
             pathType: Prefix
