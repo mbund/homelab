@@ -1,4 +1,6 @@
 nextcloud:
+  image:
+    tag: 26.0.1-fpm
   nextcloud:
     host: &host cloud.mbund.org
     existingSecret:
@@ -41,6 +43,22 @@ nextcloud:
         - secretName: nextcloud-tls-certificate
           hosts:
             - *host
+  internalDatabase:
+    enabled: false
+  postgresql:
+    enabled: true
+    global:
+      postgresql:
+        auth:
+          existingSecret: postgres-secret
+    primary:
+      persistence:
+        enabled: true
+        storageClass: longhorn
+  redis:
+    enabled: true
+    auth:
+      existingSecret: redis-secret
   persistence:
     enabled: true
     storageClass: longhorn
