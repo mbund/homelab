@@ -1,8 +1,0 @@
-minecraft:
-  minecraftServer:
-    eula: true
-  persistence:
-    storageClass: longhorn
-    dataDir:
-      enabled: true
-      Size: 16Gi
