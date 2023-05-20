@@ -41,10 +41,6 @@ nextcloud:
         - secretName: nextcloud-tls-certificate
           hosts:
             - *host
-  redis:
-    enabled: true
-    auth:
-      existingSecret: redis-secret
   persistence:
     enabled: true
     storageClass: longhorn
