@@ -46,6 +46,8 @@ nextcloud:
         - secretName: nextcloud-tls-certificate
           hosts:
             - *host
+  internalDatabase:
+    enabled: false
   postgresql:
     enabled: true
     global:
