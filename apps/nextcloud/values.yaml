@@ -1,6 +1,9 @@
 nextcloud:
   nextcloud:
     host: &host cloud.mbund.org
+    existingSecret:
+      enabled: true
+      secretName: admin-secret
   ingress:
     main:
       enabled: true
@@ -42,15 +45,25 @@ nextcloud:
     enabled: false
   postgresql:
     enabled: true
+    global:
+      postgresql:
+        auth:
+          existingSecret: postgres-secret
     primary:
       persistence:
         enabled: true
         storageClass: longhorn
   redis:
     enabled: true
+    auth:
+      existingSecret: redis-secret
   persistence:
     enabled: true
     storageClass: longhorn
     nextcloudData:
       enabled: true
       size: 256Gi
+  metrics:
+    enabled: true
+    serviceMonitor:
+      enabled: true
