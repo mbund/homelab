@@ -34,11 +34,6 @@ nextcloud:
           location ~ ^/(?:autotest|occ|issue|indie|db_|console) {
             deny all;
           }
-      hosts:
-        - host: *host
-          paths:
-            - path: /
-              pathType: Prefix
       tls:
         - secretName: nextcloud-tls-certificate
           hosts:
@@ -59,7 +54,3 @@ nextcloud:
     nextcloudData:
       enabled: true
       size: 256Gi
-  metrics:
-    enabled: true
-    serviceMonitor:
-      enabled: true
