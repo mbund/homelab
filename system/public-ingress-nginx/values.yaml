@@ -11,6 +11,3 @@ ingress-nginx:
       enabled: true
       serviceMonitor:
         enabled: true
-  tcp:
-    22: gitea/gitea-ssh:22
-    25565: minecraft/minecraft-minecraft:25565
