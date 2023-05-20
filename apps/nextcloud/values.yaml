@@ -1,0 +1,72 @@
+nextcloud:
+  nextcloud:
+    host: &host cloud.mbund.org
+    existingSecret:
+      enabled: true
+      secretName: admin-secret
+  ingress:
+    main:
+      enabled: true
+      ingressClassName: public-nginx
+      annotations:
+        cert-manager.io/cluster-issuer: letsencrypt-prod
+        external-dns.alpha.kubernetes.io/target: homelab-tunnel.mbund.org
+        external-dns.alpha.kubernetes.io/cloudflare-proxied: "true"
+        hajimari.io/icon: simple-icons:nextcloud
+        nginx.ingress.kubernetes.io/server-snippet: |-
+          server_tokens off;
+          proxy_hide_header X-Powered-By;
+          rewrite ^/.well-known/webfinger /index.php/.well-known/webfinger last;
+          rewrite ^/.well-known/nodeinfo /index.php/.well-known/nodeinfo last;
+          rewrite ^/.well-known/host-meta /public.php?service=host-meta last;
+          rewrite ^/.well-known/host-meta.json /public.php?service=host-meta-json;
+          location = /.well-known/carddav {
+            return 301 $scheme://$host/remote.php/dav;
+          }
+          location = /.well-known/caldav {
+            return 301 $scheme://$host/remote.php/dav;
+          }
+          location = /robots.txt {
+            allow all;
+            log_not_found off;
+            access_log off;
+          }
+          location ~ ^/(?:build|tests|config|lib|3rdparty|templates|data)/ {
+            deny all;
+          }
+          location ~ ^/(?:autotest|occ|issue|indie|db_|console) {
+            deny all;
+          }
+      hosts:
+        - host: *host
+          paths:
+            - path: /
+              pathType: Prefix
+      tls:
+        - secretName: nextcloud-tls-certificate
+          hosts:
+            - *host
+  postgresql:
+    enabled: true
+    global:
+      postgresql:
+        auth:
+          existingSecret: postgres-secret
+    primary:
+      persistence:
+        enabled: true
+        storageClass: longhorn
+  redis:
+    enabled: true
+    auth:
+      existingSecret: redis-secret
+  persistence:
+    enabled: true
+    storageClass: longhorn
+    nextcloudData:
+      enabled: true
+      size: 256Gi
+  metrics:
+    enabled: true
+    serviceMonitor:
+      enabled: true
