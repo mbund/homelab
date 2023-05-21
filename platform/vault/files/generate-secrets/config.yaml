@@ -18,11 +18,6 @@
     - key: password
       length: 32
       special: true
-- path: synapse/redis
-  data:
-    - key: password
-      length: 32
-      special: true
 
 # Nextcloud
 - path: nextcloud/admin

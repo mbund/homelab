@@ -26,7 +26,6 @@ matrix-synapse:
       persistence:
         storageClass: longhorn
   redis:
-    auth:
-      existingSecret: synapse-redis-secret
+    enabled: false
   persistence:
     storageClass: longhorn
