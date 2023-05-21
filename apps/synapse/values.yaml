@@ -19,10 +19,14 @@ matrix-synapse:
       enabled: false
     existingSecret: synapse-signingkey-secret
   postgresql:
+    existingSecret: synapse-postgres-secret
     auth:
       existingSecret: synapse-postgres-secret
     primary:
       persistence:
         storageClass: longhorn
+  redis:
+    auth:
+      existingSecret: synapse-redis-secret
   persistence:
     storageClass: longhorn
