@@ -30,9 +30,3 @@ matrix-synapse:
       existingSecret: synapse-redis-secret
   persistence:
     storageClass: longhorn
-  synapse:
-    extraCommands:
-      - "echo POSTGRES"
-      - "echo ${POSTGRES_PASSWORD}"
-      - "echo REDIS"
-      - "echo ${REDIS_PASSWORD}"
