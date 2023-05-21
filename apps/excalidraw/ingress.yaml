@@ -4,7 +4,7 @@ metadata:
   name: excalidraw
   annotations:
     cert-manager.io/cluster-issuer: letsencrypt-prod
-    external-dns.alpha.kubernetes.io/target: 5.161.64.194
+    external-dns.alpha.kubernetes.io/target: 207.148.11.91
     hajimari.io/icon: draw
 spec:
   ingressClassName: public-nginx
