@@ -69,7 +69,7 @@ spec:
   ingress:
     annotations:
       cert-manager.io/cluster-issuer: letsencrypt-prod
-      external-dns.alpha.kubernetes.io/target: 100.121.27.23
+      external-dns.alpha.kubernetes.io/target: 100.95.184.22
       hajimari.io/appName: HashiCorp Vault
       hajimari.io/icon: database-lock
     spec:

@@ -18,7 +18,7 @@ We need to force it to make an A record instead of a CNAME to resolve to our `ho
 
 ```
 $ tailscale status
-100.121.27.23   homelab              tagged-devices linux   -
+100.95.184.22   homelab              tagged-devices linux   -
 ```
 
 Then update the target ingress for all your ingresses to match that IP.
@@ -26,7 +26,7 @@ Then update the target ingress for all your ingresses to match that IP.
 ```yaml
 ingressClassName: private-nginx
 annotations:
-  external-dns.alpha.kubernetes.io/target: 100.121.27.23
+  external-dns.alpha.kubernetes.io/target: 100.95.184.22
 ```
 
 Tailscale IP addresses in your Tailnet are stable, so once it is assigned it should be the same one for as long as the device exists.
