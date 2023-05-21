@@ -1,6 +1,4 @@
 argo-cd:
-  dex:
-    enabled: false
   server:
     ingress:
       enabled: true
