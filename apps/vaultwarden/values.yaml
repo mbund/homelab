@@ -5,7 +5,7 @@ vaultwarden:
       ingressClassName: private-nginx
       annotations:
         cert-manager.io/cluster-issuer: letsencrypt-prod
-        external-dns.alpha.kubernetes.io/target: 100.95.184.22
+        external-dns.alpha.kubernetes.io/target: 100.70.88.89
         hajimari.io/icon: shield-account
       hosts:
         - host: &host password.mbund.org
