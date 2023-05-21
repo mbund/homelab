@@ -11,3 +11,6 @@ ingress-nginx:
       enabled: true
       serviceMonitor:
         enabled: true
+    service:
+      type: ClusterIP
+      clusterIP: 10.43.0.61
