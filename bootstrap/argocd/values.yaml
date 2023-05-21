@@ -1,6 +1,6 @@
 argo-cd:
-  env:
-    TZ: America/New_York
+  dex:
+    enabled: false
   server:
     extraArgs:
       - --insecure
