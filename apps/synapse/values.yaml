@@ -20,7 +20,7 @@ matrix-synapse:
     existingSecret: synapse-signingkey-secret
   postgresql:
     auth:
-      existingSecret: synapse-postgresql-secret
+      existingSecret: synapse-postgres-secret
     primary:
       persistence:
         storageClass: longhorn
