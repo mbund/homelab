@@ -2,14 +2,13 @@ hajimari:
   ingress:
     main:
       enabled: true
-      ingressClassName: public-nginx
+      ingressClassName: relay-nginx
       annotations:
         cert-manager.io/cluster-issuer: letsencrypt-prod
-        external-dns.alpha.kubernetes.io/target: homelab-tunnel.mbund.org
-        external-dns.alpha.kubernetes.io/cloudflare-proxied: "true"
+        external-dns.alpha.kubernetes.io/target: 207.148.11.91
         hajimari.io/enable: "false"
       hosts:
-        - host: &host mbund.org
+        - host: &host home.mbund.org
           paths:
             - path: /
               pathType: Prefix

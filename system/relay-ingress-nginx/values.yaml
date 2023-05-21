@@ -1,0 +1,16 @@
+ingress-nginx:
+  controller:
+    ingressClassResource:
+      name: relay-nginx
+      enabled: true
+      default: false
+      controllerValue: "k8s.io/relay-ingress-nginx"
+    admissionWebhooks:
+      timeoutSeconds: 30
+    metrics:
+      enabled: true
+      serviceMonitor:
+        enabled: true
+    service:
+      type: ClusterIP
+      clusterIP: 10.43.0.62

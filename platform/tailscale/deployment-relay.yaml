@@ -2,17 +2,17 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    app: tailscale-public
-  name: tailscale-public
+    app: tailscale-relay
+  name: tailscale-relay
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: tailscale-public
+      app: tailscale-relay
   template:
     metadata:
       labels:
-        app: tailscale-public
+        app: tailscale-relay
     spec:
       serviceAccountName: tailscale
       initContainers:
@@ -36,7 +36,7 @@ spec:
           image: ghcr.io/tailscale/tailscale:v1.40.1
           env:
             - name: TS_KUBE_SECRET
-              value: tailscale-login-public
+              value: tailscale-login-relay
             - name: TS_USERSPACE
               value: "false"
             - name: TS_AUTHKEY
@@ -45,11 +45,11 @@ spec:
                   name: tailscale-auth
                   key: TS_AUTHKEY
             - name: TS_DEST_IP
-              value: 10.43.0.61
+              value: 10.43.0.62
             - name: TS_AUTH_ONCE
               value: "true"
             - name: TS_EXTRA_ARGS
-              value: --hostname=homelab-public
+              value: --hostname=homelab-relay
           securityContext:
             capabilities:
               add:
