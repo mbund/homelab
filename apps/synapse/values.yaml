@@ -17,10 +17,10 @@ matrix-synapse:
   signingkey:
     job:
       enabled: false
-    existingSecret: signingkey-secret
+    existingSecret: synapse-signingkey-secret
   postgresql:
     auth:
-      existingSecret: postgresql-secret
+      existingSecret: synapse-postgresql-secret
     primary:
       persistence:
         storageClass: longhorn
