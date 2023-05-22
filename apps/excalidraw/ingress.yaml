@@ -4,10 +4,10 @@ metadata:
   name: excalidraw
   annotations:
     cert-manager.io/cluster-issuer: letsencrypt-prod
-    external-dns.alpha.kubernetes.io/target: 207.148.11.91
+    external-dns.alpha.kubernetes.io/target: 100.90.49.31
     hajimari.io/icon: draw
 spec:
-  ingressClassName: public-nginx
+  ingressClassName: relay-nginx
   rules:
     - host: &host draw.mbund.org
       http:
