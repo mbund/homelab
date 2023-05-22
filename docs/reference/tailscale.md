@@ -18,7 +18,8 @@ We need to force it to make an A record instead of a CNAME to resolve to our `ho
 
 ```
 $ tailscale status
-100.70.88.89   homelab              tagged-devices linux   -
+100.70.88.89    homelab              tagged-devices linux   -
+100.115.239.93  relay                mbund@         linux   -
 ```
 
 Then update the target ingress for all your ingresses to match that IP.
