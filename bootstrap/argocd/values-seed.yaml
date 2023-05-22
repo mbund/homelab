@@ -1,12 +1,5 @@
 argo-cd:
-  server:
-    metrics: &metrics
-      enabled: false
-      serviceMonitor:
-        enabled: false
-  controller:
-    metrics: *metrics
-  repoServer:
-    metrics: *metrics
-  redis:
-    metrics: *metrics
+  dex:
+    enabled: false
+  global:
+    priorityClassName: system-cluster-critical
