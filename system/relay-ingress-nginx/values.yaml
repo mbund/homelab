@@ -14,3 +14,5 @@ ingress-nginx:
     service:
       type: ClusterIP
       clusterIP: 10.43.0.62
+  tcp:
+    25565: minecraft/minecraft-minecraft:25565

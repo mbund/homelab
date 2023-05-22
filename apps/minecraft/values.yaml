@@ -1,0 +1,7 @@
+minecraft:
+  minecraftServer:
+    eula: true
+  persistence:
+    storageClass: longhorn
+    dataDir:
+      enabled: true
