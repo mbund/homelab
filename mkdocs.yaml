@@ -1,5 +1,6 @@
 site_name: Mark's Homelab
 site_author: Mark Bundschuh
+site_url: https://mbund.github.io/homelab
 copyright: Copyright &copy; 2023 Mark Bundschuh
 site_description: >-
   Documentation concerning my homelab infrastructure. Fully automated
@@ -83,3 +84,5 @@ nav:
       - reference/alternatives.md
       - reference/tailscale.md
       - reference/longhorn.md
+      - reference/matrix.md
+      - reference/relay.md
