@@ -1,4 +1,6 @@
 argo-cd:
+  global:
+    priorityClassName: system-cluster-critical
   server:
     config:
       statusbadge.enabled: "true"
@@ -17,11 +19,10 @@ argo-cd:
         return hs
     ingress:
       enabled: true
-      ingressClassName: public-nginx
+      ingressClassName: relay-nginx
       annotations:
         cert-manager.io/cluster-issuer: letsencrypt-prod
-        external-dns.alpha.kubernetes.io/target: homelab-tunnel.mbund.org
-        external-dns.alpha.kubernetes.io/cloudflare-proxied: "true"
+        external-dns.alpha.kubernetes.io/target: relay.mbund.org
         hajimari.io/appName: ArgoCD
         hajimari.io/icon: robot
       hosts:

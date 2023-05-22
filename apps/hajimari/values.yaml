@@ -5,7 +5,7 @@ hajimari:
       ingressClassName: relay-nginx
       annotations:
         cert-manager.io/cluster-issuer: letsencrypt-prod
-        external-dns.alpha.kubernetes.io/target: 207.148.11.91
+        external-dns.alpha.kubernetes.io/target: relay.mbund.org
         hajimari.io/enable: "false"
       hosts:
         - host: &host home.mbund.org

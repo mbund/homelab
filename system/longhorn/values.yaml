@@ -2,5 +2,6 @@ longhorn:
   defaultSettings:
     nodeDownPodDeletionPolicy: delete-both-statefulset-and-deployment-pod
     defaultDataPath: /mnt/data
+    priorityClass: system-cluster-critical
   persistence:
     defaultClassReplicaCount: 1
