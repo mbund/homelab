@@ -8,7 +8,7 @@ hajimari:
         external-dns.alpha.kubernetes.io/target: relay.mbund.org
         hajimari.io/enable: "false"
       hosts:
-        - host: &host home.mbund.org
+        - host: &host mbund.org
           paths:
             - path: /
               pathType: Prefix
