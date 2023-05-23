@@ -28,7 +28,10 @@ argo-cd:
         hajimari.io/appName: ArgoCD
         hajimari.io/icon: robot
       hosts:
-        - &host argocd.mbund.org
+        - host: &host argocd.mbund.org
+          paths:
+            - path: /
+              pathType: Prefix
       tls:
         - secretName: argocd-tls-certificate
           hosts:
