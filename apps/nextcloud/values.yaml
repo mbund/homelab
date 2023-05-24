@@ -41,6 +41,9 @@ nextcloud:
       - secretName: nextcloud-tls-certificate
         hosts:
           - *host
+  startupProbe:
+    enabled: true
+    failureThreshold: 60
   nginx:
     enabled: true
   internalDatabase:
