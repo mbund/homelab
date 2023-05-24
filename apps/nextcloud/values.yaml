@@ -40,11 +40,11 @@ nextcloud:
       persistence:
         enabled: true
         storageClass: longhorn
-  # redis:
-  #   enabled: true
-  #   auth:
-  #     existingSecret: redis-secret
-  #     existingSecretPasswordKey: redis-password
+  redis:
+    enabled: true
+    auth:
+      existingSecret: redis-secret
+      existingSecretPasswordKey: redis-password
   persistence:
     enabled: true
     storageClass: longhorn
