@@ -20,6 +20,21 @@ nextcloud:
         pm.max_spare_servers = 18
         pm.max_requests = 500
         pm.process_idle_timeout = 10s
+    configs:
+      proxy.config.php: |-
+        <?php
+        $CONFIG = array (
+          'trusted_proxies' => array(
+            0 => '127.0.0.1',
+            1 => '10.0.0.0/8',
+          ),
+          'forwarded_for_headers' => array('HTTP_X_FORWARDED_FOR'),
+        );
+      custom.config.php: |-
+        <?php
+        $CONFIG = array (
+          'default_phone_region' => 'US',
+        );
   ingress:
     enabled: true
     className: relay-nginx
@@ -27,6 +42,8 @@ nextcloud:
       cert-manager.io/cluster-issuer: letsencrypt-prod
       external-dns.alpha.kubernetes.io/target: relay.mbund.org
       hajimari.io/icon: simple-icons:nextcloud
+      nginx.ingress.kubernetes.io/enable-cors: "true"
+      nginx.ingress.kubernetes.io/cors-allow-headers: "X-Forwarded-For"
       nginx.ingress.kubernetes.io/server-snippet: |-
         server_tokens off;
         proxy_hide_header X-Powered-By;
