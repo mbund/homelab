@@ -9,3 +9,4 @@ minecraft:
     storageClass: longhorn
     dataDir:
       enabled: true
+      Size: 16Gi
