@@ -6,6 +6,10 @@ nextcloud:
     existingSecret:
       enabled: true
       secretName: admin-secret
+    phpConfigs:
+      www.conf: |
+        pm = dynamic
+        pm.max_children = 300
   ingress:
     enabled: true
     className: relay-nginx
