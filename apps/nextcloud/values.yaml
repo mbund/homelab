@@ -45,6 +45,10 @@ nextcloud:
     enabled: true
   internalDatabase:
     enabled: false
+  externalDatabase:
+    existingSecret:
+      enabled: true
+      secretName: postgres-secret
   postgresql:
     enabled: true
     global:
