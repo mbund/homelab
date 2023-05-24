@@ -4,7 +4,7 @@ minecraft:
     version: "1.19.4"
     maxPlayers: 10
     difficulty: normal
-    motd: "                 mbund \u00A74[1.19.4]\u00A7r\n                   \u00A79Kubernetes"
+    motd: "               mbund.org \u00A74[1.19.4]\u00A7r\n                   \u00A79Kubernetes"
   persistence:
     storageClass: longhorn
     dataDir:
