@@ -63,6 +63,7 @@ nextcloud:
     enabled: true
     auth:
       existingSecret: redis-secret
+      existingSecretPasswordKey: redis-password
   persistence:
     enabled: true
     storageClass: longhorn
