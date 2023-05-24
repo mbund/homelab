@@ -20,8 +20,6 @@ nextcloud:
   startupProbe:
     enabled: true
     failureThreshold: 60
-  nginx:
-    enabled: true
   internalDatabase:
     enabled: false
   externalDatabase:
