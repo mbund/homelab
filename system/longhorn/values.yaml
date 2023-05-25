@@ -4,4 +4,4 @@ longhorn:
     defaultDataPath: /mnt/data
     priorityClass: system-cluster-critical
   persistence:
-    defaultClassReplicaCount: 1
+    defaultClassReplicaCount: 2
