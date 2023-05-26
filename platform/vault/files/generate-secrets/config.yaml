@@ -24,14 +24,14 @@
   data:
     - key: password
       length: 32
-      special: true
+      special: false
 - path: nextcloud/postgres
   data:
     - key: password
       length: 32
-      special: true
+      special: false
 - path: nextcloud/redis
   data:
     - key: password
       length: 32
-      special: true
+      special: false
