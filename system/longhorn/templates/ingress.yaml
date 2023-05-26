@@ -5,7 +5,7 @@ metadata:
   namespace: {{ .Release.Namespace }}
   annotations:
     cert-manager.io/cluster-issuer: letsencrypt-prod
-    external-dns.alpha.kubernetes.io/target: 100.87.136.82
+    external-dns.alpha.kubernetes.io/target: 100.74.37.74
     hajimari.io/icon: nas
 spec:
   ingressClassName: private-nginx
