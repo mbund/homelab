@@ -74,10 +74,10 @@ nextcloud:
           - *host
   phpClientHttpsFix:
     enabled: true
-  startupProbe:
-    enabled: true
+  livenessProbe:
     initialDelaySeconds: 180
-    failureThreshold: 60
+  readinessProbe:
+    initialDelaySeconds: 180
   nginx:
     enabled: true
   internalDatabase:
