@@ -1,7 +1,7 @@
 apiVersion: v2
-name: hajimari
+name: jitsi
 version: 0.0.0
 dependencies:
-  - name: hajimari
+  - name: jitsi-meet
     version: 1.3.5
     repository: https://jitsi-contrib.github.io/jitsi-helm
