@@ -9,6 +9,8 @@ nextcloud:
     phpConfigs:
       www.conf: |
         [www]
+        user = root
+        group = root
         listen = 127.0.0.1:9000
 
         pm = dynamic
