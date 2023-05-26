@@ -19,6 +19,15 @@ locals {
   ]
 }
 
+resource "cloudflare_record" "relay" {
+  zone_id = data.cloudflare_zone.zone.id
+  type    = "A"
+  name    = "relay"
+  value   = var.relay_ip
+  proxied = false
+  ttl     = 1
+}
+
 resource "cloudflare_api_token" "external_dns" {
   name = "homelab_external_dns"
 

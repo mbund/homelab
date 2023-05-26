@@ -10,3 +10,7 @@ variable "cloudflare_api_key" {
 variable "cloudflare_account_id" {
   type = string
 }
+
+variable "relay_ip" {
+  type = string
+}

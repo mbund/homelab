@@ -15,3 +15,7 @@ variable "tailscale_auth_key" {
   type      = string
   sensitive = true
 }
+
+variable "relay_ip" {
+  type = string
+}
