@@ -76,6 +76,7 @@ nextcloud:
     enabled: true
   startupProbe:
     enabled: true
+    initialDelaySeconds: 180
     failureThreshold: 60
   nginx:
     enabled: true
