@@ -1,4 +1,4 @@
-jitsi:
+jitsi-meet:
   publicURL: &host jitsi.mbund.org
   tz: America/New_York
   websockets:
