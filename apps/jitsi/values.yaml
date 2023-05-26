@@ -1,4 +1,5 @@
 jitsi:
+  publicURL: &host jitsi.mbund.org
   tz: America/New_York
   websockets:
     colibri:
@@ -15,7 +16,7 @@ jitsi:
         hajimari.io/appName: Jitsi
         hajimari.io/icon: simple-icons:jitsi
       hosts:
-        - host: &host jitsi.mbund.org
+        - host: *host
           paths: ["/"]
       tls:
         - secretName: jitsi-tls-certificate
