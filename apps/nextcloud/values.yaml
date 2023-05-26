@@ -1,17 +1,21 @@
 nextcloud:
   image:
-    tag: 26.0.1-fpm
+    tag: 26.0.1-fpm-alpine
   nextcloud:
     host: &host cloud.mbund.org
     existingSecret:
       enabled: true
       secretName: admin-secret
-    securityContext:
-      runAsUser: 33
-      runAsGroup: 33
-    podSecurityContext:
-      runAsUser: 33
-      runAsGroup: 33
+      extraSidecarContainers:
+        - name: nextcloud-logger
+          image: busybox
+          command:
+            - /bin/sh
+            - -c
+            - while ! test -f "/run/nextcloud/data/nextcloud.log"; do sleep 1; done; tail -n+1 -f /run/nextcloud/data/nextcloud.log
+          volumeMounts:
+            - name: nextcloud-data
+              mountPath: /run/nextcloud/data
     phpConfigs:
       www.conf: |
         [www]
