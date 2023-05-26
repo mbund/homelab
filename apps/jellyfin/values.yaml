@@ -36,4 +36,4 @@ jellyfin:
       mountPath: /media
       storageClass: longhorn
       accessMode: ReadWriteMany
-      existingClaim: shared-media
+      size: 256Gi
