@@ -1,69 +1,11 @@
 nextcloud:
   image:
-    tag: 26.0.1-fpm-alpine
+    tag: 26.0.1-fpm
   nextcloud:
     host: &host cloud.mbund.org
     existingSecret:
       enabled: true
       secretName: admin-secret
-    extraInitContainers:
-      - name: set-perms
-        image: busybox
-        securityContext:
-          privileged: true
-        command:
-          - /bin/sh
-          - -c
-          - chown -R 82:82 /var/www
-        volumeMounts:
-          - mountPath: /var/www/
-            name: nextcloud-main
-            subPath: root
-          - mountPath: /var/www/html
-            name: nextcloud-main
-            subPath: html
-          - mountPath: /var/www/html/data
-            name: nextcloud-data
-            subPath: data
-          - mountPath: /var/www/html/config
-            name: nextcloud-main
-            subPath: config
-          - mountPath: /var/www/html/custom_apps
-            name: nextcloud-main
-            subPath: custom_apps
-          - mountPath: /var/www/tmp
-            name: nextcloud-main
-            subPath: tmp
-          - mountPath: /var/www/html/themes
-            name: nextcloud-main
-            subPath: themes
-          - mountPath: /var/www/html/config/custom.config.php
-            name: nextcloud-config
-            subPath: custom.config.php
-          - mountPath: /var/www/html/config/proxy.config.php
-            name: nextcloud-config
-            subPath: proxy.config.php
-          - mountPath: /var/www/html/config/.htaccess
-            name: nextcloud-config
-            subPath: .htaccess
-          - mountPath: /var/www/html/config/apache-pretty-urls.config.php
-            name: nextcloud-config
-            subPath: apache-pretty-urls.config.php
-          - mountPath: /var/www/html/config/apcu.config.php
-            name: nextcloud-config
-            subPath: apcu.config.php
-          - mountPath: /var/www/html/config/apps.config.php
-            name: nextcloud-config
-            subPath: apps.config.php
-          - mountPath: /var/www/html/config/autoconfig.php
-            name: nextcloud-config
-            subPath: autoconfig.php
-          - mountPath: /var/www/html/config/redis.config.php
-            name: nextcloud-config
-            subPath: redis.config.php
-          - mountPath: /var/www/html/config/smtp.config.php
-            name: nextcloud-config
-            subPath: smtp.config.php
     extraSidecarContainers:
       - name: nextcloud-logger
         image: busybox
