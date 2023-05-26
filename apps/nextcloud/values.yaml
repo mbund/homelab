@@ -9,15 +9,9 @@ nextcloud:
     securityContext:
       runAsUser: 33
       runAsGroup: 33
-      fsGroup: 33
-      runAsNonRoot: true
-      readOnlyRootFilesystem: false
     podSecurityContext:
       runAsUser: 33
       runAsGroup: 33
-      fsGroup: 33
-      runAsNonRoot: true
-      readOnlyRootFilesystem: false
     phpConfigs:
       www.conf: |
         [www]
