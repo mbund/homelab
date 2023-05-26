@@ -15,9 +15,6 @@ jitsi:
         external-dns.alpha.kubernetes.io/target: relay.mbund.org
         hajimari.io/appName: Jitsi
         hajimari.io/icon: simple-icons:jitsi
-      hosts:
-        - host: *host
-          paths: ["/"]
       tls:
         - secretName: jitsi-tls-certificate
           hosts:
