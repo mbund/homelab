@@ -1,0 +1,29 @@
+jitsi:
+  tz: America/New_York
+  websockets:
+    colibri:
+      enabled: true
+    xmpp:
+      enabled: true
+  web:
+    ingress:
+      enabled: true
+      ingressClassName: relay-nginx
+      annotations:
+        cert-manager.io/cluster-issuer: letsencrypt-prod
+        external-dns.alpha.kubernetes.io/target: relay.mbund.org
+        hajimari.io/appName: Jitsi
+        hajimari.io/icon: simple-icons:jitsi
+      hosts:
+        - host: &host jitsi.mbund.org
+          paths: ["/"]
+      tls:
+        - secretName: jitsi-tls-certificate
+          hosts:
+            - *host
+  jvb:
+    metrics:
+      enabled: true
+      prometheusAnnotations: true
+  jibri:
+    enabled: true
