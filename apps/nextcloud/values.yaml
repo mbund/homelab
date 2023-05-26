@@ -1,21 +1,22 @@
 nextcloud:
   image:
-    tag: 26.0.1-fpm-alpine
+    tag: 26.0.1-fpm
   securityContext:
-    fsGroup: 82
+    runAsUser: 33
+    runAsGroup: 33
+    runAsNonRoot: true
+    readOnlyRootFilesystem: false
   nextcloud:
     securityContext:
-      runAsUser: 82
-      runAsGroup: 82
+      runAsUser: 33
+      runAsGroup: 33
       runAsNonRoot: true
       readOnlyRootFilesystem: false
-      allowPrivilegeEscalation: false
-      privileged: false
-      capabilities:
-        drop:
-          - ALL
     podSecurityContext:
-      fsGroup: 82
+      runAsUser: 33
+      runAsGroup: 33
+      runAsNonRoot: true
+      readOnlyRootFilesystem: false
     host: &host cloud.mbund.org
     existingSecret:
       enabled: true
