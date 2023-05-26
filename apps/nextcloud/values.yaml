@@ -1,16 +1,28 @@
 nextcloud:
   image:
-    tag: 26.0.1-fpm-alpine
+    tag: 26.0.1-fpm
   nextcloud:
     host: &host cloud.mbund.org
     existingSecret:
       enabled: true
       secretName: admin-secret
+    securityContext:
+      runAsUser: 33
+      runAsGroup: 33
+      fsGroup: 33
+      runAsNonRoot: true
+      readOnlyRootFilesystem: false
+    podSecurityContext:
+      runAsUser: 33
+      runAsGroup: 33
+      fsGroup: 33
+      runAsNonRoot: true
+      readOnlyRootFilesystem: false
     phpConfigs:
       www.conf: |
         [www]
-        user = root
-        group = root
+        user = www-data
+        group = www-data
         listen = 127.0.0.1:9000
 
         pm = dynamic
