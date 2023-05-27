@@ -1,6 +1,9 @@
 minio:
   mode: standalone
   existingSecret: minio-user-secret
+  resources:
+    requests:
+      memory: 1Gi
   persistence:
     storageClass: longhorn
     accessMode: ReadWriteOnce
@@ -19,3 +22,20 @@ minio:
       - secretName: minio-tls-certificate
         hosts:
           - *host
+  consoleIngress:
+    enabled: true
+    ingressClassName: private-nginx
+    annotations:
+      cert-manager.io/cluster-issuer: letsencrypt-prod
+      external-dns.alpha.kubernetes.io/target: 100.74.37.74
+      hajimari.io/appName: MinIO Console
+      hajimari.io/icon: mdi:nas
+    hosts:
+      - &host minio-console.mbund.org
+    tls:
+      - secretName: minio-console-tls-certificate
+        hosts:
+          - *host
+  metrics:
+    serviceMonitor:
+      enabled: true
