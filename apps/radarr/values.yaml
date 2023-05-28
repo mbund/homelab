@@ -1,0 +1,38 @@
+radarr:
+  ingress:
+    main:
+      enabled: true
+      ingressClassName: private-nginx
+      annotations:
+        cert-manager.io/cluster-issuer: letsencrypt-prod
+        external-dns.alpha.kubernetes.io/target: 100.74.37.74
+        hajimari.io/appName: Radarr
+        hajimari.io/icon: filmstrip
+      hosts:
+        - host: &radarr_host radarr.mbund.org
+          paths:
+            - path: /
+              pathType: Prefix
+              service:
+                port: 7878
+      tls:
+        - secretName: radarr-tls-certificate
+          hosts:
+            - *radarr_host
+  probes:
+    startup:
+      spec:
+        initialDelaySeconds: 20
+  persistence:
+    config:
+      enabled: true
+      accessMode: ReadWriteOnce
+      storageClass: longhorn
+      size: 1Gi
+      readOnly: false
+    media:
+      enabled: true
+      accessMode: ReadWriteOnce
+      storageClass: longhorn
+      existingClaim: shared-media
+      mountPath: /media

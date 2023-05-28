@@ -1,0 +1,7 @@
+apiVersion: v2
+name: prowlarr
+version: 0.0.0
+dependencies:
+  - name: prowlarr
+    version: 1.3.2
+    repository: https://loeken.github.io/helm-charts

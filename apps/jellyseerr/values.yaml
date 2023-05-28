@@ -1,0 +1,29 @@
+jellyseerr:
+  ingress:
+    main:
+      enabled: true
+      ingressClassName: private-nginx
+      annotations:
+        cert-manager.io/cluster-issuer: letsencrypt-prod
+        external-dns.alpha.kubernetes.io/target: 100.74.37.74
+        hajimari.io/appName: Jellyseerr
+        hajimari.io/icon: filmstrip
+      hosts:
+        - host: &jellyseer_host jellyseerr.mbund.org
+          paths:
+            - path: /
+              pathType: Prefix
+              service:
+                port: 5055
+      tls:
+        - secretName: jellyseerr-tls-certificate
+          hosts:
+            - *jellyseer_host
+  persistence:
+    config:
+      mountPath: /app/config
+      enabled: true
+      accessMode: ReadWriteOnce
+      size: 1Gi
+      storageClass: longhorn
+      readOnly: false

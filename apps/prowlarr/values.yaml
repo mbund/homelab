@@ -1,0 +1,35 @@
+prowlarr:
+  persistence:
+    config:
+      mountPath: /config
+      enabled: true
+      accessMode: ReadWriteOnce
+      size: 1Gi
+      storageClass: longhorn
+      readOnly: false
+    storage:
+      enabled: true
+      accessMode: ReadWriteMany
+      storageClass: longhorn
+      existingClaim: shared-media
+      mountPath: /storage
+  ingress:
+    main:
+      enabled: true
+      ingressClassName: private-nginx
+      annotations:
+        cert-manager.io/cluster-issuer: letsencrypt-prod
+        external-dns.alpha.kubernetes.io/target: 100.74.37.74
+        hajimari.io/appName: Prowlarr
+        hajimari.io/icon: filmstrip
+      hosts:
+        - host: &prowlarrr_host prowlarr.mbund.org
+          paths:
+            - path: /
+              pathType: Prefix
+              service:
+                port: 9696
+      tls:
+        - secretName: prowlarr-tls-certificate
+          hosts:
+            - *prowlarrr_host
