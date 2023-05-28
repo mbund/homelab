@@ -190,6 +190,7 @@ qbittorrent:
       enabled: true
       storageClass: longhorn
       mountPath: /downloads
+      accessMode: ReadWriteMany
       size: 32Gi
   addons:
     vpn:
