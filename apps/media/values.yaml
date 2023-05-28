@@ -153,6 +153,9 @@ qbittorrent:
   env:
     TZ: America/New_York
     DOCKER_MODS: ghcr.io/gabe565/linuxserver-mod-vuetorrent
+  service:
+    bittorrent:
+      enabled: true
   ingress:
     main:
       enabled: true
