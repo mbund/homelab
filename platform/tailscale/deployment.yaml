@@ -63,8 +63,16 @@ spec:
   selector:
     app: tailscale-service
   ports:
+    - name: https
+      port: 443
+      targetPort: 443
+      protocol: UDP
     - name: wireguard
       port: 41641
       targetPort: 41641
+      protocol: UDP
+    - name: stun
+      port: 3478
+      targetPort: 3478
       protocol: UDP
   type: LoadBalancer
