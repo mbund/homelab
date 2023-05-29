@@ -80,3 +80,4 @@ spec:
       targetPort: 3478
       protocol: UDP
   type: LoadBalancer
+  externalTrafficPolicy: Local
