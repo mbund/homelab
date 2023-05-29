@@ -54,3 +54,17 @@ spec:
             capabilities:
               add:
                 - NET_ADMIN
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: tailscale-service
+spec:
+  selector:
+    app: tailscale-service
+  ports:
+    - name: wireguard
+      port: 41641
+      targetPort: 41641
+      protocol: UDP
+  type: LoadBalancer
