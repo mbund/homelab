@@ -63,6 +63,10 @@ spec:
   selector:
     app: tailscale-service
   ports:
+    - name: http-test
+      port: 8000
+      targetPort: 8000
+      protocol: TCP
     - name: https
       port: 443
       targetPort: 443
