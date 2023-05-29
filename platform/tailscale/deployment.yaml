@@ -66,7 +66,7 @@ spec:
     - name: https
       port: 443
       targetPort: 443
-      protocol: UDP
+      protocol: TCP
     - name: wireguard
       port: 41641
       targetPort: 41641
