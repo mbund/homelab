@@ -24,6 +24,6 @@ ingress-nginx:
       tag: latest
     extraEnvs:
       - name: TEMPLATE_NAME
-        value: l7-dark
+        value: app-down
       - name: SHOW_DETAILS
         value: "true"
