@@ -4,10 +4,10 @@ ingress-nginx:
       custom-http-errors: >-
         401,403,404,500,501,502,503
     ingressClassResource:
-      name: relay-nginx
+      name: private
       enabled: true
       default: false
-      controllerValue: "k8s.io/relay-ingress-nginx"
+      controllerValue: "k8s.io/ingress-nginx-private"
     admissionWebhooks:
       timeoutSeconds: 30
     metrics:
@@ -16,7 +16,7 @@ ingress-nginx:
         enabled: true
     service:
       type: ClusterIP
-      clusterIP: 10.43.0.62
+      clusterIP: 10.43.0.60
   defaultBackend:
     enabled: true
     image:
@@ -27,5 +27,3 @@ ingress-nginx:
         value: app-down
       - name: SHOW_DETAILS
         value: "true"
-  tcp:
-    25565: minecraft/minecraft-minecraft:25565

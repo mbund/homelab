@@ -1,12 +1,14 @@
 gitea:
   ingress:
     enabled: true
-    className: relay-nginx
+    className: public
     annotations:
       cert-manager.io/cluster-issuer: letsencrypt-prod
       external-dns.alpha.kubernetes.io/target: relay.mbund.org
       hajimari.io/appName: Gitea
       hajimari.io/icon: git
+      hajimari.io/group: External
+      hajimari.io/instance: public
     hosts:
       - host: &host git.mbund.org
         paths:

@@ -72,8 +72,10 @@ spec:
       external-dns.alpha.kubernetes.io/target: 100.74.37.74
       hajimari.io/appName: HashiCorp Vault
       hajimari.io/icon: database-lock
+      hajimari.io/group: Internal
+      hajimari.io/instance: private
     spec:
-      ingressClassName: private-nginx
+      ingressClassName: private
       rules:
         - host: &host vault.mbund.org
           http:

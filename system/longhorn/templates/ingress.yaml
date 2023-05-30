@@ -7,8 +7,10 @@ metadata:
     cert-manager.io/cluster-issuer: letsencrypt-prod
     external-dns.alpha.kubernetes.io/target: 100.74.37.74
     hajimari.io/icon: nas
+    hajimari.io/group: Internal
+    hajimari.io/instance: private
 spec:
-  ingressClassName: private-nginx
+  ingressClassName: private
   rules:
     - host: &host longhorn.mbund.org
       http:

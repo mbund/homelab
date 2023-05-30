@@ -23,12 +23,14 @@ argo-cd:
         return hs
     ingress:
       enabled: true
-      ingressClassName: relay-nginx
+      ingressClassName: public
       annotations:
         cert-manager.io/cluster-issuer: letsencrypt-prod
         external-dns.alpha.kubernetes.io/target: relay.mbund.org
         hajimari.io/appName: ArgoCD
         hajimari.io/icon: robot
+        hajimari.io/group: External
+        hajimari.io/instance: public
       hosts:
         - &host argocd.mbund.org
       tls:

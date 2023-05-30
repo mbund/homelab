@@ -4,13 +4,14 @@ adguard-home:
   ingress:
     main:
       enabled: true
-      ingressClassName: private-nginx
+      ingressClassName: private
       annotations:
         cert-manager.io/cluster-issuer: letsencrypt-prod
         external-dns.alpha.kubernetes.io/target: 100.74.37.74
         hajimari.io/appName: Adguard Home
         hajimari.io/icon: security-network
         hajimari.io/group: Internal
+        hajimari.io/instance: private
       hosts:
         - host: &host adguard.mbund.org
           paths:

@@ -1,13 +1,14 @@
 elementweb:
   ingress:
     enabled: true
-    className: relay-nginx
+    className: public
     annotations:
       cert-manager.io/cluster-issuer: letsencrypt-prod
       external-dns.alpha.kubernetes.io/target: relay.mbund.org
       hajimari.io/appName: Element
       hajimari.io/icon: chat
       hajimari.io/group: External
+      hajimari.io/instance: public
     hosts:
       - host: &frontend_host chat.mbund.org
         paths:
