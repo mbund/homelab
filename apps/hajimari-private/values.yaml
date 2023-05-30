@@ -5,7 +5,6 @@ hajimari:
       ingressClassName: private
       annotations:
         cert-manager.io/cluster-issuer: letsencrypt-prod
-        external-dns.alpha.kubernetes.io/target: 100.74.37.74
         hajimari.io/enable: "false"
       hosts:
         - host: &host mbund.org
