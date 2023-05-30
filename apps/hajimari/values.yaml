@@ -17,6 +17,8 @@ hajimari:
           hosts:
             - *host
   hajimari:
+    instanceName: public
+    showAppGroups: true
     defaultEnable: true
     namespaceSelector:
       any: true
