@@ -18,12 +18,6 @@ adguard-home:
         - secretName: &tls-secret adguard-tls-certificate
           hosts:
             - *host
-  volumeClaimTemplates:
-    - name: tls
-      mountPath: /opt/tls
-      accessMode: ReadWriteOnce
-      secret:
-        secretName: *tls-secret
   serviceAccount:
     name: tailscale
   additionalContainers:
@@ -64,3 +58,8 @@ adguard-home:
       storageClass: longhorn
       accessMode: ReadWriteOnce
       size: 4Gi
+    tls:
+      enabled: true
+      mountPath: /opt/tls
+      type: secret
+      name: *tls-secret
