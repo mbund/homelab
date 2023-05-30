@@ -50,7 +50,7 @@ jellyseerr:
         cert-manager.io/cluster-issuer: letsencrypt-prod
         external-dns.alpha.kubernetes.io/target: 100.74.37.74
         hajimari.io/appName: Jellyseerr
-        hajimari.io/icon: filmstrip
+        hajimari.io/icon: movie-search
       hosts:
         - host: &jellyseer_host jellyseerr.mbund.org
           paths:
@@ -81,7 +81,7 @@ radarr:
         cert-manager.io/cluster-issuer: letsencrypt-prod
         external-dns.alpha.kubernetes.io/target: 100.74.37.74
         hajimari.io/appName: Radarr
-        hajimari.io/icon: filmstrip
+        hajimari.io/icon: movie
       hosts:
         - host: &radarr_host radarr.mbund.org
           paths:
@@ -135,7 +135,7 @@ prowlarr:
         cert-manager.io/cluster-issuer: letsencrypt-prod
         external-dns.alpha.kubernetes.io/target: 100.74.37.74
         hajimari.io/appName: Prowlarr
-        hajimari.io/icon: filmstrip
+        hajimari.io/icon: cloud-search
       hosts:
         - host: &prowlarrr_host prowlarr.mbund.org
           paths:
@@ -164,7 +164,7 @@ qbittorrent:
         cert-manager.io/cluster-issuer: letsencrypt-prod
         external-dns.alpha.kubernetes.io/target: 100.74.37.74
         hajimari.io/appName: QBittorrent
-        hajimari.io/icon: filmstrip
+        hajimari.io/icon: download
       hosts:
         - host: &qbittorrent_host qbittorrent.mbund.org
           paths:
