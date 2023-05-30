@@ -67,5 +67,6 @@ spec:
       port: 41641
       targetPort: 41641
       protocol: UDP
-  type: NodePort
+  type: LoadBalancer
+  loadBalancerIP: 192.168.1.103
   externalTrafficPolicy: Local
