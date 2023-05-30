@@ -1,0 +1,21 @@
+adguard-home:
+  env:
+    TZ: America/New_York
+  ingress:
+    main:
+      enabled: true
+      ingressClassName: private-nginx
+      annotations:
+        cert-manager.io/cluster-issuer: letsencrypt-prod
+        external-dns.alpha.kubernetes.io/target: 100.74.37.74
+        hajimari.io/appName: Adguard Home
+        hajimari.io/icon: security-network
+      hosts:
+        - host: &host adguard.mbund.org
+          paths:
+            - path: /
+              pathType: Prefix
+      tls:
+        - secretName: adguard-tls-certificate
+          hosts:
+            - *host

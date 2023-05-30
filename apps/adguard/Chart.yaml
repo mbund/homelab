@@ -1,0 +1,7 @@
+apiVersion: v2
+name: adguard
+version: 0.0.0
+dependencies:
+  - name: adguard-home
+    version: 0.3.0
+    repository: https://loeken.github.io/helm-charts
