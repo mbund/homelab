@@ -1,5 +1,8 @@
 ingress-nginx:
   controller:
+    config:
+      custom-http-errors: >-
+        401,403,404,500,501,502,503
     ingressClassResource:
       name: private-nginx
       enabled: true
@@ -14,3 +17,13 @@ ingress-nginx:
     service:
       type: ClusterIP
       clusterIP: 10.43.0.60
+  defaultBackend:
+    enabled: true
+    image:
+      repository: ghcr.io/tarampampam/error-pages
+      tag: latest
+    extraEnvs:
+      - name: TEMPLATE_NAME
+        value: l7-dark
+      - name: SHOW_DETAILS
+        value: "true"
