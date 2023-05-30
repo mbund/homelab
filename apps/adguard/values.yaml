@@ -20,7 +20,7 @@ adguard-home:
             - *host
   serviceAccount:
     name: tailscale
-  sidecars:
+  additionalContainers:
     tailscale:
       name: tailscale
       imagePullPolicy: IfNotPresent
