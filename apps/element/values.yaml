@@ -7,6 +7,7 @@ elementweb:
       external-dns.alpha.kubernetes.io/target: relay.mbund.org
       hajimari.io/appName: Element
       hajimari.io/icon: chat
+      hajimari.io/group: External
     hosts:
       - host: &frontend_host chat.mbund.org
         paths:

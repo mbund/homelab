@@ -10,6 +10,7 @@ adguard-home:
         external-dns.alpha.kubernetes.io/target: 100.74.37.74
         hajimari.io/appName: Adguard Home
         hajimari.io/icon: security-network
+        hajimari.io/group: Internal
       hosts:
         - host: &host adguard.mbund.org
           paths:
