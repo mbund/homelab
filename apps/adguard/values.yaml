@@ -23,6 +23,8 @@ adguard-home:
       enabled: false
     dns-udp:
       enabled: false
+  serviceAccount:
+    name: tailscale
   sidecars:
     tailscale:
       name: tailscale
