@@ -15,9 +15,15 @@ adguard-home:
           paths:
             - path: /
       tls:
-        - secretName: adguard-tls-certificate
+        - secretName: &tls-secret adguard-tls-certificate
           hosts:
             - *host
+  volumeClaimTemplates:
+    - name: tls
+      mountPath: /opt/tls
+      accessMode: ReadWriteOnce
+      secret:
+        secretName: *tls-secret
   serviceAccount:
     name: tailscale
   additionalContainers:
