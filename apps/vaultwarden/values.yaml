@@ -8,7 +8,6 @@ vaultwarden:
         external-dns.alpha.kubernetes.io/target: 100.74.37.74
         hajimari.io/icon: shield-account
         hajimari.io/group: Internal
-        hajimari.io/instance: public,private
       hosts:
         - host: &host password.mbund.org
           paths:

@@ -7,7 +7,6 @@ metadata:
     external-dns.alpha.kubernetes.io/target: relay.mbund.org
     hajimari.io/icon: draw
     hajimari.io/group: External
-    hajimari.io/instance: public
 spec:
   ingressClassName: public
   rules:

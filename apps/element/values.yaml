@@ -8,7 +8,6 @@ elementweb:
       hajimari.io/appName: Element
       hajimari.io/icon: chat
       hajimari.io/group: External
-      hajimari.io/instance: public
     hosts:
       - host: &frontend_host chat.mbund.org
         paths:

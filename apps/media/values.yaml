@@ -13,7 +13,6 @@ jellyfin:
         hajimari.io/appName: Jellyfin
         hajimari.io/icon: filmstrip
         hajimari.io/group: Internal
-        hajimari.io/instance: public,private
       hosts:
         - host: &jellyfin_host jellyfin.mbund.org
           paths:
@@ -54,7 +53,6 @@ jellyseerr:
         hajimari.io/appName: Jellyseerr
         hajimari.io/icon: movie-search
         hajimari.io/group: Internal
-        hajimari.io/instance: public,private
       hosts:
         - host: &jellyseer_host jellyseerr.mbund.org
           paths:
@@ -87,7 +85,6 @@ radarr:
         hajimari.io/appName: Radarr
         hajimari.io/icon: movie
         hajimari.io/group: Internal
-        hajimari.io/instance: public,private
       hosts:
         - host: &radarr_host radarr.mbund.org
           paths:
@@ -143,7 +140,6 @@ prowlarr:
         hajimari.io/appName: Prowlarr
         hajimari.io/icon: cloud-search
         hajimari.io/group: Internal
-        hajimari.io/instance: public,private
       hosts:
         - host: &prowlarrr_host prowlarr.mbund.org
           paths:
@@ -174,7 +170,6 @@ qbittorrent:
         hajimari.io/appName: QBittorrent
         hajimari.io/icon: download
         hajimari.io/group: Internal
-        hajimari.io/instance: public,private
       hosts:
         - host: &qbittorrent_host qbittorrent.mbund.org
           paths:

@@ -10,7 +10,6 @@ kube-prometheus-stack:
         hajimari.io/appName: Grafana
         hajimari.io/icon: chart-bar
         hajimari.io/group: External
-        hajimari.io/instance: public
       hosts:
         - &host grafana.mbund.org
       tls:

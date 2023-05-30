@@ -2,10 +2,10 @@ hajimari:
   ingress:
     main:
       enabled: true
-      ingressClassName: public
+      ingressClassName: private
       annotations:
         cert-manager.io/cluster-issuer: letsencrypt-prod
-        external-dns.alpha.kubernetes.io/target: relay.mbund.org
+        external-dns.alpha.kubernetes.io/target: 100.74.37.74
         hajimari.io/enable: "false"
       hosts:
         - host: &host mbund.org
@@ -17,7 +17,6 @@ hajimari:
           hosts:
             - *host
   hajimari:
-    instanceName: public
     showAppGroups: true
     defaultEnable: true
     namespaceSelector:
