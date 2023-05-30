@@ -1,0 +1,6 @@
+mosquitto:
+  env:
+    TZ: America/New_York
+  auth:
+    enabled: true
+  addListener: false
