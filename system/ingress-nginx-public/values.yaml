@@ -29,3 +29,4 @@ ingress-nginx:
         value: "true"
   tcp:
     25565: minecraft/minecraft-minecraft:25565
+    1883: mosquitto/mosquitto:1883
