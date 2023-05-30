@@ -9,14 +9,14 @@ elementweb:
       hajimari.io/icon: chat
       hajimari.io/group: External
     hosts:
-      - host: &frontend_host chat.mbund.org
+      - host: &host chat.mbund.org
         paths:
           - path: /
             pathType: Prefix
     tls:
       - secretName: element-tls-certificate
         hosts:
-          - *frontend_host
+          - *host
   config:
     default:
       base_url: https://mbund.org
