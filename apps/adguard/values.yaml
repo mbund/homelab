@@ -14,11 +14,37 @@ adguard-home:
         - host: &host adguard.mbund.org
           paths:
             - path: /
-              pathType: Prefix
       tls:
         - secretName: adguard-tls-certificate
           hosts:
             - *host
+  service:
+    dns-tcp:
+      enabled: false
+    dns-udp:
+      enabled: false
+  sidecars:
+    - name: tailscale
+      imagePullPolicy: Always
+      image: ghcr.io/tailscale/tailscale:v1.40.1
+      env:
+        - name: TS_KUBE_SECRET
+          value: tailscale-login
+        - name: TS_USERSPACE
+          value: "false"
+        - name: TS_AUTHKEY
+          valueFrom:
+            secretKeyRef:
+              name: tailscale-auth
+              key: TS_AUTHKEY
+        - name: TS_AUTH_ONCE
+          value: "true"
+        - name: TS_EXTRA_ARGS
+          value: --hostname=adguard
+      securityContext:
+        capabilities:
+          add:
+            - NET_ADMIN
   persistence:
     config:
       enabled: true
