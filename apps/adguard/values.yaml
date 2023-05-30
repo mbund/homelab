@@ -18,17 +18,12 @@ adguard-home:
         - secretName: adguard-tls-certificate
           hosts:
             - *host
-  service:
-    dns-tcp:
-      enabled: false
-    dns-udp:
-      enabled: false
   serviceAccount:
     name: tailscale
   sidecars:
     tailscale:
       name: tailscale
-      imagePullPolicy: Always
+      imagePullPolicy: IfNotPresent
       image: ghcr.io/tailscale/tailscale:v1.40.1
       env:
         - name: TS_KUBE_SECRET

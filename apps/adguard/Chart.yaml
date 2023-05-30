@@ -3,5 +3,5 @@ name: adguard
 version: 0.0.0
 dependencies:
   - name: adguard-home
-    version: 0.3.0
-    repository: https://charts.gabe565.com
+    version: 5.5.2
+    repository: https://geek-cookbook.github.io/charts
