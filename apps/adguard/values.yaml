@@ -19,3 +19,18 @@ adguard-home:
         - secretName: adguard-tls-certificate
           hosts:
             - *host
+  persistence:
+    config:
+      enabled: true
+      retain: true
+      mountPath: /opt/adguardhome/conf
+      storageClass: longhorn
+      accessMode: ReadWriteOnce
+      size: 4Gi
+    data:
+      enabled: true
+      retain: true
+      mountPath: /opt/adguardhome/work
+      storageClass: longhorn
+      accessMode: ReadWriteOnce
+      size: 4Gi
