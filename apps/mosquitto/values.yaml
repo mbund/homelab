@@ -1,6 +1,36 @@
 mosquitto:
   env:
     TZ: America/New_York
-  auth:
-    enabled: true
-  addListener: false
+  ingress:
+    main:
+      enabled: true
+      ingressClassName: public
+      annotations:
+        cert-manager.io/cluster-issuer: letsencrypt-prod
+        external-dns.alpha.kubernetes.io/target: relay.mbund.org
+        hajimari.io/enable: "false"
+      hosts:
+        - host: &host mqtt.mbund.org
+          paths:
+            - backend:
+                service:
+                  name: mqtt
+                  port:
+                    number: 1883
+              path: /
+              pathType: Prefix
+      tls:
+        - secretName: mosquitto-tls-certificate
+          hosts:
+            - *host
+  persistence:
+    data:
+      enabled: true
+      storageClass: longhorn
+      size: 2Gi
+      mountPath: /mosquitto/data
+    configinc:
+      enabled: true
+      storageClass: longhorn
+      size: 2Gi
+      mountPath: /mosquitto/configinc
