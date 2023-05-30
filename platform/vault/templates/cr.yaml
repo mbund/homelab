@@ -73,7 +73,7 @@ spec:
       hajimari.io/appName: HashiCorp Vault
       hajimari.io/icon: database-lock
       hajimari.io/group: Internal
-      hajimari.io/instance: private
+      hajimari.io/instance: public,private
     spec:
       ingressClassName: private
       rules:

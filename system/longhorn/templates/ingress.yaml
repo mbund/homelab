@@ -8,7 +8,7 @@ metadata:
     external-dns.alpha.kubernetes.io/target: 100.74.37.74
     hajimari.io/icon: nas
     hajimari.io/group: Internal
-    hajimari.io/instance: private
+    hajimari.io/instance: public,private
 spec:
   ingressClassName: private
   rules:

@@ -11,7 +11,7 @@ adguard-home:
         hajimari.io/appName: Adguard Home
         hajimari.io/icon: security-network
         hajimari.io/group: Internal
-        hajimari.io/instance: private
+        hajimari.io/instance: public,private
       hosts:
         - host: &host adguard.mbund.org
           paths:
