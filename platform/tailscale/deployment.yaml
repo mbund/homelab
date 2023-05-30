@@ -63,21 +63,9 @@ spec:
   selector:
     app: tailscale-service
   ports:
-    - name: http-test
-      port: 8000
-      targetPort: 8000
-      protocol: TCP
-    - name: https
-      port: 443
-      targetPort: 443
-      protocol: TCP
     - name: wireguard
       port: 41641
       targetPort: 41641
       protocol: UDP
-    - name: stun
-      port: 3478
-      targetPort: 3478
-      protocol: UDP
-  type: LoadBalancer
+  type: NodePort
   externalTrafficPolicy: Local
