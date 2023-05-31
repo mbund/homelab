@@ -1,0 +1,20 @@
+emqx:
+  replicaCount: 1
+  persistence:
+    enabled: true
+    storageClass: longhorn
+  ingress:
+    dashboard:
+      enabled: true
+      annotations:
+        kubernetes.io/ingress.class: private
+        cert-manager.io/cluster-issuer: letsencrypt-prod
+        external-dns.alpha.kubernetes.io/target: 100.74.37.74
+        hajimari.io/appName: EMQX
+        hajimari.io/icon: filmstrip
+        hajimari.io/group: Internal
+      path: /
+      hosts:
+        - &dashboard_host emqx.mbund.org
+      tls:
+        - *dashboard_host
