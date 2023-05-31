@@ -6,15 +6,31 @@ emqx:
   ingress:
     dashboard:
       enabled: true
+      ingressClassName: private
       annotations:
-        kubernetes.io/ingress.class: private
         cert-manager.io/cluster-issuer: letsencrypt-prod
         external-dns.alpha.kubernetes.io/target: 100.74.37.74
         hajimari.io/appName: EMQX
         hajimari.io/icon: filmstrip
         hajimari.io/group: Internal
-      path: /
       hosts:
         - &dashboard_host emqx.mbund.org
       tls:
         - *dashboard_host
+    mqtt:
+      enabled: true
+      ingressClassName: public
+      annotations:
+        cert-manager.io/cluster-issuer: letsencrypt-prod
+        external-dns.alpha.kubernetes.io/target: relay.mbund.org
+        hajimari.io/enable: "false"
+      hosts:
+        - &mqtt_host mqtt.mbund.org
+      tls:
+        - *mqtt_host
+  ssl:
+    enabled: true
+    issuer:
+      name: letsencrypt-prod
+  metrics:
+    enabled: true
