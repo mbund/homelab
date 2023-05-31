@@ -34,7 +34,7 @@ emqx:
             - *mqtt_host
   ssl:
     enabled: true
-    issuer:
-      name: letsencrypt-prod
+    useExisting: true
+    existingName: emqx-mqtt-tls-certificate
   metrics:
     enabled: true
