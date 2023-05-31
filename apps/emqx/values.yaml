@@ -16,7 +16,9 @@ emqx:
       hosts:
         - &dashboard_host emqx.mbund.org
       tls:
-        - *dashboard_host
+        - secretName: emqx-dashboard-tls-certificate
+          hosts:
+            - *dashboard_host
     mqtt:
       enabled: true
       ingressClassName: public
@@ -27,7 +29,9 @@ emqx:
       hosts:
         - &mqtt_host mqtt.mbund.org
       tls:
-        - *mqtt_host
+        - secretName: emqx-mqtt-tls-certificate
+          hosts:
+            - *mqtt_host
   ssl:
     enabled: true
     issuer:
