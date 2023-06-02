@@ -1,9 +1,3 @@
-# TODO create user and access token
-# users:
-#   - name: renovate
-#     fullName: Renovate
-#     email: bot@renovateapp.com
-#     tokenSecretRef: renovate-secret # ???
 organizations:
   - name: ops
     description: Operations
@@ -17,5 +11,5 @@ repositories:
     private: false
     migrate:
       source: https://github.com/mbund/homelab
-      mirror: false
+      mirror: true
     hook: true
