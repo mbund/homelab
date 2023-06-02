@@ -1,4 +1,6 @@
 pihole:
+  image:
+    tag: "2023.05.2"
   extraEnvVars:
     TZ: America/New_York
   ingress:
@@ -17,9 +19,6 @@ pihole:
       - secretName: pihole-tls-certificate
         hosts:
           - *host
-  dnsmasq:
-    customDnsEntries:
-      - address=/relay.mbund.org/100.100.120.52
   persistentVolumeClaim:
     enabled: true
     storageClass: longhorn
