@@ -52,6 +52,6 @@ tasks:
     cmds:
       - terraform init
       - while [[ -z $(kubectl get namespace cert-manager 2>/dev/null) ]]; do sleep 1; done;
-      - while [[ -z $(kubectl get namespace external-dns 2>/dev/null) ]]; do sleep 1; done;
+      - while [[ -z $(kubectl get namespace external-dns-cloudflare 2>/dev/null) ]]; do sleep 1; done;
       - while [[ -z $(kubectl get namespace tailscale 2>/dev/null) ]]; do sleep 1; done;
       - terraform apply
