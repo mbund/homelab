@@ -1,0 +1,28 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: pihole
+  namespace: {{ .Release.Namespace }}
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+    external-dns.alpha.kubernetes.io/target: private-relay.mbund.org
+    hajimari.io/appName: Pi-hole
+    hajimari.io/icon: security-network
+    hajimari.io/group: Internal
+spec:
+  ingressClassName: private
+  rules:
+    - host: &host pihole.mbund.org
+      http:
+        paths:
+          - backend:
+              service:
+                name: pihole-tcp
+                port:
+                  number: 80
+            path: /admin
+            pathType: Prefix
+  tls:
+    - secretName: pihole-tls-certificate
+      hosts:
+        - *host

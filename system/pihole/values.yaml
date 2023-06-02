@@ -1,26 +1,33 @@
 pihole:
-  image:
-    tag: "2023.05.2"
-  extraEnvVars:
-    TZ: America/New_York
-  ingress:
-    enabled: true
-    ingressClassName: private
-    annotations:
-      cert-manager.io/cluster-issuer: letsencrypt-prod
-      external-dns.alpha.kubernetes.io/target: 100.74.37.74
-      hajimari.io/appName: Pi-hole
-      hajimari.io/icon: security-network
-      hajimari.io/group: Internal
-    path: /admin
-    hosts:
-      - &host pihole.mbund.org
-    tls:
-      - secretName: pihole-tls-certificate
-        hosts:
-          - *host
-  persistentVolumeClaim:
+  pihole:
+    virtualHost: pihole.mbund.org
+    timezone: America/New_York
+    image:
+      tag: "2023.05.2"
+    sidecars:
+      - name: tailscale
+        imagePullPolicy: IfNotPresent
+        image: ghcr.io/tailscale/tailscale:v1.40.1
+        env:
+          - name: TS_KUBE_SECRET
+            value: tailscale-login
+          - name: TS_USERSPACE
+            value: "false"
+          - name: TS_AUTHKEY
+            valueFrom:
+              secretKeyRef:
+                name: tailscale-auth
+                key: TS_AUTHKEY
+          - name: TS_AUTH_ONCE
+            value: "true"
+          - name: TS_EXTRA_ARGS
+            value: --hostname=pihole
+        securityContext:
+          capabilities:
+            add:
+              - NET_ADMIN
+  serviceAccount:
+    name: tailscale
+  persistence:
     enabled: true
     storageClass: longhorn
-  admin:
-    existingSecret: admin-secret
