@@ -1,28 +1,38 @@
+{{- if .Values.ingress.enabled -}}
+{{- $serviceName := printf "%s-%s" (include "pihole.fullname" .) "web" -}}
+{{- $ingressPath := .Values.ingress.path -}}
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: pihole
-  namespace: {{ .Release.Namespace }}
+  name: {{ template "pihole.fullname" . }}
+  labels:
+    app: {{ template "pihole.name" . }}
+    chart: {{ .Chart.Name }}-{{ .Chart.Version | replace "+" "_" }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+  {{- with .Values.ingress.annotations }}
   annotations:
-    cert-manager.io/cluster-issuer: letsencrypt-prod
-    external-dns.alpha.kubernetes.io/target: private-relay.mbund.org
-    hajimari.io/appName: Pi-hole
-    hajimari.io/icon: security-network
-    hajimari.io/group: Internal
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
 spec:
-  ingressClassName: private
+{{- if .Values.ingress.ingressClassName }}
+  ingressClassName: {{ .Values.ingress.ingressClassName }}
+{{- end }}
+{{- if .Values.ingress.tls }}
+  tls:
+{{ toYaml .Values.ingress.tls | indent 4 }}
+{{- end }}
   rules:
-    - host: &host pihole.mbund.org
+  {{- range .Values.ingress.hosts }}
+    - host: {{ . | quote }}
       http:
         paths:
-          - backend:
+          - path: {{ $ingressPath }}
+            pathType: ImplementationSpecific
+            backend:
               service:
-                name: pihole-tcp
-                port:
-                  number: 80
-            path: /admin
-            pathType: Prefix
-  tls:
-    - secretName: pihole-tls-certificate
-      hosts:
-        - *host
+                name: {{ $serviceName }}
+                port: 
+                  name: http
+  {{- end }}
+{{- end }}
