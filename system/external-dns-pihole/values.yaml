@@ -5,15 +5,7 @@ external-dns:
     pullPolicy: IfNotPresent
   provider: pihole
   registry: noop
-  env:
-    - name: EXTERNAL_DNS_PIHOLE_PASSWORD
-      valueFrom:
-        secretKeyRef:
-          name: admin-secret
-          key: password
   extraArgs:
-    - --ingress-class=public
-    - --ingress-class=private
     - --pihole-server=http://pihole-web.pihole.svc.cluster.local
   metrics:
     enabled: true

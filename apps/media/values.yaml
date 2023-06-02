@@ -9,7 +9,7 @@ jellyfin:
       ingressClassName: private
       annotations:
         cert-manager.io/cluster-issuer: letsencrypt-prod
-        external-dns.alpha.kubernetes.io/target: 100.74.37.74
+        external-dns.alpha.kubernetes.io/target: private-relay.mbund.org
         hajimari.io/appName: Jellyfin
         hajimari.io/icon: filmstrip
         hajimari.io/group: Internal
@@ -49,7 +49,7 @@ jellyseerr:
       ingressClassName: private
       annotations:
         cert-manager.io/cluster-issuer: letsencrypt-prod
-        external-dns.alpha.kubernetes.io/target: 100.74.37.74
+        external-dns.alpha.kubernetes.io/target: private-relay.mbund.org
         hajimari.io/appName: Jellyseerr
         hajimari.io/icon: movie-search
         hajimari.io/group: Internal
@@ -81,7 +81,7 @@ radarr:
       ingressClassName: private
       annotations:
         cert-manager.io/cluster-issuer: letsencrypt-prod
-        external-dns.alpha.kubernetes.io/target: 100.74.37.74
+        external-dns.alpha.kubernetes.io/target: private-relay.mbund.org
         hajimari.io/appName: Radarr
         hajimari.io/icon: movie
         hajimari.io/group: Internal
@@ -136,7 +136,7 @@ prowlarr:
       ingressClassName: private
       annotations:
         cert-manager.io/cluster-issuer: letsencrypt-prod
-        external-dns.alpha.kubernetes.io/target: 100.74.37.74
+        external-dns.alpha.kubernetes.io/target: private-relay.mbund.org
         hajimari.io/appName: Prowlarr
         hajimari.io/icon: cloud-search
         hajimari.io/group: Internal
@@ -166,7 +166,7 @@ qbittorrent:
       ingressClassName: private
       annotations:
         cert-manager.io/cluster-issuer: letsencrypt-prod
-        external-dns.alpha.kubernetes.io/target: 100.74.37.74
+        external-dns.alpha.kubernetes.io/target: private-relay.mbund.org
         hajimari.io/appName: QBittorrent
         hajimari.io/icon: download
         hajimari.io/group: Internal

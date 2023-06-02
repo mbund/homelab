@@ -11,8 +11,6 @@ external-dns:
         secretKeyRef:
           name: cloudflare-api-token
           key: cloudflare_api_token
-  extraArgs:
-    - --ingress-class=public
   metrics:
     enabled: true
     serviceMonitor:
