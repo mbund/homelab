@@ -1,0 +1,11 @@
+speedtest-exporter:
+  env:
+    TZ: America/New_York
+  image:
+    tag: v3.5.3
+  metrics:
+    enabled: true
+    serviceMonitor:
+      interval: 30m
+    prometheusRule:
+      enabled: true
