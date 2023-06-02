@@ -19,3 +19,8 @@ pihole:
       - secretName: pihole-tls-certificate
         hosts:
           - *host
+  persistentVolumeClaim:
+    enabled: true
+    storageClass: longhorn
+  admin:
+    existingSecret: admin-secret
