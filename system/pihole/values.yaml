@@ -27,6 +27,7 @@ pihole:
             add:
               - NET_ADMIN
   serviceAccount:
+    create: false
     name: tailscale
   persistence:
     enabled: true
