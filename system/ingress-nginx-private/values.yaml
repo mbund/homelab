@@ -27,3 +27,7 @@ ingress-nginx:
         value: app-down
       - name: SHOW_DETAILS
         value: "true"
+  tcp:
+    53: pihole/pihole-dns-tcp:53
+  udp:
+    53: pihole/pihole-dns-udp:53

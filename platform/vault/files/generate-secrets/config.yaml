@@ -36,8 +36,9 @@
       length: 32
       special: false
 
-# Minio
-- path: minio/user
+# Pi-hole
+- path: pihole/admin
   data:
     - key: password
       length: 32
+      special: false

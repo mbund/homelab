@@ -8,6 +8,7 @@ external-dns:
           name: cloudflare-api-token
           key: cloudflare_api_token
   extraArgs:
+    - --ingress-class=public
     - --annotation-filter=external-dns.alpha.kubernetes.io/exclude notin (true)
   metrics:
     enabled: true

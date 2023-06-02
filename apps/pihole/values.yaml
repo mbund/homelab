@@ -1,0 +1,26 @@
+pihole:
+  extraEnvVars:
+    TZ: America/New_York
+  ingress:
+    enabled: true
+    ingressClassName: private
+    annotations:
+      cert-manager.io/cluster-issuer: letsencrypt-prod
+      external-dns.alpha.kubernetes.io/target: 100.74.37.74
+      hajimari.io/appName: Pi-hole
+      hajimari.io/icon: security-network
+      hajimari.io/group: Internal
+    hosts:
+      - &host pihole.mbund.org
+    tls:
+      - secretName: pihole-tls-certificate
+        hosts:
+          - *host
+  dnsmasq:
+    customDnsEntries:
+      - address=/relay.mbund.org/100.100.120.52
+  persistentVolumeClaim:
+    enabled: true
+    storageClass: longhorn
+  admin:
+    existingSecret: admin-secret

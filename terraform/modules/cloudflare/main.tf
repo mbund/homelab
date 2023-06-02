@@ -51,7 +51,7 @@ resource "cloudflare_api_token" "external_dns" {
 resource "kubernetes_secret" "external_dns_token" {
   metadata {
     name      = "cloudflare-api-token"
-    namespace = "external-dns"
+    namespace = "external-dns-cloudflare"
   }
 
   data = {
