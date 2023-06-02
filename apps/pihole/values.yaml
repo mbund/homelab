@@ -10,6 +10,7 @@ pihole:
       hajimari.io/appName: Pi-hole
       hajimari.io/icon: security-network
       hajimari.io/group: Internal
+    path: /admin
     hosts:
       - &host pihole.mbund.org
     tls:
