@@ -11,7 +11,7 @@ emqx:
         cert-manager.io/cluster-issuer: letsencrypt-prod
         external-dns.alpha.kubernetes.io/target: private-relay.mbund.org
         hajimari.io/appName: EMQX
-        hajimari.io/icon: filmstrip
+        hajimari.io/icon: access-point
         hajimari.io/group: Internal
       hosts:
         - &dashboard_host emqx.mbund.org
