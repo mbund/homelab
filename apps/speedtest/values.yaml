@@ -6,6 +6,4 @@ speedtest-exporter:
   metrics:
     enabled: true
     serviceMonitor:
-      interval: 30m
-    prometheusRule:
-      enabled: true
+      interval: 10m
