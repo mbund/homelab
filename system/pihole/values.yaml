@@ -30,10 +30,6 @@ persistentVolumeClaim:
 admin:
   existingSecret: admin-secret
   passwordKey: "password"
-podAnnotations:
-  prometheus.io/port: "9617"
-  prometheus.io/path: "/metrics"
-  prometheus.io/scrape: "true"
 monitoring:
   podMonitor:
     enabled: false

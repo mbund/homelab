@@ -6,9 +6,9 @@ metadata:
 spec:
   selector:
     matchLabels:
-      app: pihole
+      app: pihole-dns-tcp
   namespaceSelector:
     matchNames:
       - {{ .Release.Namespace }}
   endpoints:
-    - port: 9617
+    - port: prometheus
