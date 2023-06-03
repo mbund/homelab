@@ -1,7 +1,7 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: {{ printf "%s-ingress" (include "uptime-kuma.fullname" . ) }}
+  name: uptime-kuma-ingress
   namespace: {{ .Release.Namespace }}
   annotations:
     cert-manager.io/cluster-issuer: letsencrypt-prod
@@ -16,9 +16,9 @@ spec:
         paths:
           - backend:
               service:
-                name: {{ printf "%s-web" (include "uptime-kuma.fullname" . ) }}
+                name: uptime-kuma-web
                 port:
-                  number: {{ .Values.ports.http.port }}
+                  number: 3001
             path: /
             pathType: Prefix
   tls:
