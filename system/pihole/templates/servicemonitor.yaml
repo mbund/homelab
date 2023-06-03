@@ -6,7 +6,7 @@ metadata:
 spec:
   selector:
     matchLabels:
-      app: pihole-dns-tcp
+      app: pihole
   namespaceSelector:
     matchNames:
       - {{ .Release.Namespace }}
