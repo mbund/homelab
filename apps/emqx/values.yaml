@@ -23,18 +23,15 @@ emqx:
       enabled: true
       ingressClassName: public
       annotations:
-        cert-manager.io/cluster-issuer: letsencrypt-prod
         external-dns.alpha.kubernetes.io/target: relay.mbund.org
         hajimari.io/enable: "false"
       hosts:
         - &mqtt_host mqtt.mbund.org
-      tls:
-        - secretName: emqx-mqtt-tls-certificate
-          hosts:
-            - *mqtt_host
   ssl:
     enabled: true
-    useExisting: true
-    existingName: emqx-mqtt-tls-certificate
+    issuer:
+      name: letsencrypt-prod
+    dnsnames:
+      - *mqtt_host
   metrics:
     enabled: true
