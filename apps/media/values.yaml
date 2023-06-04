@@ -22,9 +22,9 @@ jellyfin:
         - secretName: jellyfin-tls-certificate
           hosts:
             - *jellyfin_host
+  nodeSelector:
+    gpu: available
   resources:
-    requests:
-      gpu.intel.com/i915: 1
     limits:
       gpu.intel.com/i915: 1
   persistence:
