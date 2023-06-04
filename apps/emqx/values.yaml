@@ -33,5 +33,8 @@ emqx:
       name: letsencrypt-prod
     dnsnames:
       - *mqtt_host
+  emqxConfig:
+    EMQX_LISTENERS__SSL__DEFAULT__SSL_OPTIONS__KEYFILE: /tmp/ssl/tls.key
+    EMQX_LISTENERS__SSL__DEFAULT__SSL_OPTIONS__CERTFILE: /tmp/ssl/tls.crt
   metrics:
     enabled: true
