@@ -25,7 +25,7 @@ jellyfin:
   runtimeClassName: nvidia
   resources:
     limits:
-      nvidia.com/gpu: 1
+      kubernetes.io/hostname: k8s-master-1
   persistence:
     config:
       enabled: true
