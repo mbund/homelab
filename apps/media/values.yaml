@@ -22,6 +22,9 @@ jellyfin:
         - secretName: jellyfin-tls-certificate
           hosts:
             - *jellyfin_host
+  service:
+    main:
+      type: LoadBalancer
   runtimeClassName: nvidia
   persistence:
     config:
