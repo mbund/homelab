@@ -1,0 +1,4 @@
+nvidia-device-plugin:
+  # gpu feature discovery
+  gfd:
+    enabled: true
