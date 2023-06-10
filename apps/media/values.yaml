@@ -22,10 +22,15 @@ jellyfin:
         - secretName: jellyfin-tls-certificate
           hosts:
             - *jellyfin_host
+  runtimeClassName: nvidia
+  resources:
+    requests:
+      nvidia.com/gpu: 1
+    limits:
+      nvidia.com/gpu: 1
   service:
     main:
       type: LoadBalancer
-  runtimeClassName: nvidia
   persistence:
     config:
       enabled: true
@@ -44,10 +49,6 @@ jellyfin:
       storageClass: longhorn
       accessMode: ReadWriteMany
       existingClaim: shared-media
-    dev:
-      enabled: true
-      type: hostPath
-      hostPath: /dev
 jellyseerr:
   global:
     nameOverride: jellyseerr
