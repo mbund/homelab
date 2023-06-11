@@ -2,17 +2,17 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    app: tailscale-relay
-  name: tailscale-relay
+    app: tailscale
+  name: tailscale
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: tailscale-relay
+      app: tailscale
   template:
     metadata:
       labels:
-        app: tailscale-relay
+        app: tailscale
     spec:
       serviceAccountName: tailscale
       initContainers:
@@ -36,7 +36,7 @@ spec:
           image: ghcr.io/tailscale/tailscale:v1.40.1
           env:
             - name: TS_KUBE_SECRET
-              value: tailscale-login-relay
+              value: tailscale-login
             - name: TS_USERSPACE
               value: "false"
             - name: TS_AUTHKEY
@@ -45,12 +45,28 @@ spec:
                   name: tailscale-auth
                   key: TS_AUTHKEY
             - name: TS_DEST_IP
-              value: 10.43.0.62
+              value: 10.43.0.60
             - name: TS_AUTH_ONCE
               value: "true"
             - name: TS_EXTRA_ARGS
-              value: --hostname=homelab-relay
+              value: --hostname=homelab-private
           securityContext:
             capabilities:
               add:
                 - NET_ADMIN
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: tailscale-service
+spec:
+  selector:
+    app: tailscale-service
+  ports:
+    - name: wireguard
+      port: 41641
+      targetPort: 41641
+      protocol: UDP
+  type: LoadBalancer
+  loadBalancerIP: 192.168.1.103
+  externalTrafficPolicy: Local
