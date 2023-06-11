@@ -105,10 +105,117 @@ radarr:
         - secretName: radarr-tls-certificate
           hosts:
             - *radarr_host
-  probes:
-    startup:
-      spec:
-        initialDelaySeconds: 20
+  persistence:
+    config:
+      enabled: true
+      accessMode: ReadWriteOnce
+      storageClass: longhorn
+      size: 1Gi
+      readOnly: false
+    media:
+      enabled: true
+      accessMode: ReadWriteOnce
+      storageClass: longhorn
+      existingClaim: shared-media
+      mountPath: /media
+sonarr:
+  global:
+    nameOverride: sonarr
+  ingress:
+    main:
+      enabled: true
+      ingressClassName: private
+      annotations:
+        cert-manager.io/cluster-issuer: letsencrypt-prod
+        external-dns.alpha.kubernetes.io/target: private-relay.mbund.org
+        hajimari.io/appName: Sonarr
+        hajimari.io/icon: television-classic
+        hajimari.io/group: Internal
+      hosts:
+        - host: &sonarr_host sonarr.mbund.org
+          paths:
+            - path: /
+              pathType: Prefix
+              service:
+                port: 8989
+      tls:
+        - secretName: sonarr-tls-certificate
+          hosts:
+            - *sonarr_host
+  persistence:
+    config:
+      enabled: true
+      accessMode: ReadWriteOnce
+      storageClass: longhorn
+      size: 1Gi
+      readOnly: false
+    media:
+      enabled: true
+      accessMode: ReadWriteOnce
+      storageClass: longhorn
+      existingClaim: shared-media
+      mountPath: /media
+bazarr:
+  global:
+    nameOverride: bazarr
+  ingress:
+    main:
+      enabled: true
+      ingressClassName: private
+      annotations:
+        cert-manager.io/cluster-issuer: letsencrypt-prod
+        external-dns.alpha.kubernetes.io/target: private-relay.mbund.org
+        hajimari.io/appName: Bazarr
+        hajimari.io/icon: subtitles
+        hajimari.io/group: Internal
+      hosts:
+        - host: &bazarr_host bazarr.mbund.org
+          paths:
+            - path: /
+              pathType: Prefix
+              service:
+                port: 6767
+      tls:
+        - secretName: bazarr-tls-certificate
+          hosts:
+            - *bazarr_host
+  persistence:
+    config:
+      enabled: true
+      accessMode: ReadWriteOnce
+      storageClass: longhorn
+      size: 1Gi
+      readOnly: false
+    media:
+      enabled: true
+      accessMode: ReadWriteOnce
+      storageClass: longhorn
+      existingClaim: shared-media
+      mountPath: /media
+lidarr:
+  global:
+    nameOverride: lidarr
+  ingress:
+    main:
+      enabled: true
+      ingressClassName: private
+      annotations:
+        cert-manager.io/cluster-issuer: letsencrypt-prod
+        external-dns.alpha.kubernetes.io/target: private-relay.mbund.org
+        hajimari.io/appName: Lidarr
+        hajimari.io/icon: music
+        hajimari.io/group: Internal
+      hosts:
+        - host: &lidarr_host lidarr.mbund.org
+          paths:
+            - path: /
+              pathType: Prefix
+              service:
+                port: 8686
+      tls:
+        - secretName: lidarr-tls-certificate
+          hosts:
+            - *lidarr_host
   persistence:
     config:
       enabled: true
@@ -125,20 +232,6 @@ radarr:
 prowlarr:
   global:
     nameOverride: prowlarr
-  persistence:
-    config:
-      mountPath: /config
-      enabled: true
-      accessMode: ReadWriteOnce
-      size: 1Gi
-      storageClass: longhorn
-      readOnly: false
-    storage:
-      enabled: true
-      accessMode: ReadWriteMany
-      storageClass: longhorn
-      existingClaim: shared-media
-      mountPath: /storage
   ingress:
     main:
       enabled: true
@@ -160,6 +253,20 @@ prowlarr:
         - secretName: prowlarr-tls-certificate
           hosts:
             - *prowlarrr_host
+  persistence:
+    config:
+      mountPath: /config
+      enabled: true
+      accessMode: ReadWriteOnce
+      size: 1Gi
+      storageClass: longhorn
+      readOnly: false
+    storage:
+      enabled: true
+      accessMode: ReadWriteMany
+      storageClass: longhorn
+      existingClaim: shared-media
+      mountPath: /storage
 qbittorrent:
   global:
     nameOverride: qbittorrent
