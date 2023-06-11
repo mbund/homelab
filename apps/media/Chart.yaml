@@ -3,8 +3,8 @@ name: media
 version: 0.0.0
 dependencies:
   - name: jellyfin
-    version: 10.8.10
-    repository: https://loeken.github.io/helm-charts
+    version: 9.5.3
+    repository: https://geek-cookbook.github.io/charts
   - name: jellyseerr
     version: 1.5.0
     repository: https://loeken.github.io/helm-charts
