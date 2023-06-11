@@ -112,6 +112,7 @@ radarr:
       storageClass: longhorn
       size: 1Gi
       readOnly: false
+      mountPath: /config
     media:
       enabled: true
       accessMode: ReadWriteOnce
@@ -149,6 +150,7 @@ sonarr:
       storageClass: longhorn
       size: 1Gi
       readOnly: false
+      mountPath: /config
     media:
       enabled: true
       accessMode: ReadWriteOnce
@@ -186,6 +188,7 @@ bazarr:
       storageClass: longhorn
       size: 1Gi
       readOnly: false
+      mountPath: /config
     media:
       enabled: true
       accessMode: ReadWriteOnce
@@ -223,6 +226,7 @@ lidarr:
       storageClass: longhorn
       size: 1Gi
       readOnly: false
+      mountPath: /config
     media:
       enabled: true
       accessMode: ReadWriteOnce
