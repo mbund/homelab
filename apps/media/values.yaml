@@ -162,6 +162,11 @@ sonarr:
       storageClass: longhorn
       existingClaim: shared-media
       mountPath: /media
+  podSecurityContext:
+    runAsUser: 568
+    runAsGroup: 568
+    fsGroup: 568
+    fsGroupChangePolicy: OnRootMismatch
   metrics:
     enabled: true
 bazarr:
@@ -201,6 +206,11 @@ bazarr:
       storageClass: longhorn
       existingClaim: shared-media
       mountPath: /media
+  podSecurityContext:
+    runAsUser: 568
+    runAsGroup: 568
+    fsGroup: 568
+    fsGroupChangePolicy: OnRootMismatch
 lidarr:
   global:
     nameOverride: lidarr
@@ -238,6 +248,11 @@ lidarr:
       storageClass: longhorn
       existingClaim: shared-media
       mountPath: /media
+  podSecurityContext:
+    runAsUser: 568
+    runAsGroup: 568
+    fsGroup: 568
+    fsGroupChangePolicy: OnRootMismatch
   metrics:
     enabled: true
 prowlarr:
@@ -277,6 +292,11 @@ prowlarr:
       storageClass: longhorn
       existingClaim: shared-media
       mountPath: /storage
+  podSecurityContext:
+    runAsUser: 568
+    runAsGroup: 568
+    fsGroup: 568
+    fsGroupChangePolicy: OnRootMismatch
 qbittorrent:
   global:
     nameOverride: qbittorrent
