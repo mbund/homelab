@@ -112,13 +112,14 @@ radarr:
       storageClass: longhorn
       size: 1Gi
       readOnly: false
-      mountPath: /config
     media:
       enabled: true
-      accessMode: ReadWriteOnce
+      accessMode: ReadWriteMany
       storageClass: longhorn
       existingClaim: shared-media
       mountPath: /media
+  metrics:
+    enabled: true
 sonarr:
   global:
     nameOverride: sonarr
@@ -150,13 +151,14 @@ sonarr:
       storageClass: longhorn
       size: 1Gi
       readOnly: false
-      mountPath: /config
     media:
       enabled: true
-      accessMode: ReadWriteOnce
+      accessMode: ReadWriteMany
       storageClass: longhorn
       existingClaim: shared-media
       mountPath: /media
+  metrics:
+    enabled: true
 bazarr:
   global:
     nameOverride: bazarr
@@ -188,10 +190,9 @@ bazarr:
       storageClass: longhorn
       size: 1Gi
       readOnly: false
-      mountPath: /config
     media:
       enabled: true
-      accessMode: ReadWriteOnce
+      accessMode: ReadWriteMany
       storageClass: longhorn
       existingClaim: shared-media
       mountPath: /media
@@ -226,13 +227,14 @@ lidarr:
       storageClass: longhorn
       size: 1Gi
       readOnly: false
-      mountPath: /config
     media:
       enabled: true
-      accessMode: ReadWriteOnce
+      accessMode: ReadWriteMany
       storageClass: longhorn
       existingClaim: shared-media
       mountPath: /media
+  metrics:
+    enabled: true
 prowlarr:
   global:
     nameOverride: prowlarr
@@ -259,7 +261,6 @@ prowlarr:
             - *prowlarrr_host
   persistence:
     config:
-      mountPath: /config
       enabled: true
       accessMode: ReadWriteOnce
       size: 1Gi
