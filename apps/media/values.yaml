@@ -259,7 +259,7 @@ prowlarr:
   global:
     nameOverride: prowlarr
   image:
-    respository: ghcr.io/geek-cookbook/prowlarr-develop
+    repository: ghcr.io/geek-cookbook/prowlarr-develop
     tag: 1.5.2.3484
   ingress:
     main:
