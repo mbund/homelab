@@ -1,7 +1,0 @@
-apiVersion: v2
-name: uptime-kuma
-version: 0.0.0
-dependencies:
-  - name: uptime-kuma
-    version: 1.0.5
-    repository: https://charts.pascaliske.dev
