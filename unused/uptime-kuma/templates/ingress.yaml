@@ -1,0 +1,28 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: uptime-kuma-ingress
+  namespace: {{ .Release.Namespace }}
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+    external-dns.alpha.kubernetes.io/target: private-relay.mbund.org
+    hajimari.io/appName: Uptime Kuma
+    hajimari.io/icon: satellite-uplink
+    hajimari.io/group: Internal
+spec:
+  ingressClassName: private
+  rules:
+    - host: &host uptime-kuma.mbund.org
+      http:
+        paths:
+          - backend:
+              service:
+                name: uptime-kuma-web
+                port:
+                  number: 3001
+            path: /
+            pathType: Prefix
+  tls:
+    - secretName: uptime-kuma-tls-certificate
+      hosts:
+        - *host

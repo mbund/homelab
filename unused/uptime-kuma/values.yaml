@@ -1,0 +1,8 @@
+uptime-kuma:
+  env:
+    - name: TZ
+      value: America/New_York
+  persistentVolumeClaim:
+    storageClassName: longhorn
+  serviceMonitor:
+    enabled: true

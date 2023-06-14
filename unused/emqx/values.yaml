@@ -1,0 +1,40 @@
+emqx:
+  replicaCount: 1
+  persistence:
+    enabled: true
+    storageClass: longhorn
+  ingress:
+    dashboard:
+      enabled: true
+      ingressClassName: private
+      annotations:
+        cert-manager.io/cluster-issuer: letsencrypt-prod
+        external-dns.alpha.kubernetes.io/target: private-relay.mbund.org
+        hajimari.io/appName: EMQX
+        hajimari.io/icon: access-point
+        hajimari.io/group: Internal
+      hosts:
+        - &dashboard_host emqx.mbund.org
+      tls:
+        - secretName: emqx-dashboard-tls-certificate
+          hosts:
+            - *dashboard_host
+    mqtt:
+      enabled: true
+      ingressClassName: public
+      annotations:
+        external-dns.alpha.kubernetes.io/target: relay.mbund.org
+        hajimari.io/enable: "false"
+      hosts:
+        - &mqtt_host mqtt.mbund.org
+  ssl:
+    enabled: true
+    issuer:
+      name: letsencrypt-prod
+    dnsnames:
+      - *mqtt_host
+  emqxConfig:
+    EMQX_LISTENERS__SSL__DEFAULT__SSL_OPTIONS__KEYFILE: /tmp/ssl/tls.key
+    EMQX_LISTENERS__SSL__DEFAULT__SSL_OPTIONS__CERTFILE: /tmp/ssl/tls.crt
+  metrics:
+    enabled: true

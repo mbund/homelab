@@ -1,0 +1,31 @@
+gitea:
+  ingress:
+    enabled: true
+    className: public
+    annotations:
+      cert-manager.io/cluster-issuer: letsencrypt-prod
+      external-dns.alpha.kubernetes.io/target: relay.mbund.org
+      hajimari.io/appName: Gitea
+      hajimari.io/icon: git
+      hajimari.io/group: External
+    hosts:
+      - host: &host git.mbund.org
+        paths:
+          - path: /
+            pathType: Prefix
+    tls:
+      - secretName: gitea-tls-certificate
+        hosts:
+          - *host
+  gitea:
+    admin:
+      existingSecret: gitea-admin-secret
+    config:
+      server:
+        LANDING_PAGE: explore
+        ROOT_URL: https://git.mbund.org
+  persistence:
+    storageClass: longhorn
+  postgresql:
+    persistence:
+      storageClass: longhorn
