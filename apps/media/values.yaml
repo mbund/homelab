@@ -12,7 +12,7 @@ jellyfin:
         external-dns.alpha.kubernetes.io/target: private-relay.mbund.org
         hajimari.io/appName: Jellyfin
         hajimari.io/icon: play-box
-        hajimari.io/group: External
+        hajimari.io/group: Internal
       hosts:
         - host: &jellyfin_host jellyfin.mbund.org
           paths:
