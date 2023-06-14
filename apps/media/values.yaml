@@ -6,10 +6,10 @@ jellyfin:
   ingress:
     main:
       enabled: true
-      ingressClassName: public
+      ingressClassName: private
       annotations:
         cert-manager.io/cluster-issuer: letsencrypt-prod
-        external-dns.alpha.kubernetes.io/target: relay.mbund.org
+        external-dns.alpha.kubernetes.io/target: private-relay.mbund.org
         hajimari.io/appName: Jellyfin
         hajimari.io/icon: play-box
         hajimari.io/group: External
