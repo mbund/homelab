@@ -23,12 +23,6 @@ spec:
   template:
     metadata:
       annotations:
-        checksum.config.adlists: {{ include (print $.Template.BasePath "/configmap-adlists.yaml") . | sha256sum | trunc 63 }}
-        checksum.config.blacklist: {{ include (print $.Template.BasePath "/configmap-blacklist.yaml") . | sha256sum | trunc 63 }}
-        checksum.config.regex: {{ include (print $.Template.BasePath "/configmap-regex.yaml") . | sha256sum | trunc 63 }}
-        checksum.config.whitelist: {{ include (print $.Template.BasePath "/configmap-whitelist.yaml") . | sha256sum | trunc 63 }}
-        checksum.config.dnsmasqConfig: {{ include (print $.Template.BasePath "/configmap.yaml") . | sha256sum | trunc 63 }}
-        checksum.config.staticDhcpConfig: {{ include (print $.Template.BasePath "/configmap-static-dhcp.yaml") . | sha256sum | trunc 63 }}
 {{- with .Values.podAnnotations }}
 {{ toYaml . | indent 8 }}
 {{- end }}
