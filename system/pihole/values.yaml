@@ -3,6 +3,7 @@ pihole:
     tag: "2023.05.2"
   extraEnvVars:
     TZ: America/New_York
+    DNSMASQ_USER: root
   ingress:
     enabled: true
     ingressClassName: private
@@ -27,5 +28,3 @@ pihole:
   monitoring:
     sidecar:
       enabled: true
-      image:
-        tag: v0.4.0
