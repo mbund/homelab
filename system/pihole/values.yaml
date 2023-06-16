@@ -12,13 +12,13 @@ pihole:
       hajimari.io/appName: Pi-hole
       hajimari.io/icon: security-network
       hajimari.io/group: Internal
+    path: /admin
     hosts:
       - &host pihole.mbund.org
     tls:
       - secretName: pihole-tls-certificate
         hosts:
           - *host
-  virtualHost: *host
   persistentVolumeClaim:
     enabled: true
     storageClass: longhorn
