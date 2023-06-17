@@ -289,17 +289,6 @@ prowlarr:
       size: 1Gi
       storageClass: longhorn
       readOnly: false
-    storage:
-      enabled: true
-      accessMode: ReadWriteMany
-      storageClass: longhorn
-      existingClaim: shared-media
-      mountPath: /storage
-  podSecurityContext:
-    runAsUser: 568
-    runAsGroup: 568
-    fsGroup: 568
-    fsGroupChangePolicy: OnRootMismatch
   addons:
     vpn:
       enabled: true
