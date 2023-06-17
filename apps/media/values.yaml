@@ -289,32 +289,6 @@ prowlarr:
       size: 1Gi
       storageClass: longhorn
       readOnly: false
-  addons:
-    vpn:
-      enabled: true
-      type: gluetun
-      env:
-        - name: TZ
-          value: America/New_York
-        - name: VPN_TYPE
-          value: wireguard
-        - name: VPN_SERVICE_PROVIDER
-          value: mullvad
-        - name: WIREGUARD_PRIVATE_KEY
-          valueFrom:
-            secretKeyRef:
-              key: wg-private-key
-              name: vpn-secret
-        - name: WIREGUARD_ADDRESSES
-          valueFrom:
-            secretKeyRef:
-              key: addresses
-              name: vpn-secret
-        - name: SERVER_CITIES
-          valueFrom:
-            secretKeyRef:
-              key: city
-              name: vpn-secret
 qbittorrent:
   global:
     nameOverride: qbittorrent
