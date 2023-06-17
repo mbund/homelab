@@ -303,6 +303,7 @@ prowlarr:
   addons:
     vpn:
       enabled: true
+      type: gluetun
       env:
         - name: TZ
           value: America/New_York
