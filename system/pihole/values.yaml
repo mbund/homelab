@@ -25,3 +25,6 @@ pihole:
     storageClass: longhorn
   admin:
     existingSecret: admin-secret
+  monitoring:
+    sidecar:
+      enabled: true
