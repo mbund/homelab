@@ -1,0 +1,29 @@
+overleaf:
+  image:
+    tag: 4.0.2
+  env:
+    TZ: America/New_York
+  ingress:
+    main:
+      enabled: true
+      ingressClassName: relay-nginx
+      annotations:
+        cert-manager.io/cluster-issuer: letsencrypt-prod
+        external-dns.alpha.kubernetes.io/target: relay.mbund.org
+        hajimari.io/appName: Overleaf
+        hajimari.io/icon: file-document-edit
+      hosts:
+        - host: &host overleaf.mbund.org
+          paths:
+            - path: /
+              pathType: Prefix
+      tls:
+        - secretName: overleaf-tls-certificate
+          hosts:
+            - *host
+  persistence:
+    data:
+      enabled: true
+      storageClass: longhorn
+      accessMode: ReadWriteOnce
+      size: 10Gi

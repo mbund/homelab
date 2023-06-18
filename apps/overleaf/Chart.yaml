@@ -1,0 +1,7 @@
+apiVersion: v2
+name: overleaf
+version: 0.0.0
+dependencies:
+  - name: overleaf
+    version: 3.1.2
+    repository: https://geek-cookbook.github.io/charts
