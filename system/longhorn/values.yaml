@@ -3,4 +3,4 @@ longhorn:
     nodeDownPodDeletionPolicy: delete-both-statefulset-and-deployment-pod
     priorityClass: system-cluster-critical
   persistence:
-    defaultClassReplicaCount: 2
+    defaultClassReplicaCount: 1
