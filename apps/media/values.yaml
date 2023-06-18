@@ -45,10 +45,10 @@ jellyfin:
       size: 10Gi
     media:
       enabled: true
+      type: nfs
+      server: 192.168.1.149
       mountPath: /media
-      storageClass: longhorn
-      accessMode: ReadWriteMany
-      existingClaim: shared-media
+      path: /mnt/Main/media
 jellyseerr:
   global:
     nameOverride: jellyseerr
@@ -114,10 +114,10 @@ radarr:
       readOnly: false
     media:
       enabled: true
-      accessMode: ReadWriteMany
-      storageClass: longhorn
-      existingClaim: shared-media
+      type: nfs
+      server: 192.168.1.149
       mountPath: /media
+      path: /mnt/Main/media
   podSecurityContext:
     runAsUser: 568
     runAsGroup: 568
@@ -158,10 +158,10 @@ sonarr:
       readOnly: false
     media:
       enabled: true
-      accessMode: ReadWriteMany
-      storageClass: longhorn
-      existingClaim: shared-media
+      type: nfs
+      server: 192.168.1.149
       mountPath: /media
+      path: /mnt/Main/media
   podSecurityContext:
     runAsUser: 568
     runAsGroup: 568
@@ -202,10 +202,10 @@ bazarr:
       readOnly: false
     media:
       enabled: true
-      accessMode: ReadWriteMany
-      storageClass: longhorn
-      existingClaim: shared-media
+      type: nfs
+      server: 192.168.1.149
       mountPath: /media
+      path: /mnt/Main/media
   podSecurityContext:
     runAsUser: 568
     runAsGroup: 568
@@ -244,10 +244,10 @@ lidarr:
       readOnly: false
     media:
       enabled: true
-      accessMode: ReadWriteMany
-      storageClass: longhorn
-      existingClaim: shared-media
+      type: nfs
+      server: 192.168.1.149
       mountPath: /media
+      path: /mnt/Main/media
   podSecurityContext:
     runAsUser: 568
     runAsGroup: 568
@@ -328,10 +328,10 @@ qbittorrent:
       size: 1Gi
     media:
       enabled: true
+      type: nfs
+      server: 192.168.1.149
       mountPath: /media
-      storageClass: longhorn
-      accessMode: ReadWriteMany
-      existingClaim: shared-media
+      path: /mnt/Main/media
   addons:
     vpn:
       enabled: true
