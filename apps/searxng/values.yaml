@@ -18,7 +18,8 @@ searxng:
         cert-manager.io/cluster-issuer: letsencrypt-prod
         external-dns.alpha.kubernetes.io/target: relay.mbund.org
         hajimari.io/appName: Search
-        hajimari.io/icon: mdi:search
+        hajimari.io/icon: search
+        hajimari.io/group: External
       hosts:
         - host: &host searxng.mbund.org
           paths:
