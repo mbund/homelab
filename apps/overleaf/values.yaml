@@ -35,3 +35,5 @@ overleaf:
       storageClass: longhorn
       accessMode: ReadWriteOnce
       size: 10Gi
+  redis:
+    enabled: true
