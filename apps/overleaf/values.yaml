@@ -28,3 +28,10 @@ overleaf:
       storageClass: longhorn
       accessMode: ReadWriteOnce
       size: 10Gi
+  mongodb:
+    enabled: true
+    persistence:
+      enabled: true
+      storageClass: longhorn
+      accessMode: ReadWriteOnce
+      size: 10Gi
