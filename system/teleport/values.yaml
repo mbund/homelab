@@ -1,0 +1,7 @@
+teleport-cluster:
+  clusterName: homelab
+  highAvailability:
+    certManager:
+      enabled: true
+      addCommonName: true
+      issuerName: letsencrypt-prod
