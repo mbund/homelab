@@ -1,43 +1,10 @@
-# Gitea
-- path: gitea/admin
-  data:
-    - key: password
-      length: 32
-      special: true
-
-# Longhorn
-- path: longhorn/auth
-  data:
-    - key: password
-      length: 32
-      special: true
-
-# Matrix Synapse
-- path: synapse/postgres
-  data:
-    - key: password
-      length: 32
-      special: true
-
-# Nextcloud
-- path: nextcloud/admin
-  data:
-    - key: password
-      length: 32
-      special: false
-- path: nextcloud/postgres
-  data:
-    - key: password
-      length: 32
-      special: false
-- path: nextcloud/redis
+- path: gitea
   data:
     - key: password
       length: 32
       special: false
 
-# Pi-hole
-- path: pihole/admin
+- path: pihole
   data:
     - key: password
       length: 32
