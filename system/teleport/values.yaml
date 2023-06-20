@@ -1,5 +1,5 @@
 teleport-cluster:
-  clusterName: homelab
+  clusterName: teleport.mbund.org
   highAvailability:
     certManager:
       enabled: true
