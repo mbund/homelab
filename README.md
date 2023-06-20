@@ -4,6 +4,12 @@ Fully automated Kubernetes and GitOps setup to host my important services at hom
 
 Read the [docs](https://mbund.github.io/homelab) for technical details.
 
+## Architecture
+
+<a href="https://excalidraw.com/#json=kshmBqYvL_cPoKnck2Cc2,OQM1UKY0l-UEa_Ya3PBc6A">
+    <img src="docs/excalidraw/architecture.png">
+</a>
+
 ## Hardware
 
 <div align="center">
@@ -46,5 +52,40 @@ Read the [docs](https://mbund.github.io/homelab) for technical details.
         <td><img src="https://docs.excalidraw.com/img/logo.svg" width="48">
         <td><a href="https://docs.excalidraw.com">Excalidraw</a></td>
         <td>Online whiteboard</td>
+    </tr>
+    <tr>
+        <td><img src="https://raw.githubusercontent.com/loganmarchione/homelab-svg-assets/main/assets/uptimekuma.svg" width="48">
+        <td><a href="https://github.com/louislam/uptime-kuma">Uptime Kuma</a></td>
+        <td>Service uptime checker</td>
+    </tr>
+    <tr>
+        <td><img src="https://raw.githubusercontent.com/loganmarchione/homelab-svg-assets/main/assets/searxng.svg" width="48">
+        <td><a href="https://searxng.org">Searxng</a></td>
+        <td>Metasearch engine</td>
+    </tr>
+    <tr>
+        <td><img src="https://raw.githubusercontent.com/loganmarchione/homelab-svg-assets/main/assets/element.svg" width="48">
+        <td><a href="https://element.io">Element</a></td>
+        <td>Matrix web client</td>
+    </tr>
+    <tr>
+        <td><img src="https://raw.githubusercontent.com/loganmarchione/homelab-svg-assets/main/assets/vaultwarden.svg" width="48">
+        <td><a href="https://github.com/dani-garcia/vaultwarden">Vaultwarden</a></td>
+        <td>Bitwarden compatible password manager</td>
+    </tr>
+    <tr>
+        <td><img src="https://images.ctfassets.net/nrgyaltdicpt/h9dpHuVys19B1sOAWvbP6/5f8d4c6d051f63e4ba450befd56f9189/ologo_square_colour_light_bg.svg" width="48">
+        <td><a href="https://overleaf.com">Overleaf</a></td>
+        <td>Online Latex collaborative studio</td>
+    </tr>
+    <tr>
+        <td><img src="docs/images/emqx.svg" width="48">
+        <td><a href="https://emqx.io">EMQX</a></td>
+        <td>MQTT broker</td>
+    </tr>
+        <tr>
+        <td><img src="https://raw.githubusercontent.com/loganmarchione/homelab-svg-assets/main/assets/gitea.svg" width="48">
+        <td><a href="https://gitea.io">Gitea</a></td>
+        <td>Self hosted git server</td>
     </tr>
 </table>

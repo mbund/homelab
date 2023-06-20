@@ -7,13 +7,8 @@
         <th>Logo</th> <th>Name</th> <th>Description</th>
     </tr>
     <tr>
-        <td><img src="https://raw.githubusercontent.com/loganmarchione/homelab-svg-assets/main/assets/proxmox.svg" width="48"></td>
-        <td><a href="https://proxmox.com">Proxmox</a></td>
-        <td>Virtualization platform</td>
-    </tr>
-    <tr>
-        <td><img src="https://assets.ubuntu.com/v1/d639b982-canonical-brand-tile.png" width="48">
-        <td><a href="https://ubuntu.com/download/server">Ubuntu Server</a></td>
+        <td><img src="https://raw.githubusercontent.com/loganmarchione/homelab-svg-assets/main/assets/debian.svg" width="48">
+        <td><a href="https://debian.org">Debian</a></td>
         <td>Base OS for Kubernetes nodes</td>
     </tr>
     <tr>
@@ -83,13 +78,18 @@
         <td>Secrets Management</td>
     </tr>
     <tr>
-        <td><img src="https://raw.githubusercontent.com/loganmarchione/homelab-svg-assets/main/assets/gitea.svg" width="48">
-        <td><a href="https://gitea.io">Gitea</a></td>
-        <td>Self hosted git server</td>
+        <td><img src="https://raw.githubusercontent.com/loganmarchione/homelab-svg-assets/main/assets/cloudflare.svg" width="48">
+        <td><a href="https://cloudflare.com">Cloudflare</a></td>
+        <td>Public DNS</td>
     </tr>
     <tr>
-        <td><img src="https://raw.githubusercontent.com/loganmarchione/homelab-svg-assets/main/assets/cloudflare.svg" width="48">
-        <td><a href="https://cloudflare.com/products/tunnel">Cloudflare</a></td>
-        <td>DNS and Tunnel</td>
+        <td><img src="https://raw.githubusercontent.com/loganmarchione/homelab-svg-assets/main/assets/pihole.svg" width="48">
+        <td><a href="https://pi-hole.net">Pi-hole</a></td>
+        <td>Local DNS</td>
+    </tr>
+    <tr>
+        <td><img src="https://raw.githubusercontent.com/loganmarchione/homelab-svg-assets/main/assets/tailscale.svg" width="48">
+        <td><a href="https://tailscale.com/">Tailscale</a></td>
+        <td>Mesh VPN and private subnet</td>
     </tr>
 </table>
