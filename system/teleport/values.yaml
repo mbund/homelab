@@ -5,3 +5,4 @@ teleport-cluster:
       enabled: true
       addCommonName: true
       issuerName: letsencrypt-prod
+      issuerKind: ClusterIssuer
