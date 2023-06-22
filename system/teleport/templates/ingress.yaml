@@ -1,0 +1,25 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: teleport
+  namespace: {{ .Release.Namespace }}
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+    external-dns.alpha.kubernetes.io/target: private-relay.mbund.org
+    hajimari.io/icon: arrow-decision
+    hajimari.io/group: Internal
+spec:
+  ingressClassName: private
+  rules:
+    - host: &host teleport.mbund.org
+      http:
+        paths:
+          - backend:
+              service:
+                name: teleport
+                port:
+                  number: 443
+            path: /
+            pathType: Prefix
+  tls:
+    - secretName: teleport-tls
