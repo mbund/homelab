@@ -3,9 +3,9 @@ overleaf:
     tag: 4.0.2
   env:
     TZ: America/New_York
-    SHARELATEX_MONGO_URL: mongodb://overleaf-mongodb-headless:27017
-    SHARELATEX_REDIS_HOST: overleaf-redis-headless
-    REDIS_HOST: overleaf-redis-headless
+    SHARELATEX_MONGO_URL: mongodb://overleaf-mongodb-headless:27017/sharelatex
+    SHARELATEX_REDIS_HOST: &redis overleaf-redis-headless
+    REDIS_HOST: *redis
   ingress:
     main:
       enabled: true
