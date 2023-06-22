@@ -1,5 +1,6 @@
 teleport-cluster:
   clusterName: teleport.mbund.org
+  proxyListenerMode: multiplex
   priorityClassName: system-cluster-critical
   tls:
     existingSecretName: teleport-tls-certificate
