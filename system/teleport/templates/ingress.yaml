@@ -18,7 +18,7 @@ spec:
               service:
                 name: teleport
                 port:
-                  number: 443
+                  number: 3080
             path: /
             pathType: Prefix
   tls:

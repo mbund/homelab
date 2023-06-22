@@ -6,5 +6,5 @@ teleport-cluster:
       addCommonName: true
       issuerName: letsencrypt-prod
       issuerKind: ClusterIssuer
-  # service:
-  #   type: ClusterIP
+  service:
+    type: ClusterIP
