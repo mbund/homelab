@@ -4,6 +4,8 @@ overleaf:
   env:
     TZ: America/New_York
     SHARELATEX_MONGO_URL: mongodb://overleaf-mongodb-headless:27017
+    SHARELATEX_REDIS_HOST: overleaf-redis-headless
+    REDIS_HOST: overleaf-redis-headless
   ingress:
     main:
       enabled: true
@@ -37,3 +39,5 @@ overleaf:
       storageClass: longhorn
       accessMode: ReadWriteOnce
       size: 10Gi
+  redis:
+    enabled: true
