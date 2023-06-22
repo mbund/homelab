@@ -1,8 +1,11 @@
 overleaf:
-  # image:
-  #   tag: 4.0.2
+  image:
+    tag: 4.0.2
   env:
     TZ: America/New_York
+    SHARELATEX_MONGO_URL: overleaf-mongodb
+    SHARELATEX_REDIS_HOST: overleaf-redis
+    REDIS_HOST: overleaf-redis
   ingress:
     main:
       enabled: true
