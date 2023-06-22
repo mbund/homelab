@@ -23,3 +23,5 @@ spec:
             pathType: Prefix
   tls:
     - secretName: teleport-tls
+      hosts:
+        - *host
