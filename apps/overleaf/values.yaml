@@ -33,6 +33,7 @@ overleaf:
       size: 10Gi
   mongodb:
     enabled: true
+    architecture: replicaset
     persistence:
       enabled: true
       storageClass: longhorn
