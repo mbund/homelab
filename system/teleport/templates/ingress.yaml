@@ -8,6 +8,7 @@ metadata:
     external-dns.alpha.kubernetes.io/target: private-relay.mbund.org
     hajimari.io/icon: arrow-decision
     hajimari.io/group: Internal
+    nginx.ingress.kubernetes.io/backend-protocol: HTTPS
 spec:
   ingressClassName: private
   rules:
