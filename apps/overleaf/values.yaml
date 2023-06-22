@@ -3,7 +3,7 @@ overleaf:
     tag: 4.0.2
   env:
     TZ: America/New_York
-    SHARELATEX_MONGO_URL: overleaf-mongodb
+    SHARELATEX_MONGO_URL: mongodb://overleaf-mongodb:27017
     SHARELATEX_REDIS_HOST: overleaf-redis
     REDIS_HOST: overleaf-redis
   ingress:
