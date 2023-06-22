@@ -1,10 +1,7 @@
 teleport-cluster:
   clusterName: teleport.mbund.org
-  highAvailability:
-    certManager:
-      enabled: true
-      addCommonName: true
-      issuerName: letsencrypt-prod
-      issuerKind: ClusterIssuer
+  priorityClassName: system-cluster-critical
+  tls:
+    existingSecretName: teleport-tls-certificate
   service:
     type: ClusterIP

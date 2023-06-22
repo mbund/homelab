@@ -22,6 +22,7 @@ spec:
             path: /
             pathType: Prefix
   tls:
-    - secretName: teleport-tls
+    - secretName: teleport-tls-certificate
       hosts:
         - *host
+        - "*.teleport.mbund.org"
