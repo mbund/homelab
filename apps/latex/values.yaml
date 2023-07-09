@@ -30,6 +30,7 @@ overleaf:
       accessMode: ReadWriteOnce
       size: 10Gi
   mongodb:
+    architecture: replicaset
     persistence:
       enabled: true
       storageClass: longhorn
