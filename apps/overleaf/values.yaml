@@ -1,13 +1,13 @@
 overleaf:
   env:
     TZ: America/New_York
-    SHARELATEX_MONGO_URL: mongodb://latex-mongodb-headless:27017/sharelatex
-    SHARELATEX_REDIS_HOST: &redis latex-redis-headless
+    SHARELATEX_MONGO_URL: mongodb://overleaf-mongodb-headless:27017/sharelatex
+    SHARELATEX_REDIS_HOST: &redis overleaf-redis-headless
     REDIS_HOST: *redis
   ingress:
     main:
       enabled: true
-      ingressClassName: relay-nginx
+      ingressClassName: public
       annotations:
         cert-manager.io/cluster-issuer: letsencrypt-prod
         external-dns.alpha.kubernetes.io/target: relay.mbund.org
@@ -15,12 +15,12 @@ overleaf:
         hajimari.io/icon: file-document-edit
         hajimari.io/group: External
       hosts:
-        - host: &host latex.mbund.org
+        - host: &host overleaf.mbund.org
           paths:
             - path: /
               pathType: Prefix
       tls:
-        - secretName: latex-tls-certificate
+        - secretName: overleaf-tls-certificate
           hosts:
             - *host
   persistence:
@@ -30,7 +30,6 @@ overleaf:
       accessMode: ReadWriteOnce
       size: 10Gi
   mongodb:
-    architecture: replicaset
     persistence:
       enabled: true
       storageClass: longhorn
