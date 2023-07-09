@@ -3,5 +3,5 @@ name: overleaf
 version: 0.0.0
 dependencies:
   - name: overleaf
-    version: 3.1.2
-    repository: https://geek-cookbook.github.io/charts
+    version: 0.0.1
+    repository: https://mbund.github.io/charts
