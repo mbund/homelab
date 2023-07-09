@@ -15,12 +15,12 @@ overleaf:
         hajimari.io/icon: file-document-edit
         hajimari.io/group: External
       hosts:
-        - host: &host overleaf.mbund.org
+        - host: &host latex.mbund.org
           paths:
             - path: /
               pathType: Prefix
       tls:
-        - secretName: overleaf-tls-certificate
+        - secretName: latex-tls-certificate
           hosts:
             - *host
   persistence:
