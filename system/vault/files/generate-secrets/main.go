@@ -13,9 +13,8 @@ import (
 type RandomPassword struct {
 	Path string
 	Data []struct {
-		Key     string
-		Length  int
-		Special bool
+		Key    string
+		Length int
 	}
 }
 

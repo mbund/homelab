@@ -22,6 +22,8 @@
           kube3d
           terraform
           (pkgs.python3.withPackages (ps: with ps; [mkdocs-material pillow cairosvg pytz]))
+          go
+          gopls
         ];
       };
     });

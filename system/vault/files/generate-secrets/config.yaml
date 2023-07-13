@@ -2,10 +2,8 @@
   data:
     - key: password
       length: 32
-      special: false
 
 - path: pihole
   data:
     - key: password
       length: 32
-      special: false
