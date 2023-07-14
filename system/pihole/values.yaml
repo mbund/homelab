@@ -26,7 +26,14 @@ pihole:
     storageClass: longhorn
   admin:
     existingSecret: admin-secret
+  podAnnotations:
+    prometheus.io/port: "9617"
+    prometheus.io/scrape: "true"
+  monitoring:
+    sidecar:
+      enabled: true
 unbound:
-  env:
-    - name: TZ
-      value: America/New_York
+  service:
+    clusterIP: 10.43.1.60
+  metrics:
+    enabled: true
