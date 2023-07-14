@@ -26,3 +26,7 @@ pihole:
     storageClass: longhorn
   admin:
     existingSecret: admin-secret
+unbound:
+  env:
+    - name: TZ
+      value: America/New_York
