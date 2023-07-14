@@ -8,6 +8,7 @@ kube-prometheus-stack:
       annotations:
         cert-manager.io/cluster-issuer: letsencrypt-prod
         external-dns.alpha.kubernetes.io/target: relay.mbund.org
+        mbund.org/dns-server: internal
         hajimari.io/appName: Grafana
         hajimari.io/icon: chart-bar
         hajimari.io/group: External
@@ -42,6 +43,7 @@ kube-prometheus-stack:
       annotations:
         cert-manager.io/cluster-issuer: letsencrypt-prod
         external-dns.alpha.kubernetes.io/target: private-relay.mbund.org
+        mbund.org/dns-server: internal
         hajimari.io/appName: Prometheus
         hajimari.io/icon: torch
         hajimari.io/group: Internal

@@ -10,6 +10,7 @@ pihole:
     annotations:
       cert-manager.io/cluster-issuer: letsencrypt-prod
       external-dns.alpha.kubernetes.io/target: private-relay.mbund.org
+      mbund.org/dns-server: internal
       hajimari.io/appName: Pi-hole
       hajimari.io/icon: security-network
       hajimari.io/group: Internal
