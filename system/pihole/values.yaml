@@ -32,8 +32,11 @@ pihole:
   monitoring:
     sidecar:
       enabled: true
+  podDnsConfig:
+    enabled: true
+    policy: "None"
+    nameservers:
+      - &unbound-ip 10.43.1.60
 unbound:
   replicaCount: 1
-  clusterIP: 10.43.1.60
-  metrics:
-    enabled: true
+  clusterIP: *unbound-ip
