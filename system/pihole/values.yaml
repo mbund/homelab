@@ -33,6 +33,7 @@ pihole:
     sidecar:
       enabled: true
 unbound:
+  replicaCount: 1
   service:
     clusterIP: 10.43.1.60
   metrics:
