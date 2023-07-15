@@ -37,7 +37,7 @@
         <td>Kubernetes package manager</td>
     </tr>
     <tr>
-        <td><img src="https://cncf-branding.netlify.app/img/projects/longhorn/icon/color/longhorn-icon-color.svg" width="48"></td>
+        <td><img src="https://raw.githubusercontent.com/loganmarchione/homelab-svg-assets/main/assets/longhorn.svg" width="48"></td>
         <td><a href="https://longhorn.io">Longhorn</a></td>
         <td>Cloud native distributed block storage for Kubernetes</td>
     </tr>
@@ -62,7 +62,7 @@
         <td>Log aggregation</td>
     </tr>
     <tr>
-        <td><img src="https://cncf-branding.netlify.app/img/projects/prometheus/icon/color/prometheus-icon-color.svg" width="48"></td>
+        <td><img src="https://raw.githubusercontent.com/loganmarchione/homelab-svg-assets/main/assets/prometheus.svg" width="48"></td>
         <td><a href="https://prometheus.io">Prometheus</a></td>
         <td>Systems monitoring</td>
     </tr>

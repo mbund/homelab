@@ -1,0 +1,31 @@
+/*
+    UX Bugfix for permalink affecting typography in headings.
+    Upstream will not fix: https://github.com/squidfunk/mkdocs-material/issues/2369
+  */
+
+/* Headings are configured to be links (instead of only the permalink symbol), removes the link colour */
+div.md-content article.md-content__inner a.toclink {
+  color: currentColor;
+}
+
+/* Instead of a permalink symbol at the end of heading text, use a border line on the left spanning height of heading */
+/* Includes optional background fill with rounded right-side corners, and restores inline code style */
+/* NOTE: Headings with markdown links embedded disrupt the bg fill style, as they're not children of `a.toclink` element */
+div.md-content article.md-content__inner a.toclink {
+  display: inline-block; /* Enables multi-line support for both border and bg color */
+  border-left: 0.2rem solid transparent; /* transparent placeholder to avoid heading shift during reveal transition */
+  margin-left: -0.6rem; /* Offset heading to the left */
+  padding-left: 0.4rem; /* Push heading back to original position, margin-left - border-left widths */
+  transition: background-color 200ms, border-left 200ms;
+
+  /* Only relevant if using background highlight style */
+  border-radius: 0 0.25rem 0.25rem 0;
+  padding-right: 0.4rem;
+}
+
+div.md-content article.md-content__inner a.toclink:hover,
+div.md-content article.md-content__inner :target > a.toclink {
+  border-left: 0.2rem solid #448aff; /* highlight line on the left */
+  background-color: #b3dbff6e; /* background highlight fill */
+  transition: background-color 200ms, border-left 200ms;
+}
