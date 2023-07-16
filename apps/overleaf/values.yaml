@@ -31,8 +31,12 @@ overleaf:
       accessMode: ReadWriteOnce
       size: 10Gi
   mongodb:
+    replicaCount: 1
     persistence:
       enabled: true
       storageClass: longhorn
       accessMode: ReadWriteOnce
       size: 10Gi
+  redis:
+    replica:
+      replicaCount: 3
