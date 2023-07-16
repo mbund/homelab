@@ -39,4 +39,4 @@ overleaf:
       size: 10Gi
   redis:
     replica:
-      replicaCount: 3
+      replicaCount: 1
