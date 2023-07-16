@@ -1,6 +1,6 @@
 searxng:
   image:
-    name: searxng/searxng:2023.5.13-1fc268a5
+    name: searxng/searxng:latest
     pullPolicy: IfNotPresent
   searxng:
     config:
@@ -13,7 +13,7 @@ searxng:
   ingress:
     main:
       enabled: true
-      ingressClassName: relay-nginx
+      ingressClassName: public
       annotations:
         cert-manager.io/cluster-issuer: letsencrypt-prod
         external-dns.alpha.kubernetes.io/target: relay.mbund.org
