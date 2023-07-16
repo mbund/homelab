@@ -1,6 +1,6 @@
 searxng:
   image:
-    name: searxng/searxng:latest
+    name: searxng/searxng:2023.5.13-1fc268a5
     pullPolicy: IfNotPresent
   searxng:
     config:
