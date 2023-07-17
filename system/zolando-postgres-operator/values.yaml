@@ -3,6 +3,8 @@ postgres-operator-ui:
     appUrl: https://postgres.mbund.org
     operatorApiUrl: http://zolando-postgres-operator:8080
     targetNamespace: zolando-postgres-operator
+    teams:
+      - sre
   ingress:
     enabled: true
     ingressClassName: private
