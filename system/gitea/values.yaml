@@ -24,6 +24,10 @@ gitea:
       server:
         LANDING_PAGE: explore
         ROOT_URL: https://git.mbund.org
+    metrics:
+      enabled: true
+      serviceMonitor:
+        enabled: true
   persistence:
     storageClass: longhorn
   postgresql:
