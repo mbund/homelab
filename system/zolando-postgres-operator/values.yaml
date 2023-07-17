@@ -11,6 +11,7 @@ postgres-operator-ui:
       hajimari.io/group: Internal
     hosts:
       - host: &host postgres.mbund.org
+        paths: ["/"]
     tls:
       - secretName: zolando-postgres-tls-certificate
         hosts:
