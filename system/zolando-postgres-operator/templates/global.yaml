@@ -10,7 +10,7 @@ metadata:
 spec:
   teamId: sre
   postgresql:
-    version: 15
+    version: "15"
   numberOfInstances: 1
   volume:
     size: 50Gi
