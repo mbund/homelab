@@ -1,0 +1,29 @@
+kind: postgresql
+apiVersion: acid.zalan.do/v1
+
+metadata:
+  name: global
+  namespace: zolando-postgres-operator
+  labels:
+    team: sre
+
+spec:
+  teamId: sre
+  postgresql:
+    version: 15
+  numberOfInstances: 1
+  volume:
+    size: 50Gi
+    storageClass: longhorn
+  users:
+    gitea: []
+  databases:
+    gitea: gitea
+
+  resources:
+    requests:
+      cpu: 100m
+      memory: 100Mi
+    limits:
+      cpu: 500m
+      memory: 500Mi
