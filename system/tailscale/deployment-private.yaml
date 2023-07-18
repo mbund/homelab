@@ -33,7 +33,7 @@ spec:
       containers:
         - name: tailscale
           imagePullPolicy: Always
-          image: ghcr.io/tailscale/tailscale:v1.40.1
+          image: ghcr.io/tailscale/tailscale:v1.44.0
           env:
             - name: TS_KUBE_SECRET
               value: tailscale-login
