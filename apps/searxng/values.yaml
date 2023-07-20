@@ -11,8 +11,6 @@ searxng:
       search:
         autocomplete: "google"
       outgoing:
-        request_timeout: 3.0
-        max_request_timeout: 30.0
         proxies:
           all://:
             - socks5h://tor:9050

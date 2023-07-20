@@ -16,10 +16,10 @@ spec:
       containers:
         - name: tor
           image: alpine:latest
-          command: ['sh', '-c', 'apk add tor && tor -f /config']
+          command: ['sh', '-c', 'apk add tor && tor -f /torrc']
           volumeMounts:
             - name: tor-config
-              mountPath: /config
+              mountPath: /torrc
               subPath: torrc
       volumes:
         - name: tor-config
