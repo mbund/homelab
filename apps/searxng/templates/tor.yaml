@@ -18,14 +18,18 @@ spec:
           image: alpine:latest
           command: ['sh', '-c', 'apk add tor && tor']
           volumeMounts:
-            - name: tor
+            - name: tor-config
               mountPath: /etc/tor
               subPath: torrc
+      volumes:
+        - name: tor-config
+          configMap:
+            name: tor-config
 ---
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: tor
+  name: tor-config
 data:
   torrc: |
     SocksPort 0.0.0.0:9050
