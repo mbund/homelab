@@ -13,14 +13,10 @@ spec:
       labels:
         app: tor
     spec:
-      initContainers:
-        - name: tor-init
-          image: alpine:latest
-          command: ['sh', '-c', 'apk add --no-cache tor && exit 0']
       containers:
         - name: tor
           image: alpine:latest
-          command: ['tor']
+          command: ['apk', 'add', 'tor', '&&', 'tor']
 ---
 apiVersion: v1
 kind: Service
