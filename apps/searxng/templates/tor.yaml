@@ -16,7 +16,7 @@ spec:
       containers:
         - name: tor
           image: alpine:latest
-          command: ['apk', 'add', 'tor', '&&', 'tor']
+          command: ['sh', '-c', 'apk add tor && tor']
 ---
 apiVersion: v1
 kind: Service
