@@ -9,10 +9,10 @@ searxng:
         autocomplete: "google"
       ui:
         query_in_title: true
-      # outgoing:
-      #   proxies:
-      #     all://: socks5h://tor:9050
-      #   using_tor_proxy: true
+      outgoing:
+        proxies:
+          all://: socks5h://tor:9050
+        # using_tor_proxy: true
   ingress:
     main:
       enabled: true
