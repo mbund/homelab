@@ -10,9 +10,12 @@ searxng:
       ui:
         query_in_title: true
       outgoing:
+        request_timeout: 180.0
+        max_request_timeout: 180.0
         proxies:
           all://:
             - socks5://tor:9050
+        extra_proxy_timeout: 180.0
   ingress:
     main:
       enabled: true
