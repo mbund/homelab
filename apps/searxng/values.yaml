@@ -13,6 +13,11 @@ searxng:
         proxies:
           all://: socks5h://tor:9050
         using_tor_proxy: true
+      engines:
+        - name: soundcloud
+          engine: soundcloud
+          shortcut: sc
+          disabled: true
   ingress:
     main:
       enabled: true
