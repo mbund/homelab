@@ -15,7 +15,6 @@ searxng:
         proxies:
           all://:
             - socks5h://tor:9050
-        using_tor_proxy: true
         extra_proxy_timeout: 180.0
   ingress:
     main:
