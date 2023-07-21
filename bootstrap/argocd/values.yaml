@@ -27,7 +27,6 @@ argo-cd:
       annotations:
         cert-manager.io/cluster-issuer: letsencrypt-prod
         external-dns.alpha.kubernetes.io/target: relay.mbund.org
-        mbund.org/dns-server: internal
         hajimari.io/appName: ArgoCD
         hajimari.io/icon: robot
         hajimari.io/group: External

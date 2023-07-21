@@ -13,7 +13,7 @@ external-dns:
           key: password
   extraArgs:
     - --pihole-server=http://pihole-web.pihole.svc.cluster.local
-    - --annotation-filter=mbund.org/dns-server in (internal)
+    # - --annotation-filter=mbund.org/dns-server in (internal)
   metrics:
     enabled: true
     serviceMonitor:

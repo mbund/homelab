@@ -11,7 +11,6 @@ overleaf:
       annotations:
         cert-manager.io/cluster-issuer: letsencrypt-prod
         external-dns.alpha.kubernetes.io/target: relay.mbund.org
-        mbund.org/dns-server: internal
         hajimari.io/appName: Overleaf
         hajimari.io/icon: file-document-edit
         hajimari.io/group: External

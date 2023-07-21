@@ -11,7 +11,6 @@ postgres-operator-ui:
     annotations:
       cert-manager.io/cluster-issuer: letsencrypt-prod
       external-dns.alpha.kubernetes.io/target: private-relay.mbund.org
-      mbund.org/dns-server: internal
       hajimari.io/appName: Zolando Postgres Operator
       hajimari.io/icon: database-cog
       hajimari.io/group: Internal

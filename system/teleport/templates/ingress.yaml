@@ -26,4 +26,3 @@ spec:
     - secretName: teleport-tls-certificate
       hosts:
         - *host
-        - "*.teleport.mbund.org"
