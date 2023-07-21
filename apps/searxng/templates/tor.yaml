@@ -32,7 +32,7 @@ metadata:
   name: tor-config
 data:
   torrc: |
-    SocksPort 0.0.0.0:9050
+    SocksPort 0.0.0.0:9050 IPv6Traffic
 ---
 apiVersion: v1
 kind: Service
