@@ -1,6 +1,4 @@
 searxng:
-  image:
-    tag: 2023.5.13-1fc268a5
   searxng:
     config:
       general:
@@ -9,12 +7,12 @@ searxng:
         method: "GET"
       search:
         autocomplete: "google"
+      ui:
+        query_in_title: true
       outgoing:
-        request_timeout: 10.0
-        max_request_timeout: 60.0
         proxies:
           all://:
-            - socks5://tor:9050
+            - socks5h://tor:9050
         using_tor_proxy: true
   ingress:
     main:
