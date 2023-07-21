@@ -13,8 +13,8 @@ searxng:
         request_timeout: 3.0
         max_request_timeout: 30.0
         proxies:
-          all://:
-            - socks5h://tor:9050
+          http: socks5://tor:9050
+          https: socks5://tor:9050
         using_tor_proxy: true
         extra_proxy_timeout: 60.0
   ingress:
