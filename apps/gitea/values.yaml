@@ -24,6 +24,8 @@ gitea:
       server:
         LANDING_PAGE: explore
         ROOT_URL: https://git.mbund.org
+      actions:
+        ENABLED: true
     metrics:
       enabled: true
       serviceMonitor:
