@@ -5,8 +5,8 @@ penpot:
   frontend:
     ingress:
       enabled: true
-      ingressClassName: private
       annotations:
+        kubernetes.io/ingress.class: private
         cert-manager.io/cluster-issuer: letsencrypt-prod
         external-dns.alpha.kubernetes.io/target: relay.mbund.org
         hajimari.io/appName: Penpot
@@ -18,6 +18,11 @@ penpot:
         - secretName: penpot-tls-certificate
           hosts:
             - *host
+  ingress:
+    tls:
+      - secretName: penpot-tls-certificate
+        hosts:
+          - *host
   persistence:
     enabled: true
     storageClass: longhorn
