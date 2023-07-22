@@ -5,9 +5,11 @@ metadata:
   labels:
     app.kubernetes.io/name: docker-mailserver
   annotations:
-    kubernetes.io/tls-acme: "true"
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+    external-dns.alpha.kubernetes.io/target: relay.mbund.org
+    hajimari.io/enable: "false"
 spec:
-  ingressClassName: nginx
+  ingressClassName: public
   rules:
     - host: &host1 autoconfig.mbund.org
       http:
