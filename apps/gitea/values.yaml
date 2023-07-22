@@ -28,6 +28,8 @@ gitea:
         ENABLED: true
       ui:
         DEFAULT_THEME: gitea
+      metrics:
+        ENABLED: true
     metrics:
       enabled: true
       serviceMonitor:
