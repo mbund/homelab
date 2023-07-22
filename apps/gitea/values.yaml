@@ -39,6 +39,3 @@ gitea:
   postgresql:
     persistence:
       storageClass: longhorn
-    resources:
-      limits: {}
-      requests: {}
