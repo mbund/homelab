@@ -13,16 +13,16 @@ penpot:
         hajimari.io/icon: fountain-pen-tip
         hajimari.io/group: Internal
       hosts:
-        - &host penpot.mbund.org
+        - penpot.mbund.org
       tls:
         - secretName: penpot-tls-certificate
           hosts:
-            - *host
+            - penpot.mbund.org
   ingress:
     tls:
       - secretName: penpot-tls-certificate
         hosts:
-          - *host
+          - penpot.mbund.org
   persistence:
     enabled: true
     storageClass: longhorn
