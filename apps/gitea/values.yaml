@@ -26,6 +26,8 @@ gitea:
         ROOT_URL: https://git.mbund.org
       actions:
         ENABLED: true
+      ui:
+        DEFAULT_THEME: gitea
     metrics:
       enabled: true
       serviceMonitor:
