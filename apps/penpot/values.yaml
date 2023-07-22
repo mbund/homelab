@@ -7,3 +7,7 @@ penpot:
     storageClass: longhorn
   config:
     publicURI: https://penpot.mbund.org
+    postgresql:
+      username: example
+      password: secretpassword
+      database: penpot
