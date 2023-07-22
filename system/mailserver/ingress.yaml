@@ -32,7 +32,8 @@ spec:
                 port:
                   number: 8000
   tls:
-    - hosts:
+    - secretName: mailserver-tls-certificate
+      hosts:
         - *host1
         - *host2
         - mail.mbund.org
