@@ -43,6 +43,8 @@ hajimari:
             url: https://dash.cloudflare.com
           - name: Tailscale
             url: https://tailscale.com/admin
+          - name: Hetzner Cloud
+            url: https://console.hetzner.cloud
   persistence:
     data:
       enabled: false
