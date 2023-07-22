@@ -1,0 +1,25 @@
+penpot:
+  global:
+    postgresqlEnabled: true
+    redisEnabled: true
+  frontend:
+    ingress:
+      enabled: true
+      ingressClassName: private
+      annotations:
+        cert-manager.io/cluster-issuer: letsencrypt-prod
+        external-dns.alpha.kubernetes.io/target: relay.mbund.org
+        hajimari.io/appName: Penpot
+        hajimari.io/icon: fountain-pen-tip
+        hajimari.io/group: Internal
+      hosts:
+        - &host penpot.mbund.org
+      tls:
+        - secretName: penpot-tls-certificate
+          hosts:
+            - *host
+  persistence:
+    enabled: true
+    storageClass: longhorn
+  config:
+    publicURI: https://penpot.mbund.org
