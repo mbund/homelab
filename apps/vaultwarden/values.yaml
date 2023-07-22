@@ -9,7 +9,7 @@ vaultwarden:
         hajimari.io/icon: shield-account
         hajimari.io/group: Internal
       hosts:
-        - host: &host password.mbund.org
+        - host: &host vaultwarden.mbund.org
           paths:
             - path: /
               pathType: Prefix

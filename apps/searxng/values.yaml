@@ -26,7 +26,7 @@ searxng:
         hajimari.io/icon: search
         hajimari.io/group: External
       hosts:
-        - host: &host searxng.mbund.org
+        - host: &host search.mbund.org
           paths:
             - path: /
               pathType: Prefix
