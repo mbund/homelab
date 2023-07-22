@@ -11,5 +11,6 @@ spec:
     kind: ClusterIssuer
   commonName: mbund.org
   dnsNames:
-    - "mbund.org"
-    - "*.mbund.org"
+    - mbund.org
+    - imap.mbund.org
+    - smtp.mbund.org
