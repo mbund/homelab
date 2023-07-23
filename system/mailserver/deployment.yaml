@@ -17,6 +17,7 @@ spec:
       labels:
         app.kubernetes.io/name: docker-mailserver
     spec:
+      serviceAccountName: tailscale
       containers:
         - name: mailserver
           image: mailserver/docker-mailserver:12.1.0
