@@ -60,18 +60,6 @@ spec:
             - name: data
               mountPath: /var/log/mail
               subPath: log
-            - name: configs
-              mountPath: /etc/dovecot/conf.d/10-master.conf
-              subPath: 10-master.conf
-              readOnly: true
-            - name: configs
-              mountPath: /etc/dovecot/conf.d/15-mailboxes.conf
-              subPath: 15-mailboxes.conf
-              readOnly: true
-            - name: configs
-              mountPath: /etc/fail2ban/jail.local
-              subPath: jail.local
-              readOnly: true
             - name: opendkim
               mountPath: /tmp/docker-mailserver/opendkim/KeyTable
               subPath: KeyTable
