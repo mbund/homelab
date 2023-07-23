@@ -42,7 +42,7 @@ spec:
                 - "/bin/bash"
                 - "-c"
                 - |
-                  ! supervisorctl status | grep -E "amavis|clamav|cron|dovecot|fail2ban|mailserver|opendkim|opendmarc|postfix|rsyslog|saslauthd_ldap" | grep -v RUNNING
+                  ! supervisorctl status | grep -E "mailserver" | grep -v RUNNING
             initialDelaySeconds: 15
             timeoutSeconds: 1
             failureThreshold: 3
