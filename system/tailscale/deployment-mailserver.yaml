@@ -49,7 +49,7 @@ spec:
             - name: TS_AUTH_ONCE
               value: "true"
             - name: TS_EXTRA_ARGS
-              value: --hostname=homelab-mailserver
+              value: --hostname=homelab-mailserver --exit-node=relay
           securityContext:
             capabilities:
               add:
