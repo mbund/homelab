@@ -130,7 +130,7 @@ spec:
             - name: TS_AUTH_ONCE
               value: "true"
             - name: TS_EXTRA_ARGS
-              value: --hostname=homelab-mailserver --exit-node=relay --exit-node-allow-lan-access
+              value: --hostname=homelab-mailserver --exit-node=relay --exit-node-allow-lan-access --accept-dns=false
           securityContext:
             capabilities:
               add:
