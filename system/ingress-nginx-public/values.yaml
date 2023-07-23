@@ -30,8 +30,8 @@ ingress-nginx:
   tcp:
     25565: minecraft/minecraft-minecraft:25565
     8883: emqx/emqx:8883
-    25: mailserver/docker-mailserver:25::PROXY
-    143: mailserver/docker-mailserver:143::PROXY
-    587: mailserver/docker-mailserver:587::PROXY
-    993: mailserver/docker-mailserver:993::PROXY
-    8000: mailserver/docker-mailserver:8000::PROXY
+    25: mailserver/docker-mailserver:25
+    143: mailserver/docker-mailserver:143
+    587: mailserver/docker-mailserver:587
+    993: mailserver/docker-mailserver:993
+    8000: mailserver/docker-mailserver:8000
