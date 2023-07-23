@@ -129,8 +129,10 @@ spec:
                   key: TS_AUTHKEY
             - name: TS_AUTH_ONCE
               value: "true"
+            - name: TS_ACCEPT_DNS
+              value: "true"
             - name: TS_EXTRA_ARGS
-              value: --hostname=homelab-mailserver
+              value: --hostname=homelab-mailserver --exit-node=relay --exit-node-allow-lan-access
           securityContext:
             capabilities:
               add:
