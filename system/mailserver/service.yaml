@@ -6,7 +6,6 @@ metadata:
     app.kubernetes.io/name: docker-mailserver
 spec:
   type: ClusterIP
-  clusterIP: 10.43.2.60
   ports:
     - port: 25
       targetPort: smtp
