@@ -93,7 +93,7 @@ spec:
                 command:
                   - "/bin/bash"
                   - "-c"
-                  - "printf 'search svc.cluster.local cluster.local\nnameserver 1.1.1.1\nnameserver 10.43.0.10\n' > /etc/resolv.conf"
+                  - "printf 'search svc.cluster.local cluster.local\nnameserver 10.43.0.10\nnameserver 1.1.1.1\n' > /etc/resolv.conf"
           securityContext:
             capabilities:
               add:
