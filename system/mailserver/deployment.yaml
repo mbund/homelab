@@ -87,13 +87,13 @@ spec:
             limits:
               cpu: 1050m
               memory: 3072Mi
-          # lifecycle:
-          #   postStart:
-          #     exec:
-          #       command:
-          #         - "/bin/bash"
-          #         - "-c"
-          #         - "sleep 60 && echo 'nameserver 1.1.1.1' > /etc/resolv.conf"
+          lifecycle:
+            postStart:
+              exec:
+                command:
+                  - "/bin/bash"
+                  - "-c"
+                  - "sleep 180 && echo 'nameserver 1.1.1.1' > /etc/resolv.conf"
           securityContext:
             capabilities:
               add:
