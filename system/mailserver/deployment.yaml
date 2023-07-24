@@ -43,7 +43,7 @@ spec:
                 - "/bin/bash"
                 - "-c"
                 - |
-                  ! supervisorctl status | grep -E "amavis|cron|dovecot|fail2ban|mailserver|opendkim|opendmarc|postfix|rsyslog" | grep -v RUNNING
+                  ! supervisorctl status | grep -E "amavis|cron|dovecot|mailserver|opendkim|opendmarc|postfix|rsyslog" | grep -v RUNNING
             initialDelaySeconds: 15
             timeoutSeconds: 1
             failureThreshold: 3
@@ -87,17 +87,6 @@ spec:
             limits:
               cpu: 1050m
               memory: 3072Mi
-          lifecycle:
-            postStart:
-              exec:
-                command:
-                  - "/bin/bash"
-                  - "-c"
-                  - "echo 'TLS_REQCERT allow' >> /etc/ldap/ldap.conf;"
-          securityContext:
-            capabilities:
-              add:
-                - NET_ADMIN
         - name: tailscale
           imagePullPolicy: Always
           image: ghcr.io/tailscale/tailscale:v1.44.0
