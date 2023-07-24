@@ -93,7 +93,7 @@ spec:
                 command:
                   - "/bin/bash"
                   - "-c"
-                  - "sleep 10 && echo 'nameserver 1.1.1.1' > /etc/resolv.conf"
+                  - "sleep 60 && echo 'nameserver 1.1.1.1' > /etc/resolv.conf"
           securityContext:
             capabilities:
               add:
