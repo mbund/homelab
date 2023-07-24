@@ -43,15 +43,17 @@ spec:
                 - "/bin/bash"
                 - "-c"
                 - |
-                  ! supervisorctl status | grep -E "mailserver" | grep -v RUNNING
+                  ! supervisorctl status | grep -E "amavis|cron|dovecot|fail2ban|mailserver|opendkim|opendmarc|postfix|rsyslog" | grep -v RUNNING
             initialDelaySeconds: 15
             timeoutSeconds: 1
             failureThreshold: 3
           volumeMounts:
             - name: cert
               mountPath: /tmp/cert
-            - name: tmp
-              mountPath: /tmp/docker-mailserver/
+
+            - name: data
+              mountPath: /tmp/docker-mailserver
+              subPath: config
             - name: data
               mountPath: /var/mail
               subPath: mail
@@ -61,6 +63,7 @@ spec:
             - name: data
               mountPath: /var/log/mail
               subPath: log
+
             - name: opendkim
               mountPath: /tmp/docker-mailserver/opendkim/KeyTable
               subPath: KeyTable
@@ -95,25 +98,6 @@ spec:
             capabilities:
               add:
                 - NET_ADMIN
-        - name: mailserver-autodiscover
-          image: monogramm/autodiscover-email-settings:latest
-          envFrom:
-            - configMapRef:
-                name: docker-mailserver-autodiscover
-          ports:
-            - containerPort: 8000
-              protocol: TCP
-              name: autodiscover
-          livenessProbe:
-            tcpSocket:
-              port: autodiscover
-          resources:
-            requests:
-              cpu: 10m
-              memory: 32Mi
-            limits:
-              cpu: 50m
-              memory: 64Mi
         - name: tailscale
           imagePullPolicy: Always
           image: ghcr.io/tailscale/tailscale:v1.44.0
@@ -157,5 +141,3 @@ spec:
         - name: cert
           secret:
             secretName: docker-mailserver-tls
-        - name: tmp
-          emptyDir: {}
