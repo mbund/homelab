@@ -6,7 +6,7 @@ overleaf:
     - name: SHARELATEX_SITE_URL
       value: "https://overleaf.mbund.org"
     - name: SHARELATEX_ADMIN_EMAIL
-      value: "mark@mbund.org"
+      value: "admin@mbund.org"
 
     - name: SHARELATEX_MONGO_URL
       value: mongodb://overleaf-mongodb-headless:27017/sharelatex
