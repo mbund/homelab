@@ -1,9 +1,44 @@
 overleaf:
   env:
-    TZ: America/New_York
-    SHARELATEX_MONGO_URL: mongodb://overleaf-mongodb-headless:27017/sharelatex
-    SHARELATEX_REDIS_HOST: &redis overleaf-redis-headless
-    REDIS_HOST: *redis
+    - name: TZ
+      value: America/New_York
+    - name: SHARELATEX_MONGO_URL
+      value: mongodb://overleaf-mongodb-headless:27017/sharelatex
+    - name: SHARELATEX_REDIS_HOST
+      value: &redis overleaf-redis-headless
+    - name: REDIS_HOST
+      value: *redis
+
+    # https://github.com/overleaf/overleaf/wiki/HTTPS-reverse-proxy-using-Nginx
+    - name: SHARELATEX_SECURE_COOKIE
+      value: "true"
+    - name: SHARELATEX_BEHIND_PROXY
+      value: "true"
+
+    # https://github.com/overleaf/overleaf/wiki/Configuring-SMTP-Email
+    - name: SHARELATEX_EMAIL_FROM_ADDRESS
+      value: "overleaf@mbund.org"
+    - name: SHARELATEX_EMAIL_REPLY_TO
+      value: "noreply@mbund.org"
+    - name: SHARELATEX_EMAIL_SMTP_HOST
+      value: "smtp.mbund.org"
+    - name: SHARELATEX_EMAIL_SMTP_PORT
+      value: "587"
+    - name: SHARELATEX_EMAIL_SMTP_SECURE
+      value: "true"
+    - name: SHARELATEX_EMAIL_SMTP_USER
+      value: "overleaf@mbund.org"
+    - name: SHARELATEX_EMAIL_SMTP_PASS
+      valueFrom:
+        secretKeyRef:
+          name: mail-secret
+          key: mailPassword
+    - name: SHARELATEX_EMAIL_SMTP_TLS_REJECT_UNAUTH
+      value: "true"
+    - name: SHARELATEX_EMAIL_SMTP_IGNORE_TLS
+      value: "false"
+    - name: SHARELATEX_EMAIL_SMTP_LOGGER
+      value: "true"
   ingress:
     main:
       enabled: true
