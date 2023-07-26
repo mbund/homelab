@@ -25,7 +25,7 @@ overleaf:
     - name: SHARELATEX_EMAIL_SMTP_PORT
       value: "587"
     - name: SHARELATEX_EMAIL_SMTP_SECURE
-      value: "true"
+      value: "false"
     - name: SHARELATEX_EMAIL_SMTP_USER
       value: "overleaf@mbund.org"
     - name: SHARELATEX_EMAIL_SMTP_PASS
