@@ -34,7 +34,7 @@ overleaf:
           name: mail-secret
           key: mailPassword
     - name: SHARELATEX_EMAIL_SMTP_TLS_REJECT_UNAUTH
-      value: "true"
+      value: "false"
     - name: SHARELATEX_EMAIL_SMTP_IGNORE_TLS
       value: "false"
     - name: SHARELATEX_EMAIL_SMTP_LOGGER
