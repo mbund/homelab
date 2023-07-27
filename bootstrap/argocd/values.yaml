@@ -6,6 +6,10 @@ argo-cd:
   server:
     extraArgs:
       - --insecure
+    config:
+      resource.customizations.ignoreDifferences.ExternalSecret: |
+        jqPathExpressions:
+          - '. | select(.metadata.annotations.vaultInjectionChecksum) | .data'
     ingress:
       enabled: true
       ingressClassName: public
