@@ -4,9 +4,10 @@ argo-cd:
   global:
     priorityClassName: system-cluster-critical
   configs:
-    resource.customizations.ignoreDifferences.ExternalSecret: |
-      jqPathExpressions:
-        - '. | select(.metadata.annotations.vaultInjectionChecksum) | .data'
+    cm:
+      resource.customizations.ignoreDifferences.ExternalSecret: |
+        jqPathExpressions:
+          - '. | select(.metadata.annotations.vaultInjectionChecksum) | .data'
   server:
     extraArgs:
       - --insecure
