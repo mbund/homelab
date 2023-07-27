@@ -188,7 +188,7 @@ data:
   #    cap_add:
   #      - NET_ADMIN
   # Otherwise, `nftables` won't be able to ban IPs.
-  ENABLE_FAIL2BAN: "1"
+  ENABLE_FAIL2BAN: "0"
 
   # Fail2Ban blocktype
   # drop   : > drop packet (send NO reply)
