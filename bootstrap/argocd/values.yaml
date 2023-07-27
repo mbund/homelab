@@ -3,13 +3,13 @@ argo-cd:
     enabled: false
   global:
     priorityClassName: system-cluster-critical
+  configs:
+    resource.customizations.ignoreDifferences.ExternalSecret: |
+      jqPathExpressions:
+        - '. | select(.metadata.annotations.vaultInjectionChecksum) | .data'
   server:
     extraArgs:
       - --insecure
-    config:
-      resource.customizations.ignoreDifferences.ExternalSecret: |
-        jqPathExpressions:
-          - '. | select(.metadata.annotations.vaultInjectionChecksum) | .data'
     ingress:
       enabled: true
       ingressClassName: public
