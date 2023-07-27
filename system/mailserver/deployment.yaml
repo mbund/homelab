@@ -22,7 +22,7 @@ spec:
         - name: mailserver
           image: mailserver/docker-mailserver:12.1.0
           envFrom:
-            - secretRef:
+            - configMapRef:
                 name: docker-mailserver
           ports:
             - containerPort: 25
