@@ -21,3 +21,8 @@ argo-cd:
         - secretName: argocd-tls-certificate
           hosts:
             - *host
+  controller:
+    metrics:
+      enabled: true
+      serviceMonitor:
+        enabled: true
