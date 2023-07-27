@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: docker-mailserver-autodiscover
+  name: docker-mailserver
   labels:
     app.kubernetes.io/name: docker-mailserver
 data:
