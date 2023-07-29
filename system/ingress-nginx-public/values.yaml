@@ -16,8 +16,9 @@ ingress-nginx:
       serviceMonitor:
         enabled: true
     service:
-      type: ClusterIP
+      type: NodePort
       clusterIP: 10.43.0.62
+      externalTrafficPolicy: Local
   defaultBackend:
     enabled: true
     image:
