@@ -1,6 +1,7 @@
 ingress-nginx:
   controller:
     config:
+      use-proxy-protocol: "true"
       custom-http-errors: >-
         401,403,404,500,501,502,503
     ingressClassResource:
