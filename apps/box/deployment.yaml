@@ -16,3 +16,5 @@ spec:
       containers:
         - name: box
           image: alpine
+          command:
+            - "/bin/sh"
