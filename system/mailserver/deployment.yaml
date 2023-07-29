@@ -117,17 +117,17 @@ spec:
         #       value: "true"
         #     - name: TS_EXTRA_ARGS
         #       value: --hostname=homelab-mailserver --exit-node=relay --exit-node-allow-lan-access
-          securityContext:
-            capabilities:
-              add:
-                - NET_ADMIN
-          resources:
-            requests:
-              cpu: 10m
-              memory: 32Mi
-            limits:
-              cpu: 500m
-              memory: 1024Mi
+        # securityContext:
+        #   capabilities:
+        #     add:
+        #       - NET_ADMIN
+        # resources:
+        #   requests:
+        #     cpu: 10m
+        #     memory: 32Mi
+        #   limits:
+        #     cpu: 500m
+        #     memory: 1024Mi
       volumes:
         - name: data
           persistentVolumeClaim:
