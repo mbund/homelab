@@ -87,36 +87,36 @@ spec:
             limits:
               cpu: 1050m
               memory: 3072Mi
-          lifecycle:
-            postStart:
-              exec:
-                command:
-                  - "/bin/bash"
-                  - "-c"
-                  - "printf 'search svc.cluster.local cluster.local\nnameserver 10.43.0.10\nnameserver 1.1.1.1\n' > /etc/resolv.conf"
-          securityContext:
-            capabilities:
-              add:
-                - NET_ADMIN
-        - name: tailscale
-          imagePullPolicy: IfNotPresent
-          image: ghcr.io/tailscale/tailscale:v1.44.0
-          env:
-            - name: TS_KUBE_SECRET
-              value: tailscale-login-mailserver
-            - name: TS_USERSPACE
-              value: "false"
-            - name: TS_AUTHKEY
-              valueFrom:
-                secretKeyRef:
-                  name: tailscale-auth
-                  key: TS_AUTHKEY
-            - name: TS_AUTH_ONCE
-              value: "true"
-            - name: TS_ACCEPT_DNS
-              value: "true"
-            - name: TS_EXTRA_ARGS
-              value: --hostname=homelab-mailserver --exit-node=relay --exit-node-allow-lan-access
+          # lifecycle:
+          #   postStart:
+          #     exec:
+          #       command:
+          #         - "/bin/bash"
+          #         - "-c"
+          #         - "printf 'search svc.cluster.local cluster.local\nnameserver 10.43.0.10\nnameserver 1.1.1.1\n' > /etc/resolv.conf"
+          # securityContext:
+          #   capabilities:
+          #     add:
+          #       - NET_ADMIN
+        # - name: tailscale
+        #   imagePullPolicy: IfNotPresent
+        #   image: ghcr.io/tailscale/tailscale:v1.44.0
+        #   env:
+        #     - name: TS_KUBE_SECRET
+        #       value: tailscale-login-mailserver
+        #     - name: TS_USERSPACE
+        #       value: "false"
+        #     - name: TS_AUTHKEY
+        #       valueFrom:
+        #         secretKeyRef:
+        #           name: tailscale-auth
+        #           key: TS_AUTHKEY
+        #     - name: TS_AUTH_ONCE
+        #       value: "true"
+        #     - name: TS_ACCEPT_DNS
+        #       value: "true"
+        #     - name: TS_EXTRA_ARGS
+        #       value: --hostname=homelab-mailserver --exit-node=relay --exit-node-allow-lan-access
           securityContext:
             capabilities:
               add:
