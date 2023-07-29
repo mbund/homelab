@@ -30,3 +30,7 @@ ingress-nginx:
         value: "true"
   tcp:
     8883: emqx/emqx:8883
+    25: mailserver/docker-mailserver:25
+    143: mailserver/docker-mailserver:143
+    587: mailserver/docker-mailserver:587
+    993: mailserver/docker-mailserver:993
