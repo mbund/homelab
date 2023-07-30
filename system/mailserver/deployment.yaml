@@ -31,17 +31,17 @@ spec:
 
             - containerPort: 587
               protocol: TCP
-              name: smpt-submission
+              name: smtp-sub
             - containerPort: 465
               protocol: TCP
-              name: smpt-submission-secure
+              name: smtp-subs
 
             - containerPort: 143
               protocol: TCP
               name: imap
             - containerPort: 993
               protocol: TCP
-              name: imap-secure
+              name: imaps
           livenessProbe:
             exec:
               command:

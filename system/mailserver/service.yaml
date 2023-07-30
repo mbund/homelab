@@ -13,21 +13,21 @@ spec:
       name: smtp-transfer
 
     - port: 587
-      targetPort: smpt-submission
+      targetPort: smtp-sub
       protocol: TCP
-      name: smpt-submission
+      name: smtp-sub
     - port: 465
-      targetPort: smpt-submission-secure
+      targetPort: smtp-subs
       protocol: TCP
-      name: smpt-submission-secure
+      name: smtp-subs
 
     - port: 143
       targetPort: imap
       protocol: TCP
       name: imap
     - port: 993
-      targetPort: imap-secure
+      targetPort: imaps
       protocol: TCP
-      name: imap-secure
+      name: imaps
   selector:
     app.kubernetes.io/name: docker-mailserver
