@@ -12,8 +12,8 @@ data:
     submission/inet/smtpd_upstream_proxy_protocol=haproxy
     smtps/inet/smtpd_upstream_proxy_protocol=haproxy
   dovecot.cf: |
-    # Assuming your ingress controller is bound to 10.0.0.0/8
-    haproxy_trusted_networks = 10.0.0.0/8, 127.0.0.0/8, 100.64.0.0/10
+    # All tailscale ips to send PROXY messages
+    haproxy_trusted_networks = 100.64.0.0/10, 127.0.0.0/8
     service imap-login {
       inet_listener imap {
         haproxy = yes

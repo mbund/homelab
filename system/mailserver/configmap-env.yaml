@@ -117,7 +117,7 @@ data:
   #
   # - 0     : > Disabled
   # - **1** : > Enabled
-  ENABLE_POLICYD_SPF: "0"
+  ENABLE_POLICYD_SPF: "1"
 
   # 1 : > Enables POP3 service
   # empty : > disables POP3
