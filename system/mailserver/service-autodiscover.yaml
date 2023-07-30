@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: docker-mailserver-autodiscover
+  labels:
+    app.kubernetes.io/name: docker-mailserver-autodiscover
+spec:
+  type: ClusterIP
+  ports:
+    - port: 8000
+      targetPort: autodiscover
+      protocol: TCP
+      name: autodiscover
+  selector:
+    app.kubernetes.io/name: docker-mailserver-autodiscover

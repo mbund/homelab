@@ -27,35 +27,40 @@ spec:
           ports:
             - containerPort: 25
               protocol: TCP
-              name: smtp
+              name: smtp-transfer
+
+            - containerPort: 587
+              protocol: TCP
+              name: smpt-submission
+            - containerPort: 465
+              protocol: TCP
+              name: smpt-submission-secure
+
             - containerPort: 143
               protocol: TCP
               name: imap
-            - containerPort: 587
-              protocol: TCP
-              name: submission
             - containerPort: 993
               protocol: TCP
-              name: imaps
+              name: imap-secure
           livenessProbe:
             exec:
               command:
                 - "/bin/bash"
                 - "-c"
                 - |
-                  ! supervisorctl status | grep -E "mailserver" | grep -v RUNNING
+                  ! supervisorctl status | grep -E "amavis|changedetector|cron|dovecot|mailserver|opendkim|opendmarc|postfix|rsyslog|update-check" | grep -v RUNNING
             initialDelaySeconds: 15
             timeoutSeconds: 1
             failureThreshold: 3
           volumeMounts:
-            # - name: config
-            #   subPath: postfix-main.cf
-            #   mountPath: /tmp/docker-mailserver/postfix-main.cf
-            #   readOnly: true
-            # - name: config
-            #   subPath: postfix-master.cf
-            #   mountPath: /tmp/docker-mailserver/postfix-master.cf
-            #   readOnly: true
+            - name: config
+              subPath: postfix-main.cf
+              mountPath: /tmp/docker-mailserver/postfix-main.cf
+              readOnly: true
+            - name: config
+              subPath: postfix-master.cf
+              mountPath: /tmp/docker-mailserver/postfix-master.cf
+              readOnly: true
             - name: config
               subPath: dovecot.cf
               mountPath: /tmp/docker-mailserver/dovecot.cf

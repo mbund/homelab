@@ -8,24 +8,26 @@ spec:
   type: ClusterIP
   ports:
     - port: 25
-      targetPort: smtp
+      targetPort: smtp-transfer
       protocol: TCP
-      name: smtp
+      name: smtp-transfer
+
+    - port: 587
+      targetPort: smpt-submission
+      protocol: TCP
+      name: smpt-submission
+    - port: 465
+      targetPort: smpt-submission-secure
+      protocol: TCP
+      name: smpt-submission-secure
+
     - port: 143
       targetPort: imap
       protocol: TCP
       name: imap
-    - port: 587
-      targetPort: submission
-      protocol: TCP
-      name: submission
     - port: 993
-      targetPort: imaps
+      targetPort: imap-secure
       protocol: TCP
-      name: imaps
-    - port: 8000
-      targetPort: autodiscover
-      protocol: TCP
-      name: autodiscover
+      name: imap-secure
   selector:
     app.kubernetes.io/name: docker-mailserver
