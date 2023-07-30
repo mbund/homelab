@@ -56,10 +56,10 @@ spec:
             #   subPath: postfix-master.cf
             #   mountPath: /tmp/docker-mailserver/postfix-master.cf
             #   readOnly: true
-            - name: config
-              subPath: dovecot.cf
-              mountPath: /tmp/docker-mailserver/dovecot.cf
-              readOnly: true
+            # - name: config
+            #   subPath: dovecot.cf
+            #   mountPath: /tmp/docker-mailserver/dovecot.cf
+            #   readOnly: true
 
             - name: cert
               mountPath: /tmp/cert
