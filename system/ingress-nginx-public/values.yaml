@@ -16,9 +16,8 @@ ingress-nginx:
       serviceMonitor:
         enabled: true
     service:
-      type: NodePort
+      type: ClusterIP
       clusterIP: 10.43.0.62
-      externalTrafficPolicy: Local
   defaultBackend:
     enabled: true
     image:
@@ -29,9 +28,3 @@ ingress-nginx:
         value: app-down
       - name: SHOW_DETAILS
         value: "true"
-  tcp:
-    8883: "emqx/emqx:8883:PROXY:PROXY"
-    25: "mailserver/docker-mailserver:25:PROXY:"
-    143: "mailserver/docker-mailserver:143:PROXY:"
-    587: "mailserver/docker-mailserver:587:PROXY:"
-    993: "mailserver/docker-mailserver:993:PROXY:"

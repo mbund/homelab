@@ -23,7 +23,7 @@ spec:
           image: mailserver/docker-mailserver:12.1.0
           envFrom:
             - configMapRef:
-                name: docker-mailserver
+                name: docker-mailserver-env
           ports:
             - containerPort: 25
               protocol: TCP
@@ -48,6 +48,19 @@ spec:
             timeoutSeconds: 1
             failureThreshold: 3
           volumeMounts:
+            - name: config
+              subPath: postfix-main.cf
+              mountPath: /tmp/docker-mailserver/postfix-main.cf
+              readOnly: true
+            - name: config
+              subPath: postfix-master.cf
+              mountPath: /tmp/docker-mailserver/postfix-master.cf
+              readOnly: true
+            - name: config
+              subPath: dovecot.cf
+              mountPath: /tmp/docker-mailserver/dovecot.cf
+              readOnly: true
+
             - name: cert
               mountPath: /tmp/cert
 
@@ -87,54 +100,54 @@ spec:
             limits:
               cpu: 1050m
               memory: 3072Mi
-          # lifecycle:
-          #   postStart:
-          #     exec:
-          #       command:
-          #         - "/bin/bash"
-          #         - "-c"
-          #         - "printf 'search svc.cluster.local cluster.local\nnameserver 10.43.0.10\nnameserver 1.1.1.1\n' > /etc/resolv.conf"
-          # securityContext:
-          #   capabilities:
-          #     add:
-          #       - NET_ADMIN
-        # - name: tailscale
-        #   imagePullPolicy: IfNotPresent
-        #   image: ghcr.io/tailscale/tailscale:v1.44.0
-        #   env:
-        #     - name: TS_KUBE_SECRET
-        #       value: tailscale-login-mailserver
-        #     - name: TS_USERSPACE
-        #       value: "false"
-        #     - name: TS_AUTHKEY
-        #       valueFrom:
-        #         secretKeyRef:
-        #           name: tailscale-auth
-        #           key: TS_AUTHKEY
-        #     - name: TS_AUTH_ONCE
-        #       value: "true"
-        #     - name: TS_ACCEPT_DNS
-        #       value: "true"
-        #     - name: TS_EXTRA_ARGS
-        #       value: --hostname=homelab-mailserver --exit-node=relay --exit-node-allow-lan-access
-        # securityContext:
-        #   capabilities:
-        #     add:
-        #       - NET_ADMIN
-        # resources:
-        #   requests:
-        #     cpu: 10m
-        #     memory: 32Mi
-        #   limits:
-        #     cpu: 500m
-        #     memory: 1024Mi
+          lifecycle:
+            postStart:
+              exec:
+                command:
+                  - "/bin/bash"
+                  - "-c"
+                  - "printf 'search svc.cluster.local cluster.local\nnameserver 10.43.0.10\nnameserver 1.1.1.1\n' > /etc/resolv.conf"
+          securityContext:
+            capabilities:
+              add:
+                - NET_ADMIN
+        - name: tailscale
+          imagePullPolicy: IfNotPresent
+          image: ghcr.io/tailscale/tailscale:v1.44.0
+          env:
+            - name: TS_KUBE_SECRET
+              value: tailscale-login-mailserver
+            - name: TS_USERSPACE
+              value: "false"
+            - name: TS_AUTHKEY
+              valueFrom:
+                secretKeyRef:
+                  name: tailscale-auth
+                  key: TS_AUTHKEY
+            - name: TS_AUTH_ONCE
+              value: "true"
+            - name: TS_ACCEPT_DNS
+              value: "true"
+            - name: TS_EXTRA_ARGS
+              value: --hostname=homelab-mailserver --exit-node=relay --exit-node-allow-lan-access
+          securityContext:
+            capabilities:
+              add:
+                - NET_ADMIN
+          resources:
+            requests:
+              cpu: 10m
+              memory: 32Mi
+            limits:
+              cpu: 500m
+              memory: 1024Mi
       volumes:
         - name: data
           persistentVolumeClaim:
             claimName: docker-mailserver-data
-        - name: configs
+        - name: config
           configMap:
-            name: docker-mailserver-configs
+            name: docker-mailserver-config
         - name: opendkim
           secret:
             secretName: docker-mailserver-opendkim
