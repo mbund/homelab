@@ -28,7 +28,7 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: docker-mailserver
+                name: docker-mailserver-autodiscover
                 port:
                   number: 8000
   tls:
