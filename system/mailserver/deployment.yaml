@@ -48,18 +48,18 @@ spec:
             timeoutSeconds: 1
             failureThreshold: 3
           volumeMounts:
-            # - name: config
-            #   subPath: postfix-main.cf
-            #   mountPath: /tmp/docker-mailserver/postfix-main.cf
-            #   readOnly: true
-            # - name: config
-            #   subPath: postfix-master.cf
-            #   mountPath: /tmp/docker-mailserver/postfix-master.cf
-            #   readOnly: true
-            # - name: config
-            #   subPath: dovecot.cf
-            #   mountPath: /tmp/docker-mailserver/dovecot.cf
-            #   readOnly: true
+            - name: config
+              subPath: postfix-main.cf
+              mountPath: /tmp/docker-mailserver/postfix-main.cf
+              readOnly: true
+            - name: config
+              subPath: postfix-master.cf
+              mountPath: /tmp/docker-mailserver/postfix-master.cf
+              readOnly: true
+            - name: config
+              subPath: dovecot.cf
+              mountPath: /tmp/docker-mailserver/dovecot.cf
+              readOnly: true
 
             - name: cert
               mountPath: /tmp/cert
@@ -129,7 +129,7 @@ spec:
             - name: TS_ACCEPT_DNS
               value: "true"
             - name: TS_EXTRA_ARGS
-              value: --hostname=homelab-mailserver --exit-node=relay --exit-node-allow-lan-access
+              value: --hostname=homelab-mailserver # --exit-node=relay --exit-node-allow-lan-access
           securityContext:
             capabilities:
               add:
