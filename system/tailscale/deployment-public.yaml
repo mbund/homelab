@@ -34,6 +34,11 @@ spec:
         - name: tailscale
           imagePullPolicy: Always
           image: ghcr.io/tailscale/tailscale:v1.44.0
+          command: ["/bin/sh"]
+          args:
+            - -c
+            - export TS_DEST_IP=$(getent hosts ingress-nginx-public-controller.ingress-nginx-public | awk '{ print $1 }') &&
+              /usr/local/bin/containerboot
           env:
             - name: TS_KUBE_SECRET
               value: tailscale-login-relay
@@ -44,8 +49,6 @@ spec:
                 secretKeyRef:
                   name: tailscale-auth
                   key: TS_AUTHKEY
-            - name: TS_DEST_IP
-              value: ingress-nginx-public-controller.ingress-nginx-public
             - name: TS_AUTH_ONCE
               value: "true"
             - name: TS_EXTRA_ARGS
