@@ -24,7 +24,7 @@ ingress-nginx:
       tag: latest
     extraEnvs:
       - name: TEMPLATE_NAME
-        value: app-down
+        value: connection
       - name: SHOW_DETAILS
         value: "true"
   tcp:
