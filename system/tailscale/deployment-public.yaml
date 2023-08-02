@@ -45,7 +45,7 @@ spec:
                   name: tailscale-auth
                   key: TS_AUTHKEY
             - name: TS_DEST_IP
-              value: 10.43.0.62
+              value: ingress-nginx-public-controller.ingress-nginx-public
             - name: TS_AUTH_ONCE
               value: "true"
             - name: TS_EXTRA_ARGS
