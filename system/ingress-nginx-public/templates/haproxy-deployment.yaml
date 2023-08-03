@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: haproxy-deployment
+  name: haproxy
 spec:
   replicas: 1
   selector:
@@ -40,7 +40,6 @@ data:
         log /dev/log    local0
         log /dev/log    local1 notice
         chroot /var/lib/haproxy
-        stats socket /var/lib/haproxy/admin.sock mode 660 level admin
         stats timeout 30s
         user haproxy
         group haproxy
