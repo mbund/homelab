@@ -40,8 +40,6 @@ data:
         log /dev/log    local0
         log /dev/log    local1 notice
         stats timeout 30s
-        user haproxy
-        group haproxy
         daemon
 
     defaults
