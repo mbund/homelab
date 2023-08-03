@@ -36,5 +36,8 @@ pihole:
 unbound:
   replicaCount: 1
   clusterIP: *unbound-ip
-  rootHints:
-    enable: false
+  containers:
+    unbound:
+      config:
+        rootHints:
+          enable: false
