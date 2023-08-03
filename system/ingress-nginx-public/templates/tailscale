@@ -41,7 +41,7 @@ spec:
               /usr/local/bin/containerboot
           env:
             - name: TS_KUBE_SECRET
-              value: tailscale-auth
+              value: tailscale-secret-state
             - name: TS_USERSPACE
               value: "false"
             - name: TS_AUTHKEY
