@@ -1,0 +1,108 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: tailscale
+  name: tailscale
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: tailscale
+  template:
+    metadata:
+      labels:
+        app: tailscale
+    spec:
+      serviceAccountName: tailscale
+      initContainers:
+        - name: configurer
+          image: alpine
+          securityContext:
+            privileged: true
+          command: ["/bin/sh"]
+          args:
+            - -c
+            - apk add --no-cache iptables &&
+              sysctl -w net.ipv4.ip_forward=1 net.ipv6.conf.all.forwarding=1 &&
+              iptables -t nat -A POSTROUTING --source 100.64.0.0/10 --out-interface eth0 -j MASQUERADE
+          resources:
+            requests:
+              cpu: 1m
+              memory: 1Mi
+      containers:
+        - name: tailscale
+          imagePullPolicy: Always
+          image: ghcr.io/tailscale/tailscale:v1.44.0
+          command: ["/bin/sh"]
+          args:
+            - -c
+            - export TS_DEST_IP=$(getent hosts ingress-nginx-public-controller | awk '{ print $1 }') &&
+              /usr/local/bin/containerboot
+          env:
+            - name: TS_KUBE_SECRET
+              value: tailscale-secret-state
+            - name: TS_USERSPACE
+              value: "false"
+            - name: TS_AUTHKEY
+              valueFrom:
+                secretKeyRef:
+                  name: tailscale-auth
+                  key: TS_AUTHKEY
+            - name: TS_AUTH_ONCE
+              value: "true"
+            - name: TS_EXTRA_ARGS
+              value: --hostname=homelab-public
+          securityContext:
+            capabilities:
+              add:
+                - NET_ADMIN
+          resources:
+            limits:
+              cpu: 50m
+              memory: 256Mi
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: tailscale
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: tailscale
+rules:
+  - apiGroups: [""]
+    resources: ["secrets"]
+    verbs: ["create", "get", "update"]
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: tailscale
+subjects:
+  - kind: ServiceAccount
+    name: tailscale
+roleRef:
+  kind: Role
+  name: tailscale
+  apiGroup: rbac.authorization.k8s.io
+---
+apiVersion: external-secrets.io/v1beta1
+kind: ExternalSecret
+metadata:
+  name: tailscale-auth
+spec:
+  secretStoreRef:
+    kind: ClusterSecretStore
+    name: vault
+  target:
+    template:
+      engineVersion: v2
+      data:
+        TS_AUTHKEY: {{` "{{ .authkey }}" `}}
+  data:
+    - secretKey: authkey
+      remoteRef:
+        key: /tailscale
+        property: authkey
