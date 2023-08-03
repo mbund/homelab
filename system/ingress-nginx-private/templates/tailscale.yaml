@@ -37,7 +37,7 @@ spec:
           command: ["/bin/sh"]
           args:
             - -c
-            - export TS_DEST_IP=$(getent hosts ingress-nginx-public-controller | awk '{ print $1 }') &&
+            - export TS_DEST_IP=$(getent hosts ingress-nginx-private-controller | awk '{ print $1 }') &&
               /usr/local/bin/containerboot
           env:
             - name: TS_KUBE_SECRET
