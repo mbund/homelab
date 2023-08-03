@@ -2,17 +2,17 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    app: tailscale-relay
-  name: tailscale-relay
+    app: tailscale
+  name: tailscale
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: tailscale-relay
+      app: tailscale
   template:
     metadata:
       labels:
-        app: tailscale-relay
+        app: tailscale
     spec:
       serviceAccountName: tailscale
       initContainers:
@@ -41,7 +41,7 @@ spec:
               /usr/local/bin/containerboot
           env:
             - name: TS_KUBE_SECRET
-              value: tailscale-login-relay
+              value: tailscale-auth
             - name: TS_USERSPACE
               value: "false"
             - name: TS_AUTHKEY
