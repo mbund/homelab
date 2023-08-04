@@ -14,6 +14,7 @@ spec:
     spec:
       containers:
         - name: haproxy
+          imagePullPolicy: IfNotPresent
           image: docker.io/haproxy:2.8.1
           ports:
             - containerPort: 80
@@ -22,6 +23,36 @@ spec:
             - name: haproxy-config
               mountPath: /usr/local/etc/haproxy/haproxy.cfg
               subPath: haproxy.cfg
+        - name: tailscale
+          imagePullPolicy: IfNotPresent
+          image: ghcr.io/tailscale/tailscale:v1.44.0
+          env:
+            - name: TS_KUBE_SECRET
+              value: tailscale-login
+            - name: TS_USERSPACE
+              value: "false"
+            - name: TS_AUTHKEY
+              valueFrom:
+                secretKeyRef:
+                  name: tailscale-auth
+                  key: TS_AUTHKEY
+            - name: TS_AUTH_ONCE
+              value: "true"
+            - name: TS_ACCEPT_DNS
+              value: "true"
+            - name: TS_EXTRA_ARGS
+              value: --hostname=homelab-public-proxy
+          securityContext:
+            capabilities:
+              add:
+                - NET_ADMIN
+          resources:
+            requests:
+              cpu: 10m
+              memory: 32Mi
+            limits:
+              cpu: 500m
+              memory: 1024Mi
       volumes:
         - name: haproxy-config
           configMap:
