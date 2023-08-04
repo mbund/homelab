@@ -12,6 +12,7 @@ spec:
       labels:
         app: haproxy
     spec:
+      serviceAccountName: tailscale
       containers:
         - name: haproxy
           imagePullPolicy: IfNotPresent
