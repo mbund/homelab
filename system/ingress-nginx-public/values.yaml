@@ -25,3 +25,8 @@ ingress-nginx:
         value: connection
       - name: SHOW_DETAILS
         value: "true"
+  tcp:
+    8883: "emqx/emqx:8883:PROXY:PROXY"
+    1883: "emqx/emqx:1883:PROXY:PROXY"
+    8083: "emqx/emqx:8083:PROXY:PROXY"
+    8084: "emqx/emqx:8084:PROXY:PROXY"
