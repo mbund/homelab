@@ -101,10 +101,10 @@ data:
     backend mqtt_tcp_backend
             server server1 ingress-nginx-public-controller:1883 send-proxy-v2
 
-    frontend mqtt_qs
+    frontend mqtt_ws
             bind *:8083
-            default_backend mqtt_qs_backend
-    backend mqtt_qs_backend
+            default_backend mqtt_ws_backend
+    backend mqtt_ws_backend
             server server1 ingress-nginx-public-controller:8083 send-proxy-v2
 
     frontend mqtt_wss
