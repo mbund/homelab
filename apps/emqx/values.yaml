@@ -3,6 +3,7 @@ emqx:
   persistence:
     enabled: true
     storageClass: longhorn
+    size: 10Gi
   ingress:
     dashboard:
       enabled: true
