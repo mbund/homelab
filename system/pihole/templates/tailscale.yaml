@@ -1,0 +1,39 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: tailscale
+rules:
+  - apiGroups: [""]
+    resources: ["secrets"]
+    verbs: ["create", "get", "update"]
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: tailscale
+subjects:
+  - kind: ServiceAccount
+    name: default
+roleRef:
+  kind: Role
+  name: tailscale
+  apiGroup: rbac.authorization.k8s.io
+---
+apiVersion: external-secrets.io/v1beta1
+kind: ExternalSecret
+metadata:
+  name: tailscale-auth
+spec:
+  secretStoreRef:
+    kind: ClusterSecretStore
+    name: vault
+  target:
+    template:
+      engineVersion: v2
+      data:
+        TS_AUTHKEY: {{` "{{ .authkey }}" `}}
+  data:
+    - secretKey: authkey
+      remoteRef:
+        key: /tailscale
+        property: authkey

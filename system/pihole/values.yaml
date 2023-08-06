@@ -25,6 +25,37 @@ pihole:
     storageClass: longhorn
   admin:
     existingSecret: admin-secret
+  extraContainers:
+    - name: tailscale
+      imagePullPolicy: IfNotPresent
+      image: ghcr.io/tailscale/tailscale:v1.44.0
+      env:
+        - name: TS_KUBE_SECRET
+          value: tailscale-login
+        - name: TS_USERSPACE
+          value: "false"
+        - name: TS_AUTHKEY
+          valueFrom:
+            secretKeyRef:
+              name: tailscale-auth
+              key: TS_AUTHKEY
+        - name: TS_AUTH_ONCE
+          value: "true"
+        - name: TS_ACCEPT_DNS
+          value: "true"
+        - name: TS_EXTRA_ARGS
+          value: --hostname=homelab-dns
+      securityContext:
+        capabilities:
+          add:
+            - NET_ADMIN
+      resources:
+        requests:
+          cpu: 10m
+          memory: 32Mi
+        limits:
+          cpu: 500m
+          memory: 1024Mi
   podAnnotations:
     prometheus.io/port: "9617"
     prometheus.io/scrape: "true"
