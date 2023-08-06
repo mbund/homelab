@@ -62,6 +62,7 @@ pihole:
         limits:
           cpu: 500m
           memory: 1024Mi
+  hostname: pihole-kubernetes
   podAnnotations:
     prometheus.io/port: "9617"
     prometheus.io/scrape: "true"
