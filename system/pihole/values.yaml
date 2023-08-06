@@ -30,11 +30,11 @@ pihole:
     - name: tailscale
       imagePullPolicy: IfNotPresent
       image: ghcr.io/tailscale/tailscale:v1.44.0
-      # command: ["/bin/sh"]
-      # args:
-      #   - -c
-      #   - printf 'search mailserver.svc.cluster.local svc.cluster.local cluster.local\nnameserver 127.0.0.1\nnameserver 10.43.0.10\nnameserver 1.1.1.1\n' > /etc/resolv.conf &&
-      #     /usr/local/bin/containerboot
+      command: ["/bin/sh"]
+      args:
+        - -c
+        - printf 'search mailserver.svc.cluster.local svc.cluster.local cluster.local\nnameserver 127.0.0.1\nnameserver 10.43.0.10\nnameserver 1.1.1.1\n' > /etc/resolv.conf &&
+          /usr/local/bin/containerboot
       env:
         - name: TS_KUBE_SECRET
           value: tailscale-login
