@@ -93,22 +93,22 @@ data:
             bind *:8883
             default_backend mqtt_ssl_backend
     backend mqtt_ssl_backend
-            server server1 ingress-nginx-public-controller:8883 send-proxy-v2
+            server server1 emqx.emqx:8883 send-proxy-v2
 
     frontend mqtt_tcp
             bind *:1883
             default_backend mqtt_tcp_backend
     backend mqtt_tcp_backend
-            server server1 ingress-nginx-public-controller:1883 send-proxy-v2
+            server server1 emqx.emqx:1883 send-proxy-v2
 
     frontend mqtt_ws
             bind *:8083
             default_backend mqtt_ws_backend
     backend mqtt_ws_backend
-            server server1 ingress-nginx-public-controller:8083 send-proxy-v2
+            server server1 emqx.emqx:8083 send-proxy-v2
 
     frontend mqtt_wss
             bind *:8084
             default_backend mqtt_wss_backend
     backend mqtt_wss_backend
-            server server1 ingress-nginx-public-controller:8084 send-proxy-v2
+            server server1 emqx.emqx:8084 send-proxy-v2
