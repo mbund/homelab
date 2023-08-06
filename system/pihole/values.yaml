@@ -66,8 +66,12 @@ pihole:
     prometheus.io/port: "9617"
     prometheus.io/scrape: "true"
   monitoring:
+    podMonitor:
+      enabled: true
     sidecar:
       enabled: true
+      image:
+        tag: v0.4.0
   DNS1: &unbound-ip 10.43.1.60
   DNS2: ""
 unbound:
