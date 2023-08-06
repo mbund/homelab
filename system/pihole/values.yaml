@@ -5,6 +5,7 @@ pihole:
     TZ: America/New_York
     DNSMASQ_USER: root
     PIHOLE_INTERFACE: tailscale0
+    DNSMASQ_LISTENING: all
   ingress:
     enabled: true
     ingressClassName: private
