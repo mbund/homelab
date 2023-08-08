@@ -80,8 +80,8 @@ nextcloud:
     failureThreshold: 60
   readinessProbe:
     failureThreshold: 60
-  nginx:
-    enabled: true
+  # nginx:
+  #   enabled: true
   internalDatabase:
     enabled: false
   externalDatabase:
