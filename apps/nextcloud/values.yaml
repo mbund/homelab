@@ -6,36 +6,36 @@ nextcloud:
     existingSecret:
       enabled: true
       secretName: admin-secret
-    phpConfigs:
-      www.conf: |
-        [www]
-        user = www-data
-        group = www-data
-        listen = 127.0.0.1:9000
+    # phpConfigs:
+    #   www.conf: |
+    #     [www]
+    #     user = www-data
+    #     group = www-data
+    #     listen = 127.0.0.1:9000
 
-        pm = dynamic
-        pm.max_children = 300
-        pm.start_servers = 10
-        pm.min_spare_servers = 6
-        pm.max_spare_servers = 18
-        pm.max_requests = 500
-        pm.process_idle_timeout = 10s
-    configs:
-      proxy.config.php: |-
-        <?php
-        $CONFIG = array (
-          'trusted_proxies' => array(
-            0 => '127.0.0.1',
-            1 => '10.0.0.0/8',
-          ),
-          'forwarded_for_headers' => array('HTTP_X_FORWARDED_FOR'),
-        );
-      custom.config.php: |-
-        <?php
-        $CONFIG = array (
-          'default_phone_region' => 'US',
-          'config_is_read_only' => true,
-        );
+    #     pm = dynamic
+    #     pm.max_children = 300
+    #     pm.start_servers = 10
+    #     pm.min_spare_servers = 6
+    #     pm.max_spare_servers = 18
+    #     pm.max_requests = 500
+    #     pm.process_idle_timeout = 10s
+    # configs:
+    #   proxy.config.php: |-
+    #     <?php
+    #     $CONFIG = array (
+    #       'trusted_proxies' => array(
+    #         0 => '127.0.0.1',
+    #         1 => '10.0.0.0/8',
+    #       ),
+    #       'forwarded_for_headers' => array('HTTP_X_FORWARDED_FOR'),
+    #     );
+    #   custom.config.php: |-
+    #     <?php
+    #     $CONFIG = array (
+    #       'default_phone_region' => 'US',
+    #       'config_is_read_only' => true,
+    #     );
   ingress:
     enabled: true
     className: public
