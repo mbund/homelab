@@ -1,6 +1,6 @@
 nextcloud:
   image:
-    tag: 26.0.1-fpm
+    tag: 27.0.1-fpm
   nextcloud:
     host: &host cloud.mbund.org
     existingSecret:
