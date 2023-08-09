@@ -89,7 +89,7 @@ data:
   # empty : > modern
   # modern : > Enables TLSv1.2 and modern ciphers only. (default)
   # intermediate : > Enables TLSv1, TLSv1.1 and TLSv1.2 and broad compatibility ciphers.
-  TLS_LEVEL: ""
+  TLS_LEVEL: "intermediate"
 
   # Configures the handling of creating mails with forged sender addresses.
   #
