@@ -149,7 +149,6 @@ nextcloud:
   cronjobs:
     enabled: true
     image:
-      repository: git.devmem.ru/projects/kubectl
       tag: latest
     cronjobs:
       - name: cron
