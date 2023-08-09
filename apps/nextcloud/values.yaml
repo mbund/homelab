@@ -154,12 +154,12 @@ nextcloud:
   nginx:
     enabled: true
   internalDatabase:
-    enabled: false
+    enabled: true
   externalDatabase:
     existingSecret:
-      enabled: true
+      enabled: false
   postgresql:
-    enabled: true
+    enabled: false
     image:
       registry: docker.io
       repository: bitnami/postgresql
