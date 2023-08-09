@@ -135,13 +135,6 @@ nextcloud:
       storageClass: longhorn
       accessMode: ReadWriteOnce
       size: 128Gi
-  resources:
-    requests:
-      cpu: 500m
-      memory: 576Mi
-    limits:
-      cpu: 3500m
-      memory: 4096Mi
   livenessProbe:
     enabled: false
   readinessProbe:
@@ -159,13 +152,6 @@ nextcloud:
         command: /var/www/html/occ files:scan -q -n -p piv/files/Notes
   nginx:
     enabled: true
-    resources:
-      requests:
-        cpu: 10m
-        memory: 32Mi
-      limits:
-        cpu: 100m
-        memory: 64Mi
   internalDatabase:
     enabled: false
   externalDatabase:
