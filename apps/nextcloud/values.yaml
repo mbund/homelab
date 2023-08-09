@@ -1,36 +1,203 @@
 nextcloud:
+  fullnameOverride: nextcloud
+  image:
+    tag: 27.0.1-fpm
+    pullPolicy: Always
   ingress:
     enabled: true
+    className: public
     annotations:
-      kubernetes.io/ingress.class: public
       cert-manager.io/cluster-issuer: letsencrypt-prod
       external-dns.alpha.kubernetes.io/target: relay.mbund.org
       hajimari.io/icon: simple-icons:nextcloud
       hajimari.io/group: External
-    hosts:
-      - host: &host cloud.mbund.org
+      nginx.ingress.kubernetes.io/proxy-request-buffering: "off"
+      nginx.ingress.kubernetes.io/proxy-body-size: "10G"
+      nginx.ingress.kubernetes.io/client-body-timeout: "300"
+      nginx.ingress.kubernetes.io/proxy-read-timeout: "1200"
+      nginx.ingress.kubernetes.io/server-snippet: |-
+        location = /.well-known/carddav {
+          return 301 $scheme://$host/remote.php/dav;
+        }
+        location = /.well-known/caldav {
+          return 301 $scheme://$host/remote.php/dav;
+        }
+        location ^~ /.well-known {
+          return 301 $scheme://$host/index.php$uri;
+        }
+        location = /robots.txt {
+          allow all;
+          log_not_found off;
+          access_log off;
+        }
+        location ~ ^/(?:build|tests|config|lib|3rdparty|templates|data)/ {
+          deny all;
+        }
+        location ~ ^/(?:autotest|occ|issue|indie|db_|console) {
+          deny all;
+        }
+    path: /
+    pathType: Prefix
     tls:
-      - secretName: nextcloud-tls-certificate
-        hosts:
-          - *host
-  customConfigs:
-    proxy.config.php: |-
-      <?php
-      $CONFIG = array (
-        'trusted_proxies' => array(
-          0 => '127.0.0.1',
-          1 => '10.0.0.0/8',
-        ),
-        'forwarded_for_headers' => array('HTTP_X_FORWARDED_FOR'),
-      );
-    custom.config.php: |-
-      <?php
-      $CONFIG = array (
-        'default_phone_region' => 'US',
-        'config_is_read_only' => true,
-      );
-  storage:
-    nextcloud:
-      className: longhorn
+      - hosts:
+          - &host cloud.mbund.org
+  nextcloud:
+    host: *host
+    existingSecret:
+      enabled: true
+      secretName: nextcloud
+      usernameKey: admin-user
+      passwordKey: admin-password
+      tokenKey: serverinfo-token
+      smtpUsernameKey: smtp-username
+      smtpPasswordKey: smtp-password
+    mail:
+      enabled: true
+      fromAddress: nextcloud
+      domain: mbund.org
+      smtp:
+        host: smtp.mbund.org
+        secure: tls
+        port: 587
+        authtype: PLAIN
+    phpConfigs:
+      zz-php-fpm.conf: |
+        [www]
+        pm = dynamic
+        pm.max_children = 75
+        pm.start_servers = 12
+        pm.min_spare_servers = 6
+        pm.max_spare_servers = 18
+        pm.max_requests = 498
+        access.log = /dev/null
+        php_admin_value[post_max_size] = 10G
+        php_admin_value[upload_max_filesize] = 10G
+        php_admin_value[max_execution_time] = 10800
+        php_admin_value[max_input_time] = 3600
+        php_admin_value[memory_limit] = 1024M
+    configs:
+      zz-custom.config.php: |-
+        <?php
+        $CONFIG = array (
+          'check_data_directory_permissions' => false,
+          'trusted_domains' => array (
+            0 => 'localhost',
+            1 => 'cloud.mbund.org',
+          ),
+          'trusted_proxies' => array (
+            0 => '127.0.0.1',
+            1 => '10.0.0.0/8',
+          ),
+          'overwriteprotocol' => 'https',
+          'default_phone_region' => 'US',
+          'enabledPreviewProviders' => array (
+            'OC\\Preview\\Image',
+            'OC\\Preview\\HEIC',
+            'OC\\Preview\\TIFF',
+            'OC\\Preview\\Movie',
+            'OC\\Preview\\MKV',
+            'OC\\Preview\\MP4',
+            'OC\\Preview\\AVI',
+            'OC\\Preview\\MP3',
+            'OC\\Preview\\TXT',
+            'OC\\Preview\\MarkDown',
+            'OC\\Preview\\OpenDocument',
+          ),
+          'preview_max_x' => '2048',
+          'preview_max_y' => '2048',
+          'jpeg_quality' => '65',
+          'trashbin_retention_obligation' => 'auto, 365',
+          'log.condition' => [
+            'apps' => ['admin_audit'],
+          ],
+          'log_type_audit' => 'errorlog',
+          'log_type' => 'errorlog',
+          'loglevel' => 2,
+        );
+    extraVolumes:
+      - name: tmp
+        emptyDir: {}
+    extraVolumeMounts:
+      - name: tmp
+        mountPath: /tmp
+  podSecurityContext:
+    runAsUser: 1000
+    runAsGroup: 1000
+    fsGroup: 1000
+    fsGroupChangePolicy: OnRootMismatch
+  persistence:
+    enabled: true
+    storageClass: longhorn
+    accessMode: ReadWriteOnce
+    size: 11Gi
     nextcloudData:
-      className: longhorn
+      enabled: true
+      storageClass: longhorn
+      accessMode: ReadWriteOnce
+      size: 128Gi
+  resources:
+    requests:
+      cpu: 500m
+      memory: 576Mi
+    limits:
+      cpu: 3500m
+      memory: 4096Mi
+  livenessProbe:
+    enabled: false
+  readinessProbe:
+    enabled: false
+  cronjobs:
+    enabled: true
+    image:
+      repository: git.devmem.ru/projects/kubectl
+      tag: latest
+    cronjobs:
+      - name: cron
+        schedule: "*/5 * * * *"
+        command: php -f /var/www/html/cron.php
+      - name: occ-files-scan
+        schedule: "*/2 * * * *"
+        command: /var/www/html/occ files:scan -q -n -p piv/files/Notes
+  nginx:
+    enabled: true
+    resources:
+      requests:
+        cpu: 10m
+        memory: 32Mi
+      limits:
+        cpu: 100m
+        memory: 64Mi
+  internalDatabase:
+    enabled: false
+  externalDatabase:
+    existingSecret:
+      enabled: true
+  postgresql:
+    enabled: true
+    image:
+      registry: docker.io
+      repository: bitnami/postgresql
+      tag: 15.3.0
+    architecture: standalone
+    auth:
+      username: nextcloud
+      database: nextcloud
+      existingSecret: nextcloud
+      secretKeys:
+        adminPasswordKey: postgresql-postgres-password
+        userPasswordKey: postgresql-password
+    primary:
+      persistence:
+        enabled: true
+        storageClass: longhorn
+        size: 4Gi
+      nodeSelector:
+        mbund.org/pve-host: spsrv
+    metrics:
+      enabled: true
+      image:
+        registry: docker.io
+        repository: bitnami/postgres-exporter
+        tag: 0.13.2
+      serviceMonitor:
+        enabled: true
