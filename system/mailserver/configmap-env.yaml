@@ -35,7 +35,7 @@ data:
   # **warn** : > Show warnings
   # info : > Normal informational output
   # debug : > Also show debug messages
-  SUPERVISOR_LOGLEVEL: ""
+  SUPERVISOR_LOGLEVEL: "debug"
 
   # 0 : > mail state in default directories
   # 1 : > consolidate all states into a single directory (`/var/mail-state`) to allow persistence using docker volumes
