@@ -28,14 +28,14 @@ data:
   #
   # Valid values (in order of increasing verbosity) are: `error`, `warn`, `info`, `debug` and `trace`.
   # The default log level is `info`.
-  LOG_LEVEL: trace
+  LOG_LEVEL: "trace"
 
   # critical : > Only show critical messages
   # error : > Only show erroneous output
   # **warn** : > Show warnings
   # info : > Normal informational output
   # debug : > Also show debug messages
-  SUPERVISOR_LOGLEVEL: "debug"
+  SUPERVISOR_LOGLEVEL: ""
 
   # 0 : > mail state in default directories
   # 1 : > consolidate all states into a single directory (`/var/mail-state`) to allow persistence using docker volumes
