@@ -80,6 +80,8 @@ nextcloud:
       zz-custom.config.php: |-
         <?php
         $CONFIG = array (
+          'mail_smtptimeout' => '30',
+          'app.mail.smtp.timeout' => 30,
           'check_data_directory_permissions' => false,
           'trusted_domains' => array (
             0 => 'localhost',
