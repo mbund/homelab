@@ -143,7 +143,7 @@ nextcloud:
   readinessProbe:
     enabled: false
   cronjobs:
-    enabled: true
+    enabled: false
     image:
       repository: nextcloud
       tag: latest
