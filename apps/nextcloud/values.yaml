@@ -39,7 +39,8 @@ nextcloud:
     path: /
     pathType: Prefix
     tls:
-      - hosts:
+      - secretName: nextcloud-tls-certificate
+        hosts:
           - &host cloud.mbund.org
   nextcloud:
     host: *host
