@@ -142,6 +142,7 @@ nextcloud:
   cronjobs:
     enabled: true
     image:
+      repository: nextcloud
       tag: latest
     cronjobs:
       - name: cron
@@ -162,7 +163,7 @@ nextcloud:
     image:
       registry: docker.io
       repository: bitnami/postgresql
-      tag: 15.3.0
+      tag: 14.8.0-debian-11-r10
     architecture: standalone
     auth:
       username: nextcloud
@@ -183,6 +184,6 @@ nextcloud:
       image:
         registry: docker.io
         repository: bitnami/postgres-exporter
-        tag: 0.13.2
+        tag: 0.11.1-debian-11-r68
       serviceMonitor:
         enabled: true
