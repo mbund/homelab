@@ -156,6 +156,10 @@ nextcloud:
         command: /var/www/html/occ files:scan -q -n -p piv/files/Notes
   nginx:
     enabled: true
+  metrics:
+    enabled: true
+    serviceMonitor:
+      enabled: true
   internalDatabase:
     enabled: true
   externalDatabase:
