@@ -27,7 +27,3 @@ ingress-nginx:
         value: connection
       - name: SHOW_DETAILS
         value: "true"
-  tcp:
-    53: pihole/pihole-dns-tcp:53
-  udp:
-    53: pihole/pihole-dns-udp:53
