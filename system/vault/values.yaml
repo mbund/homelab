@@ -61,7 +61,7 @@ vault:
             value: http://vault.vault:8200
           - name: VAULT_CLUSTER_MEMBERS
             value: >-
-              http://vault-0.vault-internal:8200,http://vault-1.vault-internal:8200,http://vault-2.vault-internal:8200
+              http://vault-0:8200,http://vault-1:8200,http://vault-2:8200
           - name: VAULT_KEY_SHARES
             value: "5"
           - name: VAULT_KEY_THRESHOLD
