@@ -3,5 +3,5 @@ name: vault
 version: 0.0.0
 dependencies:
   - name: vault
-    version: 1.21.2
+    version: 1.19.0
     repository: https://kubernetes-charts.banzaicloud.com
