@@ -1,0 +1,79 @@
+vault:
+  injector:
+    enabled: false
+  ui:
+    enabled: true
+  server:
+    enabled: true
+    updateStrategyType: RollingUpdate
+    dataStorage:
+      storageClass: longhorn-sts
+      size: 1Gi
+    ha:
+      enabled: true
+      replicas: 3
+      raft:
+        enabled: true
+        setNodeId: true
+        config: |
+          ui = true
+          listener "tcp" {
+            tls_disable = 1
+            address = "[::]:8200"
+            cluster_address = "[::]:8201"
+            telemetry {
+              unauthenticated_metrics_access = "true"
+            }
+          }
+          telemetry {
+            prometheus_retention_time = "1m",
+            disable_hostname = true
+          }
+          storage "raft" {
+            path = "/vault/data"
+          }
+          service_registration "kubernetes" {}
+    ingress:
+      enabled: true
+      ingressClassName: nginx
+      hosts:
+        - host: &host vault.k8s.devmem.ru
+      tls:
+        - hosts:
+            - *host
+          secretName: null
+    extraInitContainers:
+      - name: vault-bootstrap
+        image: ghcr.io/spirkaa/vault-bootstrap:latest
+        command:
+          - /vault-bootstrap
+        args:
+          - --mode
+          - init-container
+        env:
+          - name: VAULT_ADDR
+            value: http://vault.vault:8200
+          - name: VAULT_CLUSTER_MEMBERS
+            value: >-
+              http://vault-0.vault-internal:8200,http://vault-1.vault-internal:8200,http://vault-2.vault-internal:8200
+          - name: VAULT_KEY_SHARES
+            value: "5"
+          - name: VAULT_KEY_THRESHOLD
+            value: "3"
+          - name: VAULT_ENABLE_INIT
+            value: "true"
+          - name: VAULT_ENABLE_K8SSECRET
+            value: "true"
+          - name: VAULT_ENABLE_UNSEAL
+            value: "true"
+          - name: VAULT_ENABLE_K8SAUTH
+            value: "true"
+          - name: VAULT_K8SAUTH_SERVICE_ACCOUNT
+            value: external-secrets
+          - name: VAULT_K8S_POD_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+  serverTelemetry:
+    serviceMonitor:
+      enabled: true
