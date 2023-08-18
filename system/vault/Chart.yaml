@@ -3,5 +3,5 @@ name: vault
 version: 0.0.0
 dependencies:
   - name: vault
-    version: 0.25.0
-    repository: https://helm.releases.hashicorp.com
+    version: 1.21.2
+    repository: oci://ghcr.io/bank-vaults/helm-charts/vault-operator
