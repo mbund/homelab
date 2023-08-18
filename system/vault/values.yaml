@@ -7,7 +7,7 @@ vault:
     enabled: true
     updateStrategyType: RollingUpdate
     dataStorage:
-      storageClass: longhorn-sts
+      storageClass: longhorn
       size: 1Gi
     ha:
       enabled: true
@@ -35,13 +35,19 @@ vault:
           service_registration "kubernetes" {}
     ingress:
       enabled: true
-      ingressClassName: nginx
+      annotations:
+        cert-manager.io/cluster-issuer: letsencrypt-prod
+        external-dns.alpha.kubernetes.io/target: private-relay.mbund.org
+        hajimari.io/appName: HashiCorp Vault
+        hajimari.io/icon: database-lock
+        hajimari.io/group: Internal
+      ingressClassName: private
       hosts:
-        - host: &host vault.k8s.devmem.ru
+        - host: &host vault.mbund.org
       tls:
-        - hosts:
+        - secretName: vault-tls-certificate
+          hosts:
             - *host
-          secretName: null
     extraInitContainers:
       - name: vault-bootstrap
         image: ghcr.io/spirkaa/vault-bootstrap:latest
