@@ -1,0 +1,61 @@
+vault:
+  injector:
+    enabled: false
+  ui:
+    enabled: true
+  server:
+    enabled: true
+    updateStrategyType: RollingUpdate
+    dataStorage:
+      storageClass: longhorn
+      size: 1Gi
+    ingress:
+      enabled: true
+      annotations:
+        cert-manager.io/cluster-issuer: letsencrypt-prod
+        external-dns.alpha.kubernetes.io/target: private-relay.mbund.org
+        hajimari.io/appName: HashiCorp Vault
+        hajimari.io/icon: database-lock
+        hajimari.io/group: Internal
+      ingressClassName: private
+      hosts:
+        - host: &host vault.mbund.org
+      tls:
+        - secretName: vault-tls-certificate
+        - hosts:
+            - *host
+    extraInitContainers:
+      - name: vault-bootstrap
+        image: ghcr.io/spirkaa/vault-bootstrap:latest
+        command:
+          - /vault-bootstrap
+        args:
+          - --mode
+          - init-container
+        env:
+          - name: VAULT_ADDR
+            value: http://vault.vault:8200
+          - name: VAULT_CLUSTER_MEMBERS
+            value: >-
+              http://vault-0.vault-internal:8200
+          - name: VAULT_KEY_SHARES
+            value: "5"
+          - name: VAULT_KEY_THRESHOLD
+            value: "3"
+          - name: VAULT_ENABLE_INIT
+            value: "true"
+          - name: VAULT_ENABLE_K8SSECRET
+            value: "true"
+          - name: VAULT_ENABLE_UNSEAL
+            value: "true"
+          - name: VAULT_ENABLE_K8SAUTH
+            value: "true"
+          - name: VAULT_K8SAUTH_SERVICE_ACCOUNT
+            value: external-secrets
+          - name: VAULT_K8S_POD_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+  serverTelemetry:
+    serviceMonitor:
+      enabled: true
