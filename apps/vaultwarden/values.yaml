@@ -1,6 +1,6 @@
 vaultwarden:
   env:
-    DOMAIN: vaultwarden.mbund.org
+    DOMAIN: https://vaultwarden.mbund.org
   ingress:
     main:
       enabled: true
