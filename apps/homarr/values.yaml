@@ -1,0 +1,39 @@
+app-template:
+  image:
+    repository: ghcr.io/ajnart/homarr
+    pullPolicy: IfNotPresent
+    tag: 0.13.2
+  strategy:
+    type: Recreate
+  env:
+    TZ: America/New_York
+  service:
+    main:
+      ports:
+        http:
+          port: 7575
+  ingress:
+    main:
+      enabled: true
+      hosts:
+        - host: home.mbund.org
+          paths:
+            - path: /
+              pathType: Prefix
+              service:
+                port: http
+  persistence:
+    config:
+      enabled: true
+      type: pvc
+      accessMode: ReadWriteOnce
+      storageClass: longhorn
+      size: 1Gi
+      mountPath: /app/data/configs
+    icons:
+      enabled: true
+      type: pvc
+      accessMode: ReadWriteOnce
+      storageClass: longhorn
+      size: 1Gi
+      mountPath: /app/public/icons
