@@ -15,6 +15,9 @@ app-template:
   ingress:
     main:
       enabled: true
+      annotations:
+        cert-manager.io/cluster-issuer: letsencrypt-prod
+        external-dns.alpha.kubernetes.io/target: private-relay.mbund.org
       hosts:
         - host: home.mbund.org
           paths:
@@ -22,6 +25,10 @@ app-template:
               pathType: Prefix
               service:
                 port: http
+      tls:
+        - secretName: homarr-tls-certificate
+          hosts:
+            - *host
   persistence:
     config:
       enabled: true
