@@ -36,7 +36,7 @@ tasks:
 
   scripts:vault-root-token:
     cmds:
-      - kubectl get secrets vault-unseal-keys -n vault -o jsonpath='{.data.vault-root}' | base64 --decode
+      - kubectl get -n vault secrets vault-root-token -o jsonpath='{.data.vaultData}' | base64 --decode
 
   dev:git-configuration:
     cmds:
