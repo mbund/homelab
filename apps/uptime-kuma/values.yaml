@@ -2,6 +2,8 @@ uptime-kuma:
   env:
     - name: TZ
       value: America/New_York
+  image:
+    tag: 1.23.0
   persistentVolumeClaim:
     storageClassName: longhorn
   serviceMonitor:
