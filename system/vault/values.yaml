@@ -11,18 +11,18 @@ vault:
       size: 1Gi
     ingress:
       enabled: true
+      ingressClassName: private
       annotations:
         cert-manager.io/cluster-issuer: letsencrypt-prod
         external-dns.alpha.kubernetes.io/target: private-relay.mbund.org
         hajimari.io/appName: HashiCorp Vault
         hajimari.io/icon: database-lock
         hajimari.io/group: Internal
-      ingressClassName: private
       hosts:
         - host: &host vault.mbund.org
       tls:
         - secretName: vault-tls-certificate
-        - hosts:
+          hosts:
             - *host
     extraInitContainers:
       - name: vault-bootstrap
