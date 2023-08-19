@@ -19,7 +19,7 @@ app-template:
         cert-manager.io/cluster-issuer: letsencrypt-prod
         external-dns.alpha.kubernetes.io/target: private-relay.mbund.org
       hosts:
-        - host: home.mbund.org
+        - host: &host home.mbund.org
           paths:
             - path: /
               pathType: Prefix
