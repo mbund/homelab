@@ -19,12 +19,12 @@ app-template:
         cert-manager.io/cluster-issuer: letsencrypt-prod
         external-dns.alpha.kubernetes.io/target: private-relay.mbund.org
       hosts:
-        - host: &host home.mbund.org
+        - host: &host dash.mbund.org
           paths:
             - path: /
               pathType: Prefix
               service:
-                port: 7575
+                port: http
       tls:
         - secretName: homarr-tls-certificate
           hosts:
