@@ -24,7 +24,7 @@ app-template:
             - path: /
               pathType: Prefix
               service:
-                port: http
+                name: http
       tls:
         - secretName: homarr-tls-certificate
           hosts:
