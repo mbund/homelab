@@ -25,7 +25,7 @@ app-template:
             - path: /
               pathType: Prefix
               service:
-                name: http
+                name: homarr
       tls:
         - secretName: dash-tls-certificate
           hosts:
