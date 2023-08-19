@@ -26,7 +26,7 @@ app-template:
               service:
                 name: http
       tls:
-        - secretName: homarr-tls-certificate
+        - secretName: dash-tls-certificate
           hosts:
             - *host
   persistence:
