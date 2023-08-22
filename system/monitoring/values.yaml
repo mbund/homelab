@@ -26,6 +26,7 @@ kube-prometheus-stack:
         root_url: https://grafana.mbund.org
       auth.anonymous:
         enabled: true
+      allow_embedding: true
 
   prometheus:
     prometheusSpec:
