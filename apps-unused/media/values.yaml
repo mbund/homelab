@@ -10,9 +10,6 @@ jellyfin:
       annotations:
         cert-manager.io/cluster-issuer: letsencrypt-prod
         external-dns.alpha.kubernetes.io/target: private-relay.mbund.org
-        hajimari.io/appName: Jellyfin
-        hajimari.io/icon: play-box
-        hajimari.io/group: Internal
       hosts:
         - host: &jellyfin_host jellyfin.mbund.org
           paths:
@@ -59,9 +56,6 @@ jellyseerr:
       annotations:
         cert-manager.io/cluster-issuer: letsencrypt-prod
         external-dns.alpha.kubernetes.io/target: private-relay.mbund.org
-        hajimari.io/appName: Jellyseerr
-        hajimari.io/icon: movie-search
-        hajimari.io/group: Internal
       hosts:
         - host: &jellyseer_host jellyseerr.mbund.org
           paths:
@@ -91,9 +85,6 @@ radarr:
       annotations:
         cert-manager.io/cluster-issuer: letsencrypt-prod
         external-dns.alpha.kubernetes.io/target: private-relay.mbund.org
-        hajimari.io/appName: Radarr
-        hajimari.io/icon: movie
-        hajimari.io/group: Internal
       hosts:
         - host: &radarr_host radarr.mbund.org
           paths:
@@ -135,9 +126,6 @@ sonarr:
       annotations:
         cert-manager.io/cluster-issuer: letsencrypt-prod
         external-dns.alpha.kubernetes.io/target: private-relay.mbund.org
-        hajimari.io/appName: Sonarr
-        hajimari.io/icon: television-classic
-        hajimari.io/group: Internal
       hosts:
         - host: &sonarr_host sonarr.mbund.org
           paths:
@@ -179,9 +167,6 @@ bazarr:
       annotations:
         cert-manager.io/cluster-issuer: letsencrypt-prod
         external-dns.alpha.kubernetes.io/target: private-relay.mbund.org
-        hajimari.io/appName: Bazarr
-        hajimari.io/icon: subtitles
-        hajimari.io/group: Internal
       hosts:
         - host: &bazarr_host bazarr.mbund.org
           paths:
@@ -221,9 +206,6 @@ lidarr:
       annotations:
         cert-manager.io/cluster-issuer: letsencrypt-prod
         external-dns.alpha.kubernetes.io/target: private-relay.mbund.org
-        hajimari.io/appName: Lidarr
-        hajimari.io/icon: music
-        hajimari.io/group: Internal
       hosts:
         - host: &lidarr_host lidarr.mbund.org
           paths:
@@ -268,9 +250,6 @@ prowlarr:
       annotations:
         cert-manager.io/cluster-issuer: letsencrypt-prod
         external-dns.alpha.kubernetes.io/target: private-relay.mbund.org
-        hajimari.io/appName: Prowlarr
-        hajimari.io/icon: cloud-search
-        hajimari.io/group: Internal
       hosts:
         - host: &prowlarrr_host prowlarr.mbund.org
           paths:
@@ -305,9 +284,6 @@ qbittorrent:
       annotations:
         cert-manager.io/cluster-issuer: letsencrypt-prod
         external-dns.alpha.kubernetes.io/target: private-relay.mbund.org
-        hajimari.io/appName: QBittorrent
-        hajimari.io/icon: download-box
-        hajimari.io/group: Internal
       hosts:
         - host: &qbittorrent_host qbittorrent.mbund.org
           paths:

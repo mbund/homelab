@@ -9,8 +9,6 @@ nextcloud:
     annotations:
       cert-manager.io/cluster-issuer: letsencrypt-prod
       external-dns.alpha.kubernetes.io/target: relay.mbund.org
-      hajimari.io/icon: simple-icons:nextcloud
-      hajimari.io/group: External
       nginx.ingress.kubernetes.io/proxy-request-buffering: "off"
       nginx.ingress.kubernetes.io/proxy-body-size: "10G"
       nginx.ingress.kubernetes.io/client-body-timeout: "300"

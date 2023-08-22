@@ -70,9 +70,6 @@ spec:
     annotations:
       cert-manager.io/cluster-issuer: letsencrypt-prod
       external-dns.alpha.kubernetes.io/target: private-relay.mbund.org
-      hajimari.io/appName: HashiCorp Vault
-      hajimari.io/icon: database-lock
-      hajimari.io/group: Internal
     spec:
       ingressClassName: private
       rules:

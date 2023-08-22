@@ -42,8 +42,6 @@ nextcloud:
     annotations:
       cert-manager.io/cluster-issuer: letsencrypt-prod
       external-dns.alpha.kubernetes.io/target: relay.mbund.org
-      hajimari.io/icon: simple-icons:nextcloud
-      hajimari.io/group: External
       nginx.ingress.kubernetes.io/enable-cors: "true"
       nginx.ingress.kubernetes.io/cors-allow-headers: "X-Forwarded-For"
       nginx.ingress.kubernetes.io/server-snippet: |-
