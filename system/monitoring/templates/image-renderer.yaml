@@ -14,7 +14,6 @@ spec:
       labels:
         app: grafana-image-renderer
     spec:
-      serviceAccountName: grafana-image-renderer
       initContainers:
         - name: configurer
           image: alpine
