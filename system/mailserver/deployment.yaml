@@ -134,7 +134,7 @@ spec:
             - name: TS_ACCEPT_DNS
               value: "true"
             - name: TS_EXTRA_ARGS
-              value: --hostname=homelab-mailserver # --exit-node=relay --exit-node-allow-lan-access
+              value: --hostname=homelab-mailserver --exit-node=relay --exit-node-allow-lan-access
           securityContext:
             capabilities:
               add:
