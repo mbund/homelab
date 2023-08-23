@@ -5,6 +5,7 @@ argo-cd:
     priorityClassName: system-cluster-critical
   configs:
     cm:
+      statusbadge.enabled: "true"
       resource.customizations.ignoreDifferences.ExternalSecret: |
         jqPathExpressions:
           - '. | select(.metadata.annotations.vaultInjectionChecksum) | .data'
