@@ -1,0 +1,57 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: grafana-image-renderer
+  name: grafana-image-renderer
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: grafana-image-renderer
+  template:
+    metadata:
+      labels:
+        app: grafana-image-renderer
+    spec:
+      serviceAccountName: grafana-image-renderer
+      initContainers:
+        - name: configurer
+          image: alpine
+          securityContext:
+            privileged: true
+          command: ["/bin/sh"]
+          args:
+            - -c
+            - apk add --no-cache iptables &&
+              sysctl -w net.ipv4.ip_forward=1 net.ipv6.conf.all.forwarding=1 &&
+              iptables -t nat -A POSTROUTING --source 100.64.0.0/10 --out-interface eth0 -j MASQUERADE
+          resources:
+            requests:
+              cpu: 1m
+              memory: 1Mi
+      containers:
+        - name: grafana-image-renderer
+          imagePullPolicy: Always
+          image: grafana/grafana-image-renderer:3.7.2
+          env:
+            - name: TZ
+              value: America/New_York
+          resources:
+            limits:
+              cpu: 50m
+              memory: 256Mi
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: grafana-image-renderer
+spec:
+  selector:
+    app: grafana-image-renderer
+  type: ClusterIP
+  ports:
+    - name: api
+      port: 8081
+      targetPort: 8081
+      protocol: TCP
