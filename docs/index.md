@@ -2,7 +2,13 @@
 
 Fully automated Kubernetes and GitOps setup to host my important services at home.
 
-Read the [docs](https://mbund.github.io/homelab) for technical details.
+<img src="https://argocd.mbund.org/api/badge?name=searxng&revision=true">
+
+<div style="display: flex; width: 100%; align-items: stretch; height: 200px">
+    <iframe src="https://grafana.mbund.org/d-solo/b250375b-77ce-456f-9c27-6c38221dd21a/misc?orgId=1&panelId=2" style="flex: 1" frameborder="0"></iframe>
+    <iframe src="https://grafana.mbund.org/d-solo/b250375b-77ce-456f-9c27-6c38221dd21a/misc?orgId=1&panelId=3" style="flex: 1" frameborder="0"></iframe>
+</div>
+<iframe src="https://grafana.mbund.org/d-solo/b250375b-77ce-456f-9c27-6c38221dd21a/misc?orgId=1&panelId=5" width="100%" height="200" frameborder="0"></iframe>
 
 ## Architecture
 
