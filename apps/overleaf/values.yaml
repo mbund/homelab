@@ -75,5 +75,4 @@ overleaf:
       accessMode: ReadWriteOnce
       size: 10Gi
   redis:
-    replica:
-      replicaCount: 1
+    architecture: standalone
