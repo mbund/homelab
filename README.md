@@ -4,7 +4,7 @@ Fully automated Kubernetes and GitOps setup to host my important services at hom
 
 Read the [docs](https://mbund.github.io/homelab) for technical details.
 
-<a href="https://mbund.github.io/homelab"><img src="https://argocd.mbund.org/api/badge?name=searxng&revision=true"></a>
+<a href="https://mbund.github.io/homelab"><img src="https://argocd.mbund.org/api/badge?name=argocd&revision=true"></a>
 
 ## Architecture
 

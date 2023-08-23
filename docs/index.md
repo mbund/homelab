@@ -2,7 +2,7 @@
 
 Fully automated Kubernetes and GitOps setup to host my important services at home.
 
-<img src="https://argocd.mbund.org/api/badge?name=searxng&revision=true">
+<img src="https://argocd.mbund.org/api/badge?name=argocd&revision=true">
 
 <div style="display: flex; width: 100%; align-items: stretch; height: 200px">
     <iframe src="https://grafana.mbund.org/d-solo/b250375b-77ce-456f-9c27-6c38221dd21a/misc?orgId=1&panelId=2" style="flex: 1" frameborder="0"></iframe>
