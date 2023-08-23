@@ -20,11 +20,9 @@ spec:
           image: grafana/grafana-image-renderer:3.7.2
           env:
             - name: RENDERING_MODE
-              value: "default"
+              value: "clustered"
             - name: RENDERING_CLUSTERING_MODE
-              value: "default"
-            - name: RENDERING_CLUSTERING_MAX_CONCURRENCY
-              value: "5"
+              value: "context"
             - name: RENDERING_DUMPIO
               value: "true"
             - name: RENDERING_ARGS
