@@ -30,7 +30,7 @@ kube-prometheus-stack:
         allow_embedding: true
       rendering:
         server_url: http://grafana-image-renderer:8081/render
-        callback_url: http://localhost:3000
+        callback_url: http://monitoring-grafana:80
 
   prometheus:
     prometheusSpec:
