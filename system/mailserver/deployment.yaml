@@ -118,7 +118,7 @@ spec:
                 - NET_ADMIN
         - name: tailscale
           imagePullPolicy: IfNotPresent
-          image: ghcr.io/tailscale/tailscale:v1.44.0
+          image: ghcr.io/tailscale/tailscale:v1.48.1
           env:
             - name: TS_KUBE_SECRET
               value: tailscale-login-mailserver
@@ -131,10 +131,10 @@ spec:
                   key: TS_AUTHKEY
             - name: TS_AUTH_ONCE
               value: "true"
-            - name: TS_ACCEPT_DNS
-              value: "true"
+            - name: TS_HOSTNAME
+              value: homelab-mailserver
             - name: TS_EXTRA_ARGS
-              value: --hostname=homelab-mailserver --exit-node=relay --exit-node-allow-lan-access
+              value: --exit-node=relay --exit-node-allow-lan-access
           securityContext:
             capabilities:
               add:
