@@ -28,13 +28,9 @@ spec:
             - name: RENDERING_DUMPIO
               value: "true"
             - name: RENDERING_ARGS
-              value: "-no-sandbox,-disable-setuid-sandbox,-disable-dev-shm-usage,-disable-accelerated-2d-canvas,-disable-gpu,-window-size=1280x758"
+              value: "--no-sandbox,--disable-setuid-sandbox,--disable-dev-shm-usage,--disable-accelerated-2d-canvas,--disable-gpu,--window-size=1280x758"
             - name: TZ
               value: America/New_York
-          resources:
-            limits:
-              cpu: 50m
-              memory: 256Mi
 ---
 kind: Service
 apiVersion: v1
