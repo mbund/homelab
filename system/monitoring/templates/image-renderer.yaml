@@ -19,6 +19,16 @@ spec:
           imagePullPolicy: Always
           image: grafana/grafana-image-renderer:3.7.2
           env:
+            - name: RENDERING_MODE
+              value: "default"
+            - name: RENDERING_CLUSTERING_MODE
+              value: "default"
+            - name: RENDERING_CLUSTERING_MAX_CONCURRENCY
+              value: "5"
+            - name: RENDERING_DUMPIO
+              value: "true"
+            - name: RENDERING_ARGS
+              value: "-no-sandbox,-disable-setuid-sandbox,-disable-dev-shm-usage,-disable-accelerated-2d-canvas,-disable-gpu,-window-size=1280x758"
             - name: TZ
               value: America/New_York
           resources:
