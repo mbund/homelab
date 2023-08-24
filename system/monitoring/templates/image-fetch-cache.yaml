@@ -1,0 +1,102 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: image-fetch-cache
+  name: image-fetch-cache
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: image-fetch-cache
+  template:
+    metadata:
+      labels:
+        app: image-fetch-cache
+    spec:
+      containers:
+        - name: image-fetch-cache
+          image: ghcr.io/mbund/fetch-cache:2023-08-24
+          volumeMounts:
+            - name: config
+              subPath: config.json
+              mountPath: /home/bun/app/config.json
+              readOnly: true
+      volumes:
+        - name: config
+          configMap:
+            name: image-fetch-cache
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: image-fetch-cache
+spec:
+  selector:
+    app: image-fetch-cache
+  type: ClusterIP
+  ports:
+    - name: http
+      port: 3000
+      targetPort: 3000
+      protocol: TCP
+---
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: image-fetch-cache
+  labels:
+    app.kubernetes.io/name: image-fetch-cache
+data:
+  config.json: |
+    {
+      "hooks": [
+        {
+          "url": "https://grafana.mbund.org/render/d-solo/b250375b-77ce-456f-9c27-6c38221dd21a/misc?orgId=1&panelId=2&width=200&height=200",
+          "cacheId": "argocd-applications",
+          "refetchTime": 60
+        },
+        {
+          "url": "https://grafana.mbund.org/render/d-solo/b250375b-77ce-456f-9c27-6c38221dd21a/misc?orgId=1&panelId=3&width=200&height=200",
+          "cacheId": "server-uptime",
+          "refetchTime": 60
+        },
+        {
+          "url": "https://grafana.mbund.org/render/d-solo/b250375b-77ce-456f-9c27-6c38221dd21a/misc?orgId=1&panelId=5&width=1000&height=200",
+          "cacheId": "internet-connectivity",
+          "refetchTime": 60
+        },
+        {
+          "url": "https://grafana.mbund.org/render/d-solo/b250375b-77ce-456f-9c27-6c38221dd21a/misc?orgId=1&panelId=6&width=1000&height=500",
+          "cacheId": "memory-usage",
+          "refetchTime": 60
+        }
+      ]
+    }
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: image-fetch-cache
+  labels:
+    app.kubernetes.io/name: image-fetch-cache
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+    external-dns.alpha.kubernetes.io/target: relay.mbund.org
+spec:
+  ingressClassName: public
+  rules:
+    - host: &host grafana-fetch-cache.mbund.org
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: image-fetch-cache
+                port:
+                  number: 3000
+  tls:
+    - secretName: image-fetch-cache-tls-certificate
+      hosts:
+        - *host

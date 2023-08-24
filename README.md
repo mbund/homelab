@@ -6,10 +6,10 @@ Read the [docs](https://docs.mbund.org) for technical details.
 
 <a href="https://docs.mbund.org"><img src="https://argocd.mbund.org/api/badge?name=argocd&revision=true"></a>
 
-<a href="https://grafana.mbund.org/d/b250375b-77ce-456f-9c27-6c38221dd21a/misc?orgId=1&viewPanel=2"><img src="https://grafana.mbund.org/render/d-solo/b250375b-77ce-456f-9c27-6c38221dd21a/misc?orgId=1&panelId=2&width=200&height=200" width="200" height="200"></a>
-<a href="https://grafana.mbund.org/d/b250375b-77ce-456f-9c27-6c38221dd21a/misc?orgId=1&viewPanel=3"><img src="https://grafana.mbund.org/render/d-solo/b250375b-77ce-456f-9c27-6c38221dd21a/misc?orgId=1&panelId=3&width=200&height=200" width="200" height="200"></a>
-<a href="https://grafana.mbund.org/d/b250375b-77ce-456f-9c27-6c38221dd21a/misc?orgId=1&viewPanel=5"><img src="https://grafana.mbund.org/render/d-solo/b250375b-77ce-456f-9c27-6c38221dd21a/misc?orgId=1&panelId=5&width=1000&height=200"></a>
-<a href="https://grafana.mbund.org/d/b250375b-77ce-456f-9c27-6c38221dd21a/misc?orgId=1&viewPanel=6"><img src="https://grafana.mbund.org/render/d-solo/b250375b-77ce-456f-9c27-6c38221dd21a/misc?orgId=1&panelId=6&width=1000&height=500"></a>
+<a href="https://grafana.mbund.org/d/b250375b-77ce-456f-9c27-6c38221dd21a/misc?orgId=1&viewPanel=2"><img src="https://grafana-fetch-cache.mbund.org/argocd-applications" width="200" height="200"></a>
+<a href="https://grafana.mbund.org/d/b250375b-77ce-456f-9c27-6c38221dd21a/misc?orgId=1&viewPanel=3"><img src="https://grafana-fetch-cache.mbund.org/server-uptime" width="200" height="200"></a>
+<a href="https://grafana.mbund.org/d/b250375b-77ce-456f-9c27-6c38221dd21a/misc?orgId=1&viewPanel=5"><img src="https://grafana-fetch-cache.mbund.org/internet-connectivity"></a>
+<a href="https://grafana.mbund.org/d/b250375b-77ce-456f-9c27-6c38221dd21a/misc?orgId=1&viewPanel=6"><img src="https://grafana-fetch-cache.mbund.org/memory-usage"></a>
 
 ## Architecture
 
