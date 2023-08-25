@@ -53,12 +53,12 @@ data:
     {
       "hooks": [
         {
-          "url": "https://grafana.mbund.org/render/d-solo/b250375b-77ce-456f-9c27-6c38221dd21a/misc?orgId=1&panelId=2&width=200&height=200",
-          "cacheId": "argocd-applications",
+          "url": "https://grafana.mbund.org/render/d-solo/b250375b-77ce-456f-9c27-6c38221dd21a/misc?orgId=1&panelId=7&width=500&height=200",
+          "cacheId": "server-time",
           "refetchTime": 60
         },
         {
-          "url": "https://grafana.mbund.org/render/d-solo/b250375b-77ce-456f-9c27-6c38221dd21a/misc?orgId=1&panelId=3&width=200&height=200",
+          "url": "https://grafana.mbund.org/render/d-solo/b250375b-77ce-456f-9c27-6c38221dd21a/misc?orgId=1&panelId=3&width=500&height=200",
           "cacheId": "server-uptime",
           "refetchTime": 60
         },
