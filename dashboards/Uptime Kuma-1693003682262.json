@@ -26,7 +26,7 @@
   "fiscalYearStartMonth": 0,
   "gnetId": 18278,
   "graphTooltip": 0,
-  "id": 5,
+  "id": 8,
   "links": [],
   "liveNow": false,
   "panels": [
@@ -40,35 +40,13 @@
           "color": {
             "mode": "thresholds"
           },
-          "mappings": [
-            {
-              "options": {
-                "0": {
-                  "index": 1,
-                  "text": "OFFLINE"
-                },
-                "1": {
-                  "index": 0,
-                  "text": "ONLINE"
-                }
-              },
-              "type": "value"
-            }
-          ],
+          "mappings": [],
           "thresholds": {
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
+                "color": "blue",
                 "value": null
-              },
-              {
-                "color": "red",
-                "value": 0
-              },
-              {
-                "color": "green",
-                "value": 1
               }
             ]
           }
@@ -119,31 +97,13 @@
           "color": {
             "mode": "thresholds"
           },
-          "mappings": [
-            {
-              "options": {
-                "0": {
-                  "index": 1,
-                  "text": "OFFLINE"
-                },
-                "1": {
-                  "index": 0,
-                  "text": "ONLINE"
-                }
-              },
-              "type": "value"
-            }
-          ],
+          "mappings": [],
           "thresholds": {
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
-              },
-              {
                 "color": "red",
-                "value": 0
+                "value": null
               },
               {
                 "color": "green",
@@ -184,7 +144,7 @@
           },
           "editorMode": "code",
           "exemplar": false,
-          "expr": "sum(monitor_status == 1)",
+          "expr": "sum(monitor_status == 1) OR on() vector(0)",
           "instant": true,
           "legendFormat": "__auto",
           "range": false,
@@ -204,27 +164,17 @@
           "color": {
             "mode": "thresholds"
           },
-          "mappings": [
-            {
-              "options": {
-                "0": {
-                  "index": 1,
-                  "text": "OFFLINE"
-                },
-                "1": {
-                  "index": 0,
-                  "text": "ONLINE"
-                }
-              },
-              "type": "value"
-            }
-          ],
+          "mappings": [],
           "thresholds": {
             "mode": "absolute",
             "steps": [
               {
-                "color": "red",
+                "color": "green",
                 "value": null
+              },
+              {
+                "color": "red",
+                "value": 1
               }
             ]
           }
@@ -261,7 +211,7 @@
           },
           "editorMode": "code",
           "exemplar": false,
-          "expr": "sum(monitor_status == 0)",
+          "expr": "sum(monitor_status == 0) OR on() vector(0)",
           "instant": true,
           "legendFormat": "__auto",
           "range": false,
@@ -349,12 +299,84 @@
       "type": "stat"
     },
     {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "prometheus"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "fillOpacity": 70,
+            "lineWidth": 1
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "red",
+                "value": null
+              },
+              {
+                "color": "green",
+                "value": 1
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 12,
+        "w": 24,
+        "x": 0,
+        "y": 3
+      },
+      "id": 497,
+      "options": {
+        "colWidth": 0.9,
+        "legend": {
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": false
+        },
+        "rowHeight": 0.9,
+        "showValue": "never",
+        "tooltip": {
+          "mode": "none",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "9.5.1",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "prometheus"
+          },
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "min(monitor_status{monitor_name=~\"$monitor\"}) by(monitor_name)",
+          "instant": false,
+          "interval": "",
+          "legendFormat": "{{ monitor_name }}",
+          "range": true,
+          "refId": "A"
+        }
+      ],
+      "title": "Monitor Overview",
+      "type": "status-history"
+    },
+    {
       "collapsed": false,
       "gridPos": {
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 3
+        "y": 15
       },
       "id": 4,
       "panels": [],
@@ -412,7 +434,7 @@
         "h": 7,
         "w": 3,
         "x": 0,
-        "y": 4
+        "y": 16
       },
       "id": 5,
       "options": {
@@ -479,7 +501,7 @@
         "h": 7,
         "w": 15,
         "x": 3,
-        "y": 4
+        "y": 16
       },
       "id": 2,
       "options": {
@@ -516,8 +538,10 @@
             "uid": "prometheus"
           },
           "editorMode": "code",
-          "expr": "avg_over_time(monitor_response_time{monitor_name=~\"$monitor\"}[24h])",
+          "exemplar": false,
+          "expr": "avg_over_time(monitor_response_time{monitor_name=~\"$monitor\",instance=\"$instance\"}[24h])",
           "hide": false,
+          "instant": false,
           "legendFormat": "AVG 24H",
           "range": true,
           "refId": "B"
@@ -562,7 +586,7 @@
         "h": 7,
         "w": 3,
         "x": 18,
-        "y": 4
+        "y": 16
       },
       "id": 445,
       "options": {
@@ -642,7 +666,7 @@
         "h": 7,
         "w": 3,
         "x": 21,
-        "y": 4
+        "y": 16
       },
       "id": 466,
       "options": {
@@ -736,6 +760,32 @@
         "skipUrlSync": false,
         "sort": 1,
         "type": "query"
+      },
+      {
+        "current": {
+          "selected": false,
+          "text": "10.42.0.132:3001",
+          "value": "10.42.0.132:3001"
+        },
+        "datasource": {
+          "type": "prometheus",
+          "uid": "prometheus"
+        },
+        "definition": "label_values(monitor_status,instance)",
+        "hide": 0,
+        "includeAll": false,
+        "multi": false,
+        "name": "instance",
+        "options": [],
+        "query": {
+          "query": "label_values(monitor_status,instance)",
+          "refId": "PrometheusVariableQueryEditor-VariableQuery"
+        },
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 0,
+        "type": "query"
       }
     ]
   },
@@ -747,6 +797,6 @@
   "timezone": "",
   "title": "Uptime Kuma",
   "uid": "CN8E-vZ7k",
-  "version": 3,
+  "version": 5,
   "weekStart": ""
 }

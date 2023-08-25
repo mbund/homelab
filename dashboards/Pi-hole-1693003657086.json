@@ -20,7 +20,7 @@
   "fiscalYearStartMonth": 0,
   "gnetId": 14283,
   "graphTooltip": 0,
-  "id": 14,
+  "id": 6,
   "links": [],
   "liveNow": false,
   "panels": [
@@ -1353,6 +1353,6 @@
   "timezone": "",
   "title": "Pi-hole",
   "uid": "pihole-exporter-2",
-  "version": 7,
+  "version": 2,
   "weekStart": ""
 }

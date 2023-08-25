@@ -26,7 +26,7 @@
   "fiscalYearStartMonth": 0,
   "gnetId": 16541,
   "graphTooltip": 0,
-  "id": 2,
+  "id": 7,
   "links": [],
   "liveNow": false,
   "panels": [
@@ -389,10 +389,12 @@
             "type": "prometheus",
             "uid": "${datasource}"
           },
+          "editorMode": "code",
           "exemplar": true,
-          "expr": "speedtest_up{instance=\"$instance\", job=\"$job\"}",
+          "expr": "speedtest_up{instance=\"$instance\"}",
           "interval": "",
           "legendFormat": "",
+          "range": true,
           "refId": "A"
         }
       ],
@@ -451,10 +453,12 @@
             "type": "prometheus",
             "uid": "${datasource}"
           },
+          "editorMode": "code",
           "exemplar": true,
-          "expr": "speedtest_server_id{instance=\"$instance\", job=\"$job\"}",
+          "expr": "speedtest_server_id{instance=\"$instance\"}",
           "interval": "",
           "legendFormat": "",
+          "range": true,
           "refId": "A"
         }
       ],
@@ -530,10 +534,12 @@
             "type": "prometheus",
             "uid": "${datasource}"
           },
+          "editorMode": "code",
           "exemplar": true,
-          "expr": "speedtest_download_bits_per_second{instance=\"$instance\", job=\"$job\"}*10^-6",
+          "expr": "speedtest_download_bits_per_second{instance=\"$instance\"}*10^-6",
           "interval": "",
           "legendFormat": "",
+          "range": true,
           "refId": "A"
         }
       ],
@@ -591,10 +597,12 @@
             "type": "prometheus",
             "uid": "${datasource}"
           },
+          "editorMode": "code",
           "exemplar": true,
-          "expr": "speedtest_upload_bits_per_second{instance=\"$instance\", job=\"$job\"}*10^-6",
+          "expr": "speedtest_upload_bits_per_second{instance=\"$instance\"}*10^-6",
           "interval": "",
           "legendFormat": "",
+          "range": true,
           "refId": "A"
         }
       ],
@@ -652,10 +660,12 @@
             "type": "prometheus",
             "uid": "${datasource}"
           },
+          "editorMode": "code",
           "exemplar": true,
-          "expr": "speedtest_ping_latency_milliseconds{instance=\"$instance\", job=\"$job\"}",
+          "expr": "speedtest_ping_latency_milliseconds{instance=\"$instance\"}",
           "interval": "",
           "legendFormat": "",
+          "range": true,
           "refId": "A"
         }
       ],
@@ -713,10 +723,12 @@
             "type": "prometheus",
             "uid": "${datasource}"
           },
+          "editorMode": "code",
           "exemplar": true,
-          "expr": "speedtest_jitter_latency_milliseconds{instance=\"$instance\", job=\"$job\"}",
+          "expr": "speedtest_jitter_latency_milliseconds{instance=\"$instance\"}",
           "interval": "",
           "legendFormat": "",
+          "range": true,
           "refId": "A"
         }
       ],
@@ -756,6 +768,7 @@
             "axisColorMode": "text",
             "axisLabel": "Download Speed",
             "axisPlacement": "auto",
+            "axisSoftMin": 0,
             "barAlignment": 1,
             "drawStyle": "line",
             "fillOpacity": 100,
@@ -832,7 +845,7 @@
           },
           "editorMode": "code",
           "exemplar": true,
-          "expr": "speedtest_download_bits_per_second{instance=\"$instance\", job=\"$job\"}*10^-6",
+          "expr": "max(speedtest_download_bits_per_second)*10^-6",
           "interval": "",
           "legendFormat": "Download Speed (Mbits/s)",
           "range": true,
@@ -857,6 +870,7 @@
             "axisColorMode": "text",
             "axisLabel": "Upload Speed",
             "axisPlacement": "auto",
+            "axisSoftMin": 0,
             "barAlignment": 0,
             "drawStyle": "line",
             "fillOpacity": 100,
@@ -933,7 +947,7 @@
           },
           "editorMode": "code",
           "exemplar": true,
-          "expr": "speedtest_upload_bits_per_second{instance=\"$instance\", job=\"$job\"}*10^-6",
+          "expr": "max(speedtest_upload_bits_per_second)*10^-6",
           "interval": "",
           "legendFormat": "Upload Speed (Mbits/s)",
           "range": true,
@@ -958,6 +972,7 @@
             "axisColorMode": "text",
             "axisLabel": "Time",
             "axisPlacement": "auto",
+            "axisSoftMin": 0,
             "barAlignment": 0,
             "drawStyle": "line",
             "fillOpacity": 100,
@@ -1034,7 +1049,7 @@
           },
           "editorMode": "code",
           "exemplar": true,
-          "expr": "speedtest_ping_latency_milliseconds{instance=\"$instance\", job=\"$job\"}",
+          "expr": "max(speedtest_ping_latency_milliseconds)",
           "interval": "",
           "legendFormat": "Ping (ms)",
           "range": true,
@@ -1047,7 +1062,7 @@
           },
           "editorMode": "code",
           "exemplar": true,
-          "expr": "speedtest_jitter_latency_milliseconds{instance=\"$instance\", job=\"$job\"}",
+          "expr": "max(speedtest_jitter_latency_milliseconds)",
           "instant": false,
           "interval": "",
           "legendFormat": "Jitter (ms)",
@@ -1375,8 +1390,8 @@
       {
         "current": {
           "selected": false,
-          "text": "10.42.0.15:9798",
-          "value": "10.42.0.15:9798"
+          "text": "10.42.0.245:9798",
+          "value": "10.42.0.245:9798"
         },
         "datasource": {
           "type": "prometheus",
@@ -1454,6 +1469,6 @@
   "timezone": "",
   "title": "Speedtest",
   "uid": "-fs18ztMz",
-  "version": 9,
+  "version": 8,
   "weekStart": ""
 }

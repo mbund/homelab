@@ -20,7 +20,7 @@
   "fiscalYearStartMonth": 0,
   "gnetId": 14584,
   "graphTooltip": 0,
-  "id": 8,
+  "id": 1,
   "links": [],
   "liveNow": false,
   "panels": [
@@ -97,10 +97,6 @@
               {
                 "color": "green",
                 "value": null
-              },
-              {
-                "color": "red",
-                "value": 80
               }
             ]
           },
@@ -553,6 +549,12 @@
           "datasource": {
             "uid": "$datasource"
           },
+          "fieldConfig": {
+            "defaults": {
+              "links": []
+            },
+            "overrides": []
+          },
           "fill": 1,
           "fillGradient": 0,
           "gridPos": {
@@ -584,10 +586,11 @@
           "links": [],
           "nullPointMode": "null as zero",
           "options": {
-            "dataLinks": []
+            "alertThreshold": true
           },
           "paceLength": 10,
           "percentage": false,
+          "pluginVersion": "9.5.1",
           "pointradius": 2,
           "points": false,
           "renderer": "flot",
@@ -655,6 +658,12 @@
           "datasource": {
             "uid": "$datasource"
           },
+          "fieldConfig": {
+            "defaults": {
+              "links": []
+            },
+            "overrides": []
+          },
           "fill": 1,
           "fillGradient": 0,
           "gridPos": {
@@ -686,10 +695,11 @@
           "links": [],
           "nullPointMode": "null as zero",
           "options": {
-            "dataLinks": []
+            "alertThreshold": true
           },
           "paceLength": 10,
           "percentage": false,
+          "pluginVersion": "9.5.1",
           "pointradius": 2,
           "points": false,
           "renderer": "flot",
@@ -3847,6 +3857,6 @@
   "timezone": "",
   "title": "ArgoCD",
   "uid": "qPkgGHg7k",
-  "version": 2,
+  "version": 3,
   "weekStart": ""
 }
