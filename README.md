@@ -8,8 +8,8 @@ Read the [docs](https://docs.mbund.org) for technical details.
 
 <a href="https://docs.mbund.org"><img src="https://argocd.mbund.org/api/badge?name=argocd&revision=true"></a>
 
-<a href="https://grafana.mbund.org/d/b250375b-77ce-456f-9c27-6c38221dd21a/misc?orgId=1&viewPanel=7"><img src="https://grafana-fetch-cache.mbund.org/server-time" width="45%"></a>
-<a href="https://grafana.mbund.org/d/b250375b-77ce-456f-9c27-6c38221dd21a/misc?orgId=1&viewPanel=3"><img src="https://grafana-fetch-cache.mbund.org/server-uptime" width="45%" align="right"></a>
+<a href="https://grafana.mbund.org/d/b250375b-77ce-456f-9c27-6c38221dd21a/misc?orgId=1&viewPanel=7"><img src="https://grafana-fetch-cache.mbund.org/server-time" width="46%"></a>
+<a href="https://grafana.mbund.org/d/b250375b-77ce-456f-9c27-6c38221dd21a/misc?orgId=1&viewPanel=3"><img src="https://grafana-fetch-cache.mbund.org/server-uptime" width="46%" align="right"></a>
 <a href="https://grafana.mbund.org/d/b250375b-77ce-456f-9c27-6c38221dd21a/misc?orgId=1&viewPanel=5"><img src="https://grafana-fetch-cache.mbund.org/internet-connectivity"></a>
 <a href="https://grafana.mbund.org/d/b250375b-77ce-456f-9c27-6c38221dd21a/misc?orgId=1&viewPanel=6"><img src="https://grafana-fetch-cache.mbund.org/memory-usage"></a>
 
