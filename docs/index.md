@@ -1,5 +1,9 @@
 # Mark's Homelab :sailboat:
 
+<div align="center">
+    <img alt="Mark's Homelab" height="400" src="title.svg" width="800" />
+</div>
+
 Fully automated Kubernetes and GitOps setup to host my important services at home.
 
 ## Live Stats
@@ -109,8 +113,6 @@ Fully automated Kubernetes and GitOps setup to host my important services at hom
 </table>
 
 </details>
-
-<br />
 
 <div style="display: flex; flex-direction: column">
     <div style="display: flex">
