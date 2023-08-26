@@ -1,5 +1,5 @@
 <div align="center">
-    <img alt="Mark's Homelab" height="400" src="docs/title.svg" width="800" />
+    <img alt="Mark's Homelab" src="docs/title.svg" width="800" />
 </div>
 
 Fully automated Kubernetes and GitOps setup to host my important services at home.
