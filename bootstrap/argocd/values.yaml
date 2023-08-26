@@ -6,9 +6,6 @@ argo-cd:
   configs:
     cm:
       statusbadge.enabled: "true"
-      resource.customizations.ignoreDifferences.ExternalSecret: |
-        jqPathExpressions:
-          - '. | select(.metadata.annotations.vaultInjectionChecksum) | .data'
   server:
     extraArgs:
       - --insecure
