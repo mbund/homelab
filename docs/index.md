@@ -4,7 +4,113 @@ Fully automated Kubernetes and GitOps setup to host my important services at hom
 
 ## Live Stats
 
-<img src="https://argocd.mbund.org/api/badge?name=argocd&revision=true">
+<a href="https://docs.mbund.org"><img src="https://argocd.mbund.org/api/badge?name=root&revision=true"></a>
+
+<details>
+<summary>ArgoCD Sync</summary>
+
+<table>
+<tr>
+    <td>argocd</td>
+    <td><a href="https://docs.mbund.org"><img src="https://argocd.mbund.org/api/badge?name=argocd&revision=true"></a></td>
+</tr>
+<tr>
+    <td>cert-manager</td>
+    <td><a href="https://docs.mbund.org"><img src="https://argocd.mbund.org/api/badge?name=cert-manager&revision=true"></a></td>
+</tr>
+<tr>
+    <td>element</td>
+    <td><a href="https://docs.mbund.org"><img src="https://argocd.mbund.org/api/badge?name=element&revision=true"></a></td>
+</tr>
+<tr>
+    <td>emqx</td>
+    <td><a href="https://docs.mbund.org"><img src="https://argocd.mbund.org/api/badge?name=emqx&revision=true"></a></td>
+</tr>
+<tr>
+    <td>excalidraw</td>
+    <td><a href="https://docs.mbund.org"><img src="https://argocd.mbund.org/api/badge?name=excalidraw&revision=true"></a></td>
+</tr>
+<tr>
+    <td>external-dns-cloudflare</td>
+    <td><a href="https://docs.mbund.org"><img src="https://argocd.mbund.org/api/badge?name=external-dns-cloudflare&revision=true"></a></td>
+</tr>
+<tr>
+    <td>external-dns-pihole</td>
+    <td><a href="https://docs.mbund.org"><img src="https://argocd.mbund.org/api/badge?name=external-dns-pihole&revision=true"></a></td>
+</tr>
+<tr>
+    <td>external-secrets</td>
+    <td><a href="https://docs.mbund.org"><img src="https://argocd.mbund.org/api/badge?name=external-secrets&revision=true"></a></td>
+</tr>
+<tr>
+    <td>homarr</td>
+    <td><a href="https://docs.mbund.org"><img src="https://argocd.mbund.org/api/badge?name=homarr&revision=true"></a></td>
+</tr>
+<tr>
+    <td>ingress-nginx-private</td>
+    <td><a href="https://docs.mbund.org"><img src="https://argocd.mbund.org/api/badge?name=ingress-nginx-private&revision=true"></a></td>
+</tr>
+<tr>
+    <td>ingress-nginx-private</td>
+    <td><a href="https://docs.mbund.org"><img src="https://argocd.mbund.org/api/badge?name=ingress-nginx-private&revision=true"></a></td>
+</tr>
+<tr>
+    <td>ingress-nginx-public</td>
+    <td><a href="https://docs.mbund.org"><img src="https://argocd.mbund.org/api/badge?name=ingress-nginx-public&revision=true"></a></td>
+</tr>
+<tr>
+    <td>loki</td>
+    <td><a href="https://docs.mbund.org"><img src="https://argocd.mbund.org/api/badge?name=loki&revision=true"></a></td>
+</tr>
+<tr>
+    <td>longhorn</td>
+    <td><a href="https://docs.mbund.org"><img src="https://argocd.mbund.org/api/badge?name=longhorn&revision=true"></a></td>
+</tr>
+<tr>
+    <td>mailserver</td>
+    <td><a href="https://docs.mbund.org"><img src="https://argocd.mbund.org/api/badge?name=mailserver&revision=true"></a></td>
+</tr>
+<tr>
+    <td>metallb</td>
+    <td><a href="https://docs.mbund.org"><img src="https://argocd.mbund.org/api/badge?name=metallb&revision=true"></a></td>
+</tr>
+<tr>
+    <td>monitoring</td>
+    <td><a href="https://docs.mbund.org"><img src="https://argocd.mbund.org/api/badge?name=monitoring&revision=true"></a></td>
+</tr>
+<tr>
+    <td>pihole</td>
+    <td><a href="https://docs.mbund.org"><img src="https://argocd.mbund.org/api/badge?name=pihole&revision=true"></a></td>
+</tr>
+<tr>
+    <td>root</td>
+    <td><a href="https://docs.mbund.org"><img src="https://argocd.mbund.org/api/badge?name=root&revision=true"></a></td>
+</tr>
+<tr>
+    <td>searxng</td>
+    <td><a href="https://docs.mbund.org"><img src="https://argocd.mbund.org/api/badge?name=searxng&revision=true"></a></td>
+</tr>
+<tr>
+    <td>speedtest</td>
+    <td><a href="https://docs.mbund.org"><img src="https://argocd.mbund.org/api/badge?name=speedtest&revision=true"></a></td>
+</tr>
+<tr>
+    <td>uptime-kuma</td>
+    <td><a href="https://docs.mbund.org"><img src="https://argocd.mbund.org/api/badge?name=uptime-kuma&revision=true"></a></td>
+</tr>
+<tr>
+    <td>vault</td>
+    <td><a href="https://docs.mbund.org"><img src="https://argocd.mbund.org/api/badge?name=vault&revision=true"></a></td>
+</tr>
+<tr>
+    <td>vaultwarden</td>
+    <td><a href="https://docs.mbund.org"><img src="https://argocd.mbund.org/api/badge?name=vaultwarden&revision=true"></a></td>
+</tr>
+</table>
+
+</details>
+
+<br />
 
 <div style="display: flex; flex-direction: column">
     <div style="display: flex">
