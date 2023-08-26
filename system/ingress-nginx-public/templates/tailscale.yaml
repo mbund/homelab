@@ -104,5 +104,7 @@ spec:
   data:
     - secretKey: authkey
       remoteRef:
+        conversionStrategy: Default
+        decodingStrategy: None
         key: /tailscale
         property: authkey
