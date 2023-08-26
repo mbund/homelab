@@ -1,0 +1,1641 @@
+{
+	"schemaVersion": 1,
+	"configProperties": {
+		"name": "default"
+	},
+	"categories": [
+		{
+			"id": "70fed506-bca9-4af3-b758-6d3de9203ca0",
+			"name": "Public",
+			"position": 1
+		},
+		{
+			"id": "52411d6d-e5d4-44ff-9677-2dc0253d733d",
+			"name": "Admin",
+			"position": 2
+		},
+		{
+			"id": "cd34214a-1756-4c8f-aa79-13d1d5ddce27",
+			"name": "Managed",
+			"position": 3
+		}
+	],
+	"wrappers": [
+		{
+			"id": "default",
+			"position": 0
+		},
+		{
+			"id": "0fb416fd-b9a5-4d55-ab0f-5b8ecf149a71",
+			"position": 1
+		},
+		{
+			"id": "5afc2a70-8102-441a-89ef-eb55b11f0d54",
+			"position": 2
+		},
+		{
+			"id": "30e57e1b-0db3-49fb-b220-c40c94f731a0",
+			"position": 3
+		}
+	],
+	"apps": [
+		{
+			"id": "32b9c50a-de36-4274-ad52-77f3e052485e",
+			"name": "Vaultwarden",
+			"url": "http://vaultwarden.vaultwarden",
+			"appearance": {
+				"iconUrl": "https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/vaultwarden.png",
+				"appNameStatus": "normal",
+				"positionAppName": "column",
+				"lineClampAppName": 1
+			},
+			"network": {
+				"enabledStatusChecker": true,
+				"statusCodes": [
+					"200",
+					"301",
+					"302",
+					"304",
+					"307",
+					"308"
+				]
+			},
+			"behaviour": {
+				"isOpeningNewTab": true,
+				"externalUrl": "https://vaultwarden.mbund.org"
+			},
+			"area": {
+				"type": "category",
+				"properties": {
+					"id": "52411d6d-e5d4-44ff-9677-2dc0253d733d"
+				}
+			},
+			"shape": {
+				"lg": {
+					"location": {
+						"x": 2,
+						"y": 0
+					},
+					"size": {
+						"width": 1,
+						"height": 1
+					}
+				},
+				"md": {
+					"location": {
+						"x": 0,
+						"y": 1
+					},
+					"size": {
+						"width": 1,
+						"height": 1
+					}
+				},
+				"sm": {
+					"location": {
+						"x": 1,
+						"y": 1
+					},
+					"size": {
+						"width": 1,
+						"height": 1
+					}
+				}
+			},
+			"integration": {
+				"type": null,
+				"properties": []
+			}
+		},
+		{
+			"id": "5b6a7b9d-9e46-42cc-ae07-babec1aedb23",
+			"name": "Longhorn",
+			"url": "http://longhorn-frontend.longhorn",
+			"appearance": {
+				"iconUrl": "https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/longhorn.png",
+				"appNameStatus": "normal",
+				"positionAppName": "column",
+				"lineClampAppName": 1
+			},
+			"network": {
+				"enabledStatusChecker": true,
+				"statusCodes": [
+					"200",
+					"301",
+					"302",
+					"304",
+					"307",
+					"308"
+				]
+			},
+			"behaviour": {
+				"isOpeningNewTab": true,
+				"externalUrl": "https://longhorn.mbund.org"
+			},
+			"area": {
+				"type": "category",
+				"properties": {
+					"id": "52411d6d-e5d4-44ff-9677-2dc0253d733d"
+				}
+			},
+			"shape": {
+				"lg": {
+					"location": {
+						"x": 1,
+						"y": 0
+					},
+					"size": {
+						"width": 1,
+						"height": 1
+					}
+				},
+				"md": {
+					"location": {
+						"x": 0,
+						"y": 0
+					},
+					"size": {
+						"width": 1,
+						"height": 1
+					}
+				},
+				"sm": {
+					"location": {
+						"x": 0,
+						"y": 0
+					},
+					"size": {
+						"width": 1,
+						"height": 1
+					}
+				}
+			},
+			"integration": {
+				"type": null,
+				"properties": []
+			}
+		},
+		{
+			"id": "901c486d-b039-4974-bed1-e90228079ea7",
+			"name": "Vault",
+			"url": "http://vault.vault:8200",
+			"appearance": {
+				"iconUrl": "https://raw.githubusercontent.com/loganmarchione/homelab-svg-assets/main/assets/vault.svg",
+				"appNameStatus": "normal",
+				"positionAppName": "column",
+				"lineClampAppName": 1
+			},
+			"network": {
+				"enabledStatusChecker": true,
+				"statusCodes": [
+					"200",
+					"301",
+					"302",
+					"304",
+					"307",
+					"308"
+				]
+			},
+			"behaviour": {
+				"isOpeningNewTab": true,
+				"externalUrl": "https://vault.mbund.org"
+			},
+			"area": {
+				"type": "category",
+				"properties": {
+					"id": "52411d6d-e5d4-44ff-9677-2dc0253d733d"
+				}
+			},
+			"shape": {
+				"lg": {
+					"location": {
+						"x": 0,
+						"y": 0
+					},
+					"size": {
+						"width": 1,
+						"height": 1
+					}
+				},
+				"md": {
+					"location": {
+						"x": 2,
+						"y": 0
+					},
+					"size": {
+						"width": 1,
+						"height": 1
+					}
+				},
+				"sm": {
+					"location": {
+						"x": 0,
+						"y": 1
+					},
+					"size": {
+						"width": 1,
+						"height": 1
+					}
+				}
+			},
+			"integration": {
+				"type": null,
+				"properties": []
+			}
+		},
+		{
+			"id": "7cedfab1-3008-457d-ace2-5d6afe19a63a",
+			"name": "Grafana",
+			"url": "https://grafana.mbund.org",
+			"appearance": {
+				"iconUrl": "https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/grafana.png",
+				"appNameStatus": "normal",
+				"positionAppName": "column",
+				"lineClampAppName": 1
+			},
+			"network": {
+				"enabledStatusChecker": true,
+				"statusCodes": [
+					"200",
+					"301",
+					"302",
+					"304",
+					"307",
+					"308"
+				]
+			},
+			"behaviour": {
+				"isOpeningNewTab": true,
+				"externalUrl": "https://grafana.mbund.org"
+			},
+			"area": {
+				"type": "category",
+				"properties": {
+					"id": "70fed506-bca9-4af3-b758-6d3de9203ca0"
+				}
+			},
+			"shape": {
+				"lg": {
+					"location": {
+						"x": 0,
+						"y": 0
+					},
+					"size": {
+						"width": 1,
+						"height": 1
+					}
+				},
+				"md": {
+					"location": {
+						"x": 4,
+						"y": 0
+					},
+					"size": {
+						"width": 1,
+						"height": 1
+					}
+				},
+				"sm": {
+					"location": {
+						"x": 1,
+						"y": 1
+					},
+					"size": {
+						"width": 1,
+						"height": 1
+					}
+				}
+			},
+			"integration": {
+				"type": null,
+				"properties": []
+			}
+		},
+		{
+			"id": "444c1065-5788-4f67-b404-6e370a668ff2",
+			"name": "Nextcloud",
+			"url": "https://nextcloud.mbund.org",
+			"appearance": {
+				"iconUrl": "https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/nextcloud.png",
+				"appNameStatus": "normal",
+				"positionAppName": "column",
+				"lineClampAppName": 1
+			},
+			"network": {
+				"enabledStatusChecker": true,
+				"statusCodes": [
+					"200",
+					"301",
+					"302",
+					"304",
+					"307",
+					"308"
+				]
+			},
+			"behaviour": {
+				"isOpeningNewTab": true,
+				"externalUrl": "https://nextcloud.mbund.org"
+			},
+			"area": {
+				"type": "category",
+				"properties": {
+					"id": "70fed506-bca9-4af3-b758-6d3de9203ca0"
+				}
+			},
+			"shape": {
+				"lg": {
+					"location": {
+						"x": 5,
+						"y": 0
+					},
+					"size": {
+						"width": 1,
+						"height": 1
+					}
+				},
+				"md": {
+					"location": {
+						"x": 5,
+						"y": 0
+					},
+					"size": {
+						"width": 1,
+						"height": 1
+					}
+				},
+				"sm": {
+					"location": {
+						"x": 2,
+						"y": 1
+					},
+					"size": {
+						"width": 1,
+						"height": 1
+					}
+				}
+			},
+			"integration": {
+				"type": null,
+				"properties": []
+			}
+		},
+		{
+			"id": "68d955a9-89a2-401b-b962-87310d39d655",
+			"name": "Pihole",
+			"url": "http://pihole-web.pihole/admin",
+			"appearance": {
+				"iconUrl": "https://cdn.jsdelivr.net/gh/loganmarchione/homelab-svg-assets/assets/pihole.svg",
+				"appNameStatus": "normal",
+				"positionAppName": "column",
+				"lineClampAppName": 1
+			},
+			"network": {
+				"enabledStatusChecker": true,
+				"statusCodes": [
+					"200",
+					"301",
+					"302",
+					"304",
+					"307",
+					"308"
+				]
+			},
+			"behaviour": {
+				"isOpeningNewTab": true,
+				"externalUrl": "https://pihole.mbund.org/admin"
+			},
+			"area": {
+				"type": "category",
+				"properties": {
+					"id": "52411d6d-e5d4-44ff-9677-2dc0253d733d"
+				}
+			},
+			"shape": {
+				"lg": {
+					"location": {
+						"x": 6,
+						"y": 0
+					},
+					"size": {
+						"width": 1,
+						"height": 1
+					}
+				},
+				"md": {
+					"location": {
+						"x": 4,
+						"y": 0
+					},
+					"size": {
+						"width": 1,
+						"height": 1
+					}
+				},
+				"sm": {
+					"location": {
+						"x": 1,
+						"y": 0
+					},
+					"size": {
+						"width": 1,
+						"height": 1
+					}
+				}
+			},
+			"integration": {
+				"type": "pihole",
+				"properties": [
+					{
+						"field": "apiKey",
+						"type": "private",
+						"value": null,
+						"isDefined": true
+					}
+				]
+			}
+		},
+		{
+			"id": "732669d5-5c39-4591-9685-346b3756eaba",
+			"name": "Excalidraw",
+			"url": "https://draw.mbund.org",
+			"appearance": {
+				"iconUrl": "https://docs.excalidraw.com/img/logo.svg",
+				"appNameStatus": "normal",
+				"positionAppName": "column",
+				"lineClampAppName": 1
+			},
+			"network": {
+				"enabledStatusChecker": true,
+				"statusCodes": [
+					"200",
+					"301",
+					"302",
+					"304",
+					"307",
+					"308"
+				]
+			},
+			"behaviour": {
+				"isOpeningNewTab": true,
+				"externalUrl": "https://draw.mbund.org"
+			},
+			"area": {
+				"type": "category",
+				"properties": {
+					"id": "70fed506-bca9-4af3-b758-6d3de9203ca0"
+				}
+			},
+			"shape": {
+				"lg": {
+					"location": {
+						"x": 4,
+						"y": 0
+					},
+					"size": {
+						"width": 1,
+						"height": 1
+					}
+				},
+				"md": {
+					"location": {
+						"x": 1,
+						"y": 0
+					},
+					"size": {
+						"width": 1,
+						"height": 1
+					}
+				},
+				"sm": {
+					"location": {
+						"x": 2,
+						"y": 0
+					},
+					"size": {
+						"width": 1,
+						"height": 1
+					}
+				}
+			},
+			"integration": {
+				"type": null,
+				"properties": []
+			}
+		},
+		{
+			"id": "64ab63d6-2d2d-4fbc-b9ac-d5b5dcd98528",
+			"name": "Prometheus",
+			"url": "http://prometheus-operated.monitoring:9090",
+			"appearance": {
+				"iconUrl": "https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/prometheus.png",
+				"appNameStatus": "normal",
+				"positionAppName": "column",
+				"lineClampAppName": 1
+			},
+			"network": {
+				"enabledStatusChecker": true,
+				"statusCodes": [
+					"200",
+					"301",
+					"302",
+					"304",
+					"307",
+					"308"
+				]
+			},
+			"behaviour": {
+				"isOpeningNewTab": true,
+				"externalUrl": "https://prometheus.mbund.org"
+			},
+			"area": {
+				"type": "category",
+				"properties": {
+					"id": "52411d6d-e5d4-44ff-9677-2dc0253d733d"
+				}
+			},
+			"shape": {
+				"lg": {
+					"location": {
+						"x": 5,
+						"y": 0
+					},
+					"size": {
+						"width": 1,
+						"height": 1
+					}
+				},
+				"md": {
+					"location": {
+						"x": 5,
+						"y": 0
+					},
+					"size": {
+						"width": 1,
+						"height": 1
+					}
+				},
+				"sm": {
+					"location": {
+						"x": 0,
+						"y": 2
+					},
+					"size": {
+						"width": 1,
+						"height": 1
+					}
+				}
+			},
+			"integration": {
+				"type": null,
+				"properties": []
+			}
+		},
+		{
+			"id": "1f2354d9-df13-4b2b-85a7-98fcdd76293d",
+			"name": "Searxng",
+			"url": "https://search.mbund.org",
+			"appearance": {
+				"iconUrl": "https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/searxng.png",
+				"appNameStatus": "normal",
+				"positionAppName": "column",
+				"lineClampAppName": 1
+			},
+			"network": {
+				"enabledStatusChecker": true,
+				"statusCodes": [
+					"200",
+					"301",
+					"302",
+					"304",
+					"307",
+					"308"
+				]
+			},
+			"behaviour": {
+				"isOpeningNewTab": true,
+				"externalUrl": "https://search.mbund.org"
+			},
+			"area": {
+				"type": "category",
+				"properties": {
+					"id": "70fed506-bca9-4af3-b758-6d3de9203ca0"
+				}
+			},
+			"shape": {
+				"lg": {
+					"location": {
+						"x": 3,
+						"y": 0
+					},
+					"size": {
+						"width": 1,
+						"height": 1
+					}
+				},
+				"md": {
+					"location": {
+						"x": 0,
+						"y": 0
+					},
+					"size": {
+						"width": 1,
+						"height": 1
+					}
+				},
+				"sm": {
+					"location": {
+						"x": 0,
+						"y": 0
+					},
+					"size": {
+						"width": 1,
+						"height": 1
+					}
+				}
+			},
+			"integration": {
+				"type": null,
+				"properties": []
+			}
+		},
+		{
+			"id": "0aade7ea-b02f-4b03-8f5b-d099ece4528c",
+			"name": "Hetzner Cloud",
+			"url": "https://console.hetzner.cloud",
+			"appearance": {
+				"iconUrl": "https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/hetzner.png",
+				"appNameStatus": "normal",
+				"positionAppName": "column",
+				"lineClampAppName": 1
+			},
+			"network": {
+				"enabledStatusChecker": false,
+				"statusCodes": [
+					"200",
+					"301",
+					"302",
+					"304",
+					"307",
+					"308"
+				]
+			},
+			"behaviour": {
+				"isOpeningNewTab": true,
+				"externalUrl": "https://console.hetzner.cloud"
+			},
+			"area": {
+				"type": "category",
+				"properties": {
+					"id": "cd34214a-1756-4c8f-aa79-13d1d5ddce27"
+				}
+			},
+			"shape": {
+				"lg": {
+					"location": {
+						"x": 0,
+						"y": 0
+					},
+					"size": {
+						"width": 1,
+						"height": 1
+					}
+				},
+				"md": {
+					"location": {
+						"x": 0,
+						"y": 0
+					},
+					"size": {
+						"width": 1,
+						"height": 1
+					}
+				},
+				"sm": {
+					"location": {
+						"x": 0,
+						"y": 0
+					},
+					"size": {
+						"width": 1,
+						"height": 1
+					}
+				}
+			},
+			"integration": {
+				"type": null,
+				"properties": []
+			}
+		},
+		{
+			"id": "4cb6fc8a-42bb-44da-a609-97ecdf7807d2",
+			"name": "EMQX",
+			"url": "http://emqx.emqx:18083",
+			"appearance": {
+				"iconUrl": "https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/emqx.png",
+				"appNameStatus": "normal",
+				"positionAppName": "column",
+				"lineClampAppName": 1
+			},
+			"network": {
+				"enabledStatusChecker": true,
+				"statusCodes": [
+					"200",
+					"301",
+					"302",
+					"304",
+					"307",
+					"308"
+				]
+			},
+			"behaviour": {
+				"isOpeningNewTab": true,
+				"externalUrl": "https://emqx.mbund.org"
+			},
+			"area": {
+				"type": "category",
+				"properties": {
+					"id": "52411d6d-e5d4-44ff-9677-2dc0253d733d"
+				}
+			},
+			"shape": {
+				"lg": {
+					"location": {
+						"x": 3,
+						"y": 0
+					},
+					"size": {
+						"width": 1,
+						"height": 1
+					}
+				},
+				"md": {
+					"location": {
+						"x": 3,
+						"y": 0
+					},
+					"size": {
+						"width": 1,
+						"height": 1
+					}
+				},
+				"sm": {
+					"location": {
+						"x": 2,
+						"y": 1
+					},
+					"size": {
+						"width": 1,
+						"height": 1
+					}
+				}
+			},
+			"integration": {
+				"type": null,
+				"properties": []
+			}
+		},
+		{
+			"id": "7128f58a-36c3-49fa-819d-9208a628a4c5",
+			"name": "Proxmox",
+			"url": "https://proxmox:8006",
+			"appearance": {
+				"iconUrl": "https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/proxmox.png",
+				"appNameStatus": "normal",
+				"positionAppName": "column",
+				"lineClampAppName": 1
+			},
+			"network": {
+				"enabledStatusChecker": false,
+				"statusCodes": [
+					"200",
+					"301",
+					"302",
+					"304",
+					"307",
+					"308"
+				]
+			},
+			"behaviour": {
+				"isOpeningNewTab": true,
+				"externalUrl": "https://proxmox:8006"
+			},
+			"area": {
+				"type": "category",
+				"properties": {
+					"id": "52411d6d-e5d4-44ff-9677-2dc0253d733d"
+				}
+			},
+			"shape": {
+				"lg": {
+					"location": {
+						"x": 7,
+						"y": 0
+					},
+					"size": {
+						"width": 1,
+						"height": 1
+					}
+				},
+				"md": {
+					"location": {
+						"x": 1,
+						"y": 1
+					},
+					"size": {
+						"width": 1,
+						"height": 1
+					}
+				},
+				"sm": {
+					"location": {
+						"x": 2,
+						"y": 2
+					},
+					"size": {
+						"width": 1,
+						"height": 1
+					}
+				}
+			},
+			"integration": {
+				"type": null,
+				"properties": []
+			}
+		},
+		{
+			"id": "242cf1c5-769d-4993-bbe2-f2990a24b9dc",
+			"name": "Element",
+			"url": "https://chat.mbund.org",
+			"appearance": {
+				"iconUrl": "https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/element.png",
+				"appNameStatus": "normal",
+				"positionAppName": "column",
+				"lineClampAppName": 1
+			},
+			"network": {
+				"enabledStatusChecker": true,
+				"statusCodes": [
+					"200",
+					"301",
+					"302",
+					"304",
+					"307",
+					"308"
+				]
+			},
+			"behaviour": {
+				"isOpeningNewTab": true,
+				"externalUrl": "https://chat.mbund.org"
+			},
+			"area": {
+				"type": "category",
+				"properties": {
+					"id": "70fed506-bca9-4af3-b758-6d3de9203ca0"
+				}
+			},
+			"shape": {
+				"lg": {
+					"location": {
+						"x": 1,
+						"y": 0
+					},
+					"size": {
+						"width": 1,
+						"height": 1
+					}
+				},
+				"md": {
+					"location": {
+						"x": 2,
+						"y": 0
+					},
+					"size": {
+						"width": 1,
+						"height": 1
+					}
+				},
+				"sm": {
+					"location": {
+						"x": 0,
+						"y": 1
+					},
+					"size": {
+						"width": 1,
+						"height": 1
+					}
+				}
+			},
+			"integration": {
+				"type": null,
+				"properties": []
+			}
+		},
+		{
+			"id": "521aa59d-c482-49c5-a9da-4afc4f029b3a",
+			"name": "TrueNAS",
+			"url": "https://truenas",
+			"appearance": {
+				"iconUrl": "https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/truenas.png",
+				"appNameStatus": "normal",
+				"positionAppName": "column",
+				"lineClampAppName": 1
+			},
+			"network": {
+				"enabledStatusChecker": false,
+				"statusCodes": [
+					"200",
+					"301",
+					"302",
+					"304",
+					"307",
+					"308"
+				]
+			},
+			"behaviour": {
+				"isOpeningNewTab": true,
+				"externalUrl": "https://truenas"
+			},
+			"area": {
+				"type": "category",
+				"properties": {
+					"id": "52411d6d-e5d4-44ff-9677-2dc0253d733d"
+				}
+			},
+			"shape": {
+				"lg": {
+					"location": {
+						"x": 8,
+						"y": 0
+					},
+					"size": {
+						"width": 1,
+						"height": 1
+					}
+				},
+				"md": {
+					"location": {
+						"x": 2,
+						"y": 1
+					},
+					"size": {
+						"width": 1,
+						"height": 1
+					}
+				},
+				"sm": {
+					"location": {
+						"x": 1,
+						"y": 2
+					},
+					"size": {
+						"width": 1,
+						"height": 1
+					}
+				}
+			},
+			"integration": {
+				"type": null,
+				"properties": []
+			}
+		},
+		{
+			"id": "defc07e3-0000-445c-84c3-7f95236e7646",
+			"name": "Tailscale",
+			"url": "https://tailscale.com/admin",
+			"appearance": {
+				"iconUrl": "https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/tailscale.png",
+				"appNameStatus": "normal",
+				"positionAppName": "column",
+				"lineClampAppName": 1
+			},
+			"network": {
+				"enabledStatusChecker": false,
+				"statusCodes": [
+					"200",
+					"301",
+					"302",
+					"304",
+					"307",
+					"308"
+				]
+			},
+			"behaviour": {
+				"isOpeningNewTab": true,
+				"externalUrl": "https://tailscale.com/admin"
+			},
+			"area": {
+				"type": "category",
+				"properties": {
+					"id": "cd34214a-1756-4c8f-aa79-13d1d5ddce27"
+				}
+			},
+			"shape": {
+				"lg": {
+					"location": {
+						"x": 1,
+						"y": 0
+					},
+					"size": {
+						"width": 1,
+						"height": 1
+					}
+				},
+				"md": {
+					"location": {
+						"x": 1,
+						"y": 0
+					},
+					"size": {
+						"width": 1,
+						"height": 1
+					}
+				},
+				"sm": {
+					"location": {
+						"x": 1,
+						"y": 0
+					},
+					"size": {
+						"width": 1,
+						"height": 1
+					}
+				}
+			},
+			"integration": {
+				"type": null,
+				"properties": []
+			}
+		},
+		{
+			"id": "e51578ca-3329-44c8-8bd1-1b1c29189a89",
+			"name": "YouTube",
+			"url": "https://youtube.com",
+			"appearance": {
+				"iconUrl": "https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/youtube.png",
+				"appNameStatus": "normal",
+				"positionAppName": "column",
+				"lineClampAppName": 1
+			},
+			"network": {
+				"enabledStatusChecker": false,
+				"statusCodes": [
+					"200",
+					"301",
+					"302",
+					"304",
+					"307",
+					"308"
+				]
+			},
+			"behaviour": {
+				"isOpeningNewTab": true,
+				"externalUrl": "https://youtube.com"
+			},
+			"area": {
+				"type": "sidebar",
+				"properties": {
+					"location": "right"
+				}
+			},
+			"shape": {
+				"lg": {
+					"location": {
+						"x": 1,
+						"y": 4
+					},
+					"size": {
+						"width": 1,
+						"height": 1
+					}
+				},
+				"md": {
+					"location": {
+						"x": 0,
+						"y": 0
+					},
+					"size": {
+						"width": 1,
+						"height": 1
+					}
+				},
+				"sm": {
+					"location": {
+						"x": 0,
+						"y": 0
+					},
+					"size": {
+						"width": 1,
+						"height": 1
+					}
+				}
+			},
+			"integration": {
+				"type": null,
+				"properties": []
+			}
+		},
+		{
+			"id": "283aa092-b7c5-4cdc-8950-e582ad9c1eb1",
+			"name": "ArgoCD",
+			"url": "https://argocd.mbund.org",
+			"appearance": {
+				"iconUrl": "https://cdn.jsdelivr.net/gh/loganmarchione/homelab-svg-assets/assets/argocd.svg",
+				"appNameStatus": "normal",
+				"positionAppName": "column",
+				"lineClampAppName": 1
+			},
+			"network": {
+				"enabledStatusChecker": true,
+				"statusCodes": [
+					"200",
+					"301",
+					"302",
+					"304",
+					"307",
+					"308"
+				]
+			},
+			"behaviour": {
+				"isOpeningNewTab": true,
+				"externalUrl": "https://argocd.mbund.org"
+			},
+			"area": {
+				"type": "category",
+				"properties": {
+					"id": "70fed506-bca9-4af3-b758-6d3de9203ca0"
+				}
+			},
+			"shape": {
+				"lg": {
+					"location": {
+						"x": 2,
+						"y": 0
+					},
+					"size": {
+						"width": 1,
+						"height": 1
+					}
+				},
+				"md": {
+					"location": {
+						"x": 3,
+						"y": 0
+					},
+					"size": {
+						"width": 1,
+						"height": 1
+					}
+				},
+				"sm": {
+					"location": {
+						"x": 1,
+						"y": 0
+					},
+					"size": {
+						"width": 1,
+						"height": 1
+					}
+				}
+			},
+			"integration": {
+				"type": null,
+				"properties": []
+			}
+		},
+		{
+			"id": "41df2052-074c-4be2-8fe4-5d1f89b17333",
+			"name": "Uptime Kuma",
+			"url": "http://uptime-kuma-web.uptime-kuma:3001",
+			"appearance": {
+				"iconUrl": "https://cdn.jsdelivr.net/gh/loganmarchione/homelab-svg-assets/assets/uptimekuma.svg",
+				"appNameStatus": "normal",
+				"positionAppName": "column",
+				"lineClampAppName": 1
+			},
+			"network": {
+				"enabledStatusChecker": true,
+				"statusCodes": [
+					"200",
+					"301",
+					"302",
+					"304",
+					"307",
+					"308"
+				]
+			},
+			"behaviour": {
+				"isOpeningNewTab": true,
+				"externalUrl": "https://uptime-kuma.mbund.org"
+			},
+			"area": {
+				"type": "category",
+				"properties": {
+					"id": "52411d6d-e5d4-44ff-9677-2dc0253d733d"
+				}
+			},
+			"shape": {
+				"lg": {
+					"location": {
+						"x": 4,
+						"y": 0
+					},
+					"size": {
+						"width": 1,
+						"height": 1
+					}
+				},
+				"md": {
+					"location": {
+						"x": 1,
+						"y": 0
+					},
+					"size": {
+						"width": 1,
+						"height": 1
+					}
+				},
+				"sm": {
+					"location": {
+						"x": 2,
+						"y": 0
+					},
+					"size": {
+						"width": 1,
+						"height": 1
+					}
+				}
+			},
+			"integration": {
+				"type": null,
+				"properties": []
+			}
+		},
+		{
+			"id": "a4706941-98f1-4f9f-83cf-f1ea1dfeb5dd",
+			"name": "Cloudflare",
+			"url": "https://cloudflare.com",
+			"appearance": {
+				"iconUrl": "https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/cloudflare.png",
+				"appNameStatus": "normal",
+				"positionAppName": "column",
+				"lineClampAppName": 1
+			},
+			"network": {
+				"enabledStatusChecker": false,
+				"statusCodes": [
+					"200",
+					"301",
+					"302",
+					"304",
+					"307",
+					"308"
+				]
+			},
+			"behaviour": {
+				"isOpeningNewTab": true,
+				"externalUrl": "https://dash.cloudflare.com"
+			},
+			"area": {
+				"type": "category",
+				"properties": {
+					"id": "cd34214a-1756-4c8f-aa79-13d1d5ddce27"
+				}
+			},
+			"shape": {
+				"lg": {
+					"location": {
+						"x": 2,
+						"y": 0
+					},
+					"size": {
+						"width": 1,
+						"height": 1
+					}
+				},
+				"md": {
+					"location": {
+						"x": 2,
+						"y": 0
+					},
+					"size": {
+						"width": 1,
+						"height": 1
+					}
+				},
+				"sm": {
+					"location": {
+						"x": 2,
+						"y": 0
+					},
+					"size": {
+						"width": 1,
+						"height": 1
+					}
+				}
+			},
+			"integration": {
+				"type": null,
+				"properties": []
+			}
+		},
+		{
+			"id": "7bb09932-c325-4231-8ac2-5b93c60091b2",
+			"name": "Discord",
+			"url": "https://discord.com/app",
+			"appearance": {
+				"iconUrl": "https://cdn.jsdelivr.net/gh/loganmarchione/homelab-svg-assets/assets/discord.svg",
+				"appNameStatus": "normal",
+				"positionAppName": "column",
+				"lineClampAppName": 1
+			},
+			"network": {
+				"enabledStatusChecker": false,
+				"statusCodes": [
+					"200",
+					"301",
+					"302",
+					"304",
+					"307",
+					"308"
+				]
+			},
+			"behaviour": {
+				"isOpeningNewTab": true,
+				"externalUrl": "https://discord.com/app"
+			},
+			"area": {
+				"type": "sidebar",
+				"properties": {
+					"location": "right"
+				}
+			},
+			"shape": {
+				"lg": {
+					"location": {
+						"x": 0,
+						"y": 4
+					},
+					"size": {
+						"width": 1,
+						"height": 1
+					}
+				},
+				"md": {
+					"location": {
+						"x": 0,
+						"y": 1
+					},
+					"size": {
+						"width": 1,
+						"height": 1
+					}
+				}
+			},
+			"integration": {
+				"type": null,
+				"properties": []
+			}
+		}
+	],
+	"widgets": [
+		{
+			"id": "45ef3df2-66bb-4eef-a289-dfb4c2d90a12",
+			"type": "date",
+			"properties": {
+				"display24HourFormat": true,
+				"dateFormat": "dddd, MMMM D",
+				"enableTimezone": false,
+				"timezoneLocation": {
+					"name": "Paris",
+					"latitude": 48.85341,
+					"longitude": 2.3488
+				},
+				"titleState": "both"
+			},
+			"area": {
+				"type": "sidebar",
+				"properties": {
+					"location": "right"
+				}
+			},
+			"shape": {
+				"sm": {
+					"location": {
+						"x": 2,
+						"y": 0
+					},
+					"size": {
+						"width": 1,
+						"height": 1
+					}
+				},
+				"md": {
+					"location": {
+						"x": 5,
+						"y": 0
+					},
+					"size": {
+						"width": 1,
+						"height": 1
+					}
+				},
+				"lg": {
+					"location": {
+						"x": 0,
+						"y": 0
+					},
+					"size": {
+						"width": 2,
+						"height": 1
+					}
+				}
+			}
+		},
+		{
+			"id": "ddb844ce-0a9d-48b4-8b67-4f1146535901",
+			"type": "dns-hole-summary",
+			"properties": {
+				"usePiHoleColors": true,
+				"layout": "grid"
+			},
+			"area": {
+				"type": "sidebar",
+				"properties": {
+					"location": "right"
+				}
+			},
+			"shape": {
+				"sm": {
+					"location": {
+						"x": 1,
+						"y": 6
+					},
+					"size": {
+						"width": 2,
+						"height": 1
+					}
+				},
+				"md": {
+					"location": {
+						"x": 4,
+						"y": 4
+					},
+					"size": {
+						"width": 2,
+						"height": 2
+					}
+				},
+				"lg": {
+					"location": {
+						"x": 0,
+						"y": 2
+					},
+					"size": {
+						"width": 2,
+						"height": 2
+					}
+				}
+			}
+		},
+		{
+			"id": "e3004052-6b83-480e-b458-56e8ccdca5f0",
+			"type": "weather",
+			"properties": {
+				"displayInFahrenheit": true,
+				"location": {
+					"name": "Hilliard",
+					"latitude": 40.0334,
+					"longitude": -83.15825
+				},
+				"displayCityName": true
+			},
+			"area": {
+				"type": "sidebar",
+				"properties": {
+					"location": "right"
+				}
+			},
+			"shape": {
+				"md": {
+					"location": {
+						"x": 5,
+						"y": 0
+					},
+					"size": {
+						"width": 1,
+						"height": 1
+					}
+				},
+				"sm": {
+					"location": {
+						"x": 2,
+						"y": 0
+					},
+					"size": {
+						"width": 1,
+						"height": 1
+					}
+				},
+				"lg": {
+					"location": {
+						"x": 0,
+						"y": 1
+					},
+					"size": {
+						"width": 2,
+						"height": 1
+					}
+				}
+			}
+		},
+		{
+			"id": "8623fdc7-8680-463a-b72c-f19cf0c36241",
+			"type": "iframe",
+			"properties": {
+				"embedUrl": "https://grafana.mbund.org/d-solo/-fs18ztMz/speedtest?orgId=1&panelId=2",
+				"allowFullScreen": false,
+				"allowScrolling": true,
+				"allowTransparency": false,
+				"allowPayment": false,
+				"allowAutoPlay": false,
+				"allowMicrophone": false,
+				"allowCamera": false,
+				"allowGeolocation": false
+			},
+			"area": {
+				"type": "wrapper",
+				"properties": {
+					"id": "30e57e1b-0db3-49fb-b220-c40c94f731a0"
+				}
+			},
+			"shape": {
+				"sm": {
+					"location": {
+						"x": 0,
+						"y": 0
+					},
+					"size": {
+						"width": 3,
+						"height": 2
+					}
+				},
+				"md": {
+					"location": {
+						"x": 0,
+						"y": 0
+					},
+					"size": {
+						"width": 3,
+						"height": 2
+					}
+				},
+				"lg": {
+					"location": {
+						"x": 0,
+						"y": 0
+					},
+					"size": {
+						"width": 4,
+						"height": 3
+					}
+				}
+			}
+		}
+	],
+	"settings": {
+		"common": {
+			"searchEngine": {
+				"type": "custom",
+				"properties": {
+					"template": "https://search.mbund.org/search?q="
+				}
+			}
+		},
+		"customization": {
+			"layout": {
+				"enabledLeftSidebar": false,
+				"enabledRightSidebar": true,
+				"enabledDocker": false,
+				"enabledPing": true,
+				"enabledSearchbar": true
+			},
+			"pageTitle": "Homelab",
+			"logoImageUrl": "/imgs/logo/logo.png",
+			"faviconUrl": "/imgs/favicon/favicon-squared.png",
+			"backgroundImageUrl": "",
+			"customCss": "",
+			"colors": {
+				"primary": "red",
+				"secondary": "yellow",
+				"shade": 7
+			},
+			"appOpacity": 100,
+			"gridstack": {
+				"columnCountSmall": 3,
+				"columnCountMedium": 6,
+				"columnCountLarge": 10
+			},
+			"metaTitle": "Homelab Dashboard"
+		}
+	}
+}
