@@ -2,7 +2,7 @@ speedtest-exporter:
   env:
     TZ: America/New_York
   image:
-    tag: v3.5.3
+    tag: v3.5.4
   metrics:
     enabled: true
     serviceMonitor:
