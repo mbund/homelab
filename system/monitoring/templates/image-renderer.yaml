@@ -19,6 +19,8 @@ spec:
           imagePullPolicy: Always
           image: grafana/grafana-image-renderer:3.7.2
           env:
+            - name: RENDERING_VIEWPORT_PAGE_ZOOM_LEVEL
+              value: "2"
             - name: RENDERING_MODE
               value: "reusable"
             - name: RENDERING_CLUSTERING_MAX_CONCURRENCY
