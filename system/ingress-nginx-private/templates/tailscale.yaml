@@ -33,7 +33,7 @@ spec:
       containers:
         - name: tailscale
           imagePullPolicy: Always
-          image: ghcr.io/tailscale/tailscale:v1.44.0
+          image: ghcr.io/tailscale/tailscale:v1.48.1
           command: ["/bin/sh"]
           args:
             - -c
