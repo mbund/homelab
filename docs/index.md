@@ -15,7 +15,7 @@ Fully automated Kubernetes and GitOps setup to host my important services at hom
 
 <table>
 <tr>
-    <td>argocd</td>
+    <td><a href="https://argocd.mbund.org">argocd<a></td>
     <td><a href="https://docs.mbund.org"><img src="https://argocd.mbund.org/api/badge?name=argocd&revision=true"></a></td>
 </tr>
 <tr>
@@ -23,15 +23,15 @@ Fully automated Kubernetes and GitOps setup to host my important services at hom
     <td><a href="https://docs.mbund.org"><img src="https://argocd.mbund.org/api/badge?name=cert-manager&revision=true"></a></td>
 </tr>
 <tr>
-    <td>element</td>
+    <td><a href="https://chat.mbund.org">element</a></td>
     <td><a href="https://docs.mbund.org"><img src="https://argocd.mbund.org/api/badge?name=element&revision=true"></a></td>
 </tr>
 <tr>
-    <td>emqx</td>
+    <td><a href="https://emqx.mbund.org">emqx</a></td>
     <td><a href="https://docs.mbund.org"><img src="https://argocd.mbund.org/api/badge?name=emqx&revision=true"></a></td>
 </tr>
 <tr>
-    <td>excalidraw</td>
+    <td><a href="https://draw.mbund.org">excalidraw</a></td>
     <td><a href="https://docs.mbund.org"><img src="https://argocd.mbund.org/api/badge?name=excalidraw&revision=true"></a></td>
 </tr>
 <tr>
@@ -47,12 +47,8 @@ Fully automated Kubernetes and GitOps setup to host my important services at hom
     <td><a href="https://docs.mbund.org"><img src="https://argocd.mbund.org/api/badge?name=external-secrets&revision=true"></a></td>
 </tr>
 <tr>
-    <td>homarr</td>
+    <td><a href="https://dash.mbund.org">homarr</a></td>
     <td><a href="https://docs.mbund.org"><img src="https://argocd.mbund.org/api/badge?name=homarr&revision=true"></a></td>
-</tr>
-<tr>
-    <td>ingress-nginx-private</td>
-    <td><a href="https://docs.mbund.org"><img src="https://argocd.mbund.org/api/badge?name=ingress-nginx-private&revision=true"></a></td>
 </tr>
 <tr>
     <td>ingress-nginx-private</td>
@@ -67,7 +63,7 @@ Fully automated Kubernetes and GitOps setup to host my important services at hom
     <td><a href="https://docs.mbund.org"><img src="https://argocd.mbund.org/api/badge?name=loki&revision=true"></a></td>
 </tr>
 <tr>
-    <td>longhorn</td>
+    <td><a href="https://longhorn.mbund.org">longhorn</a></td>
     <td><a href="https://docs.mbund.org"><img src="https://argocd.mbund.org/api/badge?name=longhorn&revision=true"></a></td>
 </tr>
 <tr>
@@ -79,11 +75,11 @@ Fully automated Kubernetes and GitOps setup to host my important services at hom
     <td><a href="https://docs.mbund.org"><img src="https://argocd.mbund.org/api/badge?name=metallb&revision=true"></a></td>
 </tr>
 <tr>
-    <td>monitoring</td>
+    <td><a href="https://grafana.mbund.org">monitoring</a></td>
     <td><a href="https://docs.mbund.org"><img src="https://argocd.mbund.org/api/badge?name=monitoring&revision=true"></a></td>
 </tr>
 <tr>
-    <td>pihole</td>
+    <td><a href="https://pihole.mbund.org/admin">pihole</a></td>
     <td><a href="https://docs.mbund.org"><img src="https://argocd.mbund.org/api/badge?name=pihole&revision=true"></a></td>
 </tr>
 <tr>
@@ -91,7 +87,7 @@ Fully automated Kubernetes and GitOps setup to host my important services at hom
     <td><a href="https://docs.mbund.org"><img src="https://argocd.mbund.org/api/badge?name=root&revision=true"></a></td>
 </tr>
 <tr>
-    <td>searxng</td>
+    <td><a href="https://search.mbund.org">searxng</a></td>
     <td><a href="https://docs.mbund.org"><img src="https://argocd.mbund.org/api/badge?name=searxng&revision=true"></a></td>
 </tr>
 <tr>
@@ -99,15 +95,15 @@ Fully automated Kubernetes and GitOps setup to host my important services at hom
     <td><a href="https://docs.mbund.org"><img src="https://argocd.mbund.org/api/badge?name=speedtest&revision=true"></a></td>
 </tr>
 <tr>
-    <td>uptime-kuma</td>
+    <td><a href="https://uptime-kuma.mbund.org">uptime-kuma</a></td>
     <td><a href="https://docs.mbund.org"><img src="https://argocd.mbund.org/api/badge?name=uptime-kuma&revision=true"></a></td>
 </tr>
 <tr>
-    <td>vault</td>
+    <td><a href="https://vault.mbund.org">vault</a></td>
     <td><a href="https://docs.mbund.org"><img src="https://argocd.mbund.org/api/badge?name=vault&revision=true"></a></td>
 </tr>
 <tr>
-    <td>vaultwarden</td>
+    <td><a href="https://vaultwarden.mbund.org">vaultwarden</a></td>
     <td><a href="https://docs.mbund.org"><img src="https://argocd.mbund.org/api/badge?name=vaultwarden&revision=true"></a></td>
 </tr>
 </table>
