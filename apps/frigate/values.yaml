@@ -33,11 +33,8 @@ app-template:
   persistence:
     config:
       enabled: true
-      type: pvc
-      accessMode: ReadWriteOnce
-      storageClass: longhorn
-      size: 16Mi
-      mountPath: /config
+      type: configMap
+      name: frigate-config
     data:
       enabled: true
       type: pvc

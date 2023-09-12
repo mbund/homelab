@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: frigate-config
+  labels:
+    app.kubernetes.io/name: frigate-config
+data:
+  config.yml: |
+    mqtt:
+      enabled: false
+    record:
+      enabled: True
+    cameras:
+      laptop:
+        enabled: true
+        ffmpeg:
+          inputs:
+            - path: rtsp://192.168.1.142:8554/stream1
+              roles:
+                - detect
