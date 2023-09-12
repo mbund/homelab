@@ -42,7 +42,7 @@ app-template:
       accessMode: ReadWriteOnce
       storageClass: longhorn
       size: 16Gi
-      mountPath: /data
+      mountPath: /media
     shm:
       enabled: true
       type: hostPath
