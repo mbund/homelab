@@ -31,6 +31,13 @@ app-template:
           hosts:
             - *host
   persistence:
+    config:
+      enabled: true
+      type: pvc
+      accessMode: ReadWriteOnce
+      storageClass: longhorn
+      size: 16Mi
+      mountPath: /config
     data:
       enabled: true
       type: pvc
