@@ -18,3 +18,4 @@ data:
             - path: rtsp://192.168.1.142:8554/stream1
               roles:
                 - detect
+                - record
