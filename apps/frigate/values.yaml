@@ -9,6 +9,7 @@ app-template:
     TZ: America/New_York
   service:
     main:
+      type: LoadBalancer
       ports:
         http:
           port: 5000
