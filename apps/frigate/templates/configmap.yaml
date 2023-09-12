@@ -9,7 +9,7 @@ data:
     mqtt:
       enabled: false
     record:
-      enabled: True
+      enabled: true
     cameras:
       office-exterior:
         enabled: true
