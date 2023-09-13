@@ -13,10 +13,6 @@ app-template:
       ports:
         http:
           port: 5000
-        rtsp:
-          enabled: true
-          port: 8554
-          protocol: TCP
   ingress:
     main:
       enabled: true
