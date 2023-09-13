@@ -6,6 +6,8 @@ metadata:
     app.kubernetes.io/name: frigate-config
 data:
   config.yml: |
+    mqtt:
+      enabled: false
     go2rtc:
       streams:
         door:
