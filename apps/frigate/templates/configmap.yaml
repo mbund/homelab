@@ -19,7 +19,7 @@ data:
           output_args:
             record: preset-record-generic-audio-copy
           inputs:
-            - path: rtsp://127.0.0.1:8554/door
+            - path: rtsp://localhost:8554/door
               input_args: preset-rtsp-restream
               roles:
                 - record
