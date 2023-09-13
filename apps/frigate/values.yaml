@@ -13,14 +13,6 @@ app-template:
       ports:
         http:
           port: 5000
-        websocket-tcp:
-          enabled: true
-          port: 8555
-          protocol: TCP
-        websocket-udp:
-          enabled: true
-          port: 8555
-          protocol: UDP
   ingress:
     main:
       enabled: true
