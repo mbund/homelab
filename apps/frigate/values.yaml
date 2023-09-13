@@ -13,11 +13,11 @@ app-template:
       ports:
         http:
           port: 5000
-        websocketTCP:
+        websocket-tcp:
           enabled: true
           port: 8555
           protocol: TCP
-        websocketUDP:
+        websocket-udp:
           enabled: true
           port: 8555
           protocol: UDP
