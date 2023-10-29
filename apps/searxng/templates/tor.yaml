@@ -15,25 +15,7 @@ spec:
     spec:
       containers:
         - name: tor
-          image: alpine:latest
-          command: ['sh', '-c', 'apk add tor && tor -f /torrc']
-          volumeMounts:
-            - name: tor-config
-              mountPath: /torrc
-              subPath: torrc
-      volumes:
-        - name: tor-config
-          configMap:
-            name: tor-config
----
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: tor-config
-data:
-  torrc: |
-    SocksPort 0.0.0.0:9050 IPv6Traffic
-    ExitNodes {US}
+          image: ghcr.io/mbund/volatile-proxy
 ---
 apiVersion: v1
 kind: Service
