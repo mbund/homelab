@@ -15,7 +15,6 @@ nextcloud:
         <?php
         $CONFIG = array (
           'default_phone_region' => 'US',
-          'config_is_read_only' => true,
         );
   ingress:
     enabled: true
