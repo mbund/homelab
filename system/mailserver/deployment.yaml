@@ -20,7 +20,7 @@ spec:
       serviceAccountName: tailscale
       containers:
         - name: mailserver
-          image: mailserver/docker-mailserver:12.1.0
+          image: mailserver/docker-mailserver:13.0.1
           envFrom:
             - configMapRef:
                 name: docker-mailserver-env

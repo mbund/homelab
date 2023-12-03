@@ -402,11 +402,6 @@ data:
 
   # A second container for the ldap service is necessary (i.e. https://github.com/osixia/docker-openldap)
 
-  # with the :edge tag, use ACCOUNT_PROVISIONER: LDAP
-  # empty : > LDAP authentification is disabled
-  # 1 : > LDAP authentification is enabled
-  ENABLE_LDAP: ""
-
   # empty : > no
   # yes : > LDAP over TLS enabled for Postfix
   LDAP_START_TLS: ""
