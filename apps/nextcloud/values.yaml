@@ -10,6 +10,8 @@ nextcloud:
             1 => '10.0.0.0/8',
           ),
           'forwarded_for_headers' => array('HTTP_X_FORWARDED_FOR'),
+          'overwritehost' => 'cloud.mbund.org',
+          'overwriteprotocol' => 'https',
         );
       custom.config.php: |-
         <?php
@@ -70,6 +72,11 @@ nextcloud:
       postgresql:
         auth:
           existingSecret: postgres-secret
+  redis:
+    enabled: true
+    auth:
+      existingSecret: redis-secret
+      existingSecretPasswordKey: redis-password
   metrics:
     enabled: true
     serviceMonitor:
