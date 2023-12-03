@@ -75,12 +75,12 @@ nextcloud:
     auth:
       existingSecret: redis-secret
       existingSecretPasswordKey: redis-password
-  # persistence:
-  #   enabled: true
-  #   storageClass: longhorn
-  #   nextcloudData:
-  #     enabled: true
-  #     size: 80Gi
+  persistence:
+    enabled: true
+    storageClass: longhorn
+    nextcloudData:
+      enabled: true
+      size: 80Gi
   metrics:
     enabled: true
     serviceMonitor:
