@@ -80,7 +80,7 @@ nextcloud:
     storageClass: longhorn
     nextcloudData:
       enabled: true
-      size: 256Gi
+      size: 80Gi
   metrics:
     enabled: true
     serviceMonitor:
