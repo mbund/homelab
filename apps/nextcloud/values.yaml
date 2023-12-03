@@ -1,4 +1,8 @@
 nextcloud:
+  image:
+    flavor: fpm
+  nginx:
+    enabled: true
   nextcloud:
     host: &host cloud.mbund.org
     configs:
@@ -55,13 +59,13 @@ nextcloud:
         hosts:
           - *host
   internalDatabase:
-    enabled: false
+    enabled: true
   externalDatabase:
     existingSecret:
       enabled: true
       secretName: postgres-secret
   postgresql:
-    enabled: true
+    enabled: false
     global:
       postgresql:
         auth:
