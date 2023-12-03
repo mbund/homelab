@@ -53,6 +53,18 @@ nextcloud:
       - secretName: nextcloud-tls-certificate
         hosts:
           - *host
+  internalDatabase:
+    enabled: false
+  externalDatabase:
+    existingSecret:
+      enabled: true
+      secretName: postgres-secret
+  postgresql:
+    enabled: true
+    global:
+      postgresql:
+        auth:
+          existingSecret: postgres-secret
   metrics:
     enabled: true
     serviceMonitor:
