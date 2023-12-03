@@ -33,7 +33,7 @@ metadata:
 data:
   torrc: |
     SocksPort 0.0.0.0:9050 IPv6Traffic
-    ExitNodes {US,GB,AU,CA,NZ}
+    ExitNodes {US},{GB},{AU},{CA},{NZ}
 ---
 apiVersion: v1
 kind: Service
