@@ -39,12 +39,6 @@ nextcloud:
         location = /.well-known/caldav {
           return 301 $scheme://$host/remote.php/dav;
         }
-        location = /.well-known/webfinger {
-          return 301 $scheme://$host/index.php/.well-known/webfinger;
-        }
-        location = /.well-known/nodeinfo {
-          return 301 $scheme://$host/index.php/.well-known/nodeinfo;
-        }
         location = /robots.txt {
           allow all;
           log_not_found off;
@@ -67,7 +61,7 @@ nextcloud:
       enabled: true
       secretName: postgres-secret
   postgresql:
-    enabled: true
+    enabled: false
     global:
       postgresql:
         auth:
