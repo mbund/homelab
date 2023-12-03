@@ -61,7 +61,7 @@ nextcloud:
       enabled: true
       secretName: postgres-secret
   postgresql:
-    enabled: false
+    enabled: true
     global:
       postgresql:
         auth:
