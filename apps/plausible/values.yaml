@@ -6,6 +6,11 @@ app-template:
           image:
             repository: plausible/analytics
             tag: v2.0.0
+          command:
+            - /bin/sh
+            - -x
+            - -c
+            - /entrypoint.sh db createdb && /entrypoint.sh db migrate && /entrypoint.sh db init-admin && /entrypoint.sh run
           env:
             - name: TZ
               value: America/New_York
