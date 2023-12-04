@@ -1,0 +1,59 @@
+app-template:
+  controllers:
+    main:
+      containers:
+        main:
+          image:
+            repository: plausible/analytics
+            tag: v2.0.0
+          env:
+            TZ: America/New_York
+            CLICKHOUSE_DATABASE_URL: "postgres://postgres:postgres@plausible-analytics-postgresql:5432/plausible_db"
+            DATABASE_URL: "http://clickhouse:password@plausible-analytics-clickhouse:8123/plausible_events_db"
+  service:
+    main:
+      ports:
+        http:
+          port: 8000
+  ingress:
+    main:
+      enabled: true
+      ingressClassName: public
+      annotations:
+        cert-manager.io/cluster-issuer: letsencrypt-prod
+        external-dns.alpha.kubernetes.io/target: relay.mbund.org
+      hosts:
+        - host: &host plausible.mbund.org
+          paths:
+            - path: /
+              pathType: Prefix
+              service:
+                port: 8000
+      tls:
+        - secretName: plausible-tls-certificate
+          hosts:
+            - *host
+postgresql:
+  enabled: true
+  auth:
+    username: postgres
+    password: postgres
+    database: plausible_db
+  persistence:
+    enabled: true
+    storageClass: longhorn
+    size: 10Gi
+clickhouse:
+  enabled: true
+  auth:
+    username: clickhouse
+    password: password
+    database: plausible_events_db
+  initdbScripts:
+    create_database.sql: |
+      CREATE DATABASE IF NOT EXISTS plausible_events_db
+  primary:
+    persistence:
+      enabled: true
+      storageClass: longhorn
+      size: 10Gi
