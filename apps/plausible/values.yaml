@@ -46,6 +46,10 @@ postgresql:
     size: 10Gi
 clickhouse:
   enabled: true
+  shards: 1
+  replicaCount: 1
+  zookeeper:
+    enabled: false
   auth:
     username: clickhouse
     password: password
