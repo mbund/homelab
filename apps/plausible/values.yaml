@@ -28,6 +28,7 @@ app-template:
             - path: /
               pathType: Prefix
               service:
+                name: main
                 port: 8000
       tls:
         - secretName: plausible-tls-certificate
