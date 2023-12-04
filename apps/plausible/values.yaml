@@ -7,10 +7,19 @@ app-template:
             repository: plausible/analytics
             tag: v2.0.0
           env:
-            TZ: America/New_York
-            BASE_URL: https://plausible.mbund.org
-            CLICKHOUSE_DATABASE_URL: "postgres://postgres:postgres@plausible-analytics-postgresql:5432/plausible_db"
-            DATABASE_URL: "http://clickhouse:password@plausible-analytics-clickhouse:8123/plausible_events_db"
+            - name: TZ
+              value: America/New_York
+            - name: BASE_URL
+              value: https://plausible.mbund.org
+            - name: CLICKHOUSE_DATABASE_URL
+              value: "postgres://postgres:postgres@plausible-analytics-postgresql:5432/plausible_db"
+            - name: DATABASE_URL
+              value: "http://clickhouse:password@plausible-analytics-clickhouse:8123/plausible_events_db"
+            - name: SECRET_KEY_BASE
+              valueFrom:
+                secretKeyRef:
+                  key: secret-key-base
+                  name: plausible-secret
   service:
     main:
       ports:
