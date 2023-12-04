@@ -46,6 +46,8 @@ app-template:
             - *host
 postgresql:
   enabled: true
+  image:
+    tag: 14
   auth:
     username: postgres
     password: postgres
