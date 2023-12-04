@@ -8,6 +8,7 @@ app-template:
             tag: v2.0.0
           env:
             TZ: America/New_York
+            BASE_URL: https://plausible.mbund.org
             CLICKHOUSE_DATABASE_URL: "postgres://postgres:postgres@plausible-analytics-postgresql:5432/plausible_db"
             DATABASE_URL: "http://clickhouse:password@plausible-analytics-clickhouse:8123/plausible_events_db"
   service:
