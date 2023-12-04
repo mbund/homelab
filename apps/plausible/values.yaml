@@ -11,10 +11,10 @@ app-template:
               value: America/New_York
             - name: BASE_URL
               value: https://plausible.mbund.org
-            - name: CLICKHOUSE_DATABASE_URL
-              value: "http://clickhouse:password@plausible-clickhouse:8123/plausible_events_db"
             - name: DATABASE_URL
               value: "postgres://postgres:postgres@plausible-postgresql:5432/plausible_db"
+            - name: CLICKHOUSE_DATABASE_URL
+              value: "http://clickhouse:password@plausible-clickhouse:8123/plausible_events_db"
             - name: SECRET_KEY_BASE
               valueFrom:
                 secretKeyRef:
@@ -51,10 +51,11 @@ postgresql:
     username: postgres
     password: postgres
     database: plausible_db
-  persistence:
-    enabled: true
-    storageClass: longhorn
-    size: 10Gi
+  primary:
+    persistence:
+      enabled: true
+      storageClass: longhorn
+      size: 10Gi
 clickhouse:
   shards: 1
   replicaCount: 1
@@ -65,10 +66,9 @@ clickhouse:
     password: password
     database: plausible_events_db
   initdbScripts:
-    create_database.sql: |
+    db-init.sql: |
       CREATE DATABASE IF NOT EXISTS plausible_events_db
-  primary:
-    persistence:
-      enabled: true
-      storageClass: longhorn
-      size: 10Gi
+  persistence:
+    enabled: true
+    storageClass: longhorn
+    size: 10Gi
