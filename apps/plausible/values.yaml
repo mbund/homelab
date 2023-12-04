@@ -52,10 +52,10 @@ postgresql:
     username: postgres
     password: postgres
     database: plausible_db
-  # persistence:
-  #   enabled: true
-  #   storageClass: longhorn
-  #   size: 10Gi
+  persistence:
+    enabled: false
+    storageClass: longhorn
+    size: 10Gi
 clickhouse:
   enabled: true
   shards: 1
@@ -69,8 +69,8 @@ clickhouse:
   initdbScripts:
     create_database.sql: |
       CREATE DATABASE IF NOT EXISTS plausible_events_db
-  # primary:
-  #   persistence:
-  #     enabled: true
-  #     storageClass: longhorn
-  #     size: 10Gi
+  primary:
+    persistence:
+      enabled: false
+      storageClass: longhorn
+      size: 10Gi
