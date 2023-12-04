@@ -45,7 +45,7 @@ app-template:
           hosts:
             - *host
 postgresql:
-  enabled: true
+  enabled: false
   image:
     tag: 14
   auth:
