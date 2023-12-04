@@ -33,7 +33,7 @@ app-template:
   ingress:
     main:
       enabled: true
-      ingressClassName: public
+      className: public
       annotations:
         cert-manager.io/cluster-issuer: letsencrypt-prod
         external-dns.alpha.kubernetes.io/target: relay.mbund.org
