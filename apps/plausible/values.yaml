@@ -12,9 +12,9 @@ app-template:
             - name: BASE_URL
               value: https://plausible.mbund.org
             - name: CLICKHOUSE_DATABASE_URL
-              value: "postgres://postgres:postgres@plausible-analytics-postgresql:5432/plausible_db"
+              value: "postgres://postgres:postgres@plausible-postgresql:5432/plausible_db"
             - name: DATABASE_URL
-              value: "http://clickhouse:password@plausible-analytics-clickhouse:8123/plausible_events_db"
+              value: "http://clickhouse:password@plausible-clickhouse:8123/plausible_events_db"
             - name: SECRET_KEY_BASE
               valueFrom:
                 secretKeyRef:
