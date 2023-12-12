@@ -4,7 +4,10 @@ nextcloud:
   # nginx:
   #   enabled: true
   nextcloud:
-    host: &host cloud.mbund.org
+    host: &host drive.mbund.org
+    phpConfigs:
+      zzz-custom.ini: |-
+        memory_limit=2048M
     configs:
       proxy.config.php: |-
         <?php
@@ -14,7 +17,7 @@ nextcloud:
             1 => '10.0.0.0/8',
           ),
           'forwarded_for_headers' => array('HTTP_X_FORWARDED_FOR'),
-          'overwritehost' => 'cloud.mbund.org',
+          'overwritehost' => 'drive.mbund.org',
           'overwriteprotocol' => 'https',
         );
       custom.config.php: |-
@@ -22,7 +25,7 @@ nextcloud:
         $CONFIG = array (
           'default_phone_region' => 'US',
           'trusted_domains' => array (
-            0 => 'cloud.mbund.org'
+            0 => 'drive.mbund.org'
           ),
         );
       # 'config_is_read_only' => true,
