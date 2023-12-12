@@ -72,6 +72,10 @@ nextcloud:
     auth:
       existingSecret: redis-secret
       existingSecretPasswordKey: redis-password
+  startupProbe:
+    enabled: true
+    initialDelaySeconds: 120
+    failureThreshold: 50
   persistence:
     enabled: true
     storageClass: longhorn
