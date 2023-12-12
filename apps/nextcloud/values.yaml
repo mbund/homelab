@@ -1,4 +1,8 @@
 nextcloud:
+  image:
+    flavor: fpm
+  nginx:
+    enabled: true
   nextcloud:
     host: &host cloud.mbund.org
     configs:
