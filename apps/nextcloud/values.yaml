@@ -86,7 +86,7 @@ nextcloud:
   persistence:
     enabled: true
     storageClass: longhorn
-    accessMode: ReadWriteOnce
+    # accessMode: ReadWriteOnce
     nextcloudData:
       enabled: true
       size: 80Gi
