@@ -25,6 +25,11 @@ app-template:
                 secretKeyRef:
                   key: SECRET_KEY_BASE
                   name: plausible-secret
+            - name: MAXMIND_LICENSE_KEY
+              valueFrom:
+                secretKeyRef:
+                  key: MAXMIND_LICENSE_KEY
+                  name: plausible-secret
   service:
     main:
       ports:
