@@ -1,12 +1,10 @@
 nextcloud:
-  # image:
-  #   flavor: fpm
-  # nginx:
-  #   enabled: true
   nextcloud:
     host: &host drive.mbund.org
     phpConfigs:
       zzz-custom.ini: |-
+        upload_max_filesize=16G
+        post_max_size=16G
         memory_limit=2048M
     configs:
       proxy.config.php: |-
@@ -28,7 +26,6 @@ nextcloud:
             0 => 'drive.mbund.org'
           ),
         );
-      # 'config_is_read_only' => true,
   ingress:
     enabled: true
     className: public
