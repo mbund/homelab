@@ -1,6 +1,9 @@
 nextcloud:
   nextcloud:
     host: &host drive.mbund.org
+    existingSecret:
+      enabled: true
+      secretName: admin-secret
     phpConfigs:
       zzz-custom.ini: |-
         upload_max_filesize=16G
