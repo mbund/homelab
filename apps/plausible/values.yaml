@@ -20,6 +20,8 @@ app-template:
               value: "postgres://postgres:postgres@plausible-postgresql:5432/plausible_db"
             - name: CLICKHOUSE_DATABASE_URL
               value: "http://clickhouse:password@plausible-clickhouse:8123/plausible_events_db"
+            - name: MAXMIND_EDITION
+              value: GeoLite2-City
             - name: SECRET_KEY_BASE
               valueFrom:
                 secretKeyRef:
