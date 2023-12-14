@@ -20,6 +20,7 @@ nextcloud:
         upload_max_filesize=16G
         post_max_size=16G
         memory_limit=2048M
+        extension=bz2
     configs:
       proxy.config.php: |-
         <?php
