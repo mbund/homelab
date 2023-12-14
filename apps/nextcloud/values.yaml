@@ -38,7 +38,7 @@ nextcloud:
       nginx.ingress.kubernetes.io/enable-cors: "true"
       nginx.ingress.kubernetes.io/cors-allow-headers: "X-Forwarded-For"
       nginx.ingress.kubernetes.io/custom-http-errors: "404"
-      nginx.ingress.kubernetes.io/disable-proxy-intercept-errors: "true"
+      nginx.ingress.kubernetes.io/disable-proxy-intercept-errors: "false"
       nginx.ingress.kubernetes.io/default-backend: nextcloud
       nginx.ingress.kubernetes.io/server-snippet: |-
         server_tokens off;
