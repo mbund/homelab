@@ -46,11 +46,16 @@ nextcloud:
     annotations:
       cert-manager.io/cluster-issuer: letsencrypt-prod
       external-dns.alpha.kubernetes.io/target: relay.mbund.org
-      nginx.ingress.kubernetes.io/enable-cors: "true"
-      nginx.ingress.kubernetes.io/cors-allow-headers: "X-Forwarded-For"
+
+      # .well-known/webfinger and .well-known/nodeinfo both return 404s along with valid json,
+      # but I set up ingress-nginx to display http errors as nice pages. This behavior needs
+      # to be disabled for these two endpoints to work.
       nginx.ingress.kubernetes.io/custom-http-errors: "401,403,500,501,502,503"
       nginx.ingress.kubernetes.io/disable-proxy-intercept-errors: "true"
       nginx.ingress.kubernetes.io/default-backend: nextcloud
+
+      nginx.ingress.kubernetes.io/enable-cors: "true"
+      nginx.ingress.kubernetes.io/cors-allow-headers: "X-Forwarded-For"
       nginx.ingress.kubernetes.io/server-snippet: |-
         server_tokens off;
         proxy_hide_header X-Powered-By;
