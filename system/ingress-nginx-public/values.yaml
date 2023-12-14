@@ -16,7 +16,7 @@ ingress-nginx:
       serviceMonitor:
         enabled: true
   defaultBackend:
-    enabled: false
+    enabled: true
     image:
       repository: ghcr.io/tarampampam/error-pages
       tag: latest
