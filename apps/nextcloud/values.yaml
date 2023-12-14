@@ -4,6 +4,15 @@ nextcloud:
     existingSecret:
       enabled: true
       secretName: admin-secret
+    mail:
+      enabled: true
+      fromAddress: nextcloud
+      domain: mbund.org
+      smtp:
+        host: smtp.mbund.org
+        secure: tls
+        port: 587
+        authtype: PLAIN
     phpConfigs:
       zzz-custom.ini: |-
         upload_max_filesize=16G
@@ -28,6 +37,8 @@ nextcloud:
           'trusted_domains' => array (
             0 => 'drive.mbund.org'
           ),
+          'mail_smtptimeout' => '30',
+          'app.mail.smtp.timeout' => 30,
         );
   ingress:
     enabled: true
@@ -92,7 +103,6 @@ nextcloud:
   persistence:
     enabled: true
     storageClass: longhorn
-    # accessMode: ReadWriteOnce
     nextcloudData:
       enabled: true
       size: 80Gi
