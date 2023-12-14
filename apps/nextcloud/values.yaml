@@ -2,7 +2,7 @@ nextcloud:
   image:
     tag: 28.0.0-apache
   nextcloud:
-    host: &host drive.mbund.org
+    host: &host cloud.mbund.org
     existingSecret:
       enabled: true
       secretName: admin-secret
@@ -29,7 +29,7 @@ nextcloud:
             1 => '10.0.0.0/8',
           ),
           'forwarded_for_headers' => array('HTTP_X_FORWARDED_FOR'),
-          'overwritehost' => 'drive.mbund.org',
+          'overwritehost' => 'cloud.mbund.org',
           'overwriteprotocol' => 'https',
         );
       custom.config.php: |-
@@ -37,7 +37,7 @@ nextcloud:
         $CONFIG = array (
           'default_phone_region' => 'US',
           'trusted_domains' => array (
-            0 => 'drive.mbund.org'
+            0 => 'cloud.mbund.org'
           ),
           'mail_smtptimeout' => '30',
           'app.mail.smtp.timeout' => 30,
