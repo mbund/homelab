@@ -58,6 +58,8 @@ nextcloud:
       nginx.ingress.kubernetes.io/disable-proxy-intercept-errors: "true"
       nginx.ingress.kubernetes.io/default-backend: nextcloud
 
+      nginx.ingress.kubernetes.io/proxy-body-size: 16G
+
       # https://github.com/nextcloud/helm/issues/410#issuecomment-1654965117
       nginx.ingress.kubernetes.io/enable-cors: "false"
       nginx.ingress.kubernetes.io/cors-allow-headers: "X-Forwarded-For"
