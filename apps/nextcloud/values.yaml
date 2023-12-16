@@ -44,6 +44,8 @@ nextcloud:
           'mail_smtptimeout' => '30',
           'app.mail.smtp.timeout' => 30,
         );
+  cronjob:
+    enabled: true
   ingress:
     enabled: true
     className: public
