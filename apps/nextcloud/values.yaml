@@ -101,6 +101,11 @@ nextcloud:
       secretName: postgres-secret
   postgresql:
     enabled: true
+    primary:
+      persistence:
+        enabled: true
+        storageClass: longhorn
+        size: 20Gi
     global:
       postgresql:
         auth:
