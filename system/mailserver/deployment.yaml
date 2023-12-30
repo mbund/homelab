@@ -20,7 +20,7 @@ spec:
       serviceAccountName: tailscale
       containers:
         - name: mailserver
-          image: mailserver/docker-mailserver:13.0.1
+          image: mailserver/docker-mailserver:13.1.0
           envFrom:
             - configMapRef:
                 name: docker-mailserver-env
@@ -48,7 +48,7 @@ spec:
                 - "/bin/bash"
                 - "-c"
                 - |
-                  ! supervisorctl status | grep -E "amavis|changedetector|cron|dovecot|mailserver|opendkim|opendmarc|postfix|rsyslog|update-check" | grep -v RUNNING
+                  ! supervisorctl status | grep -E "amavis|changedetector|cron|dovecot|mailserver|opendkim|opendmarc|postfix|rsyslog" | grep -v RUNNING
             initialDelaySeconds: 15
             timeoutSeconds: 1
             failureThreshold: 3
