@@ -118,7 +118,7 @@ spec:
                 - NET_ADMIN
         - name: tailscale
           imagePullPolicy: IfNotPresent
-          image: ghcr.io/tailscale/tailscale:v1.48.1
+          image: ghcr.io/tailscale/tailscale:v1.60.0
           env:
             - name: TS_KUBE_SECRET
               value: tailscale-login-mailserver
