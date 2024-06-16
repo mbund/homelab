@@ -8,14 +8,14 @@ data "http" "public_ipv4" {
   url = "https://ipv4.icanhazip.com"
 }
 
-# data "http" "public_ipv6" {
-#   url = "https://ipv6.icanhazip.com"
-# }
+data "http" "public_ipv6" {
+  url = "https://ipv6.icanhazip.com"
+}
 
 locals {
   public_ips = [
     "${chomp(data.http.public_ipv4.response_body)}/32",
-    # "${chomp(data.http.public_ipv6.response_body)}/128"
+    "${chomp(data.http.public_ipv6.response_body)}/128"
   ]
 }
 
