@@ -111,7 +111,7 @@ spec:
                 command:
                   - "/bin/bash"
                   - "-c"
-                  - "printf 'search mailserver.svc.cluster.local svc.cluster.local cluster.local\nnameserver 10.43.0.10\nnameserver 1.1.1.1\n' > /etc/resolv.conf"
+                  - "printf 'search mailserver.svc.cluster.local svc.cluster.local cluster.local attlocal.net\nnameserver 10.43.0.10\nnameserver 1.1.1.1\noptions ndots:5\n' > /etc/resolv.conf"
           securityContext:
             capabilities:
               add:
