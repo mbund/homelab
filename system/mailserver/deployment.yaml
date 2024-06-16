@@ -134,7 +134,7 @@ spec:
             - name: TS_HOSTNAME
               value: homelab-mailserver
             - name: TS_EXTRA_ARGS
-              value: --exit-node=relay --exit-node-allow-lan-access
+              value: --exit-node=100.98.221.45 --exit-node-allow-lan-access
           securityContext:
             capabilities:
               add:
