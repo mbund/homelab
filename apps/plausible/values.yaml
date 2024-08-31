@@ -4,13 +4,13 @@ app-template:
       containers:
         main:
           image:
-            repository: plausible/analytics
-            tag: v2.0.0
-          command:
-            - /bin/sh
-            - -x
-            - -c
-            - /entrypoint.sh db createdb && /entrypoint.sh db migrate && /entrypoint.sh db init-admin && /entrypoint.sh run
+            repository: ghcr.io/plausible/community-edition
+            tag: v2.1.1
+          # command:
+          #   - /bin/sh
+          #   - -x
+          #   - -c
+          #   - /entrypoint.sh db createdb && /entrypoint.sh db migrate && /entrypoint.sh db init-admin && /entrypoint.sh run
           env:
             - name: TZ
               value: America/New_York
@@ -26,6 +26,11 @@ app-template:
               valueFrom:
                 secretKeyRef:
                   key: SECRET_KEY_BASE
+                  name: plausible-secret
+            - name: TOTP_VAULT_KEY
+              valueFrom:
+                secretKeyRef:
+                  key: TOTP_VAULT_KEY
                   name: plausible-secret
             - name: MAXMIND_LICENSE_KEY
               valueFrom:
