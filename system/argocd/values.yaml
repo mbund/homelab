@@ -13,7 +13,7 @@ argo-cd:
   server:
     ingress:
       enabled: true
-      ingressClassName: nginx
+      ingressClassName: public
       annotations:
         cert-manager.io/cluster-issuer: letsencrypt-prod
         external-dns.alpha.kubernetes.io/target: relay.testing.mbund.org
