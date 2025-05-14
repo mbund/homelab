@@ -1,0 +1,56 @@
+variant: fcos
+version: 1.6.0
+storage:
+  disks:
+  - device: /dev/disk/by-id/coreos-boot-disk
+    wipe_table: false
+    partitions:
+    - number: 4
+      label: root
+      size_mib: 32768
+      resize: true
+    - size_mib: 0
+      label: data
+  filesystems:
+    - path: /var/data
+      device: /dev/disk/by-partlabel/data
+      format: ext4
+      with_mount_unit: true
+  files:
+    - path: /etc/hostname
+      mode: 0644
+      contents:
+        inline: homelab
+    - path: /etc/sudoers.d/mbund
+      mode: 0644
+      contents:
+        inline: |
+          mbund ALL=(ALL) NOPASSWD:ALL
+passwd:
+  users:
+    - name: mbund
+      groups:
+        - sudo
+      ssh_authorized_keys:
+        - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIM2kbXZV9yOofK3s37lz5DDogOIp9EKuUxaOhVdczKDr
+systemd:
+  units:
+    - name: rebase.service
+      enabled: true
+      contents: |
+        [Unit]
+        Description=Fetch and deploy target image
+        # Only run on the firstboot
+        ConditionFirstBoot=true
+        Wants=network-online.target
+        After=network-online.target
+        StartLimitIntervalSec=600
+        StartLimitBurst=15
+        [Service]
+        # This ordering is important
+        After=coreos-ignition-firstboot-complete.service
+        Type=oneshot
+        RemainAfterExit=yes
+        ExecStart=/usr/bin/rpm-ostree rebase --reboot --bypass-driver ostree-unverified-registry:ghcr.io/mbund/homelab
+        [Install]
+        WantedBy=multi-user.target

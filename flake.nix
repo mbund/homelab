@@ -20,10 +20,11 @@
           go-task
           k3sup
           kube3d
-          terraform
+          opentofu
           (pkgs.python3.withPackages (ps: with ps; [mkdocs-material pillow cairosvg pytz]))
           go
           gopls
+          butane
         ];
       };
     });

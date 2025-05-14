@@ -1,0 +1,9 @@
+cluster-init: true
+disable:
+  - servicelb
+  - traefik
+disable-kube-proxy: true
+disable-network-policy: true
+flannel-backend: none
+selinux: true
+write-kubeconfig-mode: "0644"
