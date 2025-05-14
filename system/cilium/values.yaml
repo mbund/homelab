@@ -8,3 +8,8 @@ cilium:
     replicas: 1
   envoy:
     enabled: false
+  hubble:
+    relay:
+      enabled: true
+    ui:
+      enabled: true
