@@ -1,3 +1,0 @@
-prometheus:
-  serviceMonitor:
-    enabled: true

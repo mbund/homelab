@@ -1,9 +1,0 @@
-- path: gitea
-  data:
-    - key: password
-      length: 32
-
-- path: pihole
-  data:
-    - key: password
-      length: 32

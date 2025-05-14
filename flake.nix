@@ -25,6 +25,7 @@
           go
           gopls
           butane
+          kubernetes-helm
         ];
       };
     });
