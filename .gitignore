@@ -7,3 +7,5 @@ Chart.lock
 
 # docs
 /site
+
+secrets.sh
