@@ -18,6 +18,36 @@ ingress-nginx:
     service:
       type: ClusterIP
       clusterIP: 10.43.0.60
+    extraContainers:
+      - name: ts-sidecar
+        imagePullPolicy: Always
+        image: ghcr.io/tailscale/tailscale:latest
+        env:
+        - name: TS_HOSTNAME
+          value: homelab-router
+        - name: TS_KUBE_SECRET
+          value: tailscale-secret
+        - name: TS_USERSPACE
+          value: "false"
+        # - name: TS_DEBUG_FIREWALL_MODE
+        #   value: auto
+        # - name: TS_AUTH_ONCE
+        #   value: "true"
+        - name: TS_AUTHKEY
+          valueFrom:
+            secretKeyRef:
+              name: tailscale-auth
+              key: TS_AUTHKEY
+        - name: POD_NAME
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.name
+        - name: POD_UID
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.uid
+        securityContext:
+          privileged: true
   defaultBackend:
     enabled: true
     image:
