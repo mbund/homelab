@@ -1,0 +1,49 @@
+kube-prometheus-stack:
+  grafana:
+    adminPassword: null
+    defaultDashboardsEnabled: false
+    ingress:
+      enabled: true
+      ingressClassName: public
+      annotations:
+        cert-manager.io/cluster-issuer: letsencrypt-prod
+        external-dns.alpha.kubernetes.io/target: relay.testing.mbund.org
+      hosts:
+        - &host grafana.testing.mbund.org
+      tls:
+        - secretName: grafana-general-tls
+          hosts:
+            - *host
+    # persistence:
+    #   enabled: true
+    #   storageClass: longhorn
+    additionalDataSources:
+      - name: Loki
+        type: loki
+        url: http://loki.loki:3100
+    grafana.ini:
+      server:
+        root_url: https://grafana.testing.mbund.org
+      auth.anonymous:
+        enabled: true
+      security:
+        allow_embedding: true
+
+  prometheus:
+    prometheusSpec:
+      ruleSelectorNilUsesHelmValues: false
+      serviceMonitorSelectorNilUsesHelmValues: false
+      podMonitorSelectorNilUsesHelmValues: false
+      probeSelectorNilUsesHelmValues: false
+    ingress:
+      enabled: true
+      ingressClassName: private
+      annotations:
+        cert-manager.io/cluster-issuer: letsencrypt-prod
+        external-dns.alpha.kubernetes.io/target: private-relay.testing.mbund.org
+      hosts:
+        - &host prometheus.testing.mbund.org
+      tls:
+        - secretName: prometheus-general-tls
+          hosts:
+            - *host
