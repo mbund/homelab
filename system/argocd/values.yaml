@@ -13,10 +13,10 @@ argo-cd:
   server:
     ingress:
       enabled: true
-      ingressClassName: public
+      ingressClassName: private
       annotations:
         cert-manager.io/cluster-issuer: letsencrypt-prod
-        external-dns.alpha.kubernetes.io/target: relay.testing.mbund.org
+        external-dns.alpha.kubernetes.io/target: private-relay.testing.mbund.org
       tls: true
     metrics: &metrics
       enabled: true
