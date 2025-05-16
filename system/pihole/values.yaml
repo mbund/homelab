@@ -1,0 +1,66 @@
+pihole:
+  extraEnvVars:
+    TZ: America/New_York
+  dnsmasq:
+    customSettings:
+      - except-interface=nonexisting
+  ingress:
+    enabled: true
+    ingressClassName: private
+    annotations:
+      cert-manager.io/cluster-issuer: letsencrypt-prod
+      external-dns.alpha.kubernetes.io/target: private-relay.testing.mbund.org
+    # path: /admin
+    hosts:
+      - &host pihole.testing.mbund.org
+    tls:
+      - secretName: pihole-tls-certificate
+        hosts:
+          - *host
+  persistentVolumeClaim:
+    enabled: true
+    storageClass: local-path
+  admin:
+    enabled: false
+  extraContainers:
+    - name: ts-sidecar
+      imagePullPolicy: Always
+      image: ghcr.io/tailscale/tailscale:latest
+      command: ["/bin/sh"]
+      args:
+        - -c
+        - printf 'search pihole.svc.cluster.local svc.cluster.local cluster.local\nnameserver 10.43.0.10\nnameserver 127.0.0.1\nnameserver 1.1.1.1\n' > /etc/resolv.conf &&
+          /usr/local/bin/containerboot
+      env:
+      - name: TS_HOSTNAME
+        value: homelab-dns2
+      - name: TS_KUBE_SECRET
+        value: tailscale-secret
+      - name: TS_USERSPACE
+        value: "false"
+      - name: TS_AUTHKEY
+        valueFrom:
+          secretKeyRef:
+            name: tailscale-auth
+            key: TS_AUTHKEY
+      - name: POD_NAME
+        valueFrom:
+          fieldRef:
+            fieldPath: metadata.name
+      - name: POD_UID
+        valueFrom:
+          fieldRef:
+            fieldPath: metadata.uid
+      securityContext:
+        privileged: true
+  hostname: pihole-kubernetes
+  podAnnotations:
+    prometheus.io/port: "9617"
+    prometheus.io/scrape: "true"
+  monitoring:
+    podMonitor:
+      enabled: true
+    sidecar:
+      enabled: true
+  DNS1: 1.1.1.1
+  DNS2: 1.0.0.1
