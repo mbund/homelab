@@ -1,0 +1,10 @@
+[Unit]
+Description=Set SELinux context for /var/data/local-path-provisioner
+After=local-fs.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/chcon -Rt container_file_t /var/data/local-path-provisioner
+
+[Install]
+WantedBy=multi-user.target

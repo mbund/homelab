@@ -2,6 +2,7 @@ cluster-init: true
 disable:
   - servicelb
   - traefik
+  - local-storage
 disable-kube-proxy: true
 disable-network-policy: true
 flannel-backend: none
