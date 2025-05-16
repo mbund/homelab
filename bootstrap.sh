@@ -9,3 +9,5 @@ helm template \
     --values system/argocd/values-seed.yaml \
     argocd system/argocd \
     | kubectl apply -f -
+
+kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d

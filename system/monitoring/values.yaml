@@ -14,9 +14,9 @@ kube-prometheus-stack:
         - secretName: grafana-general-tls
           hosts:
             - *host
-    # persistence:
-    #   enabled: true
-    #   storageClass: longhorn
+    persistence:
+      enabled: true
+      storageClassName: local-path
     additionalDataSources:
       - name: Loki
         type: loki
