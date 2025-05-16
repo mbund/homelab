@@ -1,0 +1,14 @@
+{
+  "name": "relay",
+  "main": "index.ts",
+  "type": "module",
+  "devDependencies": {
+    "@types/node": "^18",
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "@pulumi/linode": "^4.39.0",
+    "@pulumi/pulumi": "^3.113.0",
+    "ts-node": "^10.9.2"
+  }
+}

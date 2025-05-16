@@ -1,0 +1,72 @@
+#cloud-config
+package_update: true
+package_upgrade: false
+
+packages:
+  - haproxy
+  - curl
+  - gnupg2
+
+write_files:
+  - path: /etc/haproxy/haproxy.cfg
+    owner: root:root
+    permissions: '0644'
+    content: |
+      global
+              log /dev/log    local0
+              log /dev/log    local1 notice
+              chroot /var/lib/haproxy
+              stats socket /run/haproxy/admin.sock mode 660 level admin
+              stats timeout 30s
+              user haproxy
+              group haproxy
+              daemon
+
+      defaults
+              log     global
+              mode tcp
+              option tcplog
+              option  dontlognull
+              timeout connect 5000
+              timeout client  50000
+              timeout server  50000
+
+      frontend https
+              bind *:443
+              default_backend https_backend
+      backend https_backend
+              server server1 homelab-router-proxy:443 send-proxy-v2
+
+      frontend mqtt_ssl
+              bind *:8883
+              default_backend mqtt_ssl_backend
+      backend mqtt_ssl_backend
+              server server1 homelab-router-proxy:8883 send-proxy-v2
+
+      frontend mqtt_tcp
+              bind *:1883
+              default_backend mqtt_tcp_backend
+      backend mqtt_tcp_backend
+              server server1 homelab-router-proxy:1883 send-proxy-v2
+
+      frontend mqtt_ws
+              bind *:8083
+              default_backend mqtt_ws_backend
+      backend mqtt_ws_backend
+              server server1 homelab-router-proxy:8083 send-proxy-v2
+
+      frontend mqtt_wss
+              bind *:8084
+              default_backend mqtt_wss_backend
+      backend mqtt_wss_backend
+              server server1 homelab-router-proxy:8084 send-proxy-v2
+
+runcmd:
+  - curl -fsSL https://pkgs.tailscale.com/stable/debian/bookworm.noarmor.gpg | gpg --dearmor -o /usr/share/keyrings/tailscale-archive-keyring.gpg
+  - curl -fsSL https://pkgs.tailscale.com/stable/debian/bookworm.tailscale-keyring.list -o /etc/apt/sources.list.d/tailscale.list
+  - apt-get update
+  - apt-get install -y tailscale
+  - systemctl enable tailscaled
+  - systemctl start tailscaled
+  - systemctl enable haproxy
+  - systemctl restart haproxy

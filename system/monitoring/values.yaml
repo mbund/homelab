@@ -4,10 +4,10 @@ kube-prometheus-stack:
     defaultDashboardsEnabled: false
     ingress:
       enabled: true
-      ingressClassName: private
+      ingressClassName: public
       annotations:
         cert-manager.io/cluster-issuer: letsencrypt-prod
-        external-dns.alpha.kubernetes.io/target: private-relay.testing.mbund.org
+        external-dns.alpha.kubernetes.io/target: relay.testing.mbund.org
       hosts:
         - &host grafana.testing.mbund.org
       tls:

@@ -1,0 +1,62 @@
+ingress-nginx:
+  controller:
+    config:
+      use-proxy-protocol: "true"
+      use-forwarded-headers: "true"
+      custom-http-errors: >-
+        401,403,404,500,501,502,503
+    ingressClassResource:
+      name: public
+      enabled: true
+      default: false
+      controllerValue: "k8s.io/ingress-nginx-public"
+    admissionWebhooks:
+      timeoutSeconds: 30
+    metrics:
+      enabled: true
+      serviceMonitor:
+        enabled: true
+    service:
+      type: ClusterIP
+      clusterIP: 10.43.1.60
+    extraContainers:
+      - name: ts-sidecar
+        imagePullPolicy: Always
+        image: ghcr.io/tailscale/tailscale:latest
+        env:
+        - name: TS_HOSTNAME
+          value: homelab-router-proxy
+        - name: TS_KUBE_SECRET
+          value: tailscale-secret
+        - name: TS_USERSPACE
+          value: "false"
+        - name: TS_AUTHKEY
+          valueFrom:
+            secretKeyRef:
+              name: tailscale-auth
+              key: TS_AUTHKEY
+        - name: POD_NAME
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.name
+        - name: POD_UID
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.uid
+        securityContext:
+          privileged: true
+  defaultBackend:
+    enabled: true
+    image:
+      repository: ghcr.io/tarampampam/error-pages
+      tag: latest
+    extraEnvs:
+      - name: TEMPLATE_NAME
+        value: connection
+      - name: SHOW_DETAILS
+        value: "true"
+  # tcp:
+  #   8883: emqx/emqx:8883
+  #   1883: emqx/emqx:1883
+  #   8083: emqx/emqx:8083
+  #   8084: emqx/emqx:8084

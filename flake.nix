@@ -26,6 +26,9 @@
           gopls
           butane
           kubernetes-helm
+          pulumi
+          pulumiPackages.pulumi-language-nodejs
+          nodejs
         ];
       };
     });
