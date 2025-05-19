@@ -4,7 +4,7 @@ After=local-fs.target
 
 [Service]
 Type=oneshot
-ExecStart=/usr/bin/chcon -Rt container_file_t /var/data/local-path-provisioner
+ExecStart=/usr/bin/chcon -Rt container_file_t /var/data/local-path-provisioner /var/log/pods
 
 [Install]
 WantedBy=multi-user.target
