@@ -8,14 +8,14 @@ Read the [docs](https://docs.mbund.org) for technical details.
 
 ## Live Stats
 
-![Kubernetes version](https://img.shields.io/endpoint?url=https://kromgo.testing.mbund.org/kubernetes_version)
-![Cluster pod count](https://img.shields.io/endpoint?url=https://kromgo.testing.mbund.org/cluster_pod_count)
-![Cluster CPU usage](https://img.shields.io/endpoint?url=https://kromgo.testing.mbund.org/cluster_cpu_usage)
-![Cluster memory usage](https://img.shields.io/endpoint?url=https://kromgo.testing.mbund.org/cluster_memory_usage)
-![Cluster age (days)](https://img.shields.io/endpoint?url=https://kromgo.testing.mbund.org/cluster_age_days)
-![Cluster uptime (days)](https://img.shields.io/endpoint?url=https://kromgo.testing.mbund.org/cluster_uptime_days)
+![Kubernetes version](https://img.shields.io/endpoint?url=https://kromgo.mbund.org/kubernetes_version)
+![Cluster pod count](https://img.shields.io/endpoint?url=https://kromgo.mbund.org/cluster_pod_count)
+![Cluster CPU usage](https://img.shields.io/endpoint?url=https://kromgo.mbund.org/cluster_cpu_usage)
+![Cluster memory usage](https://img.shields.io/endpoint?url=https://kromgo.mbund.org/cluster_memory_usage)
+![Cluster age (days)](https://img.shields.io/endpoint?url=https://kromgo.mbund.org/cluster_age_days)
+![Cluster uptime (days)](https://img.shields.io/endpoint?url=https://kromgo.mbund.org/cluster_uptime_days)
 
-<a href="https://grafana.testing.mbund.org/d/b250375b-77ce-456f-9c27-6c38221dd21a/misc">View more stats</a>
+<a href="https://grafana.mbund.org/d/b250375b-77ce-456f-9c27-6c38221dd21a/misc">View more stats</a>
 
 ## Architecture
 

@@ -20,9 +20,9 @@ app-template:
       className: public
       annotations:
         cert-manager.io/cluster-issuer: letsencrypt-prod
-        external-dns.alpha.kubernetes.io/target: relay.testing.mbund.org
+        external-dns.alpha.kubernetes.io/target: relay.mbund.org
       hosts:
-        - host: &host kromgo.testing.mbund.org
+        - host: &host kromgo.mbund.org
           paths:
             - path: /
               pathType: Prefix

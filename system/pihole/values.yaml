@@ -9,10 +9,10 @@ pihole:
     ingressClassName: private
     annotations:
       cert-manager.io/cluster-issuer: letsencrypt-prod
-      external-dns.alpha.kubernetes.io/target: private-relay.testing.mbund.org
+      external-dns.alpha.kubernetes.io/target: private-relay.mbund.org
     # path: /admin
     hosts:
-      - &host pihole.testing.mbund.org
+      - &host pihole.mbund.org
     tls:
       - secretName: pihole-tls-certificate
         hosts:

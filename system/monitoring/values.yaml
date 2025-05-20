@@ -7,11 +7,11 @@ kube-prometheus-stack:
       ingressClassName: public
       annotations:
         cert-manager.io/cluster-issuer: letsencrypt-prod
-        external-dns.alpha.kubernetes.io/target: relay.testing.mbund.org
+        external-dns.alpha.kubernetes.io/target: relay.mbund.org
       hosts:
-        - &host grafana.testing.mbund.org
+        - &host grafana.mbund.org
       tls:
-        - secretName: grafana-general-tls
+        - secretName: grafana-tls-certificate
           hosts:
             - *host
     persistence:
@@ -23,7 +23,7 @@ kube-prometheus-stack:
         url: http://loki.loki:3100
     grafana.ini:
       server:
-        root_url: https://grafana.testing.mbund.org
+        root_url: https://grafana.mbund.org
       auth.anonymous:
         enabled: true
       security:
@@ -40,10 +40,10 @@ kube-prometheus-stack:
       ingressClassName: private
       annotations:
         cert-manager.io/cluster-issuer: letsencrypt-prod
-        external-dns.alpha.kubernetes.io/target: private-relay.testing.mbund.org
+        external-dns.alpha.kubernetes.io/target: private-relay.mbund.org
       hosts:
-        - &host prometheus.testing.mbund.org
+        - &host prometheus.mbund.org
       tls:
-        - secretName: prometheus-general-tls
+        - secretName: prometheus-tls-certificate
           hosts:
             - *host

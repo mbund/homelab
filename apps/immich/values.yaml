@@ -40,10 +40,10 @@ app-template:
       className: private
       annotations:
         cert-manager.io/cluster-issuer: letsencrypt-prod
-        external-dns.alpha.kubernetes.io/target: private-relay.testing.mbund.org
+        external-dns.alpha.kubernetes.io/target: private-relay.mbund.org
         nginx.ingress.kubernetes.io/proxy-body-size: "0"
       hosts:
-        - host: &host immich.testing.mbund.org
+        - host: &host immich.mbund.org
           paths:
             - path: /
               pathType: Prefix

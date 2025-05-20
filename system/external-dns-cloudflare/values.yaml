@@ -1,6 +1,6 @@
 external-dns:
   provider: cloudflare
-  txtOwnerId: homelab2
+  txtOwnerId: homelab
   env:
     - name: CF_API_TOKEN
       valueFrom:

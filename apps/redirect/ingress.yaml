@@ -4,12 +4,12 @@ metadata:
   name: redirect
   annotations:
     cert-manager.io/cluster-issuer: letsencrypt-prod
-    external-dns.alpha.kubernetes.io/target: relay.testing.mbund.org
+    external-dns.alpha.kubernetes.io/target: relay.mbund.org
     nginx.ingress.kubernetes.io/permanent-redirect: "https://mbund.dev?ref=mbund.org"
 spec:
   ingressClassName: public
   rules:
-    - host: &host testing.mbund.org
+    - host: &host mbund.org
   tls:
     - secretName: apex-tls-certificate
       hosts:

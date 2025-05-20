@@ -1,6 +1,6 @@
 argo-cd:
   global:
-    domain: &host argocd2.testing.mbund.org
+    domain: &host argocd.mbund.org
   configs:
     params:
       server.insecure: true
@@ -16,9 +16,9 @@ argo-cd:
       ingressClassName: private
       annotations:
         cert-manager.io/cluster-issuer: letsencrypt-prod
-        external-dns.alpha.kubernetes.io/target: private-relay.testing.mbund.org
+        external-dns.alpha.kubernetes.io/target: private-relay.mbund.org
       tls:
-      - secretName: argocd2-tls-certificate
+      - secretName: argocd-tls-certificate
         hosts:
           - *host
     metrics: &metrics

@@ -9,7 +9,7 @@ app-template:
           env:
             PAPERLESS_PORT: 8000
             PAPERLESS_ADMIN_USER: admin
-            PAPERLESS_URL: https://paperless.testing.mbund.org
+            PAPERLESS_URL: https://paperless.mbund.org
             PAPERLESS_ADMIN_PASSWORD: admin
         redis:
           image:
@@ -27,9 +27,9 @@ app-template:
       className: private
       annotations:
         cert-manager.io/cluster-issuer: letsencrypt-prod
-        external-dns.alpha.kubernetes.io/target: private-relay.testing.mbund.org
+        external-dns.alpha.kubernetes.io/target: private-relay.mbund.org
       hosts:
-        - host: &host paperless.testing.mbund.org
+        - host: &host paperless.mbund.org
           paths:
             - path: /
               pathType: Prefix
