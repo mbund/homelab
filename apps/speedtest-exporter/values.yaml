@@ -1,0 +1,23 @@
+app-template:
+  controllers:
+    main:
+      containers:
+        main:
+          image:
+            repository: ghcr.io/miguelndecarvalho/speedtest-exporter
+            tag: v3.5.4
+  service:
+    main:
+      ports:
+        http:
+          port: 9798
+          protocol: HTTP
+  serviceMonitor:
+    main:
+      enabled: true
+      serviceName: speedtest-exporter
+      endpoints:
+        - port: http
+          path: /metrics
+          interval: 10m
+          scrapeTimeout: 1m
