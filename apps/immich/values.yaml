@@ -81,31 +81,3 @@ redis:
     storageClass: local-path
   auth:
     enabled: false
-
-# postgresql:
-#   enabled: true
-#   image:
-#     repository: tensorchord/pgvecto-rs
-#     tag: pg14-v0.2.0@sha256:739cdd626151ff1f796dc95a6591b55a714f341c737e27f045019ceabf8e8c52
-#   global:
-#     security:
-#       allowInsecureImages: true
-#     postgresql:
-#       auth:
-#         username: immich
-#         database: immich
-#         password: immich
-#   primary:
-#     resourcesPreset: none
-#     persistence:
-#       enabled: true
-#       storageClass: local-path
-#       size: 10Gi
-#     containerSecurityContext:
-#       readOnlyRootFilesystem: false
-#     initdb:
-#       scripts:
-#         create-extensions.sql: |
-#           CREATE EXTENSION cube;
-#           CREATE EXTENSION earthdistance;
-#           CREATE EXTENSION vectors;
