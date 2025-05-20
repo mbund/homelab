@@ -1,0 +1,43 @@
+app-template:
+  controllers:
+    main:
+      containers:
+        main:
+          image:
+            repository: ghcr.io/kashalls/kromgo
+            tag: v0.6.0
+          env:
+            PROMETHEUS_URL: http://monitoring-kube-prometheus-prometheus.monitoring.svc.cluster.local:9090
+  service:
+    main:
+      ports:
+        http:
+          port: 8080
+          protocol: HTTP
+  ingress:
+    main:
+      enabled: true
+      className: public
+      annotations:
+        cert-manager.io/cluster-issuer: letsencrypt-prod
+        external-dns.alpha.kubernetes.io/target: relay.testing.mbund.org
+      hosts:
+        - host: &host kromgo.testing.mbund.org
+          paths:
+            - path: /
+              pathType: Prefix
+              service:
+                identifier: main
+                port: http
+      tls:
+        - hosts:
+            - *host
+          secretName: kromgo-tls-certificate
+  persistence:
+    config-file:
+      type: configMap
+      name: kromgo-configmap
+      globalMounts:
+        - path: /kromgo/config.yaml
+          subPath: config.yaml
+          readOnly: true

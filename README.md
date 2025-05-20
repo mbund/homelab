@@ -8,112 +8,14 @@ Read the [docs](https://docs.mbund.org) for technical details.
 
 ## Live Stats
 
-<a href="https://docs.mbund.org"><img src="https://argocd.mbund.org/api/badge?name=root&revision=true"></a>
+![Kubernetes version](https://img.shields.io/endpoint?url=https://kromgo.testing.mbund.org/kubernetes_version)
+![Cluster pod count](https://img.shields.io/endpoint?url=https://kromgo.testing.mbund.org/cluster_pod_count)
+![Cluster CPU usage](https://img.shields.io/endpoint?url=https://kromgo.testing.mbund.org/cluster_cpu_usage)
+![Cluster memory usage](https://img.shields.io/endpoint?url=https://kromgo.testing.mbund.org/cluster_memory_usage)
+![Cluster age (days)](https://img.shields.io/endpoint?url=https://kromgo.testing.mbund.org/cluster_age_days)
+![Cluster uptime (days)](https://img.shields.io/endpoint?url=https://kromgo.testing.mbund.org/cluster_uptime_days)
 
-<details>
-<summary>ArgoCD per-application sync</summary>
-
-<table>
-<tr>
-    <td><a href="https://argocd.mbund.org">argocd<a></td>
-    <td><a href="https://docs.mbund.org"><img src="https://argocd.mbund.org/api/badge?name=argocd&revision=true"></a></td>
-</tr>
-<tr>
-    <td>cert-manager</td>
-    <td><a href="https://docs.mbund.org"><img src="https://argocd.mbund.org/api/badge?name=cert-manager&revision=true"></a></td>
-</tr>
-<tr>
-    <td><a href="https://chat.mbund.org">element</a></td>
-    <td><a href="https://docs.mbund.org"><img src="https://argocd.mbund.org/api/badge?name=element&revision=true"></a></td>
-</tr>
-<tr>
-    <td><a href="https://emqx.mbund.org">emqx</a></td>
-    <td><a href="https://docs.mbund.org"><img src="https://argocd.mbund.org/api/badge?name=emqx&revision=true"></a></td>
-</tr>
-<tr>
-    <td><a href="https://draw.mbund.org">excalidraw</a></td>
-    <td><a href="https://docs.mbund.org"><img src="https://argocd.mbund.org/api/badge?name=excalidraw&revision=true"></a></td>
-</tr>
-<tr>
-    <td>external-dns-cloudflare</td>
-    <td><a href="https://docs.mbund.org"><img src="https://argocd.mbund.org/api/badge?name=external-dns-cloudflare&revision=true"></a></td>
-</tr>
-<tr>
-    <td>external-dns-pihole</td>
-    <td><a href="https://docs.mbund.org"><img src="https://argocd.mbund.org/api/badge?name=external-dns-pihole&revision=true"></a></td>
-</tr>
-<tr>
-    <td>external-secrets</td>
-    <td><a href="https://docs.mbund.org"><img src="https://argocd.mbund.org/api/badge?name=external-secrets&revision=true"></a></td>
-</tr>
-<tr>
-    <td><a href="https://dash.mbund.org">homarr</a></td>
-    <td><a href="https://docs.mbund.org"><img src="https://argocd.mbund.org/api/badge?name=homarr&revision=true"></a></td>
-</tr>
-<tr>
-    <td>ingress-nginx-private</td>
-    <td><a href="https://docs.mbund.org"><img src="https://argocd.mbund.org/api/badge?name=ingress-nginx-private&revision=true"></a></td>
-</tr>
-<tr>
-    <td>ingress-nginx-public</td>
-    <td><a href="https://docs.mbund.org"><img src="https://argocd.mbund.org/api/badge?name=ingress-nginx-public&revision=true"></a></td>
-</tr>
-<tr>
-    <td>loki</td>
-    <td><a href="https://docs.mbund.org"><img src="https://argocd.mbund.org/api/badge?name=loki&revision=true"></a></td>
-</tr>
-<tr>
-    <td><a href="https://longhorn.mbund.org">longhorn</a></td>
-    <td><a href="https://docs.mbund.org"><img src="https://argocd.mbund.org/api/badge?name=longhorn&revision=true"></a></td>
-</tr>
-<tr>
-    <td>mailserver</td>
-    <td><a href="https://docs.mbund.org"><img src="https://argocd.mbund.org/api/badge?name=mailserver&revision=true"></a></td>
-</tr>
-<tr>
-    <td>metallb</td>
-    <td><a href="https://docs.mbund.org"><img src="https://argocd.mbund.org/api/badge?name=metallb&revision=true"></a></td>
-</tr>
-<tr>
-    <td><a href="https://grafana.mbund.org">monitoring</a></td>
-    <td><a href="https://docs.mbund.org"><img src="https://argocd.mbund.org/api/badge?name=monitoring&revision=true"></a></td>
-</tr>
-<tr>
-    <td><a href="https://pihole.mbund.org/admin">pihole</a></td>
-    <td><a href="https://docs.mbund.org"><img src="https://argocd.mbund.org/api/badge?name=pihole&revision=true"></a></td>
-</tr>
-<tr>
-    <td>root</td>
-    <td><a href="https://docs.mbund.org"><img src="https://argocd.mbund.org/api/badge?name=root&revision=true"></a></td>
-</tr>
-<tr>
-    <td><a href="https://search.mbund.org">searxng</a></td>
-    <td><a href="https://docs.mbund.org"><img src="https://argocd.mbund.org/api/badge?name=searxng&revision=true"></a></td>
-</tr>
-<tr>
-    <td>speedtest</td>
-    <td><a href="https://docs.mbund.org"><img src="https://argocd.mbund.org/api/badge?name=speedtest&revision=true"></a></td>
-</tr>
-<tr>
-    <td><a href="https://uptime-kuma.mbund.org">uptime-kuma</a></td>
-    <td><a href="https://docs.mbund.org"><img src="https://argocd.mbund.org/api/badge?name=uptime-kuma&revision=true"></a></td>
-</tr>
-<tr>
-    <td><a href="https://vault.mbund.org">vault</a></td>
-    <td><a href="https://docs.mbund.org"><img src="https://argocd.mbund.org/api/badge?name=vault&revision=true"></a></td>
-</tr>
-<tr>
-    <td><a href="https://vaultwarden.mbund.org">vaultwarden</a></td>
-    <td><a href="https://docs.mbund.org"><img src="https://argocd.mbund.org/api/badge?name=vaultwarden&revision=true"></a></td>
-</tr>
-</table>
-
-</details>
-
-<a href="https://grafana.mbund.org/d/b250375b-77ce-456f-9c27-6c38221dd21a/misc?orgId=1&viewPanel=7"><img src="https://grafana-fetch-cache.mbund.org/server-time" width="46%"></a>
-<a href="https://grafana.mbund.org/d/b250375b-77ce-456f-9c27-6c38221dd21a/misc?orgId=1&viewPanel=3"><img src="https://grafana-fetch-cache.mbund.org/server-uptime" width="46%" align="right"></a>
-<a href="https://grafana.mbund.org/d/b250375b-77ce-456f-9c27-6c38221dd21a/misc?orgId=1&viewPanel=5"><img src="https://grafana-fetch-cache.mbund.org/internet-connectivity"></a>
-<a href="https://grafana.mbund.org/d/b250375b-77ce-456f-9c27-6c38221dd21a/misc?orgId=1&viewPanel=6"><img src="https://grafana-fetch-cache.mbund.org/memory-usage"></a>
+<a href="https://grafana.testing.mbund.org/d/b250375b-77ce-456f-9c27-6c38221dd21a/misc">View more stats</a>
 
 ## Architecture
 
@@ -129,23 +31,24 @@ Read the [docs](https://docs.mbund.org) for technical details.
 </div>
 
 - Dell Inspiron 7580
-    - CPU: `8 x Intel(R) Core(TM) i5-8265U CPU @ 1.60GHz`
-    - RAM: `8GB`
-    - SSD: `128GB`
-    - HDD: `1TB`
+
+  - CPU: `8 x Intel(R) Core(TM) i5-8265U CPU @ 1.60GHz`
+  - RAM: `8GB`
+  - SSD: `128GB`
+  - HDD: `1TB`
 
 - Dell XPS 8700 (depicted in image but not used)
-    - CPU: `8 x Intel(R) Core(TM) i7-4790 CPU @ 3.60GHz`
-    - RAM: `8GB`
+  - CPU: `8 x Intel(R) Core(TM) i7-4790 CPU @ 3.60GHz`
+  - RAM: `8GB`
 
 ## Screenshots
 
-| ArgoCD |
-| :--: |
+|                         ArgoCD                         |
+| :----------------------------------------------------: |
 | ![ArgoCD dashboard screenshot](docs/images/argocd.png) |
 
-| Lens |
-| :--: |
+|                              Lens                               |
+| :-------------------------------------------------------------: |
 | ![Lens (Kubernetes dashboard screenshot)](docs/images/lens.png) |
 
 ## Apps
