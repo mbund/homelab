@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: searxng-configmap
+data:
+  config.yaml: |
+    general:
+      instance_name: "Search"
+    server:
+      method: "GET"
+    search:
+      autocomplete: "google"
+      formats: [html, json]
+    ui:
+      query_in_title: true
+    outgoing:
+      request_timeout: 15.0
+      max_request_timeout: 30.0
+      proxies:
+        all://: socks5h://tor:9050

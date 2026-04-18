@@ -1,24 +1,21 @@
-searxng:
-  searxng:
-    config:
-      general:
-        instance_name: "Search"
-      server:
-        method: "GET"
-      search:
-        autocomplete: "google"
-        formats: [html, json]
-      ui:
-        query_in_title: true
-      outgoing:
-        request_timeout: 15.0
-        max_request_timeout: 30.0
-        proxies:
-          all://: socks5h://tor:9050
+app-template:
+  controllers:
+    main:
+      containers:
+        main:
+          image:
+            repository: searxng/searxng
+            tag: latest
+  service:
+    main:
+      ports:
+        http:
+          port: 8080
+          protocol: HTTP
   ingress:
     main:
       enabled: true
-      ingressClassName: public
+      className: public
       annotations:
         cert-manager.io/cluster-issuer: letsencrypt-prod
         external-dns.alpha.kubernetes.io/target: relay.mbund.org
@@ -27,7 +24,18 @@ searxng:
           paths:
             - path: /
               pathType: Prefix
+              service:
+                identifier: main
+                port: http
       tls:
-        - secretName: searxng-tls-certificate
-          hosts:
+        - hosts:
             - *host
+          secretName: searxng-tls-certificate
+  persistence:
+    config-file:
+      type: configMap
+      name: searxng-configmap
+      globalMounts:
+        - path: /etc/searxng/settings.yaml
+          subPath: settings.yaml
+          readOnly: true
